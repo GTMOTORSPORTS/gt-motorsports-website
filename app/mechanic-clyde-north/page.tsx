@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
@@ -90,6 +91,101 @@ const whyChoose = [
   },
 ];
 
+const commonProblems = [
+  {
+    title: "Engine warning light",
+    copy: "A warning light can point to many different faults. Diagnostic testing helps narrow down the cause before repairs are recommended.",
+    href: "/services/vehicle-diagnostics",
+  },
+  {
+    title: "Brake noise",
+    copy: "Squealing, grinding or vibration under braking should be inspected so pads, rotors, fluid and related parts can be checked.",
+    href: "/services/brake-repairs",
+  },
+  {
+    title: "Suspension noises",
+    copy: "Knocks, clunks or loose steering can come from several suspension or steering components and should be checked before parts are replaced.",
+    href: "/services/suspension-steering",
+  },
+  {
+    title: "Battery problems",
+    copy: "Slow cranking, clicking or repeated flat batteries can be tested with battery, charging and starting-system checks.",
+    href: "/services/battery-charging-systems",
+  },
+  {
+    title: "Air conditioning faults",
+    copy: "Warm air, weak airflow, odours or unusual noises can be inspected so the likely air-conditioning issue can be explained.",
+    href: "/services/air-conditioning",
+  },
+  {
+    title: "Cooling system issues",
+    copy: "Overheating, coolant smells or visible leaks should be assessed promptly to help reduce the risk of further engine damage.",
+    href: "/services/cooling-system-repairs",
+  },
+  {
+    title: "Oil leaks",
+    copy: "Visible oil leaks or burning smells can be inspected to identify the likely source before repair options are discussed.",
+    href: "/services/engine-repairs",
+  },
+  {
+    title: "Starting problems",
+    copy: "Intermittent starting can involve the battery, starter, charging system, wiring or other faults, so testing is the right first step.",
+    href: "/services/vehicle-diagnostics",
+  },
+];
+
+const brands = [
+  "Toyota",
+  "Mazda",
+  "Honda",
+  "Hyundai",
+  "Kia",
+  "Ford",
+  "Mitsubishi",
+  "Nissan",
+  "Subaru",
+  "Volkswagen",
+  "BMW",
+  "Audi",
+  "Mercedes-Benz",
+  "Lexus",
+  "Isuzu",
+  "LDV",
+];
+
+const galleryItems = [
+  {
+    title: "Workshop",
+    alt: "G&T Motorsports workshop area in Clyde North",
+  },
+  {
+    title: "Vehicle servicing",
+    alt: "Vehicle servicing at G&T Motorsports in Clyde North",
+  },
+  {
+    title: "Diagnostics",
+    alt: "Vehicle diagnostics and fault finding at G&T Motorsports",
+  },
+  {
+    title: "Brake repairs",
+    alt: "Brake repair inspection work at G&T Motorsports",
+  },
+  {
+    title: "Mercedes servicing",
+    alt: "Mercedes-Benz servicing at independent workshop G&T Motorsports",
+  },
+];
+
+const recommendReasons = [
+  "Clear explanations",
+  "Honest advice",
+  "Modern diagnostics",
+  "Walk-ins welcome when available",
+  "Online booking",
+  "Mercedes Digital Service Record updates for eligible vehicles",
+  "Family-owned independent workshop",
+];
+
 const nearbyAreas = [
   "Clyde",
   "Cranbourne",
@@ -174,41 +270,31 @@ function ExternalIcon() {
 
 function LocalStructuredData() {
   const canonical = `${site.url}/mechanic-clyde-north`;
-  const businessSchema = {
-    "@context": "https://schema.org",
-    "@type": "AutoRepair",
-    "@id": `${site.url}/#business`,
-    name: site.name,
-    url: canonical,
-    telephone: site.phoneInternational,
-    email: site.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "47B Palladium Circuit",
-      addressLocality: "Clyde North",
-      addressRegion: "VIC",
-      postalCode: "3978",
-      addressCountry: "AU",
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "09:00",
-        closes: "18:00",
+  const structuredServices = [
+    "General Car Servicing",
+    "Brake Repairs",
+    "Vehicle Diagnostics",
+    "Mercedes-Benz Servicing",
+  ].map((serviceName) => {
+    const service = servicePages.find((item) => item.name === serviceName);
+
+    return {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": service ? `${site.url}/services/${service.slug}#service` : undefined,
+      name: serviceName,
+      description: service?.shortDescription,
+      serviceType: serviceName,
+      url: service ? `${site.url}/services/${service.slug}` : canonical,
+      provider: {
+        "@id": `${site.url}/#business`,
       },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Saturday",
-        opens: "09:00",
-        closes: "16:00",
-      },
-    ],
-    areaServed: ["Clyde North", ...nearbyAreas].map((area) => ({
-      "@type": "Place",
-      name: area,
-    })),
-  };
+      areaServed: ["Clyde North", ...nearbyAreas].map((area) => ({
+        "@type": "Place",
+        name: area,
+      })),
+    };
+  });
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -241,16 +327,19 @@ function LocalStructuredData() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      {structuredServices.map((serviceSchema) => (
+        <script
+          key={serviceSchema.name}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+      ))}
     </>
   );
 }
@@ -259,9 +348,27 @@ export default function MechanicClydeNorthPage() {
   return (
     <PageShell>
       <LocalStructuredData />
+      <nav aria-label="Breadcrumb" className="bg-asphalt py-4">
+        <ol className="container-shell flex flex-wrap gap-2 text-sm font-bold text-white/60">
+          <li>
+            <Link className="focus-ring hover:text-white" href="/">
+              Home
+            </Link>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li className="text-white" aria-current="page">
+            Mechanic Clyde North
+          </li>
+        </ol>
+      </nav>
       <section className="relative overflow-hidden bg-black py-16 sm:py-24">
-        <div
-          className="absolute inset-0 bg-[url('/workshop-hero.png')] bg-cover bg-center opacity-20"
+        <Image
+          src="/workshop-hero.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-20"
           aria-hidden="true"
         />
         <div
@@ -340,6 +447,24 @@ export default function MechanicClydeNorthPage() {
         </div>
       </section>
 
+      <section className="bg-brake py-8 text-white">
+        <div className="container-shell">
+          <div className="rounded-md border border-white/20 bg-black/15 p-5">
+            <h2 className="text-2xl font-black">Emergency Repairs</h2>
+            <p className="mt-3 max-w-4xl text-sm leading-6 text-white/85">
+              If your vehicle is unsafe to drive, contact G&T Motorsports before
+              travelling. We will advise whether recovery or immediate
+              inspection is recommended.
+            </p>
+            <div className="mt-5">
+              <ButtonLink href={site.phoneHref} variant="secondary">
+                Call {site.phone}
+              </ButtonLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-black py-16 sm:py-24">
         <div className="container-shell">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -372,6 +497,31 @@ export default function MechanicClydeNorthPage() {
         </div>
       </section>
 
+      <section className="bg-asphalt py-16 sm:py-24">
+        <div className="container-shell">
+          <SectionHeader
+            eyebrow="Common vehicle problems"
+            title="Common Vehicle Problems We Fix"
+            copy="If your vehicle feels, sounds or behaves differently, choose the closest symptom below or contact the workshop for guidance."
+          />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {commonProblems.map((problem) => (
+              <Link
+                className="focus-ring rounded-md border border-white/10 bg-black/35 p-5 transition hover:-translate-y-1 hover:border-brake"
+                href={problem.href}
+                key={problem.title}
+              >
+                <span className="mb-5 block h-1 w-12 bg-brake" />
+                <h3 className="text-xl font-black text-white">{problem.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-white/66">
+                  {problem.copy}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-white py-16 text-asphalt sm:py-24">
         <div className="container-shell">
           <SectionHeader
@@ -387,6 +537,58 @@ export default function MechanicClydeNorthPage() {
                 <span className="mb-5 block h-1 w-12 bg-brake" />
                 <h3 className="text-xl font-black">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-black/65">{item.copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-black py-16 sm:py-24">
+        <div className="container-shell">
+          <SectionHeader
+            eyebrow="Makes and models"
+            title="Brands We Regularly Service"
+            copy="G&T Motorsports services a wide range of makes and models using quality parts and manufacturer service schedules where applicable. No manufacturer affiliation is claimed."
+          />
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+            {brands.map((brand) => (
+              <div
+                className="rounded-md border border-white/10 bg-white/[0.04] px-4 py-3 text-center text-sm font-black text-white/82"
+                key={brand}
+              >
+                {brand}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 text-asphalt sm:py-24">
+        <div className="container-shell">
+          <SectionHeader
+            eyebrow="Workshop gallery"
+            title="Inside the Clyde North Workshop"
+            copy="A quick look at the workshop environment and common service areas."
+            tone="light"
+          />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {galleryItems.map((item) => (
+              <article
+                className="overflow-hidden rounded-md border border-black/10 bg-neutral-50"
+                key={item.title}
+              >
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src="/workshop-hero.png"
+                    alt={item.alt}
+                    fill
+                    sizes="(min-width: 1024px) 20vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-black">{item.title}</h3>
+                </div>
               </article>
             ))}
           </div>
@@ -441,6 +643,25 @@ export default function MechanicClydeNorthPage() {
             <ButtonLink href="/reviews" variant="ghost">
               Reviews Page
             </ButtonLink>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 text-asphalt sm:py-24">
+        <div className="container-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <SectionHeader
+            eyebrow="Local trust"
+            title="Why Local Drivers Recommend Us"
+            copy="Customers choose G&T Motorsports for practical communication, careful inspections and convenient booking from a family-owned independent workshop."
+            tone="light"
+          />
+          <div className="grid gap-4 sm:grid-cols-2">
+            {recommendReasons.map((reason) => (
+              <div className="rounded-md border border-black/10 bg-neutral-50 p-5" key={reason}>
+                <span className="mb-4 block h-1 w-10 bg-brake" />
+                <h3 className="text-lg font-black">{reason}</h3>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -603,6 +824,22 @@ export default function MechanicClydeNorthPage() {
           </div>
         </div>
       </section>
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-black/95 p-3 shadow-2xl md:hidden">
+        <div className="grid grid-cols-2 gap-3">
+          <Link
+            className="focus-ring inline-flex min-h-11 items-center justify-center rounded-md bg-brake px-4 py-3 text-sm font-black uppercase tracking-wide text-white"
+            href="/book-online"
+          >
+            Book Online
+          </Link>
+          <a
+            className="focus-ring inline-flex min-h-11 items-center justify-center rounded-md border border-white/20 bg-white px-4 py-3 text-sm font-black uppercase tracking-wide text-asphalt"
+            href={site.phoneHref}
+          >
+            Call Now
+          </a>
+        </div>
+      </div>
     </PageShell>
   );
 }
