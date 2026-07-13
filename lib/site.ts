@@ -13,6 +13,8 @@ export const site = {
   address: "47B Palladium Circuit, Clyde North VIC 3978, Australia",
   mapHref:
     "https://www.google.com/maps/search/?api=1&query=47B%20Palladium%20Circuit%2C%20Clyde%20North%20VIC%203978",
+  directionsHref:
+    "https://www.google.com/maps/dir/?api=1&destination=47B%20Palladium%20Circuit%2C%20Clyde%20North%20VIC%203978",
   hours: [
     ["Monday-Friday", "9:00 AM-6:00 PM"],
     ["Saturday", "9:00 AM-4:00 PM"],
@@ -58,6 +60,11 @@ export const publicRoutes = [
   {
     path: "/about",
     priority: 0.7,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/mechanic-clyde-north",
+    priority: 0.9,
     changeFrequency: "monthly",
   },
   {

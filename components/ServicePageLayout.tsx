@@ -366,6 +366,9 @@ export function LocalServiceArea({ service }: { service: ServicePage }) {
           <Link className="focus-ring hover:text-black" href="/reviews">
             Reviews
           </Link>
+          <Link className="focus-ring hover:text-black" href="/mechanic-clyde-north">
+            Clyde North Workshop
+          </Link>
         </div>
       </div>
     </section>

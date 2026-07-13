@@ -1,19 +1,11 @@
 import { ButtonLink } from "@/components/ButtonLink";
 import { SectionHeader } from "@/components/SectionHeader";
+import { customerReviews } from "@/lib/reviews";
 import { site } from "@/lib/site";
 
 type ReviewsProps = {
   showPageLink?: boolean;
 };
-
-const reviews = [
-  {
-    text: "Very reliable and supportive place. My Nissan Pathfinder and Honda Civic have been serviced here since 2024 onwards.",
-  },
-  {
-    text: "Outstanding service from start to finish. The boys were professional, honest and efficient. They explained the repairs clearly, completed the work on time and the pricing was fair. My car is running perfectly now. Highly recommend this mechanic to anyone looking for reliable and trustworthy service!",
-  },
-];
 
 const reasons = [
   {
@@ -85,7 +77,7 @@ export function Reviews({ showPageLink = false }: ReviewsProps) {
         </div>
 
         <div className="mt-12 grid gap-5 lg:grid-cols-2">
-          {reviews.map((review) => (
+          {customerReviews.map((review) => (
             <article
               className="rounded-md border border-white/10 bg-white/[0.045] p-6 shadow-2xl sm:p-8"
               key={review.text}
