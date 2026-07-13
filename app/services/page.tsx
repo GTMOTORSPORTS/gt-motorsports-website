@@ -17,7 +17,15 @@ const services = [
     title: "Logbook servicing",
     icon: "LB",
     slug: "logbook-servicing",
-    copy: "Keep your service history up to date with a clear logbook service for your vehicle. The team checks key maintenance items and explains anything that needs attention before extra work proceeds.",
+    copy: "Keep your vehicle maintained in line with its scheduled service requirements, with clear reporting and suitable oils, fluids, filters and replacement parts.",
+    note: "Mercedes-Benz Digital Service Record updates available for eligible vehicles.",
+  },
+  {
+    title: "Mercedes-Benz servicing",
+    icon: "MB",
+    slug: "mercedes-benz-servicing",
+    copy: "Independent servicing, maintenance and mechanical repairs for Mercedes-Benz vehicles from our Clyde North workshop.",
+    note: "Eligible Mercedes-Benz Digital Service Record updates available after scheduled servicing.",
   },
   {
     title: "General servicing",
@@ -87,6 +95,11 @@ export default function ServicesPage() {
                   <p className="mt-4 text-sm leading-6 text-white/65">
                     {service.copy}
                   </p>
+                  {"note" in service ? (
+                    <p className="mt-3 text-xs font-bold uppercase leading-5 tracking-wide text-brake">
+                      {service.note}
+                    </p>
+                  ) : null}
                   <a
                     className="focus-ring mt-6 inline-flex w-fit rounded-md border border-white/20 px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-brake hover:bg-brake"
                     href={`/services/${service.slug}`}

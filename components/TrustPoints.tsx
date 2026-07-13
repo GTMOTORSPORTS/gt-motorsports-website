@@ -15,12 +15,16 @@ const points = [
     title: "All Makes & Models",
     copy: "Professional care for everyday drivers across a wide range of vehicles.",
   },
+  {
+    title: "Mercedes-Benz Digital Service Record Updates",
+    copy: "Available for eligible Mercedes-Benz vehicles following scheduled servicing.",
+  },
 ];
 
 export function TrustPoints() {
   return (
     <section className="relative z-10 -mt-16 pb-12 sm:-mt-20 sm:pb-16">
-      <div className="container-shell grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="container-shell grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {points.map((point, index) => (
           <div
             className="feature-card rounded-md border border-white/10 bg-graphite/95 p-5 shadow-2xl backdrop-blur transition hover:-translate-y-2 hover:border-brake"

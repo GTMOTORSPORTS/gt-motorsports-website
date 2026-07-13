@@ -32,6 +32,9 @@ export function Footer() {
             <Link className="focus-ring w-fit hover:text-white" href="/services/logbook-servicing">
               Logbook Servicing
             </Link>
+            <Link className="focus-ring w-fit hover:text-white" href="/services/mercedes-benz-servicing">
+              Mercedes-Benz Servicing
+            </Link>
             <Link className="focus-ring w-fit hover:text-white" href="/privacy-policy">
               Privacy Policy
             </Link>

@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
+import { mercedesDigitalServiceRecord } from "@/lib/digital-service-records";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Logbook Servicing Clyde North | G&T Motorsports",
   description:
-    "Book professional logbook servicing in Clyde North for all makes and models. Clear advice, quality parts and convenient online booking with G&T Motorsports.",
+    "Book professional logbook servicing in Clyde North for all makes and models, including eligible Mercedes-Benz Digital Service Record updates. Clear advice, quality parts and convenient online booking.",
   alternates: {
     canonical: "https://gtmotorsports.com.au/services/logbook-servicing",
   },
@@ -15,22 +16,22 @@ export const metadata: Metadata = {
 
 const trustItems = [
   "All Makes and Models",
-  "Clear Quotes Before Work Begins",
+  "Mercedes-Benz Digital Service Record Updates",
   "Quality Oils and Parts",
-  "Local Clyde North Workshop",
+  "Clear Quotes Before Work Begins",
 ];
 
 const includedItems = [
   "Engine oil and filter replacement",
   "Fluid level and condition checks",
   "Brake inspection",
-  "Tyre and pressure checks",
+  "Tyre condition and pressure checks",
   "Steering and suspension inspection",
   "Battery and charging-system check",
   "Cooling-system inspection",
   "Lights, wipers and general safety checks",
   "Diagnostic scan where appropriate",
-  "Service-book update",
+  "Service-book update where applicable",
   "Clear report of any recommended repairs",
 ];
 
@@ -89,6 +90,11 @@ const faqs = [
       "Yes. G&T Motorsports services all makes and models, including family vehicles, work vehicles, four-wheel drives and performance vehicles.",
   },
   {
+    question: "Can you update my Mercedes-Benz online service history?",
+    answer:
+      "Yes. G&T Motorsports can update the Mercedes-Benz Digital Service Record (DSR) for eligible vehicles after completing the required scheduled service. Contact us before your appointment if you would like us to confirm compatibility with your vehicle.",
+  },
+  {
     question: "Can I wait while my vehicle is serviced?",
     answer:
       "Waiting may be possible for some services, depending on the work required and current workshop workload. Booking ahead is recommended so the team can advise what to expect.",
@@ -118,7 +124,7 @@ function StructuredData() {
     "@id": `${site.url}/services/logbook-servicing#service`,
     name: "Logbook servicing in Clyde North",
     description:
-      "Logbook servicing completed in line with the relevant manufacturer schedule using suitable parts, oils and fluids.",
+      "Logbook servicing completed in line with the relevant manufacturer schedule using suitable parts, oils and fluids, with eligible Mercedes-Benz Digital Service Record updates available after required scheduled servicing.",
     provider: {
       "@type": "AutoRepair",
       "@id": `${site.url}/#business`,
@@ -213,7 +219,7 @@ export default function LogbookServicingPage() {
             Professional Logbook Servicing in Clyde North
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/76">
-            Keep your vehicle maintained according to its scheduled service
+            Keep your vehicle maintained in line with its scheduled service
             requirements with professional logbook servicing from G&T
             Motorsports. We service all makes and models using suitable oils,
             fluids, filters and replacement parts, with clear advice before any
@@ -276,6 +282,37 @@ export default function LogbookServicingPage() {
                 <h3 className="text-lg font-black">{reason}</h3>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-black py-16 sm:py-24">
+        <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <p className="mb-5 inline-flex rounded-md border border-brake bg-brake/10 px-4 py-3 text-xs font-black uppercase tracking-[0.2em] text-brake">
+              {mercedesDigitalServiceRecord.label} Updates Available
+            </p>
+            <SectionHeader
+              eyebrow="Mercedes-Benz DSR"
+              title="Mercedes-Benz Digital Service Record Updates"
+              copy="Own a Mercedes-Benz? G&T Motorsports can update the Mercedes-Benz Digital Service Record (DSR) for eligible vehicles after completing the required scheduled service."
+            />
+          </div>
+          <div className="rounded-md border border-white/10 bg-white/[0.04] p-6">
+            <p className="text-sm leading-6 text-white/72">
+              This helps keep the vehicle's online Mercedes-Benz service
+              history up to date while allowing customers to use an independent
+              local workshop.
+            </p>
+            <p className="mt-4 text-sm leading-6 text-white/72">
+              Customers should let us know when booking so we can confirm
+              whether their vehicle is eligible for a Digital Service Record
+              update.
+            </p>
+            <p className="mt-4 text-xs font-bold uppercase leading-5 tracking-wide text-white/45">
+              G&T Motorsports is not claiming Mercedes-Benz affiliation,
+              authorisation, certification or endorsement.
+            </p>
           </div>
         </div>
       </section>

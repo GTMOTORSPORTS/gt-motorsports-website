@@ -100,16 +100,6 @@ export function ContactDetails() {
             <ContactForm />
           </div>
         </div>
-        <div className="mt-12 overflow-hidden rounded-md border border-black/10 bg-neutral-100 shadow-2xl">
-          <iframe
-            aria-label="Google map for G&T Motorsports at 47B Palladium Circuit, Clyde North"
-            className="h-[380px] w-full grayscale sm:h-[460px]"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=47B%20Palladium%20Circuit%2C%20Clyde%20North%20VIC%203978&output=embed"
-            title="G&T Motorsports location map"
-          />
-        </div>
       </div>
     </section>
   );

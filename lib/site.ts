@@ -71,6 +71,11 @@ export const publicRoutes = [
     changeFrequency: "monthly",
   },
   {
+    path: "/services/mercedes-benz-servicing",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
+  {
     path: "/gallery",
     priority: 0.6,
     changeFrequency: "monthly",

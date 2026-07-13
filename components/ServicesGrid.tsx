@@ -3,7 +3,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { site } from "@/lib/site";
 
 const descriptions = [
-  "Manufacturer-aligned servicing that helps protect your vehicle history.",
+  "Scheduled servicing with eligible Mercedes-Benz Digital Service Record updates available.",
   "Oil, filters, safety checks and routine care for everyday reliability.",
   "Brake pad, rotor and fluid checks with clear recommendations.",
   "Comfort, handling and tyre-wear checks for a better drive.",
