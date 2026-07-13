@@ -9,8 +9,8 @@ type LogoProps = {
 
 const logoSizes = {
   header:
-    "h-12 w-[117px] md:h-[60px] md:w-[146px] lg:h-[75px] lg:w-[183px]",
-  footer: "h-14 w-[136px] md:h-[60px] md:w-[146px]",
+    "h-[52px] w-[127px] md:h-[60px] md:w-[146px] lg:h-[68px] lg:w-[166px]",
+  footer: "h-[52px] w-[127px] md:h-[60px] md:w-[146px]",
   hero: "h-16 w-[156px] md:h-[75px] md:w-[183px]",
 };
 
@@ -25,7 +25,7 @@ export function Logo({ priority = false, placement = "header" }: LogoProps) {
       <span className={`relative block shrink-0 ${logoSizes[placement]}`}>
         <Image
           src="/gt-motorsports-logo.webp"
-          alt="G&T Motorsports | European Mechanic & Mercedes-Benz Specialist in Melbourne"
+          alt="G&T Motorsports"
           title="G&T Motorsports"
           fill
           priority={priority}
