@@ -1,17 +1,23 @@
+import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { SectionHeader } from "@/components/SectionHeader";
-import { site } from "@/lib/site";
+import type { ServicePage } from "@/lib/service-pages";
+import { servicePages } from "@/lib/service-pages";
 
-const descriptions = [
-  "Scheduled servicing with eligible Mercedes-Benz Digital Service Record updates available.",
-  "Oil, filters, safety checks and routine care for everyday reliability.",
-  "Brake pad, rotor and fluid checks with clear recommendations.",
-  "Comfort, handling and tyre-wear checks for a better drive.",
-  "Fault finding and warning light checks using modern diagnostic processes.",
-  "Cooling system inspections, leak checks and overheating support.",
-  "Battery health checks and replacement advice before you get stuck.",
-  "Pre-checks and repairs to help prepare your vehicle for inspection.",
+const featuredServiceSlugs = [
+  "logbook-servicing",
+  "general-car-servicing",
+  "brake-repairs",
+  "vehicle-diagnostics",
+  "suspension-steering",
+  "cooling-system-repairs",
+  "battery-charging-systems",
+  "pre-purchase-inspections",
 ];
+
+const featuredServices = featuredServiceSlugs
+  .map((slug) => servicePages.find((service) => service.slug === slug))
+  .filter((service): service is ServicePage => Boolean(service));
 
 export function ServicesGrid() {
   return (
@@ -24,27 +30,28 @@ export function ServicesGrid() {
             copy="Book routine maintenance, inspections, diagnostics or repairs with a workshop that keeps the process clear from start to finish."
           />
           <ButtonLink href="/services" variant="ghost" className="w-fit">
-            View Services
+            View All Services
           </ButtonLink>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {site.services.map((service, index) => (
-            <article className="rounded-md border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-brake" key={service}>
+          {featuredServices.map((service, index) => (
+            <article
+              className="rounded-md border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-brake"
+              key={service.slug}
+            >
               <p className="text-xs font-black uppercase tracking-[0.22em] text-brake">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h3 className="mt-6 text-lg font-black text-white">{service}</h3>
+              <h3 className="mt-6 text-lg font-black text-white">{service.name}</h3>
               <p className="mt-3 text-sm leading-6 text-white/65">
-                {descriptions[index]}
+                {service.shortDescription}
               </p>
-              {service === "Logbook servicing" ? (
-                <a
-                  className="focus-ring mt-5 inline-flex rounded-md border border-white/20 px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-brake hover:bg-brake"
-                  href="/services/logbook-servicing"
-                >
-                  Learn More
-                </a>
-              ) : null}
+              <Link
+                className="focus-ring mt-5 inline-flex rounded-md border border-white/20 px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-brake hover:bg-brake"
+                href={`/services/${service.slug}`}
+              >
+                Learn More
+              </Link>
             </article>
           ))}
         </div>

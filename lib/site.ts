@@ -30,13 +30,13 @@ export const site = {
   ],
   services: [
     "Logbook servicing",
-    "General servicing",
+    "General car servicing",
     "Brake inspections and repairs",
     "Suspension and steering",
-    "Diagnostics",
-    "Cooling systems",
-    "Battery checks and replacement",
-    "Roadworthy preparation",
+    "Vehicle diagnostics",
+    "Cooling system repairs",
+    "Battery and charging systems",
+    "Pre-purchase inspections",
   ],
 };
 
@@ -73,6 +73,61 @@ export const publicRoutes = [
   {
     path: "/services/mercedes-benz-servicing",
     priority: 0.8,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/general-car-servicing",
+    priority: 0.82,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/brake-repairs",
+    priority: 0.82,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/vehicle-diagnostics",
+    priority: 0.82,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/suspension-steering",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/cooling-system-repairs",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/battery-charging-systems",
+    priority: 0.78,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/air-conditioning",
+    priority: 0.76,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/clutch-transmission",
+    priority: 0.76,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/engine-repairs",
+    priority: 0.78,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/pre-purchase-inspections",
+    priority: 0.76,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/fleet-servicing",
+    priority: 0.74,
     changeFrequency: "monthly",
   },
   {
