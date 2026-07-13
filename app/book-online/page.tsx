@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { BookingForm } from "@/components/BookingForm";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -18,20 +17,31 @@ export default function BookOnlinePage() {
   return (
     <PageShell>
       <section className="bg-black py-16 sm:py-24">
-        <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="container-shell">
           <SectionHeader
             eyebrow="Book Online"
-            title="Request an appointment with G&T Motorsports."
-            copy="Send through your details and the workshop can confirm availability. Appointments are recommended. Walk-ins are welcome; waiting times depend on the work required and current workshop availability."
+            title="Book Your Vehicle Drop-Off"
+            copy="Choose an available time for vehicle drop-off or an initial assessment. Your selected time does not guarantee completion at that time. Service and repair timeframes depend on the work required, parts availability and current workshop workload."
           />
-          <div className="rounded-md border border-white/10 bg-white/[0.04] p-5 sm:p-6">
-            <BookingForm compact />
-            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href={site.phoneHref} variant="ghost">
-                Call Now
-              </ButtonLink>
-              <ButtonLink href={site.emailHref} variant="ghost">
-                Email Workshop
+          <div className="mt-8 rounded-md border border-white/10 bg-white/[0.04] p-4 shadow-2xl sm:p-6">
+            <p className="mb-5 rounded-md border border-white/10 bg-black/70 p-4 text-sm font-bold leading-6 text-white/78">
+              Appointments are recommended. Walk-ins are welcome, but waiting
+              times may apply.
+            </p>
+            <div className="w-full overflow-hidden rounded-md border border-white/10 bg-white">
+              <iframe
+                className="block h-[720px] w-full max-w-full border-0 sm:h-[760px] lg:h-[820px]"
+                height="600"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ15t6EeGWqIQj3IuTXL3qAA7S3kqVc8fEA7eTnJfygwmY2nF5hf80AcxCwvwiDenf3gVo5AtiK0?gv=true"
+                title="G&T Motorsports Google Calendar appointment schedule"
+                width="100%"
+              />
+            </div>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href={site.phoneHref} variant="secondary">
+                Call {site.phone}
               </ButtonLink>
             </div>
           </div>
