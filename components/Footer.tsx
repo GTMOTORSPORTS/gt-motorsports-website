@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
+import { Logo } from "@/components/Logo";
 import { navItems, site } from "@/lib/site";
 
 export function Footer() {
@@ -7,7 +8,7 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-black">
       <div className="container-shell grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
         <div>
-          <p className="text-2xl font-black">G&T Motorsports</p>
+          <Logo placement="footer" />
           <p className="mt-4 max-w-md text-sm leading-6 text-white/65">
             Premium mechanic workshop in Clyde North, servicing all makes and
             models with clear advice, careful workmanship and easy booking.

@@ -417,19 +417,7 @@ export function ServiceStructuredData({ service }: { service: ServicePage }) {
     serviceType: service.name,
     url: canonical,
     provider: {
-      "@type": "AutoRepair",
       "@id": `${site.url}/#business`,
-      name: site.name,
-      telephone: site.phoneInternational,
-      email: site.email,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "47B Palladium Circuit",
-        addressLocality: "Clyde North",
-        addressRegion: "VIC",
-        postalCode: "3978",
-        addressCountry: "AU",
-      },
     },
     areaServed: serviceArea.map((suburb) => ({
       "@type": "Place",

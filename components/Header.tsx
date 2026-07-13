@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
+import { Logo } from "@/components/Logo";
 import { navItems, site } from "@/lib/site";
 
 export function Header() {
@@ -17,17 +18,7 @@ export function Header() {
         </div>
       </div>
       <nav aria-label="Main navigation" className="container-shell flex items-center justify-between gap-4 py-4">
-        <Link className="focus-ring flex items-center gap-3" href="/">
-          <span className="flex h-11 w-11 items-center justify-center rounded-md border border-brake bg-white text-base font-black text-asphalt">
-            GT
-          </span>
-          <span>
-            <span className="block text-lg font-black leading-none">G&T</span>
-            <span className="block text-xs font-bold uppercase tracking-[0.22em] text-white/60">
-              Motorsports
-            </span>
-          </span>
-        </Link>
+        <Logo priority />
         <div className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (
             <Link

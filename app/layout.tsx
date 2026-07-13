@@ -30,10 +30,17 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/icon", type: "image/png", sizes: "32x32" }],
-    shortcut: [{ url: "/icon", type: "image/png", sizes: "32x32" }],
-    apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+    ],
+    shortcut: [{ url: "/favicon.ico", sizes: "any" }],
+    apple: [
+      { url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" },
+    ],
   },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "Mechanic Clyde North | Car Servicing & Repairs | G&T Motorsports",
     description:
@@ -44,10 +51,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/workshop-hero.png",
-        width: 1680,
-        height: 944,
-        alt: "Premium mechanic workshop interior for G&T Motorsports",
+        url: "/gt-motorsports-logo.webp",
+        width: 1073,
+        height: 440,
+        alt: "G&T Motorsports | European Mechanic & Mercedes-Benz Specialist in Melbourne",
       },
     ],
   },
@@ -56,7 +63,7 @@ export const metadata: Metadata = {
     title: "Mechanic Clyde North | Car Servicing & Repairs | G&T Motorsports",
     description:
       "Trusted mechanic in Clyde North providing logbook servicing, diagnostics, brake repairs, suspension, cooling-system repairs and general mechanical repairs for all makes and models.",
-    images: ["/workshop-hero.png"],
+    images: ["/gt-motorsports-logo.webp"],
   },
   category: "automotive",
 };

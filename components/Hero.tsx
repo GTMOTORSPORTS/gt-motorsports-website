@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/ButtonLink";
+import { Logo } from "@/components/Logo";
 import { site } from "@/lib/site";
 
 export function Hero() {
@@ -13,6 +14,9 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/45" aria-hidden="true" />
       <div className="container-shell relative flex min-h-[720px] items-center py-20 sm:py-24 lg:min-h-[780px]">
         <div className="max-w-4xl">
+          <div className="mb-8">
+            <Logo placement="hero" />
+          </div>
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.28em] text-brake sm:text-sm">
             Clyde North Mechanic Workshop
           </p>

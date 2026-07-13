@@ -25,10 +25,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/workshop-hero.png",
-        width: 1680,
-        height: 944,
-        alt: "G&T Motorsports workshop in Clyde North",
+        url: "/gt-motorsports-logo.webp",
+        width: 1073,
+        height: 440,
+        alt: "G&T Motorsports | European Mechanic & Mercedes-Benz Specialist in Melbourne",
       },
     ],
   },
