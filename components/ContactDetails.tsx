@@ -9,7 +9,7 @@ export function ContactDetails() {
         <SectionHeader
           eyebrow="Contact"
           title="Visit the workshop or get in touch."
-          copy="Call, email or book online. If you are unsure what your vehicle needs, tell us what you are experiencing and we will point you in the right direction."
+          copy="Call, email or book online. Appointments are recommended. Walk-ins are welcome; waiting times depend on the work required and current workshop availability."
           tone="light"
         />
         <div className="grid gap-4">
@@ -25,6 +25,13 @@ export function ContactDetails() {
             <span className="block text-xs font-bold uppercase tracking-[0.22em] text-black/45">Address</span>
             <span className="mt-2 block text-lg font-black">{site.address}</span>
           </a>
+          <div className="rounded-md border border-black/10 p-5">
+            <span className="block text-xs font-bold uppercase tracking-[0.22em] text-black/45">Bookings</span>
+            <p className="mt-3 text-sm leading-6 text-black/65">
+              Appointments are recommended. Walk-ins are welcome, subject to
+              workshop workload and possible wait times.
+            </p>
+          </div>
           <div className="rounded-md border border-black/10 p-5">
             <span className="block text-xs font-bold uppercase tracking-[0.22em] text-black/45">Hours</span>
             <dl className="mt-3 grid gap-2 text-sm">

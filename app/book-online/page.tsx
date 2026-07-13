@@ -22,7 +22,7 @@ export default function BookOnlinePage() {
           <SectionHeader
             eyebrow="Book Online"
             title="Request an appointment with G&T Motorsports."
-            copy="Send through your details and the workshop can confirm the best available time. For urgent bookings, calling is the fastest option."
+            copy="Send through your details and the workshop can confirm availability. Appointments are recommended. Walk-ins are welcome; waiting times depend on the work required and current workshop availability."
           />
           <div className="rounded-md border border-white/10 bg-white/[0.04] p-5 sm:p-6">
             <BookingForm compact />
