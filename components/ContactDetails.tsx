@@ -21,7 +21,7 @@ export function ContactDetails() {
             <span className="block text-xs font-bold uppercase tracking-[0.22em] text-black/45">Email</span>
             <span className="mt-2 block text-lg font-black">{site.email}</span>
           </a>
-          <a className="focus-ring rounded-md border border-black/10 p-5 hover:border-brake" href={site.mapHref} target="_blank">
+          <a className="focus-ring rounded-md border border-black/10 p-5 hover:border-brake" href={site.mapHref} target="_blank" rel="noopener noreferrer">
             <span className="block text-xs font-bold uppercase tracking-[0.22em] text-black/45">Address</span>
             <span className="mt-2 block text-lg font-black">{site.address}</span>
           </a>

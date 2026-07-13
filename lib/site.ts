@@ -3,10 +3,11 @@ export const site = {
   domain: "gtmotorsports.com.au",
   url: "https://gtmotorsports.com.au",
   phone: "0414 901 666",
+  phoneInternational: "+61 414 901 666",
   phoneHref: "tel:+61414901666",
   email: "info@gtmotorsports.com.au",
   emailHref: "mailto:info@gtmotorsports.com.au",
-  address: "47B Palladium Circuit, Clyde North VIC 3978",
+  address: "47B Palladium Circuit, Clyde North VIC 3978, Australia",
   mapHref:
     "https://www.google.com/maps/search/?api=1&query=47B%20Palladium%20Circuit%2C%20Clyde%20North%20VIC%203978",
   hours: [
@@ -44,3 +45,46 @@ export const navItems = [
   { href: "/reviews", label: "Reviews" },
   { href: "/contact", label: "Contact" },
 ];
+
+export const publicRoutes = [
+  {
+    path: "/",
+    priority: 1,
+    changeFrequency: "weekly",
+  },
+  {
+    path: "/about",
+    priority: 0.7,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services",
+    priority: 0.9,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/gallery",
+    priority: 0.6,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/reviews",
+    priority: 0.6,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/contact",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/book-online",
+    priority: 0.85,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/privacy-policy",
+    priority: 0.3,
+    changeFrequency: "yearly",
+  },
+] as const;

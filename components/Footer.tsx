@@ -45,7 +45,7 @@ export function Footer() {
             <a className="focus-ring hover:text-white" href={site.emailHref}>
               {site.email}
             </a>
-            <a className="focus-ring hover:text-white" href={site.mapHref} target="_blank">
+            <a className="focus-ring hover:text-white" href={site.mapHref} target="_blank" rel="noopener noreferrer">
               {site.address}
             </a>
           </div>

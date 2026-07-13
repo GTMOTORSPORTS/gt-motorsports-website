@@ -5,9 +5,12 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Mechanic Services",
   description:
-    "Mechanic services in Clyde North including logbook servicing, general servicing, brakes, diagnostics and repairs.",
+    "Mechanic services in Clyde North including logbook servicing, diagnostics, brake repairs, suspension, cooling-system repairs and general mechanical repairs.",
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 export default function ServicesPage() {
@@ -24,7 +27,7 @@ export default function ServicesPage() {
             {site.services.map((service) => (
               <article className="rounded-md border border-white/10 bg-white/[0.04] p-6" key={service}>
                 <span className="mb-5 block h-1 w-12 bg-brake" />
-                <h2 className="text-xl font-black">{service}</h2>
+                <h3 className="text-xl font-black">{service}</h3>
                 <p className="mt-4 text-sm leading-6 text-white/65">
                   Book an appointment for an inspection, quote or service plan
                   tailored to your vehicle and driving needs.

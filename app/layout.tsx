@@ -4,20 +4,40 @@ import { StructuredData } from "@/components/StructuredData";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL("https://gtmotorsports.com.au"),
   title: {
-    default: "G&T Motorsports | Mechanic Workshop in Clyde North",
+    default: "Mechanic Clyde North | Car Servicing & Repairs | G&T Motorsports",
     template: "%s | G&T Motorsports",
   },
   description:
-    "Premium mechanic workshop in Clyde North VIC servicing all makes and models. Book online or call G&T Motorsports today.",
+    "Trusted mechanic in Clyde North providing logbook servicing, diagnostics, brake repairs, suspension, cooling-system repairs and general mechanical repairs for all makes and models.",
   alternates: {
-    canonical: site.url,
+    canonical: "/",
+    languages: {
+      "en-AU": "/",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: [{ url: "/icon", type: "image/png", sizes: "32x32" }],
+    shortcut: [{ url: "/icon", type: "image/png", sizes: "32x32" }],
+    apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
   },
   openGraph: {
-    title: "G&T Motorsports",
+    title: "Mechanic Clyde North | Car Servicing & Repairs | G&T Motorsports",
     description:
-      "Premium mechanic workshop in Clyde North servicing all makes and models.",
+      "Trusted mechanic in Clyde North providing logbook servicing, diagnostics, brake repairs, suspension, cooling-system repairs and general mechanical repairs for all makes and models.",
     url: site.url,
     siteName: "G&T Motorsports",
     locale: "en_AU",
@@ -33,11 +53,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "G&T Motorsports",
+    title: "Mechanic Clyde North | Car Servicing & Repairs | G&T Motorsports",
     description:
-      "Premium mechanic workshop in Clyde North servicing all makes and models.",
+      "Trusted mechanic in Clyde North providing logbook servicing, diagnostics, brake repairs, suspension, cooling-system repairs and general mechanical repairs for all makes and models.",
     images: ["/workshop-hero.png"],
   },
+  category: "automotive",
 };
 
 export default function RootLayout({

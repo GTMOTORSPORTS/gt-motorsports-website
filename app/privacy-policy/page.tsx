@@ -5,7 +5,11 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy policy for G&T Motorsports.",
+  description:
+    "Privacy policy for G&T Motorsports and information submitted through the website.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

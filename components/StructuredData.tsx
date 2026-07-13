@@ -1,13 +1,15 @@
 import { site } from "@/lib/site";
 
 export function StructuredData() {
-  const data = {
+  const localBusiness = {
     "@context": "https://schema.org",
     "@type": "AutoRepair",
+    "@id": `${site.url}/#business`,
     name: site.name,
     url: site.url,
-    telephone: site.phone,
+    telephone: site.phoneInternational,
     email: site.email,
+    image: `${site.url}/workshop-hero.png`,
     address: {
       "@type": "PostalAddress",
       streetAddress: "47B Palladium Circuit",
@@ -30,7 +32,10 @@ export function StructuredData() {
         closes: "16:00",
       },
     ],
-    areaServed: site.areas,
+    areaServed: site.areas.map((area) => ({
+      "@type": "Place",
+      name: area,
+    })),
     makesOffer: site.services.map((service) => ({
       "@type": "Offer",
       itemOffered: {
@@ -40,10 +45,28 @@ export function StructuredData() {
     })),
   };
 
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${site.url}/#website`,
+    name: site.name,
+    url: site.url,
+    publisher: {
+      "@id": `${site.url}/#business`,
+    },
+    inLanguage: "en-AU",
+  };
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }}
+      />
+    </>
   );
 }

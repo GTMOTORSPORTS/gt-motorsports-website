@@ -5,7 +5,11 @@ import { SectionHeader } from "@/components/SectionHeader";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn about G&T Motorsports, a mechanic workshop in Clyde North VIC.",
+  description:
+    "Learn about G&T Motorsports, a Clyde North mechanic workshop providing servicing, diagnostics and repairs for all makes and models.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

@@ -7,7 +7,11 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Book Online",
-  description: "Book a service or repair appointment with G&T Motorsports.",
+  description:
+    "Request a booking with G&T Motorsports in Clyde North for car servicing, diagnostics, repairs and maintenance.",
+  alternates: {
+    canonical: "/book-online",
+  },
 };
 
 export default function BookOnlinePage() {

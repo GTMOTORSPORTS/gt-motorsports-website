@@ -37,7 +37,7 @@ export function GalleryPreview() {
                 <span className="text-xs font-black uppercase tracking-[0.24em] text-white/60">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h2 className="text-2xl font-black text-white">{item}</h2>
+                <h3 className="text-2xl font-black text-white">{item}</h3>
               </div>
             </article>
           ))}

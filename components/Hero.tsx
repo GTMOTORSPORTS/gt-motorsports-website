@@ -6,7 +6,8 @@ export function Hero() {
     <section className="relative isolate overflow-hidden bg-black">
       <div
         className="absolute inset-0 bg-[url('/workshop-hero.png')] bg-cover bg-center"
-        aria-hidden="true"
+        aria-label="Premium dark mechanic workshop interior representing G&T Motorsports"
+        role="img"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/78 to-black/42" aria-hidden="true" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/45" aria-hidden="true" />

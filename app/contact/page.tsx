@@ -4,7 +4,11 @@ import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact G&T Motorsports in Clyde North VIC.",
+  description:
+    "Contact G&T Motorsports at 47B Palladium Circuit, Clyde North VIC 3978 for mechanic servicing, diagnostics and repairs.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

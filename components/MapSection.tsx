@@ -16,6 +16,7 @@ export function MapSection() {
             className="focus-ring w-fit rounded-md border border-black/15 px-5 py-3 text-sm font-black uppercase tracking-wide transition hover:border-brake hover:bg-brake hover:text-white"
             href={site.mapHref}
             target="_blank"
+            rel="noopener noreferrer"
           >
             Open in Google Maps
           </a>

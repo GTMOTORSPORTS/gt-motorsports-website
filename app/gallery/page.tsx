@@ -5,7 +5,11 @@ import { SectionHeader } from "@/components/SectionHeader";
 
 export const metadata: Metadata = {
   title: "Gallery",
-  description: "View the G&T Motorsports workshop gallery.",
+  description:
+    "View the G&T Motorsports workshop gallery for servicing, diagnostics and mechanical repair placeholder imagery.",
+  alternates: {
+    canonical: "/gallery",
+  },
 };
 
 const items = [
@@ -34,7 +38,7 @@ export default function GalleryPage() {
                   <span className="text-xs font-black uppercase tracking-[0.24em] text-white/55">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h2 className="text-2xl font-black">{item}</h2>
+                  <h3 className="text-2xl font-black">{item}</h3>
                 </div>
               </div>
             ))}
