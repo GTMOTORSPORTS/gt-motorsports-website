@@ -29,6 +29,9 @@ export function Footer() {
                 {item.label}
               </Link>
             ))}
+            <Link className="focus-ring w-fit hover:text-white" href="/services/logbook-servicing">
+              Logbook Servicing
+            </Link>
             <Link className="focus-ring w-fit hover:text-white" href="/privacy-policy">
               Privacy Policy
             </Link>

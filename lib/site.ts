@@ -66,6 +66,11 @@ export const publicRoutes = [
     changeFrequency: "monthly",
   },
   {
+    path: "/services/logbook-servicing",
+    priority: 0.85,
+    changeFrequency: "monthly",
+  },
+  {
     path: "/gallery",
     priority: 0.6,
     changeFrequency: "monthly",

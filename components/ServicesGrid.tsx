@@ -37,6 +37,14 @@ export function ServicesGrid() {
               <p className="mt-3 text-sm leading-6 text-white/65">
                 {descriptions[index]}
               </p>
+              {service === "Logbook servicing" ? (
+                <a
+                  className="focus-ring mt-5 inline-flex rounded-md border border-white/20 px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-brake hover:bg-brake"
+                  href="/services/logbook-servicing"
+                >
+                  Learn More
+                </a>
+              ) : null}
             </article>
           ))}
         </div>
