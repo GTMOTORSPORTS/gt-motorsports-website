@@ -4,9 +4,9 @@ import { PageShell } from "@/components/PageShell";
 import { Reviews } from "@/components/Reviews";
 
 export const metadata: Metadata = {
-  title: "Reviews",
+  title: "Customer Reviews | G&T Motorsports Clyde North",
   description:
-    "Review information for G&T Motorsports in Clyde North. Verified customer reviews can be added when supplied.",
+    "Read genuine customer feedback about G&T Motorsports in Clyde North and book your next vehicle service or repair online.",
   alternates: {
     canonical: "/reviews",
   },

@@ -20,7 +20,7 @@ export default function Home() {
       <AboutPreview />
       <ServicesGrid />
       <WhyChooseUs />
-      <Reviews />
+      <Reviews showPageLink />
       <AreasServiced />
       <HomeBooking />
       <MapSection />

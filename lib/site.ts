@@ -7,9 +7,9 @@ export const site = {
   phoneHref: "tel:+61414901666",
   email: "info@gtmotorsports.com.au",
   emailHref: "mailto:info@gtmotorsports.com.au",
-  googleReviewHref:
+  googleReviewsHref:
     process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL ||
-    "https://www.google.com/search?q=G%26T%20Motorsports%2047B%20Palladium%20Circuit%20Clyde%20North",
+    "https://g.page/r/CWLYz5owFC8BEBM/review",
   address: "47B Palladium Circuit, Clyde North VIC 3978, Australia",
   mapHref:
     "https://www.google.com/maps/search/?api=1&query=47B%20Palladium%20Circuit%2C%20Clyde%20North%20VIC%203978",
