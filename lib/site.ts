@@ -93,6 +93,11 @@ export const publicRoutes = [
     changeFrequency: "monthly",
   },
   {
+    path: "/performance-upgrades",
+    priority: 0.86,
+    changeFrequency: "monthly",
+  },
+  {
     path: "/locations",
     priority: 0.82,
     changeFrequency: "monthly",
