@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
+import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
+export const metadata: Metadata = pageMetadata({
+  title: "Website Privacy Policy",
   description:
     "Privacy policy for G&T Motorsports and information submitted through the website.",
-  alternates: {
-    canonical: "/privacy-policy",
-  },
-};
+  path: "/privacy-policy",
+});
 
 export default function PrivacyPolicyPage() {
   return (

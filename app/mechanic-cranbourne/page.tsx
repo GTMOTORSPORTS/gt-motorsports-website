@@ -10,14 +10,14 @@ import { site } from "@/lib/site";
 const canonical = `${site.url}/mechanic-cranbourne`;
 
 export const metadata: Metadata = {
-  title: "Mechanic Cranbourne | Car Service & Mercedes Specialist | G&T Motorsports",
+  title: { absolute: "Mechanic Cranbourne | G&T Motorsports" },
   description:
     "Looking for a trusted mechanic in Cranbourne? G&T Motorsports provides logbook servicing, Mercedes servicing, brake repairs, diagnostics and complete vehicle maintenance for all makes and models.",
   alternates: {
     canonical,
   },
   openGraph: {
-    title: "Mechanic Cranbourne | Car Service & Mercedes Specialist | G&T Motorsports",
+    title: "Mechanic Cranbourne | G&T Motorsports",
     description:
       "Looking for a trusted mechanic in Cranbourne? G&T Motorsports provides logbook servicing, Mercedes servicing, brake repairs, diagnostics and complete vehicle maintenance for all makes and models.",
     url: canonical,
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mechanic Cranbourne | Car Service & Mercedes Specialist | G&T Motorsports",
+    title: "Mechanic Cranbourne | G&T Motorsports",
     description:
       "Looking for a trusted mechanic in Cranbourne? G&T Motorsports provides logbook servicing, Mercedes servicing, brake repairs, diagnostics and complete vehicle maintenance for all makes and models.",
     images: ["/workshop-hero.png"],

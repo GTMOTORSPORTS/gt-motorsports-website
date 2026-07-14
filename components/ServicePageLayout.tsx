@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
+import { pageMetadata } from "@/lib/seo";
 import type { ServicePage } from "@/lib/service-pages";
 import { getServicePage, serviceCanonicalUrl } from "@/lib/service-pages";
 import { site } from "@/lib/site";
@@ -26,21 +27,13 @@ export function generateServiceMetadata(slug: string): Metadata {
     return {};
   }
 
-  return {
+  return pageMetadata({
     title: service.metadataTitle,
     description: service.metadataDescription,
-    alternates: {
-      canonical: serviceCanonicalUrl(service.slug),
-    },
-    openGraph: {
-      title: service.metadataTitle,
-      description: service.metadataDescription,
-      url: serviceCanonicalUrl(service.slug),
-      siteName: site.name,
-      locale: "en_AU",
-      type: "website",
-    },
-  };
+    path: `/services/${service.slug}`,
+    image: "/workshop-hero.png",
+    imageAlt: `${service.name} at G&T Motorsports`,
+  });
 }
 
 export function ServicePageLayout({ slug }: { slug: string }) {

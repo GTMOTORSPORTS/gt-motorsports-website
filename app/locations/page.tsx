@@ -4,25 +4,15 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
 import { locationPages } from "@/lib/location-pages";
+import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Locations Serviced | G&T Motorsports Clyde North",
   description:
     "G&T Motorsports services customers from Cranbourne, Berwick, Narre Warren, Officer, Pakenham, Lynbrook, Hampton Park and Hallam.",
-  alternates: {
-    canonical: "/locations",
-  },
-  openGraph: {
-    title: "Locations Serviced | G&T Motorsports Clyde North",
-    description:
-      "Find mechanic services near Melbourne's south-east suburbs with G&T Motorsports in Clyde North.",
-    url: `${site.url}/locations`,
-    siteName: site.name,
-    locale: "en_AU",
-    type: "website",
-  },
-};
+  path: "/locations",
+});
 
 export default function LocationsPage() {
   return (

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
+import { pageMetadata } from "@/lib/seo";
 import type { LocationPage } from "@/lib/location-pages";
 import { getLocationPage, locationCanonicalUrl } from "@/lib/location-pages";
 import { site } from "@/lib/site";
@@ -51,29 +52,13 @@ export function generateLocationMetadata(slug: string): Metadata {
     return {};
   }
 
-  return {
+  return pageMetadata({
     title: location.title,
     description: location.description,
-    alternates: {
-      canonical: locationCanonicalUrl(location.slug),
-    },
-    openGraph: {
-      title: location.title,
-      description: location.description,
-      url: locationCanonicalUrl(location.slug),
-      siteName: site.name,
-      locale: "en_AU",
-      type: "website",
-      images: [
-        {
-          url: "/gt-motorsports-logo.webp",
-          width: 1073,
-          height: 440,
-          alt: "G&T Motorsports",
-        },
-      ],
-    },
-  };
+    path: `/locations/${location.slug}`,
+    image: "/workshop-hero.png",
+    imageAlt: `G&T Motorsports serving ${location.suburb}`,
+  });
 }
 
 export function LocationPageLayout({ slug }: { slug: string }) {
@@ -374,30 +359,6 @@ export function LocationPageLayout({ slug }: { slug: string }) {
 
 function LocationStructuredData({ location }: { location: LocationPage }) {
   const canonical = locationCanonicalUrl(location.slug);
-  const localBusiness = {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "AutoRepair"],
-    "@id": `${site.url}/#business`,
-    name: site.name,
-    url: site.url,
-    telephone: site.phoneInternational,
-    email: site.email,
-    logo: site.logo,
-    image: `${site.url}/workshop-hero.png`,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "47B Palladium Circuit",
-      addressLocality: "Clyde North",
-      addressRegion: "VIC",
-      postalCode: "3978",
-      addressCountry: "AU",
-    },
-    areaServed: {
-      "@type": "Place",
-      name: location.suburb,
-    },
-  };
-
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -419,15 +380,9 @@ function LocationStructuredData({ location }: { location: LocationPage }) {
   };
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+    />
   );
 }

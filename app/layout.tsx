@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { StructuredData } from "@/components/StructuredData";
 import { site } from "@/lib/site";
@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL("https://gtmotorsports.com.au"),
   title: {
-    default: "Mechanic Clyde North | Car Servicing & Repairs | G&T Motorsports",
+    default: "Mechanic Clyde North | G&T Motorsports",
     template: "%s | G&T Motorsports",
   },
   description:
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "Mechanic Clyde North | Car Servicing & Repairs | G&T Motorsports",
+    title: "Mechanic Clyde North | G&T Motorsports",
     description:
       "Trusted mechanic in Clyde North providing logbook servicing, diagnostics, brake repairs, suspension, cooling-system repairs and general mechanical repairs for all makes and models.",
     url: site.url,
@@ -60,12 +60,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mechanic Clyde North | Car Servicing & Repairs | G&T Motorsports",
+    title: "Mechanic Clyde North | G&T Motorsports",
     description:
       "Trusted mechanic in Clyde North providing logbook servicing, diagnostics, brake repairs, suspension, cooling-system repairs and general mechanical repairs for all makes and models.",
     images: ["/gt-motorsports-logo.webp"],
   },
   category: "automotive",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0b0b0f",
+  colorScheme: "dark light",
 };
 
 export default function RootLayout({

@@ -2,16 +2,15 @@ import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
+import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Book Online",
+export const metadata: Metadata = pageMetadata({
+  title: "Book Online for Vehicle Service",
   description:
     "Request a booking with G&T Motorsports in Clyde North for car servicing, diagnostics, repairs and maintenance.",
-  alternates: {
-    canonical: "/book-online",
-  },
-};
+  path: "/book-online",
+});
 
 export default function BookOnlinePage() {
   return (

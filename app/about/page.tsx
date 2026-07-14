@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import { BookingCTA } from "@/components/BookingCTA";
 import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata: Metadata = pageMetadata({
+  title: "About Our Clyde North Mechanic Workshop",
   description:
     "Learn about G&T Motorsports, a Clyde North mechanic workshop providing servicing, diagnostics and repairs for all makes and models.",
-  alternates: {
-    canonical: "/about",
-  },
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

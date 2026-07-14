@@ -30,14 +30,20 @@ export function Footer() {
                 {item.label}
               </Link>
             ))}
-            <Link className="focus-ring w-fit hover:text-white" href="/services/logbook-servicing">
+            <Link className="focus-ring w-fit hover:text-white" href="/logbook-servicing">
               Logbook Servicing
             </Link>
-            <Link className="focus-ring w-fit hover:text-white" href="/services/mercedes-benz-servicing">
+            <Link className="focus-ring w-fit hover:text-white" href="/mercedes-benz-service">
               Mercedes-Benz Servicing
             </Link>
             <Link className="focus-ring w-fit hover:text-white" href="/mechanic-clyde-north">
               Mechanic Clyde North
+            </Link>
+            <Link className="focus-ring w-fit hover:text-white" href="/mechanic-cranbourne">
+              Mechanic Cranbourne
+            </Link>
+            <Link className="focus-ring w-fit hover:text-white" href="/mechanic-berwick">
+              Mechanic Berwick
             </Link>
             <Link className="focus-ring w-fit hover:text-white" href="/privacy-policy">
               Privacy Policy
@@ -63,7 +69,7 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10 py-5">
         <div className="container-shell flex flex-col gap-2 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} G&T Motorsports. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} G&T Motorsports. All rights reserved.</p>
           <p>{site.domain}</p>
         </div>
       </div>

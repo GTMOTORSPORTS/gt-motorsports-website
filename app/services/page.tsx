@@ -4,16 +4,15 @@ import { BookingCTA } from "@/components/BookingCTA";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
+import { pageMetadata } from "@/lib/seo";
 import { servicePages } from "@/lib/service-pages";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Mechanic Services",
   description:
     "Mechanic services in Clyde North including logbook servicing, diagnostics, brake repairs, suspension, cooling-system repairs and general mechanical repairs.",
-  alternates: {
-    canonical: "/services",
-  },
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

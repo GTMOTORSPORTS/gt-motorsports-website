@@ -10,14 +10,14 @@ import { site } from "@/lib/site";
 const canonical = `${site.url}/mercedes-benz-service`;
 
 export const metadata: Metadata = {
-  title: "Mercedes-Benz Service Melbourne | Mercedes Specialist | G&T Motorsports",
+  title: { absolute: "Mercedes-Benz Service Melbourne | G&T Motorsports" },
   description:
     "Looking for a trusted Mercedes-Benz specialist? G&T Motorsports provides Mercedes servicing, diagnostics, repairs and Mercedes Digital Service History updates using professional equipment and experienced technicians.",
   alternates: {
     canonical,
   },
   openGraph: {
-    title: "Mercedes-Benz Service Melbourne | Mercedes Specialist | G&T Motorsports",
+    title: "Mercedes-Benz Service Melbourne | G&T Motorsports",
     description:
       "Looking for a trusted Mercedes-Benz specialist? G&T Motorsports provides Mercedes servicing, diagnostics, repairs and Mercedes Digital Service History updates using professional equipment and experienced technicians.",
     url: canonical,
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mercedes-Benz Service Melbourne | Mercedes Specialist | G&T Motorsports",
+    title: "Mercedes-Benz Service Melbourne | G&T Motorsports",
     description:
       "Looking for a trusted Mercedes-Benz specialist? G&T Motorsports provides Mercedes servicing, diagnostics, repairs and Mercedes Digital Service History updates using professional equipment and experienced technicians.",
     images: ["/workshop-hero.png"],

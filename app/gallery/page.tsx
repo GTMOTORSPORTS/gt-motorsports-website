@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import { BookingCTA } from "@/components/BookingCTA";
 import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Gallery",
+export const metadata: Metadata = pageMetadata({
+  title: "Workshop Gallery",
   description:
-    "View the G&T Motorsports workshop gallery for servicing, diagnostics and mechanical repair placeholder imagery.",
-  alternates: {
-    canonical: "/gallery",
-  },
-};
+    "View the G&T Motorsports workshop gallery for servicing, diagnostics and mechanical repair photos in Clyde North.",
+  path: "/gallery",
+  image: "/workshop-hero.png",
+  imageAlt: "G&T Motorsports workshop gallery",
+});
 
 const items = [
   "Workshop bays",

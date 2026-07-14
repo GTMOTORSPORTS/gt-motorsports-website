@@ -1,7 +1,5 @@
 import { site } from "@/lib/site";
 
-const businessWebsite = "https://www.gtmotorsports.com.au";
-
 const serviceOffers = [
   "Logbook servicing",
   "General vehicle servicing",
@@ -24,10 +22,10 @@ export function StructuredData() {
     "@type": "AutoRepair",
     "@id": `${site.url}/#business`,
     name: site.name,
-    url: businessWebsite,
+    url: site.url,
     telephone: site.phoneInternational,
     email: site.email,
-    logo: `${businessWebsite}/gt-motorsports-logo.webp`,
+    logo: site.logo,
     image: `${site.url}/workshop-hero.png`,
     priceRange: "Contact the workshop for pricing",
     description:

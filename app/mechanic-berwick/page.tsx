@@ -10,16 +10,14 @@ import { site } from "@/lib/site";
 const canonical = `${site.url}/mechanic-berwick`;
 
 export const metadata: Metadata = {
-  title:
-    "Mechanic Berwick | Car Service, Mercedes & European Vehicle Specialists | G&T Motorsports",
+  title: { absolute: "Mechanic Berwick | G&T Motorsports" },
   description:
     "Looking for a trusted mechanic near Berwick? G&T Motorsports provides expert logbook servicing, Mercedes-Benz servicing, diagnostics, brake repairs and complete vehicle maintenance for all makes and models.",
   alternates: {
     canonical,
   },
   openGraph: {
-    title:
-      "Mechanic Berwick | Car Service, Mercedes & European Vehicle Specialists | G&T Motorsports",
+    title: "Mechanic Berwick | G&T Motorsports",
     description:
       "Looking for a trusted mechanic near Berwick? G&T Motorsports provides expert logbook servicing, Mercedes-Benz servicing, diagnostics, brake repairs and complete vehicle maintenance for all makes and models.",
     url: canonical,
@@ -37,8 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Mechanic Berwick | Car Service, Mercedes & European Vehicle Specialists | G&T Motorsports",
+    title: "Mechanic Berwick | G&T Motorsports",
     description:
       "Looking for a trusted mechanic near Berwick? G&T Motorsports provides expert logbook servicing, Mercedes-Benz servicing, diagnostics, brake repairs and complete vehicle maintenance for all makes and models.",
     images: ["/workshop-hero.png"],

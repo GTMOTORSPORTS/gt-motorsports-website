@@ -9,14 +9,14 @@ import { servicePages } from "@/lib/service-pages";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Mechanic Clyde North | Car Servicing & Repairs | G&T Motorsports",
+  title: { absolute: "Mechanic Clyde North | G&T Motorsports" },
   description:
     "Looking for a mechanic in Clyde North? G&T Motorsports provides car servicing, diagnostics, brake repairs and mechanical repairs for all makes and models. Book online today.",
   alternates: {
     canonical: "https://gtmotorsports.com.au/mechanic-clyde-north",
   },
   openGraph: {
-    title: "Mechanic Clyde North | Car Servicing & Repairs | G&T Motorsports",
+    title: "Mechanic Clyde North | G&T Motorsports",
     description:
       "Looking for a mechanic in Clyde North? G&T Motorsports provides car servicing, diagnostics, brake repairs and mechanical repairs for all makes and models. Book online today.",
     url: "https://gtmotorsports.com.au/mechanic-clyde-north",
@@ -31,6 +31,13 @@ export const metadata: Metadata = {
         alt: "G&T Motorsports | European Mechanic & Mercedes-Benz Specialist in Melbourne",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mechanic Clyde North | G&T Motorsports",
+    description:
+      "Looking for a mechanic in Clyde North? G&T Motorsports provides car servicing, diagnostics, brake repairs and mechanical repairs for all makes and models. Book online today.",
+    images: ["/workshop-hero.png"],
   },
 };
 

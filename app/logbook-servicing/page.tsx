@@ -9,16 +9,14 @@ import { site } from "@/lib/site";
 const canonical = `${site.url}/logbook-servicing`;
 
 export const metadata: Metadata = {
-  title:
-    "Logbook Servicing Melbourne | Maintain Your New Car Warranty | G&T Motorsports",
+  title: { absolute: "Logbook Servicing Melbourne | G&T Motorsports" },
   description:
     "Professional logbook servicing for all makes and models. Maintain your manufacturer's warranty with expert servicing, quality parts and experienced technicians at G&T Motorsports.",
   alternates: {
     canonical,
   },
   openGraph: {
-    title:
-      "Logbook Servicing Melbourne | Maintain Your New Car Warranty | G&T Motorsports",
+    title: "Logbook Servicing Melbourne | G&T Motorsports",
     description:
       "Professional logbook servicing for all makes and models. Maintain your manufacturer's warranty with expert servicing, quality parts and experienced technicians at G&T Motorsports.",
     url: canonical,
@@ -36,8 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Logbook Servicing Melbourne | Maintain Your New Car Warranty | G&T Motorsports",
+    title: "Logbook Servicing Melbourne | G&T Motorsports",
     description:
       "Professional logbook servicing for all makes and models. Maintain your manufacturer's warranty with expert servicing, quality parts and experienced technicians at G&T Motorsports.",
     images: ["/workshop-hero.png"],
