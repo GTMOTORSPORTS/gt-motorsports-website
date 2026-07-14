@@ -73,6 +73,16 @@ export const publicRoutes = [
     changeFrequency: "monthly",
   },
   {
+    path: "/mechanic-cranbourne",
+    priority: 0.88,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/mechanic-berwick",
+    priority: 0.88,
+    changeFrequency: "monthly",
+  },
+  {
     path: "/locations",
     priority: 0.82,
     changeFrequency: "monthly",
