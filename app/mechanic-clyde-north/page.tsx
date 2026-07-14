@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   description:
     "Looking for a mechanic in Clyde North? G&T Motorsports provides car servicing, diagnostics, brake repairs and mechanical repairs for all makes and models. Book online today.",
   alternates: {
-    canonical: "https://gtmotorsports.com.au/mechanic-clyde-north",
+    canonical: "https://www.gtmotorsports.com.au/mechanic-clyde-north",
   },
   openGraph: {
     title: "Mechanic Clyde North | G&T Motorsports",
     description:
       "Looking for a mechanic in Clyde North? G&T Motorsports provides car servicing, diagnostics, brake repairs and mechanical repairs for all makes and models. Book online today.",
-    url: "https://gtmotorsports.com.au/mechanic-clyde-north",
+    url: "https://www.gtmotorsports.com.au/mechanic-clyde-north",
     siteName: site.name,
     locale: "en_AU",
     type: "website",

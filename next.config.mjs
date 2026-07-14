@@ -2,21 +2,6 @@
 const nextConfig = {
   poweredByHeader: false,
   trailingSlash: false,
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "www.gtmotorsports.com.au",
-          },
-        ],
-        destination: "https://gtmotorsports.com.au/:path*",
-        permanent: true,
-      },
-    ];
-  },
   async headers() {
     return [
       {

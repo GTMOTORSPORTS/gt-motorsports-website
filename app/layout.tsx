@@ -4,7 +4,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gtmotorsports.com.au"),
+  metadataBase: new URL("https://www.gtmotorsports.com.au"),
   title: {
     default: "Mechanic Clyde North | G&T Motorsports",
     template: "%s | G&T Motorsports",

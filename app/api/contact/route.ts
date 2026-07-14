@@ -37,7 +37,7 @@ function hasValidOrigin(request: NextRequest) {
     return true;
   }
 
-  return origin === request.nextUrl.origin || origin === "https://gtmotorsports.com.au";
+  return origin === request.nextUrl.origin || origin === "https://www.gtmotorsports.com.au";
 }
 
 export async function POST(request: NextRequest) {
