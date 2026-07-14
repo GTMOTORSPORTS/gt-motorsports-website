@@ -56,10 +56,13 @@ const allMakesTrust = [
 ];
 
 const standardProcess = [
-  "We listen to the symptoms, service history and how the vehicle is being used.",
-  "The vehicle is inspected or tested so recommendations are based on evidence, not guesswork.",
-  "Findings are explained clearly and extra work is discussed before repairs proceed.",
-  "Approved servicing or repairs are completed carefully, followed by practical handover advice.",
+  "Consultation",
+  "Vehicle Inspection",
+  "Recommendation",
+  "Quote Approval",
+  "Professional Work",
+  "Quality Inspection",
+  "Road Test",
 ];
 
 const standardBenefits = [
@@ -85,29 +88,30 @@ const localAreaText =
   "G&T Motorsports welcomes drivers from Clyde North, Clyde, Cranbourne, Berwick, Officer, Narre Warren, Hampton Park, Pakenham and nearby south-east Melbourne suburbs.";
 
 const coreLinks = {
-  general: { label: "General Car Servicing", href: "/services/general-car-servicing" },
+  general: { label: "General Mechanical Repairs", href: "/services/general-car-servicing" },
   logbook: { label: "Logbook Servicing", href: "/services/logbook-servicing" },
-  mercedes: { label: "Mercedes-Benz Servicing", href: "/services/mercedes-benz-servicing" },
+  mercedes: { label: "Mercedes-Benz Service", href: "/services/mercedes-benz-servicing" },
   brakes: { label: "Brake Repairs", href: "/services/brake-repairs" },
-  diagnostics: { label: "Vehicle Diagnostics", href: "/services/vehicle-diagnostics" },
-  suspension: { label: "Suspension and Steering", href: "/services/suspension-steering" },
+  diagnostics: { label: "Engine Diagnostics", href: "/services/vehicle-diagnostics" },
+  suspension: { label: "Suspension Repairs", href: "/services/suspension-steering" },
   cooling: { label: "Cooling System Repairs", href: "/services/cooling-system-repairs" },
-  battery: { label: "Battery and Charging Systems", href: "/services/battery-charging-systems" },
+  battery: { label: "Battery Services", href: "/services/battery-charging-systems" },
   engine: { label: "Engine Repairs", href: "/services/engine-repairs" },
+  rwc: { label: "Roadworthy Certificate Inspections", href: "/roadworthy-certificate" },
 };
 
 export const servicePages: ServicePage[] = [
   {
     slug: "general-car-servicing",
-    name: "General Car Servicing",
+    name: "General Mechanical Repairs",
     icon: "GS",
     eyebrow: "General servicing Clyde North",
-    title: "General Car Servicing in Clyde North",
+    title: "General Mechanical Repairs in Clyde North",
     shortDescription:
       "Routine oil, filter, safety and condition checks for everyday reliability.",
     introduction:
       "General car servicing keeps your vehicle maintained between major repairs and helps identify wear before it becomes a larger problem. G&T Motorsports services all makes and models with clear reporting and discussion before additional repairs proceed.",
-    metadataTitle: "General Car Servicing Clyde North | G&T Motorsports",
+    metadataTitle: "General Mechanical Repairs Clyde North | G&T Motorsports",
     metadataDescription:
       "Book professional general car servicing in Clyde North for all makes and models. Honest advice, quality workmanship and convenient online booking.",
     trustPoints: allMakesTrust,
@@ -164,7 +168,7 @@ export const servicePages: ServicePage[] = [
     ],
     relatedServices: [coreLinks.logbook, coreLinks.brakes, coreLinks.diagnostics],
     localAreaText,
-    ctaHeading: "Book General Car Servicing",
+    ctaHeading: "Book Online",
     ctaText:
       "Keep your vehicle maintained with routine servicing and clear advice from G&T Motorsports.",
   },
@@ -272,15 +276,15 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "mercedes-benz-servicing",
-    name: "Mercedes-Benz Servicing",
+    name: "Mercedes-Benz Service",
     icon: "MB",
     eyebrow: "Independent Mercedes-Benz servicing",
-    title: "Mercedes-Benz Servicing in Clyde North",
+    title: "Mercedes-Benz Service in Clyde North",
     shortDescription:
       "Independent servicing and repairs with DSR updates for eligible vehicles after scheduled servicing.",
     introduction:
       "G&T Motorsports provides scheduled servicing, maintenance and mechanical repairs for Mercedes-Benz vehicles from our Clyde North workshop. Eligible Mercedes-Benz Digital Service Records can be updated after the required scheduled service is completed.",
-    metadataTitle: "Mercedes-Benz Servicing Clyde North | G&T Motorsports",
+    metadataTitle: "Mercedes-Benz Service Clyde North | G&T Motorsports",
     metadataDescription:
       "Book Mercedes-Benz servicing in Clyde North with G&T Motorsports. Independent workshop servicing, mechanical repairs and eligible Mercedes-Benz Digital Service Record updates.",
     trustPoints: [
@@ -417,15 +421,15 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "vehicle-diagnostics",
-    name: "Vehicle Diagnostics",
+    name: "Engine Diagnostics",
     icon: "DX",
     eyebrow: "Diagnostics Clyde North",
-    title: "Vehicle Diagnostics and Fault Finding in Clyde North",
+    title: "Engine Diagnostics and Fault Finding in Clyde North",
     shortDescription:
       "Warning lights and drivability concerns tested beyond simply reading fault codes.",
     introduction:
       "Modern vehicle faults need careful testing. Fault codes can guide the diagnostic process, but they do not always identify the failed component by themselves, so G&T Motorsports combines scan-tool information with practical checks and clear explanation.",
-    metadataTitle: "Vehicle Diagnostics Clyde North | G&T Motorsports",
+    metadataTitle: "Engine Diagnostics Clyde North | G&T Motorsports",
     metadataDescription:
       "Professional vehicle diagnostics and fault finding in Clyde North for engine, ABS, airbag, charging and electrical warning issues.",
     trustPoints: allMakesTrust,
@@ -464,21 +468,21 @@ export const servicePages: ServicePage[] = [
     ],
     relatedServices: [coreLinks.engine, coreLinks.battery, coreLinks.general],
     localAreaText,
-    ctaHeading: "Book Vehicle Diagnostics",
+    ctaHeading: "Book Diagnostic Inspection",
     ctaText:
       "Get warning lights and drivability issues checked with a clear diagnostic process.",
   },
   {
     slug: "suspension-steering",
-    name: "Suspension and Steering",
+    name: "Suspension Repairs",
     icon: "SS",
     eyebrow: "Suspension and steering Clyde North",
-    title: "Suspension and Steering Repairs in Clyde North",
+    title: "Suspension Repairs in Clyde North",
     shortDescription:
       "Inspection and repair support for knocking, vibration, poor handling and uneven tyre wear.",
     introduction:
       "Suspension and steering faults can affect comfort, tyre wear and vehicle control. G&T Motorsports inspects the relevant components before recommending repairs, so the cause of noises, pulling or poor handling can be understood.",
-    metadataTitle: "Suspension and Steering Repairs Clyde North | G&T Motorsports",
+    metadataTitle: "Suspension Repairs Clyde North | G&T Motorsports",
     metadataDescription:
       "Book suspension and steering inspections and repairs in Clyde North for worn shocks, bushes, joints, control arms and handling issues.",
     trustPoints: allMakesTrust,
@@ -518,7 +522,7 @@ export const servicePages: ServicePage[] = [
     ],
     relatedServices: [coreLinks.brakes, coreLinks.general, coreLinks.diagnostics],
     localAreaText,
-    ctaHeading: "Book a Suspension and Steering Check",
+    ctaHeading: "Book Online",
     ctaText:
       "Have knocks, vibration, pulling or tyre-wear concerns inspected by G&T Motorsports.",
   },
@@ -579,7 +583,7 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "battery-charging-systems",
-    name: "Battery and Charging Systems",
+    name: "Battery Services",
     icon: "BT",
     eyebrow: "Battery and charging Clyde North",
     title: "Battery and Charging System Services in Clyde North",
@@ -587,7 +591,7 @@ export const servicePages: ServicePage[] = [
       "Battery testing, replacement advice and alternator or starting-system checks.",
     introduction:
       "Starting and charging issues can be frustrating and intermittent. G&T Motorsports can test the battery, inspect connections and check related charging or starter-system concerns before recommending the next step.",
-    metadataTitle: "Car Battery and Charging Systems Clyde North | G&T Motorsports",
+    metadataTitle: "Battery Services Clyde North | G&T Motorsports",
     metadataDescription:
       "Battery testing, replacement and charging-system checks in Clyde North, including alternator and starting-system diagnosis.",
     trustPoints: allMakesTrust,
@@ -792,6 +796,91 @@ export const servicePages: ServicePage[] = [
     ctaHeading: "Book Engine Diagnosis",
     ctaText:
       "Have engine noises, leaks, smoke or rough running assessed with clear advice before repairs.",
+  },
+  {
+    slug: "roadworthy-certificate",
+    name: "Roadworthy Certificate Inspections",
+    icon: "RWC",
+    eyebrow: "RWC inspections Clyde North",
+    title: "Roadworthy Certificate Inspections in Clyde North",
+    shortDescription:
+      "Roadworthy Certificate inspections for eligible vehicles, subject to workshop availability and applicable Victorian requirements.",
+    introduction:
+      "G&T Motorsports provides Roadworthy Certificate inspection support for eligible vehicles in Clyde North. Inspections are carried out with reference to applicable Victorian requirements, and any findings are explained clearly before approved repairs proceed.",
+    metadataTitle:
+      "Roadworthy Certificate Clyde North | RWC Inspections | G&T Motorsports",
+    metadataDescription:
+      "Need a Roadworthy Certificate inspection near Clyde North? G&T Motorsports provides professional RWC inspections for eligible vehicles in accordance with applicable Victorian requirements.",
+    trustPoints: [
+      "Victorian RWC inspection support",
+      "Clear findings",
+      "Quote approval before repairs",
+      "All makes and models",
+    ],
+    symptomsIntro:
+      "An RWC inspection may be needed when selling, transferring or re-registering an eligible vehicle, or when you have been asked to provide a roadworthy certificate.",
+    symptoms: [
+      "Selling an eligible registered vehicle",
+      "Transferring registration in Victoria",
+      "Re-registering an eligible vehicle",
+      "Responding to a roadworthy requirement",
+      "Checking safety-related items before certification",
+    ],
+    includedItems: [
+      "Brake system inspection",
+      "Steering and suspension checks",
+      "Tyre and wheel condition checks",
+      "Lights, glazing and visible safety items",
+      "Body, chassis and structural observations",
+      "Engine, driveline and leak observations",
+      "Findings explained before approved repairs",
+    ],
+    processSteps: standardProcess,
+    benefits: standardBenefits,
+    specialNotice:
+      "Roadworthy Certificate inspections are subject to workshop availability and applicable Victorian requirements. A pass cannot be guaranteed before inspection, and repairs are not automatically included.",
+    faqs: [
+      {
+        question: "What is a Roadworthy Certificate inspection?",
+        answer:
+          "A Roadworthy Certificate inspection checks eligible vehicles against applicable Victorian roadworthiness requirements. It is not a guarantee that the vehicle will pass before inspection.",
+      },
+      {
+        question: "When might I need an RWC?",
+        answer:
+          "An RWC may be required when selling a vehicle, transferring registration, re-registering a vehicle or meeting a roadworthy requirement in Victoria.",
+      },
+      {
+        question: "What happens if my vehicle does not pass?",
+        answer:
+          "The workshop explains the findings and can provide a quote for approved repairs where applicable. Additional work does not begin without approval.",
+      },
+      {
+        question: "Are repairs included in the inspection?",
+        answer:
+          "Repairs are not automatically included. If repair work is required, G&T Motorsports will explain the findings and quote approved work separately where applicable.",
+      },
+      {
+        question: "Do you guarantee a same-day certificate?",
+        answer:
+          "No same-day certificate is promised on this page. Timing depends on workshop availability, inspection findings and whether any required repairs are approved and completed.",
+      },
+      {
+        question: "Are you affiliated with VicRoads?",
+        answer:
+          "No VicRoads affiliation is claimed on this website. G&T Motorsports provides roadworthy inspection support in line with applicable Victorian requirements.",
+      },
+    ],
+    relatedServices: [
+      coreLinks.brakes,
+      coreLinks.suspension,
+      coreLinks.diagnostics,
+      coreLinks.general,
+    ],
+    localAreaText,
+    ctaHeading: "Book an RWC Inspection",
+    ctaText:
+      "Arrange a Roadworthy Certificate inspection with clear findings and quote approval before additional repairs.",
   },
   {
     slug: "pre-purchase-inspections",

@@ -1,23 +1,60 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { SectionHeader } from "@/components/SectionHeader";
-import type { ServicePage } from "@/lib/service-pages";
 import { servicePages } from "@/lib/service-pages";
 
 const featuredServiceSlugs = [
   "logbook-servicing",
-  "general-car-servicing",
-  "brake-repairs",
   "vehicle-diagnostics",
-  "suspension-steering",
+  "brake-repairs",
+  "roadworthy-certificate",
   "cooling-system-repairs",
+  "suspension-steering",
+  "air-conditioning",
   "battery-charging-systems",
-  "pre-purchase-inspections",
+  "clutch-transmission",
+  "general-car-servicing",
+  "mercedes-benz-servicing",
 ];
 
 const featuredServices = featuredServiceSlugs
-  .map((slug) => servicePages.find((service) => service.slug === slug))
-  .filter((service): service is ServicePage => Boolean(service));
+  .map((slug) => {
+    const service = servicePages.find((item) => item.slug === slug);
+
+    if (!service) {
+      return null;
+    }
+
+    return {
+      name:
+        {
+          "vehicle-diagnostics": "Engine Diagnostics",
+          "suspension-steering": "Suspension Repairs",
+          "battery-charging-systems": "Battery Services",
+          "clutch-transmission": "Clutch & Transmission Repairs",
+          "general-car-servicing": "General Mechanical Repairs",
+          "mercedes-benz-servicing": "Mercedes-Benz Service",
+        }[service.slug] || service.name,
+      description: service.shortDescription,
+      href:
+        service.slug === "roadworthy-certificate"
+          ? "/roadworthy-certificate"
+          : service.slug === "mercedes-benz-servicing"
+            ? "/mercedes-benz-service"
+            : `/services/${service.slug}`,
+    };
+  })
+  .filter((service): service is { name: string; description: string; href: string } =>
+    Boolean(service),
+  )
+  .concat([
+    {
+      name: "Performance Upgrades",
+      description:
+        "Performance upgrade consultations and supporting mechanical work for a range of suitable vehicles.",
+      href: "/performance-upgrades",
+    },
+  ]);
 
 export function ServicesGrid() {
   return (
@@ -37,18 +74,18 @@ export function ServicesGrid() {
           {featuredServices.map((service, index) => (
             <article
               className="rounded-md border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-brake"
-              key={service.slug}
+              key={service.href}
             >
               <p className="text-xs font-black uppercase tracking-[0.22em] text-brake">
                 {String(index + 1).padStart(2, "0")}
               </p>
               <h3 className="mt-6 text-lg font-black text-white">{service.name}</h3>
               <p className="mt-3 text-sm leading-6 text-white/65">
-                {service.shortDescription}
+                {service.description}
               </p>
               <Link
                 className="focus-ring mt-5 inline-flex rounded-md border border-white/20 px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-brake hover:bg-brake"
-                href={`/services/${service.slug}`}
+                href={service.href}
               >
                 Learn More
               </Link>

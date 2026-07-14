@@ -512,7 +512,7 @@ export default function EngineDiagnosticsLandingPage() {
                 </p>
                 <div className="mt-7">
                   <ButtonLink href="/mercedes-benz-service">
-                    Mercedes-Benz Servicing
+                    Mercedes-Benz Service
                   </ButtonLink>
                 </div>
               </div>

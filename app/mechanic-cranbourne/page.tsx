@@ -79,7 +79,7 @@ const services = [
     copy: "Scheduled servicing for all makes and models using the relevant manufacturer service requirements.",
   },
   {
-    title: "Mercedes-Benz Servicing",
+    title: "Mercedes-Benz Service",
     href: "/services/mercedes-benz-servicing",
     copy: "Independent Mercedes-Benz servicing, maintenance and eligible Digital Service Book updates.",
   },
@@ -360,7 +360,7 @@ export default function MechanicCranbournePage() {
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <ButtonLink href="/services/mercedes-benz-servicing">
-                Mercedes-Benz Servicing
+                Mercedes-Benz Service
               </ButtonLink>
               <ButtonLink href="/services/logbook-servicing" variant="ghost">
                 Logbook Servicing

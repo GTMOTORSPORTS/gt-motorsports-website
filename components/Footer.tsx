@@ -3,10 +3,23 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { Logo } from "@/components/Logo";
 import { navItems, site } from "@/lib/site";
 
+const footerServices = [
+  { label: "Logbook Servicing", href: "/logbook-servicing" },
+  { label: "Engine Diagnostics", href: "/engine-diagnostics" },
+  { label: "Brake Repairs", href: "/brake-repairs" },
+  { label: "Roadworthy Certificate Inspections", href: "/roadworthy-certificate" },
+  { label: "Cooling System Repairs", href: "/services/cooling-system-repairs" },
+  { label: "Suspension Repairs", href: "/services/suspension-steering" },
+  { label: "Air Conditioning Service", href: "/services/air-conditioning" },
+  { label: "Battery Services", href: "/services/battery-charging-systems" },
+  { label: "Clutch & Transmission Repairs", href: "/services/clutch-transmission" },
+  { label: "Performance Upgrades", href: "/performance-upgrades" },
+];
+
 export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-black">
-      <div className="container-shell grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+      <div className="container-shell grid gap-10 py-12 lg:grid-cols-[1.1fr_0.65fr_0.95fr_0.75fr]">
         <div>
           <Logo placement="footer" />
           <p className="mt-4 max-w-md text-sm leading-6 text-white/65">
@@ -30,12 +43,6 @@ export function Footer() {
                 {item.label}
               </Link>
             ))}
-            <Link className="focus-ring w-fit hover:text-white" href="/logbook-servicing">
-              Logbook Servicing
-            </Link>
-            <Link className="focus-ring w-fit hover:text-white" href="/mercedes-benz-service">
-              Mercedes-Benz Servicing
-            </Link>
             <Link className="focus-ring w-fit hover:text-white" href="/mechanic-clyde-north">
               Mechanic Clyde North
             </Link>
@@ -48,6 +55,22 @@ export function Footer() {
             <Link className="focus-ring w-fit hover:text-white" href="/privacy-policy">
               Privacy Policy
             </Link>
+          </div>
+        </div>
+        <div>
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-white/45">
+            Services
+          </p>
+          <div className="grid gap-3 text-sm text-white/70">
+            {footerServices.map((service) => (
+              <Link
+                className="focus-ring w-fit hover:text-white"
+                href={service.href}
+                key={service.href}
+              >
+                {service.label}
+              </Link>
+            ))}
           </div>
         </div>
         <div>

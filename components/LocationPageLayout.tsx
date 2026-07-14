@@ -243,7 +243,7 @@ export function LocationPageLayout({ slug }: { slug: string }) {
             </p>
             <div className="mt-6">
               <ButtonLink href="/services/mercedes-benz-servicing" variant="ghost">
-                Mercedes-Benz Servicing
+                Mercedes-Benz Service
               </ButtonLink>
             </div>
           </div>

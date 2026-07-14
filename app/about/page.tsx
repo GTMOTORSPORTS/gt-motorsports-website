@@ -50,6 +50,11 @@ const serviceCards = [
     copy: "Brake inspections, repairs and warning-light checks with clear advice before additional work proceeds.",
   },
   {
+    title: "Roadworthy Certificate Inspections",
+    href: "/roadworthy-certificate",
+    copy: "RWC inspections for eligible vehicles, subject to workshop availability and applicable Victorian requirements.",
+  },
+  {
     title: "Engine Diagnostics",
     href: "/engine-diagnostics",
     copy: "Warning-light checks, scan data review and practical fault-finding beyond simply reading codes.",

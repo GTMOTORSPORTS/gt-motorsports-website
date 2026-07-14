@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
+import { ProcessSteps } from "@/components/ProcessSteps";
 import { Reviews } from "@/components/Reviews";
 import { SectionHeader } from "@/components/SectionHeader";
 import { site } from "@/lib/site";
@@ -148,15 +149,6 @@ const serviceAreas = [
   { label: "Pakenham", href: "/locations/pakenham" },
   { label: "Hampton Park", href: "/locations/hampton-park" },
   { label: "Hallam", href: "/locations/hallam" },
-];
-
-const processSteps = [
-  "Book Inspection",
-  "Inspect Braking System",
-  "Explain Findings",
-  "Approve Quote",
-  "Complete Repairs",
-  "Quality Check and Road Test",
 ];
 
 const faqs = [
@@ -517,19 +509,7 @@ export default function BrakeRepairsLandingPage() {
             tone="light"
             align="center"
           />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
-            {processSteps.map((step, index) => (
-              <article
-                className="rounded-md border border-black/10 bg-neutral-50 p-5"
-                key={step}
-              >
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-brake">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <h2 className="mt-5 text-lg font-black leading-6">{step}</h2>
-              </article>
-            ))}
-          </div>
+          <ProcessSteps tone="light" />
           <div className="mt-10 flex flex-wrap justify-center gap-4 text-sm font-bold text-black/65">
             <Link className="focus-ring hover:text-black" href="/logbook-servicing">
               Logbook Servicing

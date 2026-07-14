@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
+import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeader } from "@/components/SectionHeader";
 import { customerReviews } from "@/lib/reviews";
 import { site } from "@/lib/site";
@@ -167,16 +168,6 @@ const models = [
   "Sprinter",
 ];
 
-const processSteps = [
-  "Book Online",
-  "Vehicle Inspection",
-  "Digital Diagnostics",
-  "Quote Approval",
-  "Professional Repair",
-  "Quality Check",
-  "Vehicle Collection",
-];
-
 const galleryItems = [
   {
     title: "Mercedes servicing",
@@ -261,7 +252,7 @@ function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${canonical}#service`,
-    name: "Mercedes-Benz Servicing",
+    name: "Mercedes-Benz Service",
     serviceType: "Mercedes-Benz servicing, diagnostics and repairs",
     url: canonical,
     description:
@@ -369,7 +360,7 @@ export default function MercedesBenzServicePage() {
         />
         <div className="container-shell relative">
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-brake">
-            Mercedes-Benz Servicing Without Dealership Prices
+            Mercedes-Benz Service Without Dealership Prices
           </p>
           <h1 className="max-w-4xl text-5xl font-black leading-[0.95] text-white sm:text-6xl">
             Mercedes-Benz Service & Specialist Workshop
@@ -430,7 +421,7 @@ export default function MercedesBenzServicePage() {
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeader
               eyebrow="Mercedes services"
-              title="Mercedes-Benz Servicing, Diagnostics and Repairs"
+              title="Mercedes-Benz Service, Diagnostics and Repairs"
               copy="From scheduled maintenance to complex fault finding, G&T Motorsports gives Mercedes owners a clear pathway from inspection through to approved repair."
             />
             <ButtonLink href="/services/mercedes-benz-servicing" variant="ghost" className="w-fit">
@@ -555,19 +546,7 @@ export default function MercedesBenzServicePage() {
             tone="light"
             align="center"
           />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-7">
-            {processSteps.map((step, index) => (
-              <article
-                className="rounded-md border border-black/10 bg-neutral-50 p-5"
-                key={step}
-              >
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-brake">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-5 text-lg font-black leading-6">{step}</h3>
-              </article>
-            ))}
-          </div>
+          <ProcessSteps tone="light" />
         </div>
       </section>
 

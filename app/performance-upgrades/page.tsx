@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
+import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeader } from "@/components/SectionHeader";
 import { site } from "@/lib/site";
 
@@ -91,24 +92,32 @@ const upgradeServices = [
 
 const projectExamples = [
   {
-    title: "Ford F6 reliability upgrades",
-    copy: "Reliability-focused supporting work for turbo Ford platforms where preparation and mechanical condition matter.",
+    title: "Reliability Upgrades",
+    copy: "Reliability-focused mechanical upgrades and supporting work for vehicles that may be modified, used under higher load or require preventative improvements.",
   },
   {
-    title: "Ford XR6 Turbo head stud upgrades",
-    copy: "Head stud upgrade work for selected Ford turbo applications, completed with attention to setup and workshop process.",
+    title: "Engine Supporting Upgrades",
+    copy: "Supporting engine modifications completed after inspection and suitability assessment for the individual vehicle.",
   },
   {
-    title: "Valve spring upgrades",
-    copy: "Valve spring upgrade support for vehicles requiring valvetrain improvements as part of a wider performance plan.",
+    title: "Valvetrain Upgrades",
+    copy: "Selected valvetrain upgrades for suitable vehicles as part of a properly planned performance or reliability package.",
   },
   {
-    title: "Performance cooling improvements",
-    copy: "Cooling system improvements and checks to help support modified or harder-working vehicles.",
+    title: "Performance Cooling",
+    copy: "Cooling system inspections and upgrades designed to support modified, harder-working or higher-load vehicles.",
   },
   {
-    title: "Engine servicing before performance modifications",
-    copy: "Baseline servicing and inspection before upgrades so known issues can be addressed before extra load is added.",
+    title: "Pre-Modification Servicing",
+    copy: "Baseline servicing and inspection before upgrades so existing faults, leaks or maintenance concerns can be identified first.",
+  },
+  {
+    title: "Brake Upgrades",
+    copy: "Suitable brake pad, rotor, fluid and supporting brake upgrades for selected road and performance vehicles.",
+  },
+  {
+    title: "Suspension Upgrades",
+    copy: "Suspension improvements for handling, ride control, vehicle use and individual customer goals.",
   },
 ];
 
@@ -120,16 +129,6 @@ const whyChoose = [
   "Professional diagnostics",
   "Reliable workmanship",
   "Supporting modifications completed correctly",
-];
-
-const processSteps = [
-  "Consultation",
-  "Vehicle inspection",
-  "Recommendation",
-  "Quote approval",
-  "Installation",
-  "Quality inspection",
-  "Road test where appropriate",
 ];
 
 const faqs = [
@@ -326,22 +325,22 @@ export default function PerformanceUpgradesPage() {
         <div className="container-shell">
           <SectionHeader
             eyebrow="Featured projects"
-            title="Recent Performance and Reliability Work"
-            copy="Recent projects completed at G&T Motorsports have included the examples below. These examples show the type of supporting performance work the workshop can assist with, but they do not imply these are the only vehicles serviced."
+            title="Performance and Reliability Work"
+            copy="G&T Motorsports can assist with the types of supporting performance work below across suitable vehicles. Recommendations depend on inspection findings, vehicle condition, intended use and approved scope."
           />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {projectExamples.map((project) => (
               <article
-                className="rounded-md border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-brake"
+                className="flex min-h-[15rem] flex-col rounded-md border border-white/10 bg-white/[0.04] p-[clamp(1.25rem,2.5vw,2rem)] transition hover:-translate-y-1 hover:border-brake"
                 key={project.title}
               >
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-brake">
-                  Project
+                <p className="text-[0.875rem] font-semibold uppercase tracking-[0.22em] text-brake">
+                  Capability
                 </p>
-                <h2 className="mt-5 text-xl font-black text-white">
+                <h2 className="mt-5 text-[clamp(1.35rem,2vw,2rem)] font-bold leading-[1.15] text-white [hyphens:auto] [overflow-wrap:anywhere]">
                   {project.title}
                 </h2>
-                <p className="mt-3 text-sm leading-6 text-white/66">
+                <p className="mt-4 text-[clamp(0.95rem,1.2vw,1.1rem)] font-normal leading-[1.65] text-white/66">
                   {project.copy}
                 </p>
               </article>
@@ -382,19 +381,7 @@ export default function PerformanceUpgradesPage() {
             tone="light"
             align="center"
           />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-7">
-            {processSteps.map((step, index) => (
-              <article
-                className="rounded-md border border-black/10 bg-neutral-50 p-5"
-                key={step}
-              >
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-brake">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <h2 className="mt-5 text-lg font-black leading-6">{step}</h2>
-              </article>
-            ))}
-          </div>
+          <ProcessSteps tone="light" />
         </div>
       </section>
 

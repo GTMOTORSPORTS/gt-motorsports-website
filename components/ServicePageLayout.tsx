@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
+import { ProcessSteps, standardWorkshopProcess } from "@/components/ProcessSteps";
 import { SectionHeader } from "@/components/SectionHeader";
 import { pageMetadata } from "@/lib/seo";
 import type { ServicePage } from "@/lib/service-pages";
@@ -248,7 +249,7 @@ export function DigitalServiceRecordSection({ service }: { service: ServicePage 
           </p>
           <div className="mt-6">
             <ButtonLink href="/services/mercedes-benz-servicing" variant="ghost">
-              Mercedes-Benz Servicing
+              Mercedes-Benz Service
             </ButtonLink>
           </div>
         </div>
@@ -282,6 +283,14 @@ export function WarningSignsSection({ service }: { service: ServicePage }) {
 }
 
 export function ProcessSection({ service }: { service: ServicePage }) {
+  const steps =
+    service.processSteps.length === 7
+      ? service.processSteps.map((step, index) => ({
+          title: step,
+          copy: standardWorkshopProcess[index]?.copy || "",
+        }))
+      : standardWorkshopProcess;
+
   return (
     <section className="bg-asphalt py-16 sm:py-24">
       <div className="container-shell">
@@ -291,16 +300,7 @@ export function ProcessSection({ service }: { service: ServicePage }) {
           copy="A clear process helps you understand what is being checked, what has been found and what needs approval."
           align="center"
         />
-        <div className="mt-10 grid gap-4 md:grid-cols-4">
-          {service.processSteps.map((step, index) => (
-            <article className="rounded-md border border-white/10 bg-black/35 p-5" key={step}>
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-brake">
-                Step {index + 1}
-              </p>
-              <h3 className="mt-5 text-lg font-black leading-6 text-white">{step}</h3>
-            </article>
-          ))}
-        </div>
+        <ProcessSteps steps={steps} />
       </div>
     </section>
   );

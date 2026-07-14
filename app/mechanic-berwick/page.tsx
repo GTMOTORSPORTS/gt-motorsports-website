@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
+import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeader } from "@/components/SectionHeader";
 import { customerReviews } from "@/lib/reviews";
 import { site } from "@/lib/site";
@@ -124,25 +125,6 @@ const services = [
     title: "General Mechanical Repairs",
     href: "/services/general-car-servicing",
     copy: "Practical servicing and repair support for all makes and models.",
-  },
-];
-
-const processSteps = [
-  {
-    title: "Book Your Vehicle",
-    copy: "Choose an online booking time or call the workshop to discuss your vehicle, symptoms and preferred drop-off.",
-  },
-  {
-    title: "Vehicle Inspection",
-    copy: "The team inspects the vehicle, checks relevant systems and confirms what needs attention before quoting.",
-  },
-  {
-    title: "Approve Your Quote",
-    copy: "Findings are explained clearly so you can approve the work that suits your vehicle and budget.",
-  },
-  {
-    title: "Quality Repairs & Collection",
-    copy: "Approved work is completed with care, then the team explains the result and any future maintenance advice.",
   },
 ];
 
@@ -482,22 +464,7 @@ export default function MechanicBerwickPage() {
             tone="light"
             align="center"
           />
-          <div className="mt-10 grid gap-4 md:grid-cols-4">
-            {processSteps.map((step, index) => (
-              <article
-                className="rounded-md border border-black/10 bg-neutral-50 p-5"
-                key={step.title}
-              >
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-brake">
-                  Step {index + 1}
-                </p>
-                <h3 className="mt-5 text-xl font-black">{step.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-black/65">
-                  {step.copy}
-                </p>
-              </article>
-            ))}
-          </div>
+          <ProcessSteps tone="light" />
         </div>
       </section>
 

@@ -14,7 +14,9 @@ export function generateStaticParams() {
   return servicePageSlugs
     .filter(
       (slug) =>
-        slug !== "logbook-servicing" && slug !== "mercedes-benz-servicing",
+        slug !== "logbook-servicing" &&
+        slug !== "mercedes-benz-servicing" &&
+        slug !== "roadworthy-certificate",
     )
     .map((slug) => ({ slug }));
 }

@@ -35,25 +35,32 @@ export const site = {
     "Hallam",
   ],
   services: [
-    "Logbook servicing",
-    "General car servicing",
-    "Brake inspections and repairs",
-    "Suspension and steering",
-    "Vehicle diagnostics",
-    "Cooling system repairs",
-    "Battery and charging systems",
-    "Pre-purchase inspections",
+    "Logbook Servicing",
+    "Engine Diagnostics",
+    "Brake Repairs",
+    "Roadworthy Certificate Inspections",
+    "Cooling System Repairs",
+    "Suspension Repairs",
+    "Air Conditioning Service",
+    "Battery Services",
+    "Clutch & Transmission Repairs",
+    "General Mechanical Repairs",
+    "Mercedes-Benz Service",
+    "Performance Upgrades",
   ],
 };
 
 export const navItems = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/locations", label: "Locations" },
-  { href: "/gallery", label: "Gallery" },
+  { href: "/roadworthy-certificate", label: "RWC" },
+  { href: "/mercedes-benz-service", label: "Mercedes-Benz" },
+  { href: "/performance-upgrades", label: "Performance" },
+  { href: "/about", label: "About" },
   { href: "/reviews", label: "Reviews" },
+  { href: "/locations", label: "Locations" },
   { href: "/contact", label: "Contact" },
+  { href: "/book-online", label: "Book Online" },
 ];
 
 export const publicRoutes = [
@@ -104,6 +111,11 @@ export const publicRoutes = [
   },
   {
     path: "/engine-diagnostics",
+    priority: 0.88,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/roadworthy-certificate",
     priority: 0.88,
     changeFrequency: "monthly",
   },

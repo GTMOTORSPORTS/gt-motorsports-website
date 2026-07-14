@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
+import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeader } from "@/components/SectionHeader";
 import { site } from "@/lib/site";
 
@@ -127,29 +128,6 @@ const vehicleTypes = [
   "4WD",
   "Passenger Cars",
   "Light Commercial",
-];
-
-const processSteps = [
-  {
-    title: "Book",
-    copy: "Book online or call the workshop with your vehicle details, service due date and any concerns.",
-  },
-  {
-    title: "Inspect",
-    copy: "The team checks your vehicle and confirms the correct service requirements before work begins.",
-  },
-  {
-    title: "Service",
-    copy: "Scheduled service items are completed using suitable parts, oils and fluids for your vehicle.",
-  },
-  {
-    title: "Quality Check",
-    copy: "Key items are reviewed and any additional findings are explained clearly before extra work proceeds.",
-  },
-  {
-    title: "Customer Collection",
-    copy: "You receive a practical handover with service information and any future maintenance advice.",
-  },
 ];
 
 const faqs = [
@@ -433,22 +411,7 @@ export default function LogbookServicingLandingPage() {
             copy="The process is designed to help you understand what your vehicle needs before additional work is approved."
             align="center"
           />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {processSteps.map((step, index) => (
-              <article
-                className="rounded-md border border-white/10 bg-white/[0.04] p-5"
-                key={step.title}
-              >
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-brake">
-                  Step {index + 1}
-                </p>
-                <h3 className="mt-5 text-xl font-black text-white">{step.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-white/66">
-                  {step.copy}
-                </p>
-              </article>
-            ))}
-          </div>
+          <ProcessSteps />
         </div>
       </section>
 

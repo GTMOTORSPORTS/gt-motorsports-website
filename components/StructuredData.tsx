@@ -1,19 +1,21 @@
 import { site } from "@/lib/site";
 
 const serviceOffers = [
-  "Logbook servicing",
-  "General vehicle servicing",
-  "Mercedes-Benz servicing",
-  "Mercedes-Benz digital service record updates",
-  "European vehicle servicing",
-  "Vehicle diagnostics",
-  "Brake repairs",
-  "Suspension repairs",
-  "Engine repairs",
-  "Transmission servicing",
-  "Air conditioning servicing",
+  "Logbook Servicing",
+  "Engine Diagnostics",
+  "Brake Repairs",
+  "Roadworthy Certificate Inspections",
+  "Cooling System Repairs",
+  "Suspension Repairs",
+  "Air Conditioning Service",
+  "Battery Services",
+  "Clutch & Transmission Repairs",
+  "General Mechanical Repairs",
+  "Mercedes-Benz Service",
+  "Mercedes-Benz Digital Service Record updates",
+  "European Vehicle Servicing",
+  "Performance Upgrades",
   "Pre-purchase inspections",
-  "Roadworthy inspection support",
 ];
 
 export function StructuredData() {

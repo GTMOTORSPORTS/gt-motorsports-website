@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
+import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeader } from "@/components/SectionHeader";
 import { customerReviews } from "@/lib/reviews";
 import { servicePages } from "@/lib/service-pages";
@@ -204,13 +205,6 @@ const nearbyAreas = [
   "Pakenham",
 ];
 
-const bookingSteps = [
-  "Choose an available booking or drop-off time online.",
-  "Tell us your vehicle details and the service or issue.",
-  "Bring the vehicle to the Clyde North workshop.",
-  "We inspect the vehicle and discuss any additional work before proceeding.",
-];
-
 const faqs = [
   {
     question: "Where is G&T Motorsports located?",
@@ -278,10 +272,11 @@ function ExternalIcon() {
 function LocalStructuredData() {
   const canonical = `${site.url}/mechanic-clyde-north`;
   const structuredServices = [
-    "General Car Servicing",
+    "General Mechanical Repairs",
     "Brake Repairs",
-    "Vehicle Diagnostics",
-    "Mercedes-Benz Servicing",
+    "Engine Diagnostics",
+    "Roadworthy Certificate Inspections",
+    "Mercedes-Benz Service",
   ].map((serviceName) => {
     const service = servicePages.find((item) => item.name === serviceName);
 
@@ -763,16 +758,7 @@ export default function MechanicClydeNorthPage() {
             copy="The selected online time is generally for vehicle drop-off or initial assessment. Completion time depends on the work required, parts availability and workshop workload."
             align="center"
           />
-          <div className="mt-10 grid gap-4 md:grid-cols-4">
-            {bookingSteps.map((step, index) => (
-              <article className="rounded-md border border-white/10 bg-black/35 p-5" key={step}>
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-brake">
-                  Step {index + 1}
-                </p>
-                <h3 className="mt-5 text-lg font-black leading-6 text-white">{step}</h3>
-              </article>
-            ))}
-          </div>
+          <ProcessSteps />
           <div className="mt-8 text-center">
             <ButtonLink href="/book-online">Book Online</ButtonLink>
           </div>

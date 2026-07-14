@@ -7,6 +7,31 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { pageMetadata } from "@/lib/seo";
 import { servicePages } from "@/lib/service-pages";
 
+function serviceDisplayName(slug: string, name: string) {
+  return (
+    {
+      "vehicle-diagnostics": "Engine Diagnostics",
+      "suspension-steering": "Suspension Repairs",
+      "battery-charging-systems": "Battery Services",
+      "clutch-transmission": "Clutch & Transmission Repairs",
+      "general-car-servicing": "General Mechanical Repairs",
+      "mercedes-benz-servicing": "Mercedes-Benz Service",
+    }[slug] || name
+  );
+}
+
+function serviceHref(slug: string) {
+  if (slug === "roadworthy-certificate") {
+    return "/roadworthy-certificate";
+  }
+
+  if (slug === "mercedes-benz-servicing") {
+    return "/mercedes-benz-service";
+  }
+
+  return `/services/${slug}`;
+}
+
 export const metadata: Metadata = pageMetadata({
   title: "Mechanic Services",
   description:
@@ -51,7 +76,9 @@ export default function ServicesPage() {
                   {service.icon}
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col">
-                  <h3 className="text-xl font-black">{service.name}</h3>
+                  <h3 className="text-xl font-black">
+                    {serviceDisplayName(service.slug, service.name)}
+                  </h3>
                   <p className="mt-4 text-sm leading-6 text-white/65">
                     {service.shortDescription}
                   </p>
@@ -63,9 +90,9 @@ export default function ServicesPage() {
                   ) : null}
                   <Link
                     className="focus-ring mt-6 inline-flex w-fit rounded-md border border-white/20 px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-brake hover:bg-brake"
-                    href={`/services/${service.slug}`}
+                    href={serviceHref(service.slug)}
                   >
-                    Learn More About {service.name}
+                    Learn More About {serviceDisplayName(service.slug, service.name)}
                   </Link>
                 </div>
               </article>
