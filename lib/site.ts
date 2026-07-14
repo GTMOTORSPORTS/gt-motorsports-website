@@ -30,7 +30,9 @@ export const site = {
     "Narre Warren",
     "Officer",
     "Pakenham",
+    "Lynbrook",
     "Hampton Park",
+    "Hallam",
   ],
   services: [
     "Logbook servicing",
@@ -48,6 +50,7 @@ export const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
+  { href: "/locations", label: "Locations" },
   { href: "/gallery", label: "Gallery" },
   { href: "/reviews", label: "Reviews" },
   { href: "/contact", label: "Contact" },
@@ -67,6 +70,51 @@ export const publicRoutes = [
   {
     path: "/mechanic-clyde-north",
     priority: 0.9,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/locations",
+    priority: 0.82,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/locations/cranbourne",
+    priority: 0.78,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/locations/berwick",
+    priority: 0.78,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/locations/narre-warren",
+    priority: 0.78,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/locations/officer",
+    priority: 0.78,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/locations/pakenham",
+    priority: 0.78,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/locations/lynbrook",
+    priority: 0.78,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/locations/hampton-park",
+    priority: 0.78,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/locations/hallam",
+    priority: 0.78,
     changeFrequency: "monthly",
   },
   {
