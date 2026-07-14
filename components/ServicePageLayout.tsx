@@ -58,6 +58,10 @@ export function ServicePageLayout({ slug }: { slug: string }) {
       <Breadcrumbs service={service} />
       <ServiceIntroSection service={service} />
       <ServiceChecklist service={service} />
+      {service.warrantySection ? <WarrantySection service={service} /> : null}
+      {service.digitalServiceRecordNotice ? (
+        <DigitalServiceRecordSection service={service} />
+      ) : null}
       {service.warningSigns ? <WarningSignsSection service={service} /> : null}
       <ProcessSection service={service} />
       <WhyChooseUsSection service={service} />
@@ -95,6 +99,14 @@ export function ServiceHero({ service }: { service: ServicePage }) {
           <ButtonLink href={site.phoneHref} variant="secondary">
             Call {site.phone}
           </ButtonLink>
+          <a
+            className="focus-ring inline-flex min-h-11 items-center justify-center rounded-md border border-white/20 bg-white/5 px-5 py-3 text-sm font-bold uppercase tracking-wide text-white transition hover:border-brake hover:bg-brake"
+            href={site.directionsHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get Directions
+          </a>
         </div>
       </div>
     </section>
@@ -146,7 +158,10 @@ export function ServiceIntroSection({ service }: { service: ServicePage }) {
       <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <SectionHeader
           eyebrow="When to book"
-          title={`Is ${service.name.toLowerCase()} the right service?`}
+          title={
+            service.sectionHeadings?.intro ||
+            `Is ${service.name.toLowerCase()} the right service?`
+          }
           copy={service.symptomsIntro}
         />
         <div className="grid gap-3 sm:grid-cols-2">
@@ -168,7 +183,10 @@ export function ServiceChecklist({ service }: { service: ServicePage }) {
       <div className="container-shell">
         <SectionHeader
           eyebrow="What we check"
-          title={`What ${service.name} Can Include`}
+          title={
+            service.sectionHeadings?.checklist ||
+            `What ${service.name} Can Include`
+          }
           copy="The exact work depends on the vehicle, inspection findings, service schedule and approved repair scope."
           tone="light"
         />
@@ -180,20 +198,67 @@ export function ServiceChecklist({ service }: { service: ServicePage }) {
             </div>
           ))}
         </div>
-        {service.specialNotice || service.digitalServiceRecordNotice ? (
-          <div className="mt-6 grid gap-4 lg:grid-cols-2">
-            {service.specialNotice ? (
-              <p className="rounded-md border border-black/10 bg-white p-5 text-sm font-bold leading-6 text-black/70">
-                {service.specialNotice}
-              </p>
-            ) : null}
-            {service.digitalServiceRecordNotice ? (
-              <p className="rounded-md border border-brake/30 bg-brake/5 p-5 text-sm font-bold leading-6 text-black/70">
-                {service.digitalServiceRecordNotice}
-              </p>
-            ) : null}
-          </div>
+        {service.specialNotice ? (
+          <p className="mt-6 rounded-md border border-black/10 bg-white p-5 text-sm font-bold leading-6 text-black/70">
+            {service.specialNotice}
+          </p>
         ) : null}
+      </div>
+    </section>
+  );
+}
+
+export function WarrantySection({ service }: { service: ServicePage }) {
+  if (!service.warrantySection) {
+    return null;
+  }
+
+  return (
+    <section className="bg-asphalt py-16 sm:py-24">
+      <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <SectionHeader
+          eyebrow="Warranty"
+          title={service.warrantySection.title}
+          copy={service.warrantySection.copy}
+        />
+        <div className="grid gap-4 sm:grid-cols-2">
+          {service.warrantySection.points.map((point) => (
+            <div className="rounded-md border border-white/10 bg-black/35 p-5" key={point}>
+              <span className="mb-4 block h-1 w-10 bg-brake" />
+              <h3 className="text-lg font-black text-white">{point}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function DigitalServiceRecordSection({ service }: { service: ServicePage }) {
+  return (
+    <section className="bg-black py-16 sm:py-24">
+      <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <SectionHeader
+          eyebrow="Mercedes-Benz DSR"
+          title="Mercedes-Benz Digital Service Record Updates"
+          copy={service.digitalServiceRecordNotice}
+        />
+        <div className="rounded-md border border-white/10 bg-white/[0.04] p-6">
+          <h3 className="text-2xl font-black text-white">
+            Online service-record access
+          </h3>
+          <p className="mt-4 text-sm leading-6 text-white/70">
+            Mercedes-Benz Digital Service Book updates are available for
+            eligible Mercedes-Benz vehicles after the required scheduled service.
+            Access for other manufacturer online service-record systems is being
+            worked on and is not claimed on this page.
+          </p>
+          <div className="mt-6">
+            <ButtonLink href="/services/mercedes-benz-servicing" variant="ghost">
+              Mercedes-Benz Servicing
+            </ButtonLink>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -254,7 +319,7 @@ export function WhyChooseUsSection({ service }: { service: ServicePage }) {
       <div className="container-shell">
         <SectionHeader
           eyebrow="Why choose us"
-          title="Why Choose G&T Motorsports"
+          title={service.sectionHeadings?.whyChoose || "Why Choose G&T Motorsports"}
           copy="Straightforward advice, careful workmanship and convenient booking for local drivers."
           tone="light"
           align="center"
@@ -279,7 +344,7 @@ export function ServiceFAQ({ service }: { service: ServicePage }) {
       <div className="container-shell">
         <SectionHeader
           eyebrow="FAQ"
-          title={`${service.name} FAQs`}
+          title={service.sectionHeadings?.faq || `${service.name} FAQs`}
           copy="Helpful answers before you book."
         />
         <div className="mt-10 grid gap-4 lg:grid-cols-2">
@@ -396,6 +461,9 @@ export function ServiceCTA({ service }: { service: ServicePage }) {
           </ButtonLink>
           <ButtonLink href={site.phoneHref} variant="ghost">
             Call Now
+          </ButtonLink>
+          <ButtonLink href={site.directionsHref} variant="ghost">
+            Get Directions
           </ButtonLink>
           <ButtonLink href="/contact" variant="ghost">
             Contact Us

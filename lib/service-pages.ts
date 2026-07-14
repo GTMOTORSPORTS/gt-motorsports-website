@@ -22,6 +22,12 @@ export type ServicePage = {
   metadataTitle: string;
   metadataDescription: string;
   trustPoints: string[];
+  sectionHeadings?: {
+    intro?: string;
+    checklist?: string;
+    whyChoose?: string;
+    faq?: string;
+  };
   symptomsIntro: string;
   symptoms: string[];
   includedItems: string[];
@@ -34,6 +40,11 @@ export type ServicePage = {
   ctaHeading: string;
   ctaText: string;
   specialNotice?: string;
+  warrantySection?: {
+    title: string;
+    copy: string;
+    points: string[];
+  };
   digitalServiceRecordNotice?: string;
 };
 
@@ -162,20 +173,26 @@ export const servicePages: ServicePage[] = [
     name: "Logbook Servicing",
     icon: "LB",
     eyebrow: "Logbook servicing Clyde North",
-    title: "Professional Logbook Servicing in Clyde North",
+    title: "Logbook Servicing in Clyde North",
     shortDescription:
       "Scheduled servicing for all makes and models, including eligible Mercedes-Benz DSR updates.",
     introduction:
-      "Keep your vehicle maintained in line with its scheduled service requirements with professional logbook servicing from G&T Motorsports. We service all makes and models using suitable oils, fluids, filters and replacement parts, with clear advice before any additional work is carried out.",
-    metadataTitle: "Logbook Servicing Clyde North | G&T Motorsports",
+      "G&T Motorsports provides logbook servicing in Clyde North for all makes and models. Services are completed according to the manufacturer's recommended schedule using quality parts, oils and fluids based on manufacturer specifications, with a full vehicle inspection and clear explanation of anything requiring attention.",
+    metadataTitle: "Logbook Service Clyde North | G&T Motorsports",
     metadataDescription:
-      "Book professional logbook servicing in Clyde North for all makes and models, including eligible Mercedes-Benz Digital Service Record updates. Clear advice, quality parts and convenient online booking.",
+      "Professional logbook servicing in Clyde North for all makes and models. Maintain your new-car warranty with qualified servicing at G&T Motorsports. Book today.",
     trustPoints: [
       "All makes and models",
+      "Manufacturer service schedules",
       "Quality oils and parts",
-      "Clear quotes before work begins",
       "Eligible Mercedes-Benz DSR updates",
     ],
+    sectionHeadings: {
+      intro: "What Is a Logbook Service?",
+      checklist: "What Is Included?",
+      whyChoose: "Why Choose G&T Motorsports?",
+      faq: "Frequently Asked Questions",
+    },
     symptomsIntro:
       "Logbook servicing is suited to vehicles due for scheduled maintenance based on age, kilometres or manufacturer service requirements.",
     symptoms: [
@@ -198,23 +215,38 @@ export const servicePages: ServicePage[] = [
     ],
     processSteps: standardProcess,
     benefits: standardBenefits,
+    warrantySection: {
+      title: "Will My New-Car Warranty Be Protected?",
+      copy: "In Australia, customers can have scheduled logbook servicing completed by an independent workshop without automatically having to return to a dealership, provided the service is completed according to the relevant manufacturer schedule using suitable parts, oils and fluids. G&T Motorsports follows the applicable service requirements and explains any additional work before it proceeds.",
+      points: [
+        "Servicing completed according to the manufacturer's recommended schedule",
+        "Quality parts, oils and fluids selected based on manufacturer specifications",
+        "Clear records of completed service work",
+        "Additional repairs discussed before work proceeds",
+      ],
+    },
     digitalServiceRecordNotice:
-      "G&T Motorsports can update eligible Mercedes-Benz Digital Service Records after completing the required scheduled service. This does not imply Mercedes-Benz affiliation, certification or endorsement.",
+      "Mercedes-Benz customers can have eligible service records updated online through the Mercedes-Benz Digital Service Book system after the required scheduled service is completed. Mercedes-Benz digital service access is currently available at G&T Motorsports, while access for other manufacturer online service-record systems is being worked on. G&T Motorsports does not claim online service-record access for other brands at this time, and does not claim Mercedes-Benz affiliation, certification or endorsement.",
     faqs: [
       {
         question: "What is a logbook service?",
         answer:
-          "A logbook service is scheduled maintenance completed in line with the relevant manufacturer service schedule. It usually includes checks, replacements and inspections based on the vehicle's age, kilometres and service requirements.",
+          "A logbook service is scheduled maintenance completed according to the relevant manufacturer service schedule. It usually includes checks, replacements and inspections based on the vehicle's age, kilometres and service requirements.",
       },
       {
-        question: "Can an independent mechanic carry out logbook servicing?",
+        question: "Can I maintain my new-car warranty without going back to the dealership?",
         answer:
-          "An independent mechanic can carry out logbook servicing when the work is completed in line with the relevant manufacturer schedule using suitable parts, oils and fluids. G&T Motorsports can discuss what is due for your vehicle before work begins.",
+          "Yes, customers can generally use an independent workshop for scheduled logbook servicing when the work is completed according to the relevant manufacturer schedule using suitable parts, oils and fluids. G&T Motorsports can discuss what is due for your vehicle before work begins.",
       },
       {
         question: "How often should I book a logbook service?",
         answer:
           "Service intervals vary by vehicle and may depend on kilometres travelled, time since the last service, driving conditions and the manufacturer schedule.",
+      },
+      {
+        question: "What is included in logbook servicing?",
+        answer:
+          "The exact items depend on the vehicle and service schedule, but logbook servicing can include oil and filter replacement, fluid checks, brake and tyre checks, steering and suspension inspection, battery and cooling-system checks, diagnostic scanning where appropriate and a clear report of recommended repairs.",
       },
       {
         question: "What happens if extra repairs are found?",
@@ -229,7 +261,7 @@ export const servicePages: ServicePage[] = [
       {
         question: "Can you update my Mercedes-Benz online service history?",
         answer:
-          "Yes. G&T Motorsports can update the Mercedes-Benz Digital Service Record for eligible vehicles after completing the required scheduled service. Mention this when booking so compatibility can be confirmed.",
+          "Yes. G&T Motorsports can update eligible Mercedes-Benz service records online through the Mercedes-Benz Digital Service Book system after completing the required scheduled service. Access for other manufacturer online service-record systems is being worked on, but is not claimed at this time.",
       },
     ],
     relatedServices: [coreLinks.general, coreLinks.mercedes, coreLinks.brakes],
