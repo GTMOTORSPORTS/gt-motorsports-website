@@ -103,6 +103,11 @@ export const publicRoutes = [
     changeFrequency: "monthly",
   },
   {
+    path: "/engine-diagnostics",
+    priority: 0.88,
+    changeFrequency: "monthly",
+  },
+  {
     path: "/locations",
     priority: 0.82,
     changeFrequency: "monthly",
