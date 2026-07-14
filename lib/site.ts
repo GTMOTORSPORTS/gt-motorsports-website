@@ -83,6 +83,16 @@ export const publicRoutes = [
     changeFrequency: "monthly",
   },
   {
+    path: "/mercedes-benz-service",
+    priority: 0.92,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/logbook-servicing",
+    priority: 0.9,
+    changeFrequency: "monthly",
+  },
+  {
     path: "/locations",
     priority: 0.82,
     changeFrequency: "monthly",
