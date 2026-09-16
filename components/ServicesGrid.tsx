@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { SectionHeader } from "@/components/SectionHeader";
-import { servicePages } from "@/lib/service-pages";
+import { servicePages, servicePath } from "@/lib/service-pages";
 
 const featuredServiceSlugs = [
   "logbook-servicing",
@@ -32,16 +32,15 @@ const featuredServices = featuredServiceSlugs
           "suspension-steering": "Suspension Repairs",
           "battery-charging-systems": "Battery Services",
           "clutch-transmission": "Clutch & Transmission Repairs",
-          "general-car-servicing": "General Mechanical Repairs",
+          "general-car-servicing": "General Car Servicing",
           "mercedes-benz-servicing": "Mercedes-Benz Service",
         }[service.slug] || service.name,
-      description: service.shortDescription,
+      description:
+        service.slug === "general-car-servicing"
+          ? "Routine oil and filter servicing, safety inspections and maintenance for everyday vehicles of all makes and models."
+          : service.shortDescription,
       href:
-        service.slug === "roadworthy-certificate"
-          ? "/roadworthy-certificate"
-          : service.slug === "mercedes-benz-servicing"
-            ? "/mercedes-benz-service"
-            : `/services/${service.slug}`,
+        servicePath(service.slug),
     };
   })
   .filter((service): service is { name: string; description: string; href: string } =>
@@ -63,8 +62,8 @@ export function ServicesGrid() {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeader
             eyebrow="Services"
-            title="Mechanical services for all makes and models."
-            copy="Book routine maintenance, inspections, diagnostics or repairs with a workshop that keeps the process clear from start to finish."
+            title="Car Servicing & Mechanical Repairs in Clyde North"
+            copy="From general and logbook servicing to diagnostics, brakes, suspension, RWC inspections and major mechanical repairs, G&T Motorsports provides professional automotive care for all makes and models."
           />
           <ButtonLink href="/services" variant="ghost" className="w-fit">
             View All Services

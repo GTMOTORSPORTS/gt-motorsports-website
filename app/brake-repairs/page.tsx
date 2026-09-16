@@ -11,16 +11,19 @@ import { site } from "@/lib/site";
 const canonical = `${site.url}/brake-repairs`;
 
 export const metadata: Metadata = {
-  title: { absolute: "Brake Repairs Clyde North | G&T Motorsports" },
+  title: {
+    absolute:
+      "Brake Repairs Clyde North | Brake Service | G&T Motorsports",
+  },
   description:
-    "Need brake repairs near Clyde North? G&T Motorsports provides brake inspections, pad and rotor replacement, diagnostics and complete brake servicing for all makes and models.",
+    "Book brake repairs in Clyde North for brake service, brake pad replacement, brake inspections, rotor checks, brake fluid and ABS warning-light diagnosis.",
   alternates: {
     canonical,
   },
   openGraph: {
-    title: "Brake Repairs Clyde North | G&T Motorsports",
+    title: "Brake Repairs Clyde North | Brake Service | G&T Motorsports",
     description:
-      "Need brake repairs near Clyde North? G&T Motorsports provides brake inspections, pad and rotor replacement, diagnostics and complete brake servicing for all makes and models.",
+      "Brake inspections, brake pad replacement, rotor checks, brake fluid service and ABS warning-light diagnosis in Clyde North.",
     url: canonical,
     siteName: site.name,
     locale: "en_AU",
@@ -36,68 +39,68 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Brake Repairs Clyde North | G&T Motorsports",
+    title: "Brake Repairs Clyde North | Brake Service | G&T Motorsports",
     description:
-      "Need brake repairs near Clyde North? G&T Motorsports provides brake inspections, pad and rotor replacement, diagnostics and complete brake servicing for all makes and models.",
+      "Brake inspections, brake pad replacement, rotor checks, brake fluid service and ABS warning-light diagnosis in Clyde North.",
     images: ["/workshop-hero.png"],
   },
 };
 
 const warningSigns = [
-  "Squealing or grinding noises",
-  "Brake pedal vibration",
+  "Squealing or grinding",
+  "Vibration under braking",
   "Soft or spongy brake pedal",
-  "Vehicle pulling while braking",
-  "Longer stopping distance",
-  "Brake warning light",
-  "Burning smell after braking",
-  "Visible brake fluid leaks",
+  "Pulling under braking",
+  "Reduced braking performance",
+  "Brake warning lights",
+  "Fluid leaks",
+  "Burning smell after heavy braking",
 ];
 
 const brakeServices = [
   {
     title: "Brake inspections",
-    href: "/services/brake-repairs",
+    href: "/brake-repairs",
     copy: "A practical inspection of visible brake components and symptoms before repair recommendations are made.",
   },
   {
     title: "Brake pad replacement",
-    href: "/services/brake-repairs",
+    href: "/brake-repairs",
     copy: "Replacement advice when pad wear, noise or braking performance indicates pads need attention.",
   },
   {
     title: "Brake rotor replacement or machining",
-    href: "/services/brake-repairs",
+    href: "/brake-repairs",
     copy: "Rotor condition and measurements are checked before replacement or machining is discussed where appropriate.",
   },
   {
     title: "Brake fluid replacement",
-    href: "/services/brake-repairs",
+    href: "/brake-repairs",
     copy: "Brake fluid condition can be checked and replacement discussed based on age, condition and vehicle requirements.",
   },
   {
     title: "Brake caliper inspection and repair",
-    href: "/services/brake-repairs",
+    href: "/brake-repairs",
     copy: "Caliper movement, visible condition and braking behaviour can be assessed as part of fault finding.",
   },
   {
     title: "Brake hose inspection",
-    href: "/services/brake-repairs",
+    href: "/brake-repairs",
     copy: "Brake hoses and visible lines can be checked for condition concerns during inspection.",
   },
   {
     title: "Brake warning light diagnostics",
-    href: "/services/vehicle-diagnostics",
+    href: "/engine-diagnostics",
     copy: "Warning lights can be checked with diagnostic equipment and practical inspection where required.",
   },
   {
     title: "Electronic parking brake servicing",
-    href: "/services/brake-repairs",
+    href: "/brake-repairs",
     copy: "Electronic parking brake systems can be considered during brake service planning where applicable.",
   },
   {
     title: "ABS diagnostics",
-    href: "/services/vehicle-diagnostics",
+    href: "/engine-diagnostics",
     copy: "ABS-related warning lights or braking concerns can be scanned and investigated before repair approval.",
   },
   {
@@ -116,6 +119,21 @@ const inspectionItems = [
   "ABS fault scan where required",
   "Road test where safe and appropriate",
   "Quote before additional repairs",
+];
+
+const brakeRepairAreas = [
+  {
+    title: "Brake Pads & Rotors",
+    copy: "Brake pad replacement in Clyde North may be recommended when pads are worn, noisy or no longer performing as they should. Rotors are checked for wear, thickness, scoring and vibration concerns before machining or replacement is discussed.",
+  },
+  {
+    title: "Brake Fluid & Hydraulic Systems",
+    copy: "Brake repairs can involve fluid condition, hoses, lines, calipers, master-cylinder concerns or other hydraulic components. G&T Motorsports checks the system and explains what needs attention before repair work proceeds.",
+  },
+  {
+    title: "ABS & Brake Warning Lights",
+    copy: "Brake warning lights and ABS faults may require diagnostic scanning as well as practical inspection. Fault codes help guide the process, but further testing may be needed before parts are replaced.",
+  },
 ];
 
 const whyChoose = [
@@ -141,7 +159,7 @@ const vehicles = [
 ];
 
 const serviceAreas = [
-  { label: "Clyde North", href: "/mechanic-clyde-north" },
+  { label: "Clyde North", href: "/" },
   { label: "Cranbourne", href: "/locations/cranbourne" },
   { label: "Berwick", href: "/locations/berwick" },
   { label: "Narre Warren", href: "/locations/narre-warren" },
@@ -153,44 +171,34 @@ const serviceAreas = [
 
 const faqs = [
   {
-    question: "How do I know when my brake pads need replacing?",
+    question: "How long do brake pads last?",
     answer:
-      "Common signs include squealing, grinding, reduced braking performance, a brake warning light or visible wear found during inspection. Pad life varies by vehicle, driving style and conditions.",
+      "Brake pad life varies by vehicle, driving style, load, road conditions and pad type. Squealing, grinding, reduced braking performance or low pad thickness found during inspection can indicate replacement may be needed.",
   },
   {
-    question: "Why are my brakes making a grinding noise?",
+    question: "Do brake rotors always need replacement?",
     answer:
-      "Grinding can indicate worn pads, rotor damage or another braking-system concern. Arrange an inspection promptly so the cause can be confirmed before more damage occurs.",
+      "No. Rotors are checked for thickness, condition, scoring, heat damage and vibration concerns before replacement or machining is recommended. Parts are not replaced unnecessarily.",
   },
   {
-    question: "Why does my steering wheel shake when braking?",
+    question: "What does a brake warning light mean?",
     answer:
-      "Steering-wheel vibration under braking can relate to rotor condition, brake component wear, suspension issues or wheel and tyre concerns. A brake inspection helps narrow down the cause.",
+      "A brake warning light can relate to several braking or electronic systems, including fluid level, pad wear indicators, ABS faults or other concerns depending on the vehicle. Inspection and diagnosis are needed before repairs are recommended.",
   },
   {
-    question: "How often should brake fluid be replaced?",
+    question: "Does brake fluid need changing?",
     answer:
-      "Brake fluid replacement intervals vary by vehicle and manufacturer schedule. The fluid condition and service information should be checked before recommending replacement.",
+      "Brake fluid replacement intervals vary by vehicle and manufacturer schedule. Fluid condition, age and vehicle requirements should be checked before recommending replacement.",
   },
   {
-    question: "Can you diagnose an ABS warning light?",
+    question: "Are noisy brakes always unsafe?",
     answer:
-      "Yes. G&T Motorsports can inspect ABS warning lights using diagnostic equipment and braking-system checks where required.",
+      "Not always, but brake noise should not be ignored. Squealing or grinding may indicate worn pads, rotor concerns, contamination or another issue that needs inspection.",
   },
   {
-    question: "Do you repair brakes on European vehicles?",
+    question: "Can repairs be completed after inspection?",
     answer:
-      "Yes. G&T Motorsports can inspect and repair brakes on European vehicles as well as Japanese, Korean, Australian and light commercial vehicles.",
-  },
-  {
-    question: "Can you inspect my brakes before a long trip?",
-    answer:
-      "Yes. A brake inspection before a long trip can help identify worn pads, rotor concerns, leaks or other issues that should be addressed before travelling.",
-  },
-  {
-    question: "Do you offer performance brake upgrades?",
-    answer:
-      "G&T Motorsports can discuss suitable brake upgrades for selected street and performance vehicles, including pads, rotors and fluid options based on vehicle suitability.",
+      "Yes. If brake repairs are required, G&T Motorsports will explain the findings and provide a quote before repair work proceeds.",
   },
 ];
 
@@ -214,10 +222,10 @@ function StructuredData() {
     "@type": "Service",
     "@id": `${canonical}#service`,
     name: "Brake Repairs and Brake Servicing",
-    serviceType: "Brake inspections, brake servicing and brake repairs",
+    serviceType: "Brake repairs Clyde North, brake service, brake pad replacement and brake inspection",
     url: canonical,
     description:
-      "Brake inspections, pad and rotor replacement, brake warning light diagnostics and complete brake servicing for all makes and models at G&T Motorsports.",
+      "Brake repairs in Clyde North, including brake inspections, brake service, brake pad replacement, rotor checks, brake fluid checks and ABS warning-light diagnosis for all makes and models at G&T Motorsports.",
     provider: {
       "@id": `${site.url}/#business`,
     },
@@ -290,7 +298,7 @@ export default function BrakeRepairsLandingPage() {
 
       <section className="relative overflow-hidden bg-black py-16 sm:py-24">
         <Image
-          src="/workshop-hero.png"
+          src="/workshop-hero.webp"
           alt=""
           fill
           priority
@@ -307,17 +315,19 @@ export default function BrakeRepairsLandingPage() {
             Safe, Reliable Brake Repairs You Can Trust
           </p>
           <h1 className="max-w-4xl text-5xl font-black leading-[0.95] text-white sm:text-6xl">
-            Professional Brake Repairs & Brake Servicing
+            Brake Repairs in Clyde North
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/78">
-            From worn brake pads and damaged rotors to warning lights,
-            vibration and unusual noises, G&T Motorsports provides professional
-            brake inspections, servicing and repairs for all makes and models.
+            G&T Motorsports inspects, diagnoses and repairs braking systems for
+            a wide range of vehicles. From brake pad replacement and rotor
+            checks to brake warning lights, vibration, fluid leaks and reduced
+            braking performance, our team provides clear advice before repair
+            work proceeds.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <ButtonLink href="/book-online">Book Brake Inspection</ButtonLink>
-            <ButtonLink href={site.phoneHref} variant="secondary">
-              Call Now
+            <ButtonLink href="/book-online">BOOK BRAKE INSPECTION</ButtonLink>
+            <ButtonLink href="/contact" variant="secondary">
+              GET A QUOTE
             </ButtonLink>
           </div>
         </div>
@@ -327,7 +337,7 @@ export default function BrakeRepairsLandingPage() {
         <div className="container-shell">
           <SectionHeader
             eyebrow="Warning signs"
-            title="Warning Signs Your Brakes Need Attention"
+            title="Signs Your Brakes Need Attention"
             copy="Brake symptoms should be checked early. If braking performance changes, arrange an inspection promptly and avoid unnecessary driving if the vehicle feels unsafe."
             tone="light"
             align="center"
@@ -351,7 +361,7 @@ export default function BrakeRepairsLandingPage() {
           <SectionHeader
             eyebrow="Brake services"
             title="Brake Service and Replacement Options"
-            copy="The right repair depends on inspection findings. G&T Motorsports checks the braking system and explains repair options before additional work proceeds."
+            copy="Brake repairs may involve pads, rotors, calipers, hydraulic components, brake fluid or electronic ABS diagnosis depending on the fault. G&T Motorsports checks the braking system and explains repair options before additional work proceeds."
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {brakeServices.map((service) => (
@@ -375,8 +385,8 @@ export default function BrakeRepairsLandingPage() {
         <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <SectionHeader
             eyebrow="Inspection process"
-            title="What a Brake Inspection May Include"
-            copy="A careful inspection helps separate normal wear from urgent concerns. The exact checks depend on the vehicle, symptoms and access to components."
+            title="Brake Inspections & Diagnosis"
+            copy="A careful brake inspection helps separate normal wear from urgent concerns. The exact checks depend on the vehicle, symptoms and access to components."
           />
           <div className="grid gap-4 sm:grid-cols-2">
             {inspectionItems.map((item) => (
@@ -387,6 +397,34 @@ export default function BrakeRepairsLandingPage() {
                 <span className="mb-4 block h-1 w-10 bg-brake" />
                 <h2 className="text-lg font-black leading-6 text-white">{item}</h2>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 text-asphalt sm:py-24">
+        <div className="container-shell">
+          <SectionHeader
+            eyebrow="Brake system repairs"
+            title="Pads, Rotors, Fluid and Warning Lights"
+            copy="Brake faults can come from mechanical wear, hydraulic issues or electronic systems. G&T Motorsports inspects the cause before recommending parts or repairs."
+            tone="light"
+            align="center"
+          />
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            {brakeRepairAreas.map((area) => (
+              <article
+                className="rounded-md border border-black/10 bg-neutral-50 p-6"
+                key={area.title}
+              >
+                <span className="mb-5 block h-1 w-12 bg-brake" />
+                <h2 className="text-2xl font-black leading-tight">
+                  {area.title}
+                </h2>
+                <p className="mt-4 text-sm leading-6 text-black/65">
+                  {area.copy}
+                </p>
+              </article>
             ))}
           </div>
         </div>
@@ -441,7 +479,7 @@ export default function BrakeRepairsLandingPage() {
             <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
               <div className="relative min-h-[320px]">
                 <Image
-                  src="/workshop-hero.png"
+                  src="/images/workshop/gt-motorsports-brake-suspension-repair-clyde-north.jpg.jpeg"
                   alt="Brake servicing and inspection at G&T Motorsports"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -511,6 +549,30 @@ export default function BrakeRepairsLandingPage() {
           />
           <ProcessSteps tone="light" />
           <div className="mt-10 flex flex-wrap justify-center gap-4 text-sm font-bold text-black/65">
+            <Link
+              className="focus-ring hover:text-black"
+              href="/engine-diagnostics"
+            >
+              Engine Diagnostics
+            </Link>
+            <Link
+              className="focus-ring hover:text-black"
+              href="/services/suspension-steering"
+            >
+              Suspension Repairs
+            </Link>
+            <Link
+              className="focus-ring hover:text-black"
+              href="/services/general-car-servicing"
+            >
+              General Car Servicing
+            </Link>
+            <Link
+              className="focus-ring hover:text-black"
+              href="/roadworthy-certificate"
+            >
+              RWC Inspections
+            </Link>
             <Link className="focus-ring hover:text-black" href="/logbook-servicing">
               Logbook Servicing
             </Link>
@@ -562,7 +624,7 @@ export default function BrakeRepairsLandingPage() {
               Ready to book?
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight sm:text-4xl">
-              Concerned About Your Brakes?
+              Book a Brake Inspection
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-white/85">
               Do not ignore unusual brake noises, vibration, warning lights or
@@ -573,10 +635,10 @@ export default function BrakeRepairsLandingPage() {
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="/book-online" variant="secondary">
-              Book Brake Inspection
+              BOOK BRAKE INSPECTION
             </ButtonLink>
-            <ButtonLink href={site.phoneHref} variant="ghost">
-              Call G&T Motorsports
+            <ButtonLink href="/contact" variant="ghost">
+              GET A QUOTE
             </ButtonLink>
           </div>
         </div>

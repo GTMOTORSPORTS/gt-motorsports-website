@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { BookingCTA } from "@/components/BookingCTA";
 import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -14,12 +15,48 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const items = [
-  "Workshop bays",
-  "Service checks",
-  "Mechanical repairs",
-  "Vehicle inspections",
-  "Brake work",
-  "Diagnostics",
+  {
+    title: "Workshop bays",
+    copy: "A clean, organised workshop setup for servicing, diagnostics and repairs.",
+    src: "/images/workshop/gt-motorsports-workshop-service-clyde-north.jpg.jpeg",
+    alt: "G&T Motorsports technician working underneath a vehicle on a workshop hoist",
+    position: "center",
+  },
+  {
+    title: "Service checks",
+    copy: "Routine service checks completed with attention to detail.",
+    src: "/images/workshop/gt-motorsports-vehicle-inspection-clyde-north.jpg.jpeg",
+    alt: "Vehicle inspection work at G&T Motorsports in Clyde North",
+    position: "45% center",
+  },
+  {
+    title: "Mechanical repairs",
+    copy: "General mechanical repairs for all makes and models.",
+    src: "/images/workshop/gt-motorsports-mechanical-repair-clyde-north.jpg.jpeg",
+    alt: "Mechanical repair work at G&T Motorsports in Clyde North",
+    position: "65% center",
+  },
+  {
+    title: "Vehicle inspections",
+    copy: "Clear inspections and practical advice before work begins.",
+    src: "/images/workshop/gt-motorsports-vehicle-inspection-clyde-north.jpg.jpeg",
+    alt: "Vehicle inspection work at G&T Motorsports in Clyde North",
+    position: "35% center",
+  },
+  {
+    title: "Brake work",
+    copy: "Brake inspections and repairs focused on dependable stopping performance.",
+    src: "/images/workshop/gt-motorsports-brake-suspension-repair-clyde-north.jpg.jpeg",
+    alt: "Brake and suspension repair work at G&T Motorsports in Clyde North",
+    position: "75% center",
+  },
+  {
+    title: "Diagnostics",
+    copy: "Diagnostic equipment used to support accurate fault finding.",
+    src: "/images/workshop/gt-motorsports-diagnostics-clyde-north.jpg.jpeg",
+    alt: "Vehicle diagnostic work at G&T Motorsports in Clyde North",
+    position: "60% center",
+  },
 ];
 
 export default function GalleryPage() {
@@ -30,18 +67,34 @@ export default function GalleryPage() {
           <SectionHeader
             eyebrow="Gallery"
             title="A clean, capable workshop environment."
-            copy="A premium website foundation is ready for real workshop photos as they become available. These gallery spaces are designed for service bays, repair work and team imagery."
+            copy="Explore the G&T Motorsports workshop environment, built around careful workmanship, organised service bays and professional vehicle care."
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item, index) => (
-              <div className="aspect-[4/3] rounded-md border border-white/10 bg-[linear-gradient(135deg,#2a2b31,#080808_58%,#d71920_59%,#9f1318)] p-5" key={item}>
-                <div className="flex h-full flex-col justify-between">
+              <article
+                className="group relative aspect-[4/3] overflow-hidden rounded-md border border-white/10 bg-black"
+                key={item.title}
+              >
+                <Image
+                  alt={item.alt}
+                  className="object-cover transition duration-700 group-hover:scale-105"
+                  fill
+                  loading={index < 2 ? "eager" : "lazy"}
+                  sizes="(min-width: 1024px) 352px, (min-width: 640px) calc(50vw - 24px), calc(100vw - 32px)"
+                  src={item.src}
+                  style={{ objectPosition: item.position }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/5" aria-hidden="true" />
+                <div className="relative flex h-full flex-col justify-between p-5">
                   <span className="text-xs font-black uppercase tracking-[0.24em] text-white/55">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="text-2xl font-black">{item}</h3>
+                  <div>
+                    <h3 className="text-2xl font-black">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-white/72">{item.copy}</p>
+                  </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>

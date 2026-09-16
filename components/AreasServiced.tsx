@@ -21,7 +21,7 @@ export function AreasServiced() {
         <div className="mt-8">
           <Link
             className="focus-ring inline-flex rounded-md border border-white/20 px-5 py-3 text-sm font-black uppercase tracking-wide text-white transition hover:border-brake hover:bg-brake"
-            href="/mechanic-clyde-north"
+            href="/"
           >
             Clyde North Mechanic Information
           </Link>

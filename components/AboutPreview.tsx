@@ -14,8 +14,8 @@ export function AboutPreview() {
               <div>
                 <p className="text-5xl font-black">Clyde North</p>
                 <p className="mt-3 max-w-sm text-sm leading-6 text-white/70">
-                  A clean, capable workshop for everyday servicing, diagnostics
-                  and mechanical repairs.
+                  Professional servicing, diagnostics and mechanical repairs
+                  for all makes and models.
                 </p>
               </div>
             </div>
@@ -24,17 +24,19 @@ export function AboutPreview() {
         <div>
           <SectionHeader
             eyebrow="About"
-            title="A local workshop built around trust, clarity and careful workmanship."
-            copy="From routine servicing to mechanical repairs, G&T Motorsports gives drivers a simple way to look after their vehicles without confusion or pressure."
+            title="Your Local Mechanic in Clyde North"
+            copy="G&T Motorsports provides professional car servicing, diagnostics and mechanical repairs for drivers in Clyde North and Melbourne's South-East."
           />
           <div className="mt-8 grid gap-4 text-sm leading-6 text-white/70 sm:grid-cols-2">
             <p>
-              We service all makes and models, explain the work clearly and help
-              you understand what matters now versus what can be planned later.
+              We service all makes and models and explain our findings clearly,
+              so you know what needs attention now and what can be planned for
+              later.
             </p>
             <p>
-              Whether you are commuting, running a family car or preparing for a
-              road trip, our goal is to keep your vehicle safe and dependable.
+              From routine servicing and logbook maintenance to diagnostics and
+              major mechanical repairs, our focus is quality workmanship and
+              dependable service.
             </p>
           </div>
           <div className="mt-8">

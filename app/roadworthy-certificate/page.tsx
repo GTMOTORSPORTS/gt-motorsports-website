@@ -12,18 +12,18 @@ const canonical = `${site.url}/roadworthy-certificate`;
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Roadworthy Certificate Clyde North | RWC Inspections | G&T Motorsports",
+      "Roadworthy Certificate Clyde North | RWC Clyde North | G&T Motorsports",
   },
   description:
-    "Need a Roadworthy Certificate inspection near Clyde North? G&T Motorsports provides professional RWC inspections for eligible vehicles in accordance with applicable Victorian requirements.",
+    "Book a roadworthy certificate inspection in Clyde North. G&T Motorsports provides RWC inspections for eligible vehicles under applicable Victorian requirements.",
   alternates: {
     canonical,
   },
   openGraph: {
     title:
-      "Roadworthy Certificate Clyde North | RWC Inspections | G&T Motorsports",
+      "Roadworthy Certificate Clyde North | RWC Clyde North | G&T Motorsports",
     description:
-      "Need a Roadworthy Certificate inspection near Clyde North? G&T Motorsports provides professional RWC inspections for eligible vehicles in accordance with applicable Victorian requirements.",
+      "Book a roadworthy certificate inspection in Clyde North. G&T Motorsports provides RWC inspections for eligible vehicles under applicable Victorian requirements.",
     url: canonical,
     siteName: site.name,
     locale: "en_AU",
@@ -40,22 +40,22 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Roadworthy Certificate Clyde North | RWC Inspections | G&T Motorsports",
+      "Roadworthy Certificate Clyde North | RWC Clyde North | G&T Motorsports",
     description:
-      "Need a Roadworthy Certificate inspection near Clyde North? G&T Motorsports provides professional RWC inspections for eligible vehicles in accordance with applicable Victorian requirements.",
+      "Book a roadworthy certificate inspection in Clyde North. G&T Motorsports provides RWC inspections for eligible vehicles under applicable Victorian requirements.",
     images: ["/workshop-hero.png"],
   },
 };
 
 const inspectedItems = [
+  "Tyres and wheels",
   "Brakes and visible brake components",
-  "Steering and suspension condition",
-  "Tyres, wheels and visible wear",
-  "Lights, indicators and basic safety items",
-  "Windscreen, mirrors and glazing condition",
-  "Body, chassis and structural observations",
-  "Engine, driveline and leak observations",
-  "Other applicable Victorian roadworthiness items",
+  "Steering condition",
+  "Suspension condition",
+  "Lights and indicators",
+  "Seatbelts and safety items",
+  "Windscreen, mirrors and glazing",
+  "Body, structure and other safety-related items",
 ];
 
 const requiredSituations = [
@@ -69,14 +69,14 @@ const requiredSituations = [
 const relatedLinks = [
   { label: "Brake Repairs", href: "/brake-repairs" },
   { label: "Suspension Repairs", href: "/services/suspension-steering" },
+  { label: "General Car Servicing", href: "/services/general-car-servicing" },
   { label: "Engine Diagnostics", href: "/engine-diagnostics" },
-  { label: "Services", href: "/services" },
-  { label: "Reviews", href: "/reviews" },
+  { label: "Book Online", href: "/book-online" },
   { label: "Contact", href: "/contact" },
 ];
 
 const serviceAreas = [
-  { label: "Clyde North", href: "/mechanic-clyde-north" },
+  { label: "Clyde North", href: "/" },
   { label: "Cranbourne", href: "/locations/cranbourne" },
   { label: "Berwick", href: "/locations/berwick" },
   { label: "Narre Warren", href: "/locations/narre-warren" },
@@ -88,34 +88,34 @@ const serviceAreas = [
 
 const faqs = [
   {
-    question: "What is a Roadworthy Certificate inspection?",
+    question: "How long does an RWC inspection take?",
     answer:
-      "A Roadworthy Certificate inspection checks eligible vehicles against applicable Victorian roadworthiness requirements. It confirms whether the inspected vehicle meets the required standard at the time of inspection.",
+      "Inspection time can vary depending on the vehicle, workshop workload and whether any findings need to be discussed. Contact G&T Motorsports when booking so the team can advise expected timing for the day.",
   },
   {
-    question: "When might I need an RWC?",
+    question: "What happens if the vehicle fails the RWC inspection?",
     answer:
-      "An RWC may be required when selling a vehicle, transferring registration, re-registering a vehicle or meeting another roadworthy requirement in Victoria.",
+      "G&T Motorsports will explain the findings clearly. Repairs can be quoted where applicable, but repair work is not automatically included and does not begin without approval.",
+  },
+  {
+    question: "Can repairs be completed at the workshop?",
+    answer:
+      "Where suitable, G&T Motorsports can quote and complete approved repairs at the workshop. Timing depends on parts availability, repair scope and current workload.",
+  },
+  {
+    question: "Do I need an appointment for an RWC inspection?",
+    answer:
+      "Appointments are recommended because RWC inspections depend on workshop availability. Book online or call ahead so the team can confirm a suitable time.",
+  },
+  {
+    question: "Is an RWC the same as a full mechanical inspection?",
+    answer:
+      "No. A Roadworthy Certificate inspection checks applicable Victorian roadworthiness requirements. It is not the same as a comprehensive mechanical, diagnostic or pre-purchase inspection.",
   },
   {
     question: "Can you guarantee my vehicle will pass?",
     answer:
       "No. A pass cannot be guaranteed before inspection. The vehicle must be checked against applicable requirements before an outcome can be confirmed.",
-  },
-  {
-    question: "What happens if my vehicle does not pass?",
-    answer:
-      "G&T Motorsports will explain the findings and can provide a quote for approved repairs where applicable. Repairs are not automatically included in the inspection.",
-  },
-  {
-    question: "Are repairs included with the inspection?",
-    answer:
-      "No. If repairs are required, they are discussed and quoted separately. No additional repair work begins until the quote is approved.",
-  },
-  {
-    question: "Can I book an RWC inspection online?",
-    answer:
-      "Yes. You can use the online booking page or call G&T Motorsports to discuss workshop availability for a Roadworthy Certificate inspection.",
   },
 ];
 
@@ -139,10 +139,10 @@ function StructuredData() {
     "@type": "Service",
     "@id": `${canonical}#service`,
     name: "Roadworthy Certificate Inspections",
-    serviceType: "Roadworthy Certificate inspection support",
+    serviceType: "Roadworthy certificate Clyde North and RWC inspection",
     url: canonical,
     description:
-      "Roadworthy Certificate inspections for eligible vehicles, subject to workshop availability and applicable Victorian requirements.",
+      "Roadworthy Certificate and RWC inspections in Clyde North for eligible vehicles, subject to workshop availability and applicable Victorian requirements.",
     provider: {
       "@id": `${site.url}/#business`,
     },
@@ -203,7 +203,7 @@ export default function RoadworthyCertificatePage() {
 
       <section className="relative overflow-hidden bg-black py-16 sm:py-24">
         <Image
-          src="/workshop-hero.png"
+          src="/workshop-hero.webp"
           alt=""
           fill
           priority
@@ -217,20 +217,21 @@ export default function RoadworthyCertificatePage() {
         />
         <div className="container-shell relative">
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-brake">
-            RWC inspections Clyde North
+            Roadworthy inspection Clyde North
           </p>
           <h1 className="max-w-4xl text-5xl font-black leading-[0.95] text-white sm:text-6xl">
-            Roadworthy Certificate Inspections
+            Roadworthy Certificate Inspections in Clyde North
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/78">
             G&T Motorsports provides Roadworthy Certificate inspections for
             eligible vehicles, subject to workshop availability and applicable
-            Victorian requirements. If a vehicle does not pass, the findings are
-            explained clearly and repairs can be quoted for approval where
-            applicable.
+            Victorian requirements. The inspection checks applicable
+            roadworthiness items at the time of inspection and does not
+            guarantee the overall mechanical condition of the vehicle beyond
+            those requirements.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <ButtonLink href="/book-online">Book RWC Inspection</ButtonLink>
+            <ButtonLink href="/book-online">Book an RWC</ButtonLink>
             <ButtonLink href={site.phoneHref} variant="secondary">
               Call Now
             </ButtonLink>
@@ -246,20 +247,25 @@ export default function RoadworthyCertificatePage() {
         <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <SectionHeader
             eyebrow="What an RWC inspection is"
-            title="A Safety-Focused Inspection for Eligible Vehicles"
-            copy="A Roadworthy Certificate inspection checks relevant safety-related items against applicable Victorian requirements. It is separate from a general service and does not guarantee that repairs will not be needed."
+            title="What Is a Roadworthy Certificate?"
+            copy="A Roadworthy Certificate inspection checks relevant safety-related items against applicable Victorian requirements for eligible vehicles. It is separate from a general service or full mechanical inspection and does not guarantee the vehicle's overall mechanical condition beyond the applicable roadworthy requirements."
             tone="light"
           />
-          <div className="grid gap-4 sm:grid-cols-2">
-            {requiredSituations.map((item) => (
-              <article
-                className="rounded-md border border-black/10 bg-neutral-50 p-5"
-                key={item}
-              >
-                <span className="mb-4 block h-1 w-10 bg-brake" />
-                <h2 className="text-lg font-black">{item}</h2>
-              </article>
-            ))}
+          <div>
+            <h2 className="text-3xl font-black leading-tight">
+              When Do You Need an RWC?
+            </h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {requiredSituations.map((item) => (
+                <article
+                  className="rounded-md border border-black/10 bg-neutral-50 p-5"
+                  key={item}
+                >
+                  <span className="mb-4 block h-1 w-10 bg-brake" />
+                  <h3 className="text-lg font-black">{item}</h3>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -268,8 +274,8 @@ export default function RoadworthyCertificatePage() {
         <div className="container-shell">
           <SectionHeader
             eyebrow="What is generally inspected"
-            title="Common Roadworthy Inspection Areas"
-            copy="The exact inspection depends on the vehicle and applicable requirements. The areas below are examples of common safety-related checks."
+            title="What Is Checked During an RWC Inspection?"
+            copy="The exact inspection depends on the vehicle and applicable requirements. The areas below are practical examples of common safety-related checks and should not be treated as an exhaustive list."
             align="center"
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -290,8 +296,8 @@ export default function RoadworthyCertificatePage() {
         <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <SectionHeader
             eyebrow="If repairs are required"
-            title="Clear Findings Before Approved Repairs"
-            copy="If the vehicle does not pass, customers should receive clear findings. G&T Motorsports can quote approved repairs where applicable, but repairs are not automatically included in the inspection."
+            title="What Happens If Repairs Are Required?"
+            copy="If the vehicle does not pass, customers receive clear findings. G&T Motorsports can quote approved repairs where applicable, but repairs are not automatically included in the inspection."
           />
           <div className="rounded-md border border-white/10 bg-black/35 p-6">
             <h2 className="text-2xl font-black text-white">
@@ -316,8 +322,8 @@ export default function RoadworthyCertificatePage() {
         <div className="container-shell">
           <SectionHeader
             eyebrow="Booking process"
-            title="How RWC Inspection Bookings Are Handled"
-            copy="The process keeps inspection, findings and approval clear from the first enquiry through to collection."
+            title="How to Book an RWC Inspection"
+            copy="Book online or call G&T Motorsports to discuss workshop availability for a Roadworthy Certificate inspection. The process keeps inspection, findings and approval clear from the first enquiry through to collection."
             tone="light"
             align="center"
           />
@@ -412,7 +418,7 @@ export default function RoadworthyCertificatePage() {
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="/book-online" variant="secondary">
-              Book RWC Inspection
+              Book an RWC
             </ButtonLink>
             <ButtonLink href={site.phoneHref} variant="ghost">
               Call Now

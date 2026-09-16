@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
 import { pageMetadata } from "@/lib/seo";
-import { servicePages } from "@/lib/service-pages";
+import { servicePages, servicePath } from "@/lib/service-pages";
 
 function serviceDisplayName(slug: string, name: string) {
   return (
@@ -14,22 +14,14 @@ function serviceDisplayName(slug: string, name: string) {
       "suspension-steering": "Suspension Repairs",
       "battery-charging-systems": "Battery Services",
       "clutch-transmission": "Clutch & Transmission Repairs",
-      "general-car-servicing": "General Mechanical Repairs",
+      "general-car-servicing": "General Car Servicing",
       "mercedes-benz-servicing": "Mercedes-Benz Service",
     }[slug] || name
   );
 }
 
 function serviceHref(slug: string) {
-  if (slug === "roadworthy-certificate") {
-    return "/roadworthy-certificate";
-  }
-
-  if (slug === "mercedes-benz-servicing") {
-    return "/mercedes-benz-service";
-  }
-
-  return `/services/${slug}`;
+  return servicePath(slug);
 }
 
 export const metadata: Metadata = pageMetadata({

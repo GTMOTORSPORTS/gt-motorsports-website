@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
-import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeader } from "@/components/SectionHeader";
 import { customerReviews } from "@/lib/reviews";
 import { site } from "@/lib/site";
@@ -11,16 +10,16 @@ import { site } from "@/lib/site";
 const canonical = `${site.url}/mercedes-benz-service`;
 
 export const metadata: Metadata = {
-  title: { absolute: "Mercedes-Benz Service Melbourne | G&T Motorsports" },
+  title: { absolute: "Mercedes-Benz Service Clyde North | Service A & B | G&T Motorsports" },
   description:
-    "Looking for a trusted Mercedes-Benz specialist? G&T Motorsports provides Mercedes servicing, diagnostics, repairs and Mercedes Digital Service History updates using professional equipment and experienced technicians.",
+    "Mercedes-Benz service in Clyde North including Service A, Service B, diagnostics and eligible Mercedes-Benz Digital Service Record updates at G&T Motorsports.",
   alternates: {
     canonical,
   },
   openGraph: {
-    title: "Mercedes-Benz Service Melbourne | G&T Motorsports",
+    title: "Mercedes-Benz Service Clyde North | Service A & B | G&T Motorsports",
     description:
-      "Looking for a trusted Mercedes-Benz specialist? G&T Motorsports provides Mercedes servicing, diagnostics, repairs and Mercedes Digital Service History updates using professional equipment and experienced technicians.",
+      "Mercedes-Benz service in Clyde North including Service A, Service B, diagnostics and eligible Mercedes-Benz Digital Service Record updates at G&T Motorsports.",
     url: canonical,
     siteName: site.name,
     locale: "en_AU",
@@ -36,24 +35,24 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mercedes-Benz Service Melbourne | G&T Motorsports",
+    title: "Mercedes-Benz Service Clyde North | Service A & B | G&T Motorsports",
     description:
-      "Looking for a trusted Mercedes-Benz specialist? G&T Motorsports provides Mercedes servicing, diagnostics, repairs and Mercedes Digital Service History updates using professional equipment and experienced technicians.",
+      "Mercedes-Benz service in Clyde North including Service A, Service B, diagnostics and eligible Mercedes-Benz Digital Service Record updates at G&T Motorsports.",
     images: ["/workshop-hero.png"],
   },
 };
 
 const whyChoose = [
   {
-    title: "Mercedes Specialists",
-    copy: "Mercedes-Benz owners receive focused service advice from an independent workshop familiar with scheduled servicing, diagnostics and mechanical care.",
+    title: "Clear Advice",
+    copy: "Findings are explained clearly so you understand what is due now and what can be planned for later.",
   },
   {
-    title: "Digital Service History Updates",
-    copy: "Eligible Mercedes-Benz Digital Service History records can be updated after supported scheduled servicing is completed.",
+    title: "Digital Service Record Updates",
+    copy: "Eligible Mercedes-Benz Digital Service Record updates can be completed after supported scheduled servicing is completed.",
   },
   {
-    title: "Factory Scheduled Servicing",
+    title: "Scheduled Servicing",
     copy: "Service work is planned around the relevant maintenance schedule, vehicle condition and the way the vehicle is used.",
   },
   {
@@ -61,12 +60,12 @@ const whyChoose = [
     copy: "Professional diagnostic equipment helps identify warning lights, electronic faults and performance concerns before parts are replaced.",
   },
   {
-    title: "OEM & Genuine Parts",
-    copy: "Genuine and OEM-quality options are used where appropriate, with suitable oils and fluids selected for the vehicle.",
+    title: "Appropriate Parts & Fluids",
+    copy: "Suitable genuine, OEM-equivalent or quality parts are used where appropriate, with fluids selected for the vehicle.",
   },
   {
-    title: "Transparent Pricing",
-    copy: "Findings are explained clearly and additional work is discussed before repairs proceed.",
+    title: "Local Convenience",
+    copy: "Clyde North customers can book online, call the workshop or request advice before arranging service.",
   },
   {
     title: "Experienced Technicians",
@@ -81,33 +80,28 @@ const whyChoose = [
 const mercedesServices = [
   {
     title: "Mercedes Logbook Service",
-    href: "/services/logbook-servicing",
+    href: "/logbook-servicing",
     copy: "Scheduled servicing completed according to the relevant Mercedes-Benz maintenance requirements.",
   },
   {
     title: "Service A",
-    href: "/services/mercedes-benz-servicing",
-    copy: "Routine scheduled maintenance for eligible Mercedes-Benz vehicles, including checks based on service requirements.",
+    href: "/mercedes-benz-service",
+    copy: "Routine scheduled maintenance with requirements checked against the vehicle's service schedule.",
   },
   {
     title: "Service B",
-    href: "/services/mercedes-benz-servicing",
-    copy: "More comprehensive scheduled servicing based on the vehicle's age, kilometres and maintenance plan.",
+    href: "/mercedes-benz-service",
+    copy: "Generally a more comprehensive scheduled service based on model, age, mileage and maintenance plan.",
   },
   {
     title: "Brake Repairs",
-    href: "/services/brake-repairs",
+    href: "/brake-repairs",
     copy: "Brake pad, rotor, hydraulic and warning-light concerns inspected before repair approval.",
   },
   {
     title: "Transmission Service",
     href: "/services/clutch-transmission",
     copy: "Transmission, clutch and driveline symptoms assessed with clear recommendations.",
-  },
-  {
-    title: "Engine Diagnostics",
-    href: "/services/vehicle-diagnostics",
-    copy: "Warning lights, drivability issues and engine concerns checked with diagnostic equipment.",
   },
   {
     title: "Cooling System Repairs",
@@ -134,20 +128,28 @@ const mercedesServices = [
     href: "/services/general-car-servicing",
     copy: "Mechanical repairs and maintenance support for Mercedes-Benz vehicles and all makes and models.",
   },
+];
+
+const serviceScheduleCards = [
   {
-    title: "Electrical Diagnostics",
-    href: "/services/vehicle-diagnostics",
-    copy: "Electrical symptoms, warning messages and system faults checked with a staged diagnostic process.",
+    title: "Mercedes-Benz Service A",
+    copy:
+      "Service A is typically an earlier scheduled maintenance visit focused on essential service items and inspections. The exact items vary by model, engine, age, kilometres and the vehicle's service reminder, so G&T Motorsports checks what is required for your Mercedes-Benz before work begins.",
+  },
+  {
+    title: "Mercedes-Benz Service B",
+    copy:
+      "Service B is generally a more comprehensive scheduled service. Requirements vary by model, age, mileage and manufacturer schedule, and may include additional checks or replacement items depending on the vehicle. Customers are advised before extra work is carried out.",
   },
 ];
 
-const differences = [
-  "Independent specialist workshop with personal customer service",
-  "Professional diagnostic equipment for Mercedes-Benz systems",
-  "High-quality workmanship across servicing, diagnosis and repairs",
-  "Honest recommendations based on inspection findings",
-  "Competitive pricing compared with dealership servicing",
-  "Efficient booking and turnaround guidance where workshop workload allows",
+const diagnosticPoints = [
+  "Dashboard warning messages",
+  "Engine and drivetrain fault codes",
+  "ABS, airbag and electronic system warnings",
+  "Poor running, starting or performance concerns",
+  "Battery, charging and electrical issues",
+  "Vehicle-specific testing before repair recommendations",
 ];
 
 const models = [
@@ -172,64 +174,96 @@ const galleryItems = [
   {
     title: "Mercedes servicing",
     alt: "Mercedes-Benz servicing at G&T Motorsports in Clyde North",
+    src: "/images/workshop/gt-motorsports-workshop-service-clyde-north.jpg.jpeg",
   },
   {
     title: "Mercedes diagnostics",
     alt: "Mercedes-Benz diagnostic inspection using professional equipment",
+    src: "/images/workshop/gt-motorsports-diagnostics-clyde-north.jpg.jpeg",
   },
   {
     title: "Brake repairs",
     alt: "Mercedes-Benz brake repair inspection at G&T Motorsports",
+    src: "/images/workshop/gt-motorsports-brake-suspension-repair-clyde-north.jpg.jpeg",
   },
   {
     title: "Engine repairs",
     alt: "Mercedes-Benz engine repair inspection in a professional workshop",
+    src: "/images/workshop/gt-motorsports-mechanical-repair-clyde-north.jpg.jpeg",
   },
   {
     title: "Vehicle inspection",
     alt: "Mercedes-Benz vehicle inspection at G&T Motorsports",
+    src: "/images/workshop/gt-motorsports-vehicle-inspection-clyde-north.jpg.jpeg",
   },
   {
     title: "Technician working",
     alt: "Technician working on a vehicle inside G&T Motorsports workshop",
+    src: "/workshop-hero.webp",
+  },
+];
+
+const mercedesProcessSteps = [
+  {
+    title: "Consultation",
+    copy: "We discuss the service reminder, concerns and vehicle history.",
+  },
+  {
+    title: "Vehicle Inspection",
+    copy: "The vehicle is checked against the service request and inspection findings.",
+  },
+  {
+    title: "Recommendation",
+    copy: "We explain suitable servicing, diagnostic or repair options clearly.",
+  },
+  {
+    title: "Quote Approval",
+    copy: "Additional work only proceeds after the quote is approved.",
+  },
+  {
+    title: "Professional Work",
+    copy: "Approved servicing or repairs are completed with care.",
+  },
+  {
+    title: "Quality Inspection",
+    copy: "The work is checked before vehicle handover.",
+  },
+  {
+    title: "Road Test",
+    copy: "A road test is completed where safe, suitable and required.",
   },
 ];
 
 const faqs = [
   {
-    question: "How often should I service my Mercedes?",
+    question: "What is the difference between Mercedes-Benz Service A and Service B?",
     answer:
-      "Mercedes-Benz service intervals vary by model, age, kilometres and driving conditions. Follow the service reminder, logbook or manufacturer schedule, and contact G&T Motorsports if you are unsure what is due.",
+      "Service A is typically an earlier scheduled service, while Service B is generally more comprehensive. Exact requirements vary by model, age, mileage, engine type and the vehicle's service schedule.",
   },
   {
-    question: "Can you update Mercedes Digital Service History?",
+    question: "Can you update the Mercedes-Benz Digital Service Record?",
     answer:
-      "Yes. G&T Motorsports can update Mercedes Digital Service History for supported vehicles after eligible scheduled servicing is completed. Availability depends on the model and manufacturer requirements.",
+      "Yes. G&T Motorsports can update the Mercedes-Benz Digital Service Record for eligible vehicles after applicable servicing is completed. Availability depends on the vehicle and service requirements.",
   },
   {
-    question: "Do you use genuine or OEM parts?",
+    question: "How often should I service my Mercedes-Benz?",
     answer:
-      "G&T Motorsports can use genuine and OEM-quality parts where appropriate, with suitable oils and fluids selected for the vehicle and service requirements.",
+      "Service intervals vary by model, age, kilometres, driving conditions and dashboard service reminders. Follow the logbook, service reminder or manufacturer schedule, and contact G&T Motorsports if you are unsure what is due.",
   },
   {
-    question: "Can you diagnose warning lights?",
+    question: "Can you diagnose Mercedes-Benz warning messages?",
     answer:
-      "Yes. Warning lights and electronic faults can be assessed using diagnostic equipment and practical testing before repair recommendations are made.",
+      "Yes. Warning lights, fault messages and electronic concerns can be assessed using diagnostic scanning and practical testing before repair recommendations are made.",
   },
   {
-    question: "Do you perform Mercedes logbook servicing?",
+    question: "Do I need to use a Mercedes-Benz dealership for routine servicing?",
     answer:
-      "Yes. Mercedes logbook servicing is available and is completed according to the relevant scheduled servicing requirements.",
+      "In many cases, routine servicing can be completed by an independent workshop when the correct schedule, suitable parts and appropriate fluids are used. Keep service records and ask the workshop if you are unsure about your vehicle or warranty position.",
   },
   {
-    question: "Are you more affordable than dealerships?",
+    question: "Are you affiliated with Mercedes-Benz?",
     answer:
-      "As an independent workshop, G&T Motorsports aims to provide competitive pricing and transparent advice. The exact cost depends on the vehicle, service requirements and parts needed.",
-  },
-  {
-    question: "Can I book online?",
-    answer:
-      "Yes. You can book a Mercedes-Benz service online or call G&T Motorsports directly on 0414 901 666.",
+      "No. G&T Motorsports is an independent automotive workshop and does not claim Mercedes-Benz dealership status, manufacturer affiliation, certification or endorsement.",
   },
 ];
 
@@ -256,7 +290,7 @@ function StructuredData() {
     serviceType: "Mercedes-Benz servicing, diagnostics and repairs",
     url: canonical,
     description:
-      "Mercedes-Benz servicing, diagnostics, mechanical repairs and eligible Mercedes Digital Service History updates from G&T Motorsports in Melbourne's south-east.",
+      "Mercedes-Benz Service A, Service B, diagnostics, maintenance and eligible Mercedes-Benz Digital Service Record updates from G&T Motorsports in Clyde North.",
     provider: {
       "@id": `${site.url}/#business`,
     },
@@ -346,7 +380,7 @@ export default function MercedesBenzServicePage() {
 
       <section className="relative overflow-hidden bg-black py-16 sm:py-24">
         <Image
-          src="/workshop-hero.png"
+          src="/workshop-hero.webp"
           alt=""
           fill
           priority
@@ -360,22 +394,21 @@ export default function MercedesBenzServicePage() {
         />
         <div className="container-shell relative">
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-brake">
-            Mercedes-Benz Service Without Dealership Prices
+            Mercedes-Benz service Clyde North
           </p>
           <h1 className="max-w-4xl text-5xl font-black leading-[0.95] text-white sm:text-6xl">
-            Mercedes-Benz Service & Specialist Workshop
+            Mercedes-Benz Service in Clyde North
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/78">
-            Keep your Mercedes-Benz performing at its best with professional
-            servicing, diagnostics and repairs from experienced technicians.
-            G&T Motorsports offers dealership-quality workmanship, transparent
-            pricing and Mercedes Digital Service History updates where
-            applicable.
+            G&T Motorsports provides Mercedes-Benz servicing, maintenance and
+            diagnostics in Clyde North, including Service A and Service B.
+            Mercedes-Benz Digital Service Record updates are available for
+            eligible vehicles after applicable servicing is completed.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <ButtonLink href="/book-online">Book Mercedes Service</ButtonLink>
-            <ButtonLink href={site.phoneHref} variant="secondary">
-              Call Now
+            <ButtonLink href="/book-online">Book a Service</ButtonLink>
+            <ButtonLink href="/contact" variant="secondary">
+              Get a Quote
             </ButtonLink>
           </div>
           <p className="mt-6 max-w-2xl text-xs leading-5 text-white/52">
@@ -389,8 +422,8 @@ export default function MercedesBenzServicePage() {
         <div className="container-shell">
           <SectionHeader
             eyebrow="Why choose us"
-            title="Mercedes Care With a Premium Independent Workshop Experience"
-            copy="Mercedes-Benz owners choose G&T Motorsports for focused servicing, clear communication and professional diagnostic support without the formality of a dealership visit."
+            title="Why Choose G&T Motorsports for Your Mercedes-Benz?"
+            copy="Mercedes-Benz owners choose G&T Motorsports for clear advice, appropriate fluids and parts, professional diagnostic equipment, careful workmanship and local convenience in Clyde North."
             tone="light"
             align="center"
           />
@@ -418,17 +451,50 @@ export default function MercedesBenzServicePage() {
 
       <section className="bg-black py-16 sm:py-24">
         <div className="container-shell">
+          <SectionHeader
+            eyebrow="Service schedules"
+            title="Mercedes-Benz Service A and Service B"
+            copy="Your Mercedes-Benz service requirements depend on the vehicle, its service reminder and the applicable maintenance schedule."
+            align="center"
+          />
+          <div className="mt-10 grid gap-4 lg:grid-cols-2">
+            {serviceScheduleCards.map((card) => (
+              <article
+                className="rounded-md border border-white/10 bg-white/[0.04] p-6 shadow-2xl sm:p-8"
+                key={card.title}
+              >
+                <span className="mb-5 block h-1 w-12 bg-brake" />
+                <h2 className="text-2xl font-black leading-tight text-white sm:text-3xl">
+                  {card.title}
+                </h2>
+                <p className="mt-4 text-base leading-7 text-white/70">
+                  {card.copy}
+                </p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <ButtonLink href="/logbook-servicing" variant="ghost">
+              Logbook Servicing
+            </ButtonLink>
+            <ButtonLink href="/book-online">Book a Service</ButtonLink>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-asphalt py-16 sm:py-24">
+        <div className="container-shell">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeader
               eyebrow="Mercedes services"
               title="Mercedes-Benz Service, Diagnostics and Repairs"
               copy="From scheduled maintenance to complex fault finding, G&T Motorsports gives Mercedes owners a clear pathway from inspection through to approved repair."
             />
-            <ButtonLink href="/services/mercedes-benz-servicing" variant="ghost" className="w-fit">
+            <ButtonLink href="/mercedes-benz-service" variant="ghost" className="w-fit">
               Mercedes Service Details
             </ButtonLink>
           </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {mercedesServices.map((service) => (
               <Link
                 className="focus-ring rounded-md border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-brake"
@@ -436,7 +502,9 @@ export default function MercedesBenzServicePage() {
                 key={service.title}
               >
                 <span className="mb-5 block h-1 w-12 bg-brake" />
-                <h3 className="text-xl font-black text-white">{service.title}</h3>
+                <h3 className="text-lg font-black leading-tight text-white sm:text-xl">
+                  {service.title}
+                </h3>
                 <p className="mt-3 text-sm leading-6 text-white/66">
                   {service.copy}
                 </p>
@@ -446,23 +514,33 @@ export default function MercedesBenzServicePage() {
         </div>
       </section>
 
-      <section className="bg-asphalt py-16 sm:py-24">
-        <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+      <section className="bg-black py-16 sm:py-24">
+        <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <SectionHeader
-            eyebrow="Independent specialist"
-            title="What Makes Us Different"
-            copy="A Mercedes-Benz service should feel precise, transparent and easy to understand. G&T Motorsports combines technical inspection with personal customer service."
+            eyebrow="Diagnostics"
+            title="Mercedes-Benz Diagnostics"
+            copy="Mercedes-Benz diagnostics can include diagnostic scanning, warning-light checks, fault investigation and vehicle-specific testing before repair recommendations are made."
           />
           <div className="grid gap-4 sm:grid-cols-2">
-            {differences.map((item) => (
+            {diagnosticPoints.map((item) => (
               <div
-                className="rounded-md border border-white/10 bg-black/35 p-5"
+                className="rounded-md border border-white/10 bg-white/[0.04] p-5"
                 key={item}
               >
                 <span className="mb-4 block h-1 w-10 bg-brake" />
                 <h3 className="text-lg font-black leading-6 text-white">{item}</h3>
               </div>
             ))}
+          </div>
+          <div className="lg:col-start-2">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <ButtonLink href="/engine-diagnostics" variant="ghost">
+                Diagnostics
+              </ButtonLink>
+              <ButtonLink href="/brake-repairs" variant="ghost">
+                Brake Repairs
+              </ButtonLink>
+            </div>
           </div>
         </div>
       </section>
@@ -473,7 +551,7 @@ export default function MercedesBenzServicePage() {
             <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
               <div className="relative min-h-[320px]">
                 <Image
-                  src="/workshop-hero.png"
+                  src="/images/workshop/gt-motorsports-vehicle-inspection-clyde-north.jpg.jpeg"
                   alt="Mercedes-Benz service inspection at G&T Motorsports"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -482,14 +560,14 @@ export default function MercedesBenzServicePage() {
               </div>
               <div className="p-6 sm:p-10">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-brake">
-                  Digital Service History
+                  Mercedes-Benz Digital Service Record
                 </p>
                 <h2 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">
-                  Mercedes Digital Service History Updates
+                  Mercedes-Benz Digital Service Record
                 </h2>
                 <p className="mt-5 text-base leading-7 text-black/68">
-                  G&T Motorsports can update Mercedes Digital Service History
-                  for supported vehicles after eligible scheduled servicing is
+                  G&T Motorsports can update the Mercedes-Benz Digital Service
+                  Record for eligible vehicles after applicable servicing is
                   completed. Keeping a complete digital service record can help
                   preserve service history, support future maintenance decisions
                   and provide useful documentation when it is time to sell or
@@ -497,15 +575,15 @@ export default function MercedesBenzServicePage() {
                 </p>
                 <p className="mt-4 text-sm leading-6 text-black/60">
                   Availability depends on the vehicle model and manufacturer
-                  requirements, so please mention Digital Service History when
-                  booking your Mercedes service.
+                  requirements, so please mention Digital Service Record updates
+                  when booking your Mercedes-Benz service.
                 </p>
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                  <ButtonLink href="/book-online">Book Mercedes Service</ButtonLink>
+                  <ButtonLink href="/book-online">Book a Service</ButtonLink>
                   <ButtonLink
-                    href="/services/logbook-servicing"
-                    variant="ghost"
-                    className="border-black/20 text-asphalt hover:text-white"
+                    href="/logbook-servicing"
+                    variant="secondary"
+                    className="border-black/20"
                   >
                     Logbook Servicing
                   </ButtonLink>
@@ -521,7 +599,7 @@ export default function MercedesBenzServicePage() {
           <SectionHeader
             eyebrow="Models we service"
             title="Mercedes-Benz Models We Service"
-            copy="G&T Motorsports services a broad range of Mercedes-Benz passenger, performance and commercial vehicles. Contact the workshop if you are unsure about your model or service requirement."
+            copy="G&T Motorsports services a broad range of Mercedes-Benz passenger and SUV model families, including A-Class, C-Class, E-Class, S-Class, CLA, GLA, GLB, GLC, GLE, GLS and V-Class vehicles. Contact the workshop if you are unsure about your model or service requirement."
             align="center"
           />
           <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
@@ -537,7 +615,7 @@ export default function MercedesBenzServicePage() {
         </div>
       </section>
 
-      <section className="bg-white py-16 text-asphalt sm:py-24">
+      <section className="bg-white py-14 text-asphalt sm:py-20">
         <div className="container-shell">
           <SectionHeader
             eyebrow="Process"
@@ -546,7 +624,22 @@ export default function MercedesBenzServicePage() {
             tone="light"
             align="center"
           />
-          <ProcessSteps tone="light" />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-7">
+            {mercedesProcessSteps.map((step, index) => (
+              <article
+                className="flex min-h-[13rem] flex-col rounded-md border border-black/10 bg-neutral-50 p-5 lg:p-4"
+                key={step.title}
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brake">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <h3 className="mt-5 whitespace-normal text-lg font-black leading-tight text-asphalt lg:text-[0.9rem]">
+                  {step.title}
+                </h3>
+                <p className="mt-4 text-sm leading-6 text-black/65">{step.copy}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -565,7 +658,7 @@ export default function MercedesBenzServicePage() {
               >
                 <div className="relative aspect-[4/3] w-full">
                   <Image
-                    src="/workshop-hero.png"
+                    src={item.src}
                     alt={item.alt}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
@@ -669,21 +762,21 @@ export default function MercedesBenzServicePage() {
               Ready to book?
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight sm:text-4xl">
-              Looking for a Mercedes Specialist?
+              Book Your Mercedes-Benz Service
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-white/85">
               Whether your Mercedes needs routine servicing, diagnostics,
-              repairs or Digital Service History updates, G&T Motorsports
+              repairs or Digital Service Record updates, G&T Motorsports
               provides trusted workmanship and professional care for Mercedes
               owners across Melbourne&apos;s south-east.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="/book-online" variant="secondary">
-              Book Mercedes Service
+              Book a Service
             </ButtonLink>
-            <ButtonLink href={site.phoneHref} variant="ghost">
-              Call Now
+            <ButtonLink href="/contact" variant="ghost">
+              Get a Quote
             </ButtonLink>
           </div>
         </div>

@@ -80,7 +80,7 @@ const serviceCards = [
     copy: "Suspension and steering inspections for noises, handling concerns, wear and safety-related symptoms.",
   },
   {
-    title: "General Mechanical Repairs",
+    title: "General Car Servicing",
     href: "/services/general-car-servicing",
     copy: "Practical mechanical servicing and repairs for family cars, work vehicles, 4WDs and performance vehicles.",
   },
@@ -139,7 +139,7 @@ const brands = [
 ];
 
 const serviceAreas = [
-  { label: "Clyde North", href: "/mechanic-clyde-north" },
+  { label: "Clyde North", href: "/" },
   { label: "Cranbourne", href: "/locations/cranbourne" },
   { label: "Berwick", href: "/locations/berwick" },
   { label: "Narre Warren", href: "/locations/narre-warren" },
@@ -297,7 +297,7 @@ export default function AboutPage() {
 
       <section className="relative overflow-hidden bg-black py-16 sm:py-24">
         <Image
-          src="/workshop-hero.png"
+          src="/workshop-hero.webp"
           alt=""
           fill
           priority
@@ -421,7 +421,7 @@ export default function AboutPage() {
         <div className="container-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="relative min-h-[360px] overflow-hidden rounded-md border border-black/10">
             <Image
-              src="/workshop-hero.png"
+              src="/workshop-hero.webp"
               alt="Clean professional workshop environment at G&T Motorsports"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
@@ -526,7 +526,7 @@ export default function AboutPage() {
               >
                 <div className="relative aspect-[4/3]">
                   <Image
-                    src="/workshop-hero.png"
+                    src="/workshop-hero.webp"
                     alt={item.alt}
                     fill
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"

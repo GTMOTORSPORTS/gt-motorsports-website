@@ -35,6 +35,7 @@ Thumbs.db
 # Codex/local agent state
 .agents/
 .codex/
+.codex-screenshots/
 
 # test and coverage output
 coverage/

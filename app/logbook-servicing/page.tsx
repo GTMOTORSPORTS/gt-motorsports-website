@@ -10,16 +10,19 @@ import { site } from "@/lib/site";
 const canonical = `${site.url}/logbook-servicing`;
 
 export const metadata: Metadata = {
-  title: { absolute: "Logbook Servicing Melbourne | G&T Motorsports" },
+  title: {
+    absolute:
+      "Logbook Service Clyde North | Scheduled Servicing | G&T Motorsports",
+  },
   description:
-    "Professional logbook servicing for all makes and models. Maintain your manufacturer's warranty with expert servicing, quality parts and experienced technicians at G&T Motorsports.",
+    "Book logbook servicing in Clyde North for scheduled car servicing, new car servicing and manufacturer maintenance schedules at G&T Motorsports.",
   alternates: {
     canonical,
   },
   openGraph: {
-    title: "Logbook Servicing Melbourne | G&T Motorsports",
+    title: "Logbook Service Clyde North | Scheduled Servicing | G&T Motorsports",
     description:
-      "Professional logbook servicing for all makes and models. Maintain your manufacturer's warranty with expert servicing, quality parts and experienced technicians at G&T Motorsports.",
+      "Professional logbook servicing in Clyde North for all makes and models, completed to the applicable vehicle schedule where required.",
     url: canonical,
     siteName: site.name,
     locale: "en_AU",
@@ -35,21 +38,21 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Logbook Servicing Melbourne | G&T Motorsports",
+    title: "Logbook Service Clyde North | Scheduled Servicing | G&T Motorsports",
     description:
-      "Professional logbook servicing for all makes and models. Maintain your manufacturer's warranty with expert servicing, quality parts and experienced technicians at G&T Motorsports.",
+      "Professional logbook servicing in Clyde North for all makes and models, completed to the applicable vehicle schedule where required.",
     images: ["/workshop-hero.png"],
   },
 };
 
 const trustCards = [
   {
-    title: "Warranty Protected",
-    copy: "Logbook servicing is completed according to the relevant manufacturer requirements to help support your warranty obligations.",
+    title: "Warranty Support",
+    copy: "Servicing is completed according to the applicable manufacturer maintenance schedule and vehicle requirements where relevant.",
   },
   {
-    title: "Genuine & OEM Parts",
-    copy: "Suitable genuine and OEM-quality options are used where appropriate, with oils and fluids selected for your vehicle.",
+    title: "Quality Parts & Fluids",
+    copy: "Genuine, OEM-equivalent or quality parts and the correct fluids are used as appropriate for your vehicle.",
   },
   {
     title: "Qualified Technicians",
@@ -61,7 +64,7 @@ const trustCards = [
   },
   {
     title: "Transparent Pricing",
-    copy: "You receive clear advice before additional work proceeds, so there are no unnecessary surprises.",
+    copy: "You receive clear advice before any additional work is carried out, so there are no unnecessary surprises.",
   },
   {
     title: "Fast Turnaround",
@@ -78,28 +81,28 @@ const trustCards = [
 ];
 
 const includedItems = [
-  "Engine Oil",
-  "Oil Filter",
-  "Vehicle Inspection",
-  "Brake Inspection",
-  "Fluid Levels",
-  "Battery Check",
+  "Engine oil and filter",
+  "Fluid inspections",
+  "Filters where scheduled",
+  "Brake checks",
   "Tyres",
-  "Suspension",
-  "Steering",
-  "Safety Inspection",
-  "Diagnostic Scan",
-  "Road Test",
+  "Battery checks",
+  "Cooling system",
+  "Belts and hoses",
+  "Scheduled inspection items",
+  "Manufacturer-specified items",
+  "Diagnostic scan where appropriate",
+  "Road test where appropriate",
 ];
 
 const whyMatters = [
   {
-    title: "Warranty Protection",
-    copy: "Following the correct service schedule and using suitable parts, oils and fluids helps support your vehicle's warranty requirements.",
+    title: "Warranty Support",
+    copy: "Following the applicable service schedule and using suitable parts, oils and fluids helps support your vehicle's servicing records and maintenance obligations.",
   },
   {
     title: "Manufacturer Service Schedules",
-    copy: "A logbook service follows the items required for your vehicle's age, kilometres and service interval rather than using a one-size-fits-all checklist.",
+    copy: "A logbook service follows the items required for your vehicle's make, model, engine, age, kilometres and service interval rather than using a one-size-fits-all checklist.",
   },
   {
     title: "Resale Value",
@@ -119,6 +122,45 @@ const whyMatters = [
   },
 ];
 
+const dueItems = [
+  "Dashboard service reminder",
+  "Logbook kilometre interval",
+  "Time-based service interval",
+  "Manufacturer maintenance schedule",
+  "Vehicle age and service history",
+  "Long-distance driving",
+  "Towing or heavy use",
+];
+
+const schedulePoints = [
+  "Vehicle make and model",
+  "Engine and drivetrain",
+  "Age and kilometres",
+  "Previous service history",
+  "Driving conditions",
+  "Applicable maintenance schedule",
+];
+
+const documentationPoints = [
+  "Clear record of completed service work",
+  "Physical service book updated where applicable",
+  "Service items explained before extra work proceeds",
+  "Mercedes-Benz owners can use the dedicated Mercedes-Benz Service page for Digital Service Record information",
+];
+
+const comparisonCards = [
+  {
+    title: "General Car Service",
+    copy: "A general service is useful for routine maintenance, oil and filter servicing, basic checks and practical condition advice between major service intervals.",
+    href: "/services/general-car-servicing",
+  },
+  {
+    title: "Logbook Service",
+    copy: "A logbook service follows the applicable scheduled service requirements for your specific vehicle, based on time, kilometres and manufacturer maintenance information where relevant.",
+    href: "/logbook-servicing",
+  },
+];
+
 const vehicleTypes = [
   "European",
   "Japanese",
@@ -132,34 +174,39 @@ const vehicleTypes = [
 
 const faqs = [
   {
-    question: "Does logbook servicing keep my warranty?",
+    question: "What is a logbook service?",
     answer:
-      "Logbook servicing can help maintain your manufacturer's warranty when the service is completed according to the relevant manufacturer schedule using suitable parts, oils and fluids. Always keep clear service records for your vehicle.",
+      "A logbook service is scheduled maintenance completed according to the relevant manufacturer service schedule where applicable. It usually includes specific checks, replacement items, fluids and inspections based on the vehicle's age, kilometres and service interval.",
   },
   {
-    question: "Do you use genuine parts?",
+    question: "How is logbook servicing different from a general service?",
     answer:
-      "G&T Motorsports can use genuine and OEM-quality parts where appropriate. The right option depends on the vehicle, service requirements and customer approval.",
+      "A general service covers routine maintenance and condition checks. A logbook service follows the applicable scheduled service requirements for your specific vehicle based on the manufacturer maintenance schedule where relevant.",
   },
   {
-    question: "Can independent workshops perform logbook servicing?",
+    question: "Do you service different makes and models?",
     answer:
-      "Yes. In Australia, independent workshops can perform logbook servicing when the work follows the applicable manufacturer requirements and suitable parts and fluids are used.",
+      "Yes. G&T Motorsports services a wide range of makes and models, including family vehicles, work vehicles, four-wheel drives, European vehicles and everyday passenger cars.",
   },
   {
-    question: "How often should I service my vehicle?",
+    question: "Does the service schedule depend on kilometres or time?",
     answer:
-      "Service intervals vary by make, model, kilometres, age and driving conditions. Check your logbook, dashboard service reminder or contact G&T Motorsports for guidance.",
+      "Often it depends on both. The exact requirements can vary by vehicle make, model, engine, age, kilometres, service history and applicable maintenance schedule.",
   },
   {
-    question: "Can I book online?",
+    question: "What happens if additional repairs are found?",
     answer:
-      "Yes. You can book your logbook service online or call G&T Motorsports directly on 0414 901 666.",
+      "If additional maintenance or repairs are identified, G&T Motorsports explains the findings and seeks approval before additional work proceeds.",
   },
   {
-    question: "Do you service European vehicles?",
+    question: "Do you provide service records and documentation?",
     answer:
-      "Yes. G&T Motorsports services European vehicles as well as Japanese, Korean, Australian, SUV, 4WD, passenger and light commercial vehicles.",
+      "Yes. Completed service work can be documented, and a physical service book can be updated where applicable. Keep your service records with the vehicle for future reference.",
+  },
+  {
+    question: "Should I bring my physical service book?",
+    answer:
+      "Yes, bring your physical service book if you have one. It helps the workshop check previous servicing and update records where applicable.",
   },
 ];
 
@@ -183,10 +230,10 @@ function StructuredData() {
     "@type": "Service",
     "@id": `${canonical}#service`,
     name: "Logbook Servicing",
-    serviceType: "Car logbook service and warranty service",
+    serviceType: "Logbook service Clyde North",
     url: canonical,
     description:
-      "Professional logbook servicing for all makes and models, completed according to manufacturer service schedules using suitable parts, oils and fluids.",
+      "Professional logbook servicing in Clyde North for all makes and models, completed according to manufacturer service schedules where applicable using suitable parts, oils and fluids.",
     provider: {
       "@id": `${site.url}/#business`,
     },
@@ -264,7 +311,7 @@ export default function LogbookServicingLandingPage() {
 
       <section className="relative overflow-hidden bg-black py-16 sm:py-24">
         <Image
-          src="/workshop-hero.png"
+          src="/workshop-hero.webp"
           alt=""
           fill
           priority
@@ -278,21 +325,21 @@ export default function LogbookServicingLandingPage() {
         />
         <div className="container-shell relative">
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-brake">
-            Maintain Your Warranty Without Paying Dealership Prices
+            Professional logbook service Clyde North
           </p>
           <h1 className="max-w-4xl text-5xl font-black leading-[0.95] text-white sm:text-6xl">
-            Professional Logbook Servicing
+            Logbook Servicing in Clyde North
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/78">
-            G&T Motorsports provides professional logbook servicing for all
-            makes and models following manufacturer service schedules. Quality
-            workmanship, experienced technicians and genuine or OEM quality
-            parts help keep your vehicle running at its best.
+            Keep your vehicle maintained to the correct service schedule with
+            professional logbook servicing at G&T Motorsports in Clyde North. We
+            service all makes and models and provide clear advice before any
+            additional work is carried out.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <ButtonLink href="/book-online">Book Online</ButtonLink>
-            <ButtonLink href={site.phoneHref} variant="secondary">
-              Call Now
+            <ButtonLink href="/book-online">Book Logbook Service</ButtonLink>
+            <ButtonLink href="/contact" variant="secondary">
+              Get a Quote
             </ButtonLink>
           </div>
         </div>
@@ -301,9 +348,9 @@ export default function LogbookServicingLandingPage() {
       <section className="bg-white py-16 text-asphalt sm:py-24">
         <div className="container-shell">
           <SectionHeader
-            eyebrow="Why choose us"
-            title="Logbook Servicing Without the Dealership Runaround"
-            copy="G&T Motorsports gives customers a clear, professional way to service their vehicle according to manufacturer requirements while staying close to home in Melbourne's south-east."
+            eyebrow="Logbook servicing"
+            title="Logbook Servicing in Clyde North"
+            copy="G&T Motorsports can service vehicles according to the applicable manufacturer maintenance schedule and vehicle requirements. The workshop services all makes and models and advises customers before additional repairs or maintenance proceed."
             tone="light"
             align="center"
           />
@@ -332,10 +379,22 @@ export default function LogbookServicingLandingPage() {
       <section className="bg-black py-16 sm:py-24">
         <div className="container-shell">
           <SectionHeader
-            eyebrow="What is included"
-            title="A Complete Service Based on Your Vehicle's Schedule"
-            copy="Logbook servicing is not a generic oil change. The exact service items depend on your vehicle, kilometres and manufacturer schedule, but common checks and replacements can include the items below."
+            eyebrow="What is a logbook service?"
+            title="What Is a Logbook Service?"
+            copy="A logbook service is scheduled car servicing completed according to the applicable service requirements for your vehicle. It is more specific than a generic oil change because the required checks, fluids, filters and inspection items depend on the vehicle."
           />
+          <div className="mt-8 rounded-md border border-white/10 bg-white/[0.04] p-6">
+            <h2 className="text-2xl font-black text-white">
+              What Can Be Included?
+            </h2>
+            <p className="mt-4 text-sm leading-6 text-white/70">
+              The exact service requirements depend on the vehicle's make,
+              model, engine, age, kilometres, service history and applicable
+              maintenance schedule. Items below may be checked, replaced or
+              inspected where scheduled or relevant to the service, but not
+              every item is replaced during every logbook service.
+            </p>
+          </div>
           <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {includedItems.map((item) => (
               <div
@@ -347,12 +406,37 @@ export default function LogbookServicingLandingPage() {
             ))}
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/services/logbook-servicing">
-              Detailed Service Page
+            <ButtonLink href="/services/general-car-servicing">
+              General Car Servicing
+            </ButtonLink>
+            <ButtonLink href="/engine-diagnostics" variant="ghost">
+              Diagnostics
             </ButtonLink>
             <ButtonLink href="/contact" variant="ghost">
               Ask What Is Due
             </ButtonLink>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 text-asphalt sm:py-24">
+        <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <SectionHeader
+            eyebrow="Vehicle schedule"
+            title="Servicing to Your Vehicle's Schedule"
+            copy="New car servicing and manufacturer scheduled servicing should be matched to the vehicle rather than guessed. G&T Motorsports checks the relevant requirements and explains what is due before additional work proceeds."
+            tone="light"
+          />
+          <div className="grid gap-3 sm:grid-cols-2">
+            {schedulePoints.map((point) => (
+              <div
+                className="rounded-md border border-black/10 bg-neutral-50 p-5"
+                key={point}
+              >
+                <span className="mb-4 block h-1 w-10 bg-brake" />
+                <h3 className="text-lg font-black">{point}</h3>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -362,7 +446,7 @@ export default function LogbookServicingLandingPage() {
           <SectionHeader
             eyebrow="Why it matters"
             title="Why Logbook Servicing Matters"
-            copy="Regular logbook servicing gives you more than a stamp or service record. It helps protect the vehicle's condition, safety and long-term maintenance history."
+            copy="Regular logbook servicing gives you more than a stamp or service record. It helps support the vehicle's condition, safety checks and long-term maintenance history."
             align="center"
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -386,8 +470,8 @@ export default function LogbookServicingLandingPage() {
         <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <SectionHeader
             eyebrow="Vehicles we service"
-            title="Logbook Service for All Makes and Models"
-            copy="From new family cars through to work vehicles and European models, G&T Motorsports services a wide range of vehicles using the relevant schedule and suitable service items."
+            title="All Makes & Models"
+            copy="From family cars through to work vehicles, 4WDs and European models, G&T Motorsports services a wide range of vehicles using the relevant schedule and suitable service items."
             tone="light"
           />
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -403,7 +487,115 @@ export default function LogbookServicingLandingPage() {
         </div>
       </section>
 
+      <section className="bg-asphalt py-16 sm:py-24">
+        <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <SectionHeader
+            eyebrow="Records"
+            title="Service Records & Documentation"
+            copy="Clear service records help show what maintenance has been completed and what may need attention next. Bring your physical service book if you have one."
+          />
+          <div className="grid gap-3 sm:grid-cols-2">
+            {documentationPoints.map((point) => (
+              <div
+                className="rounded-md border border-white/10 bg-black/35 p-5"
+                key={point}
+              >
+                <span className="mb-4 block h-1 w-10 bg-brake" />
+                {point.includes("Mercedes-Benz") ? (
+                  <Link
+                    className="focus-ring text-lg font-black text-white hover:text-brake"
+                    href="/mercedes-benz-service"
+                  >
+                    {point}
+                  </Link>
+                ) : (
+                  <h3 className="text-lg font-black text-white">{point}</h3>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-black py-16 sm:py-24">
+        <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <SectionHeader
+            eyebrow="Service timing"
+            title="When Is Your Next Service Due?"
+            copy="Your next logbook service may be due by time, kilometres, dashboard reminder or the way the vehicle is used. If you are unsure, send your registration or vehicle details and the workshop can help confirm what is required."
+          />
+          <div className="grid gap-3 sm:grid-cols-2">
+            {dueItems.map((item) => (
+              <div
+                className="rounded-md border border-white/10 bg-white/[0.04] p-5"
+                key={item}
+              >
+                <span className="mb-4 block h-1 w-10 bg-brake" />
+                <h3 className="text-lg font-black text-white">{item}</h3>
+              </div>
+            ))}
+          </div>
+          <div className="lg:col-start-2">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <ButtonLink href="/brake-repairs" variant="ghost">
+                Brake Repairs
+              </ButtonLink>
+              <ButtonLink href="/mercedes-benz-service" variant="ghost">
+                Mercedes-Benz Servicing
+              </ButtonLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 text-asphalt sm:py-24">
+        <div className="container-shell">
+          <SectionHeader
+            eyebrow="Service type"
+            title="General Service vs Logbook Service"
+            copy="Both services are useful, but they are not always the same. If you are unsure what your vehicle needs, G&T Motorsports can check your service information and advise the most suitable next step."
+            tone="light"
+            align="center"
+          />
+          <div className="mt-10 grid gap-4 lg:grid-cols-2">
+            {comparisonCards.map((card) => (
+              <Link
+                className="focus-ring rounded-md border border-black/10 bg-neutral-50 p-6 transition hover:-translate-y-1 hover:border-brake"
+                href={card.href}
+                key={card.title}
+              >
+                <span className="mb-5 block h-1 w-12 bg-brake" />
+                <h3 className="text-2xl font-black">{card.title}</h3>
+                <p className="mt-4 text-sm leading-6 text-black/65">
+                  {card.copy}
+                </p>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-4 text-sm font-bold text-black/65">
+            <Link className="focus-ring hover:text-black" href="/engine-diagnostics">
+              Engine Diagnostics
+            </Link>
+            <Link className="focus-ring hover:text-black" href="/brake-repairs">
+              Brake Repairs
+            </Link>
+            <Link className="focus-ring hover:text-black" href="/services/battery-charging-systems">
+              Battery Services
+            </Link>
+            <Link className="focus-ring hover:text-black" href="/services/cooling-system-repairs">
+              Cooling System Repairs
+            </Link>
+            <Link className="focus-ring hover:text-black" href="/mercedes-benz-service">
+              Mercedes-Benz Service
+            </Link>
+            <Link className="focus-ring hover:text-black" href="/book-online">
+              Book Online
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-asphalt py-16 sm:py-24">
         <div className="container-shell">
           <SectionHeader
             eyebrow="Process"
@@ -420,7 +612,7 @@ export default function LogbookServicingLandingPage() {
           <SectionHeader
             eyebrow="FAQ"
             title="Logbook Servicing FAQs"
-            copy="Helpful answers about warranty service, parts, service intervals and online booking."
+            copy="Helpful answers about service schedules, parts, extra work and vehicles serviced."
             tone="light"
           />
           <div className="mt-10 grid gap-4 lg:grid-cols-2">
@@ -448,7 +640,7 @@ export default function LogbookServicingLandingPage() {
               Ready to book?
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight sm:text-4xl">
-              Book Your Logbook Service Today
+              Book Your Logbook Service
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-white/85">
               Keep your vehicle serviced to the correct schedule with clear
@@ -458,10 +650,10 @@ export default function LogbookServicingLandingPage() {
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="/book-online" variant="secondary">
-              Book Online
+              Book Logbook Service
             </ButtonLink>
-            <ButtonLink href={site.phoneHref} variant="ghost">
-              Call Now
+            <ButtonLink href="/contact" variant="ghost">
+              Get a Quote
             </ButtonLink>
           </div>
         </div>

@@ -6,6 +6,7 @@ export type LocationPage = {
   title: string;
   description: string;
   h1: string;
+  heroCopy?: string;
   distance: string;
   driveTime: string;
   localIntro: string;
@@ -13,16 +14,25 @@ export type LocationPage = {
   customerNeeds: string[];
   serviceAngle: string;
   whyChoose: string[];
+  europeanServiceTitle?: string;
+  europeanServiceCopy?: string;
+  showReviews?: boolean;
+  faqs?: {
+    question: string;
+    answer: string;
+  }[];
 };
 
 export const locationPages: LocationPage[] = [
   {
     slug: "cranbourne",
     suburb: "Cranbourne",
-    title: "Mechanic Near Cranbourne | Car Servicing & Repairs | G&T Motorsports",
+    title: "Mechanic Near Cranbourne | Car Service | G&T Motorsports",
     description:
-      "G&T Motorsports provides car servicing, diagnostics and mechanical repairs for Cranbourne drivers from nearby Clyde North. Book online today.",
+      "Need car servicing near Cranbourne? Visit G&T Motorsports in nearby Clyde North for logbook servicing, diagnostics and mechanical repairs.",
     h1: "Mechanic Near Cranbourne",
+    heroCopy:
+      "Looking for an experienced mechanic near Cranbourne? G&T Motorsports provides servicing, repairs and diagnostics for all makes and models from our Clyde North workshop, only a short drive away. Customers from Cranbourne can book routine maintenance, warning-light diagnosis, brake repairs and Mercedes-Benz servicing with clear advice before additional work proceeds.",
     distance: "around 9 km",
     driveTime: "about 12 to 18 minutes",
     localIntro:
@@ -34,23 +44,60 @@ export const locationPages: LocationPage[] = [
       "Brake noise, vibration and safety inspections",
       "Warning-light diagnosis before parts are replaced",
       "Logbook servicing completed to the relevant manufacturer schedule",
+      "Mercedes-Benz and European vehicle servicing enquiries",
+      "Cooling, battery and suspension concerns checked before repairs",
     ],
     serviceAngle:
       "For Cranbourne customers, G&T Motorsports focuses on clear communication. The team explains what is due now, what should be monitored and what can reasonably wait, so you can plan servicing without surprise repairs.",
     whyChoose: [
       "Convenient Clyde North location close to Cranbourne",
       "Practical advice for daily drivers and family vehicles",
+      "Professional diagnostic equipment for warning lights and drivability concerns",
+      "Mercedes-Benz Digital Service Record updates for eligible vehicles",
       "Online booking for easy drop-off planning",
       "All makes and models serviced",
+    ],
+    europeanServiceTitle: "European Vehicle Servicing Near Cranbourne",
+    europeanServiceCopy:
+      "G&T Motorsports services Mercedes-Benz and European vehicles while also maintaining Japanese, Korean, Australian, work and family vehicles. Eligible Mercedes-Benz Digital Service Records can be updated after the required scheduled service is completed. The workshop is independent and does not claim Mercedes-Benz dealership status, manufacturer affiliation or certification.",
+    showReviews: true,
+    faqs: [
+      {
+        question: "Do you service vehicles for Cranbourne customers?",
+        answer:
+          "Yes. G&T Motorsports welcomes Cranbourne customers at its Clyde North workshop for car servicing, diagnostics, brake repairs, Mercedes-Benz servicing and general mechanical repairs.",
+      },
+      {
+        question: "How far is G&T Motorsports from Cranbourne?",
+        answer:
+          "The workshop is around 9 km from Cranbourne, usually about 12 to 18 minutes depending on traffic, route and time of day.",
+      },
+      {
+        question: "Can you update Mercedes-Benz Digital Service Records?",
+        answer:
+          "Yes. G&T Motorsports can update eligible Mercedes-Benz Digital Service Records online after the required scheduled service is completed.",
+      },
+      {
+        question: "Do you provide logbook servicing near Cranbourne?",
+        answer:
+          "Yes. Logbook servicing is available for all makes and models and is completed according to the relevant manufacturer schedule where applicable.",
+      },
+      {
+        question: "Can I book online?",
+        answer:
+          "Yes. Cranbourne customers can book online for vehicle drop-off or an initial assessment, or call the workshop on 0414 901 666.",
+      },
     ],
   },
   {
     slug: "berwick",
     suburb: "Berwick",
-    title: "Mechanic Near Berwick | Car Servicing & Repairs | G&T Motorsports",
+    title: "Mechanic Near Berwick | Car Service | G&T Motorsports",
     description:
-      "Book car servicing, logbook servicing, diagnostics and mechanical repairs near Berwick with G&T Motorsports in Clyde North.",
+      "Book car servicing near Berwick with G&T Motorsports in nearby Clyde North. Logbook servicing, diagnostics, brake repairs and Mercedes-Benz servicing.",
     h1: "Mechanic Near Berwick",
+    heroCopy:
+      "If you are looking for a reliable mechanic near Berwick, G&T Motorsports provides car servicing, diagnostics and mechanical repairs from our Clyde North workshop. Berwick drivers can book logbook servicing, brake repairs, Mercedes-Benz maintenance and European vehicle servicing with practical recommendations and approval before extra work proceeds.",
     distance: "around 12 km",
     driveTime: "about 15 to 22 minutes",
     localIntro:
@@ -62,14 +109,49 @@ export const locationPages: LocationPage[] = [
       "Suspension and steering inspections for ride or handling concerns",
       "Battery and charging-system checks before failures become inconvenient",
       "Diagnostics for engine, ABS, airbag and electrical warning lights",
+      "Mercedes-Benz and European vehicle servicing support",
+      "Brake, cooling and general servicing for daily drivers",
     ],
     serviceAngle:
       "Berwick drivers choose G&T Motorsports when they want straightforward servicing advice. Each vehicle is assessed on its condition and service requirements, and additional work is discussed before it proceeds.",
     whyChoose: [
       "Independent workshop with clear approval before extra work",
       "Suitable oils, fluids and parts selected for the vehicle",
+      "Professional diagnostics for warning lights and performance concerns",
+      "Friendly service from booking through to collection",
       "Servicing for family cars, work vehicles, four-wheel drives and performance vehicles",
       "Mercedes-Benz Digital Service Record updates for eligible vehicles",
+    ],
+    europeanServiceTitle: "Mercedes-Benz and European Vehicle Servicing Near Berwick",
+    europeanServiceCopy:
+      "European vehicles can require suitable diagnostic equipment, service information, fluids and inspection processes. G&T Motorsports supports Berwick customers with Mercedes-Benz and European vehicle servicing while continuing to service all makes and models. Eligible Mercedes-Benz Digital Service Records can be updated after applicable scheduled servicing. No manufacturer affiliation or authorised-dealer status is claimed.",
+    showReviews: true,
+    faqs: [
+      {
+        question: "Do you service vehicles for Berwick residents?",
+        answer:
+          "Yes. G&T Motorsports regularly welcomes Berwick customers to its Clyde North workshop for servicing, diagnostics and mechanical repairs.",
+      },
+      {
+        question: "How far is your workshop from Berwick?",
+        answer:
+          "The workshop is around 12 km from Berwick, usually about 15 to 22 minutes depending on traffic and your starting point.",
+      },
+      {
+        question: "Can you update Mercedes Digital Service History?",
+        answer:
+          "Yes. G&T Motorsports can update eligible Mercedes-Benz Digital Service Records online after the required scheduled service is completed.",
+      },
+      {
+        question: "Do you perform logbook servicing?",
+        answer:
+          "Yes. Logbook servicing is available for all makes and models and is completed according to the relevant manufacturer schedule where applicable.",
+      },
+      {
+        question: "Can I book online?",
+        answer:
+          "Yes. Berwick customers can book online for vehicle drop-off or an initial assessment, or call G&T Motorsports directly on 0414 901 666.",
+      },
     ],
   },
   {

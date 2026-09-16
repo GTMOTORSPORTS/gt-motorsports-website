@@ -7,6 +7,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { pageMetadata } from "@/lib/seo";
 import type { LocationPage } from "@/lib/location-pages";
 import { getLocationPage, locationCanonicalUrl } from "@/lib/location-pages";
+import { customerReviews } from "@/lib/reviews";
 import { site } from "@/lib/site";
 
 const mapEmbedUrl =
@@ -15,7 +16,7 @@ const mapEmbedUrl =
 const coreServices = [
   {
     label: "Logbook servicing",
-    href: "/services/logbook-servicing",
+    href: "/logbook-servicing",
     copy: "Scheduled servicing completed according to the relevant manufacturer service schedule using suitable parts, oils and fluids.",
   },
   {
@@ -25,17 +26,17 @@ const coreServices = [
   },
   {
     label: "Brake repairs",
-    href: "/services/brake-repairs",
+    href: "/brake-repairs",
     copy: "Inspection and repair support for brake noise, vibration, reduced braking performance and worn components.",
   },
   {
     label: "Vehicle diagnostics",
-    href: "/services/vehicle-diagnostics",
+    href: "/engine-diagnostics",
     copy: "Fault finding for warning lights, starting issues, rough running, charging faults and electrical concerns.",
   },
   {
     label: "Mercedes-Benz servicing",
-    href: "/services/mercedes-benz-servicing",
+    href: "/mercedes-benz-service",
     copy: "Independent Mercedes-Benz servicing with eligible Digital Service Record updates after required scheduled servicing.",
   },
   {
@@ -73,7 +74,7 @@ export function LocationPageLayout({ slug }: { slug: string }) {
       <LocationStructuredData location={location} />
       <section className="relative overflow-hidden bg-black py-16 sm:py-24">
         <div
-          className="absolute inset-0 bg-[url('/workshop-hero.png')] bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-[url('/workshop-hero.webp')] bg-cover bg-center opacity-20"
           aria-hidden="true"
         />
         <div
@@ -107,11 +108,8 @@ export function LocationPageLayout({ slug }: { slug: string }) {
             {location.h1}
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/76">
-            G&T Motorsports supports customers from {location.suburb} with
-            professional vehicle servicing, diagnostics and mechanical repairs
-            from our Clyde North workshop. We service all makes and models and
-            focus on clear advice, quality workmanship and practical booking
-            options.
+            {location.heroCopy ||
+              `G&T Motorsports supports customers from ${location.suburb} with professional vehicle servicing, diagnostics and mechanical repairs from our Clyde North workshop. We service all makes and models and focus on clear advice, quality workmanship and practical booking options.`}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <ButtonLink href="/book-online">Book Online</ButtonLink>
@@ -227,8 +225,11 @@ export function LocationPageLayout({ slug }: { slug: string }) {
         <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <SectionHeader
             eyebrow="Mercedes-Benz DSR"
-            title="Mercedes-Benz Digital Service Record Updates"
-            copy="G&T Motorsports can update eligible Mercedes-Benz Digital Service Records after the required scheduled service is completed. This access is for eligible Mercedes-Benz vehicles only; the workshop does not claim online service-record access for other manufacturers."
+            title={location.europeanServiceTitle || "Mercedes-Benz Digital Service Record Updates"}
+            copy={
+              location.europeanServiceCopy ||
+              "G&T Motorsports can update eligible Mercedes-Benz Digital Service Records after the required scheduled service is completed. This access is for eligible Mercedes-Benz vehicles only; the workshop does not claim online service-record access for other manufacturers."
+            }
           />
           <div className="rounded-md border border-white/10 bg-black/35 p-6">
             <h2 className="text-2xl font-black text-white">
@@ -242,7 +243,7 @@ export function LocationPageLayout({ slug }: { slug: string }) {
               dealership status or manufacturer certification.
             </p>
             <div className="mt-6">
-              <ButtonLink href="/services/mercedes-benz-servicing" variant="ghost">
+              <ButtonLink href="/mercedes-benz-service" variant="ghost">
                 Mercedes-Benz Service
               </ButtonLink>
             </div>
@@ -303,6 +304,9 @@ export function LocationPageLayout({ slug }: { slug: string }) {
           </div>
         </div>
       </section>
+
+      {location.showReviews ? <LocationReviews location={location} /> : null}
+      {location.faqs ? <LocationFAQ location={location} /> : null}
 
       <section className="bg-black py-16 sm:py-24">
         <div className="container-shell">
@@ -379,10 +383,114 @@ function LocationStructuredData({ location }: { location: LocationPage }) {
     ],
   };
 
+  const faqSchema = location.faqs
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: location.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      {faqSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      ) : null}
+    </>
+  );
+}
+
+function LocationReviews({ location }: { location: LocationPage }) {
+  return (
+    <section className="bg-asphalt py-16 sm:py-24">
+      <div className="container-shell">
+        <SectionHeader
+          eyebrow="Customer reviews"
+          title={`Feedback From G&T Motorsports Customers Near ${location.suburb}`}
+          copy="Read genuine customer feedback currently displayed on the website."
+          align="center"
+        />
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          {customerReviews.map((review) => (
+            <article
+              className="rounded-md border border-white/10 bg-white/[0.045] p-6"
+              key={review.text}
+            >
+              <div
+                className="text-lg tracking-[0.16em] text-brake"
+                aria-label="Five-star Google review"
+              >
+                &#9733;&#9733;&#9733;&#9733;&#9733;
+              </div>
+              <p className="mt-5 text-xs font-bold uppercase tracking-[0.24em] text-white/50">
+                Google Review
+              </p>
+              <blockquote className="mt-4 text-base leading-7 text-white/82">
+                &ldquo;{review.text}&rdquo;
+              </blockquote>
+              <p className="mt-6 text-sm font-black uppercase tracking-wide text-white">
+                G&T Motorsports Customer
+              </p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <a
+            className="focus-ring inline-flex min-h-11 items-center justify-center rounded-md bg-brake px-5 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-glow transition hover:bg-white hover:text-asphalt"
+            href={site.googleReviewsHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read More Reviews
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LocationFAQ({ location }: { location: LocationPage }) {
+  if (!location.faqs) {
+    return null;
+  }
+
+  return (
+    <section className="bg-white py-16 text-asphalt sm:py-24">
+      <div className="container-shell">
+        <SectionHeader
+          eyebrow="FAQ"
+          title={`Mechanic Near ${location.suburb} FAQs`}
+          copy="Helpful answers before booking with G&T Motorsports."
+          tone="light"
+        />
+        <div className="mt-10 grid gap-4 lg:grid-cols-2">
+          {location.faqs.map((faq) => (
+            <details
+              className="group rounded-md border border-black/10 bg-neutral-50 p-5 open:border-brake"
+              key={faq.question}
+            >
+              <summary className="focus-ring cursor-pointer list-none text-xl font-black text-asphalt">
+                {faq.question}
+              </summary>
+              <p className="mt-4 text-sm leading-6 text-black/65">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

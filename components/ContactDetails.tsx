@@ -90,7 +90,7 @@ export function ContactDetails() {
                 <ButtonLink href={site.phoneHref} variant="ghost" className="border-black/20 text-asphalt hover:text-white">
                   Call Now
                 </ButtonLink>
-                <ButtonLink href="/mechanic-clyde-north" variant="ghost" className="border-black/20 text-asphalt hover:text-white">
+                <ButtonLink href="/" variant="ghost" className="border-black/20 text-asphalt hover:text-white">
                   Clyde North Workshop
                 </ButtonLink>
               </div>

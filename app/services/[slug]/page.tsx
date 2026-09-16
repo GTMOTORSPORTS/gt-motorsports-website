@@ -16,6 +16,8 @@ export function generateStaticParams() {
       (slug) =>
         slug !== "logbook-servicing" &&
         slug !== "mercedes-benz-servicing" &&
+        slug !== "brake-repairs" &&
+        slug !== "vehicle-diagnostics" &&
         slug !== "roadworthy-certificate",
     )
     .map((slug) => ({ slug }));

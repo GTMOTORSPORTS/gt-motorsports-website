@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-black">
       <div
-        className="absolute inset-0 bg-[url('/workshop-hero.png')] bg-cover bg-center"
+        className="absolute inset-0 bg-[url('/workshop-hero.webp')] bg-cover bg-center"
         aria-label="Premium dark mechanic workshop interior representing G&T Motorsports"
         role="img"
       />
@@ -24,9 +24,10 @@ export function Hero() {
             Trusted Mechanic in Clyde North
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/82 sm:text-xl sm:leading-9">
-            Professional servicing, diagnostics, repairs and maintenance for all
-            makes and models. Honest advice, quality workmanship and dependable
-            service.
+            Professional car servicing, logbook servicing, diagnostics, RWC
+            inspections and mechanical repairs for all makes and models.
+            European vehicle servicing and Mercedes-Benz Digital Service Record
+            updates also available for eligible vehicles.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="/book-online" className="min-h-14 px-7">

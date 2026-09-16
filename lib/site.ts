@@ -44,7 +44,7 @@ export const site = {
     "Air Conditioning Service",
     "Battery Services",
     "Clutch & Transmission Repairs",
-    "General Mechanical Repairs",
+    "General Car Servicing",
     "Mercedes-Benz Service",
     "Performance Upgrades",
   ],
@@ -54,13 +54,11 @@ export const navItems = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/roadworthy-certificate", label: "RWC" },
-  { href: "/mercedes-benz-service", label: "Mercedes-Benz" },
   { href: "/performance-upgrades", label: "Performance" },
   { href: "/about", label: "About" },
   { href: "/reviews", label: "Reviews" },
   { href: "/locations", label: "Locations" },
   { href: "/contact", label: "Contact" },
-  { href: "/book-online", label: "Book Online" },
 ];
 
 export const publicRoutes = [
@@ -72,21 +70,6 @@ export const publicRoutes = [
   {
     path: "/about",
     priority: 0.7,
-    changeFrequency: "monthly",
-  },
-  {
-    path: "/mechanic-clyde-north",
-    priority: 0.9,
-    changeFrequency: "monthly",
-  },
-  {
-    path: "/mechanic-cranbourne",
-    priority: 0.88,
-    changeFrequency: "monthly",
-  },
-  {
-    path: "/mechanic-berwick",
-    priority: 0.88,
     changeFrequency: "monthly",
   },
   {
@@ -170,27 +153,7 @@ export const publicRoutes = [
     changeFrequency: "monthly",
   },
   {
-    path: "/services/logbook-servicing",
-    priority: 0.85,
-    changeFrequency: "monthly",
-  },
-  {
-    path: "/services/mercedes-benz-servicing",
-    priority: 0.8,
-    changeFrequency: "monthly",
-  },
-  {
     path: "/services/general-car-servicing",
-    priority: 0.82,
-    changeFrequency: "monthly",
-  },
-  {
-    path: "/services/brake-repairs",
-    priority: 0.82,
-    changeFrequency: "monthly",
-  },
-  {
-    path: "/services/vehicle-diagnostics",
     priority: 0.82,
     changeFrequency: "monthly",
   },

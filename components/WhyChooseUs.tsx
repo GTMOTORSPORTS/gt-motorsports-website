@@ -13,8 +13,8 @@ export function WhyChooseUs() {
       <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
         <SectionHeader
           eyebrow="Why Choose Us"
-          title="A cleaner, more confident way to look after your car."
-          copy="Premium does not need to mean complicated. It means the right checks, tidy workmanship, honest communication and a workshop experience that respects your time."
+          title="Why Drivers Choose G&T Motorsports"
+          copy="Straightforward advice, quality workmanship and professional automotive care. We explain what your vehicle needs before work proceeds and focus on repairs and servicing you can rely on."
           tone="light"
         />
         <div className="grid gap-4 sm:grid-cols-2">

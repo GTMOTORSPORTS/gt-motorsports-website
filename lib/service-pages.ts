@@ -32,6 +32,11 @@ export type ServicePage = {
   symptoms: string[];
   includedItems: string[];
   warningSigns?: string[];
+  detailSections?: {
+    title: string;
+    copy: string;
+    points?: string[];
+  }[];
   processSteps: string[];
   benefits: { title: string; copy: string }[];
   faqs: ServiceFaq[];
@@ -39,6 +44,9 @@ export type ServicePage = {
   localAreaText: string;
   ctaHeading: string;
   ctaText: string;
+  primaryCtaLabel?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
   specialNotice?: string;
   warrantySection?: {
     title: string;
@@ -88,11 +96,11 @@ const localAreaText =
   "G&T Motorsports welcomes drivers from Clyde North, Clyde, Cranbourne, Berwick, Officer, Narre Warren, Hampton Park, Pakenham and nearby south-east Melbourne suburbs.";
 
 const coreLinks = {
-  general: { label: "General Mechanical Repairs", href: "/services/general-car-servicing" },
-  logbook: { label: "Logbook Servicing", href: "/services/logbook-servicing" },
-  mercedes: { label: "Mercedes-Benz Service", href: "/services/mercedes-benz-servicing" },
-  brakes: { label: "Brake Repairs", href: "/services/brake-repairs" },
-  diagnostics: { label: "Engine Diagnostics", href: "/services/vehicle-diagnostics" },
+  general: { label: "General Car Servicing", href: "/services/general-car-servicing" },
+  logbook: { label: "Logbook Servicing", href: "/logbook-servicing" },
+  mercedes: { label: "Mercedes-Benz Service", href: "/mercedes-benz-service" },
+  brakes: { label: "Brake Repairs", href: "/brake-repairs" },
+  diagnostics: { label: "Engine Diagnostics", href: "/engine-diagnostics" },
   suspension: { label: "Suspension Repairs", href: "/services/suspension-steering" },
   cooling: { label: "Cooling System Repairs", href: "/services/cooling-system-repairs" },
   battery: { label: "Battery Services", href: "/services/battery-charging-systems" },
@@ -100,77 +108,148 @@ const coreLinks = {
   rwc: { label: "Roadworthy Certificate Inspections", href: "/roadworthy-certificate" },
 };
 
+const primaryServicePaths: Record<string, string> = {
+  "logbook-servicing": "/logbook-servicing",
+  "mercedes-benz-servicing": "/mercedes-benz-service",
+  "brake-repairs": "/brake-repairs",
+  "vehicle-diagnostics": "/engine-diagnostics",
+  "roadworthy-certificate": "/roadworthy-certificate",
+};
+
 export const servicePages: ServicePage[] = [
   {
     slug: "general-car-servicing",
-    name: "General Mechanical Repairs",
+    name: "General Car Servicing",
     icon: "GS",
     eyebrow: "General servicing Clyde North",
-    title: "General Mechanical Repairs in Clyde North",
+    title: "Car Service in Clyde North",
     shortDescription:
-      "Routine oil, filter, safety and condition checks for everyday reliability.",
+      "Routine vehicle servicing and maintenance for all makes and models, with clear advice before additional work proceeds.",
     introduction:
-      "General car servicing keeps your vehicle maintained between major repairs and helps identify wear before it becomes a larger problem. G&T Motorsports services all makes and models with clear reporting and discussion before additional repairs proceed.",
-    metadataTitle: "General Mechanical Repairs Clyde North | G&T Motorsports",
+      "G&T Motorsports provides routine vehicle servicing and maintenance in Clyde North for a wide range of makes and models. Each vehicle is inspected based on its condition and service needs, and customers are advised before any additional repairs or maintenance proceed.",
+    metadataTitle:
+      "Car Service Clyde North | General Servicing | G&T Motorsports",
     metadataDescription:
-      "Book professional general car servicing in Clyde North for all makes and models. Honest advice, quality workmanship and convenient online booking.",
+      "Book car service in Clyde North with G&T Motorsports. General car servicing, vehicle maintenance and inspections for all makes and models.",
     trustPoints: allMakesTrust,
+    sectionHeadings: {
+      intro: "General Car Servicing",
+      checklist: "What's Included in a Car Service?",
+      whyChoose: "Why Choose G&T Motorsports for Car Servicing?",
+      faq: "General Car Servicing FAQs",
+    },
     symptomsIntro:
-      "A general service is a practical choice for routine maintenance, pre-trip peace of mind or when your vehicle is due for basic care.",
+      "A general car service is a practical choice for routine maintenance, pre-trip peace of mind or when your vehicle is due for basic care. Service requirements vary depending on vehicle make, model, age, kilometres, condition and manufacturer maintenance schedule.",
     symptoms: [
       "Your vehicle is due by time or kilometres",
-      "You want oil and filter servicing",
-      "Fluids, tyres, brakes or lights need checking",
-      "You want a general condition report",
+      "You need routine oil and filter servicing",
+      "You want brakes, tyres, battery or lights checked",
+      "You want a general safety and condition check",
       "The car has not been inspected recently",
+      "You want developing issues explained early",
     ],
     includedItems: [
-      "Engine oil and filter service",
+      "Engine oil and oil filter where applicable",
       "Fluid level and condition checks",
+      "Brake observations",
       "Tyre condition and pressure checks",
-      "Brake, steering and suspension inspections",
-      "Lights, wipers and visible safety checks",
+      "Battery condition checks where relevant",
+      "Lights and visible safety checks",
+      "Cooling-system observations",
+      "Belts and hoses where accessible",
+      "Suspension and steering observations",
       "General condition report with practical advice",
+    ],
+    detailSections: [
+      {
+        title: "Why Regular Servicing Matters",
+        copy:
+          "Regular vehicle servicing in Clyde North helps keep maintenance up to date, supports everyday reliability and gives the workshop a chance to identify developing issues before they become more inconvenient. It can also help with safety checks, fluid condition, wear items and general vehicle health.",
+        points: [
+          "Routine maintenance planning",
+          "Developing problems identified early",
+          "Fluid and wear-item checks",
+          "Useful advice for everyday reliability",
+        ],
+      },
+      {
+        title: "Service Based on Your Vehicle",
+        copy:
+          "Not every car service includes the same items. The right service depends on the vehicle make and model, age, kilometres, condition, driving use and relevant manufacturer maintenance schedule. G&T Motorsports explains what is suitable for your vehicle before extra work proceeds.",
+        points: [
+          "All makes and models serviced",
+          "Vehicle-specific maintenance advice",
+          "Manufacturer schedule considered where applicable",
+          "No one-size-fits-all servicing claim",
+        ],
+      },
+      {
+        title: "Problems Found During Servicing",
+        copy:
+          "A general car service may uncover brake wear, cooling-system concerns, weak batteries, warning lights, suspension or steering observations, leaks, worn belts or hoses, tyre issues or other maintenance needs. If additional repairs are identified, you are advised before the work proceeds.",
+        points: [
+          "Clear findings explained",
+          "Quote before additional work",
+          "Related repairs discussed first",
+          "Practical maintenance priorities",
+        ],
+      },
     ],
     processSteps: standardProcess,
     benefits: standardBenefits,
     faqs: [
       {
-        question: "What is included in a general car service?",
+        question: "How often should a car be serviced?",
         answer:
-          "A general service usually includes engine oil and filter replacement, fluid checks, tyre checks and inspections of key safety items such as brakes, steering, suspension, lights and wipers.",
+          "Service intervals vary by vehicle, kilometres, age, driving conditions and manufacturer maintenance schedule. Many vehicles need servicing by time or distance, so check your service information or contact the workshop for guidance.",
       },
       {
-        question: "How often should I service my car?",
+        question: "What is the difference between general servicing and logbook servicing?",
         answer:
-          "Service intervals vary by vehicle, kilometres and driving conditions. Many vehicles need servicing by time or distance, so check your service information or contact the workshop for guidance.",
+          "General servicing covers routine maintenance and condition checks. Logbook servicing follows the relevant scheduled service requirements for a specific vehicle, based on the manufacturer's maintenance schedule where applicable.",
       },
       {
-        question: "What is the difference between a general service and logbook service?",
+        question: "Do you service different makes and models?",
         answer:
-          "A general service covers routine maintenance and safety checks. A logbook service follows the relevant scheduled service requirements for your specific vehicle.",
+          "Yes. G&T Motorsports services a wide range of makes and models, including family vehicles, work vehicles, four-wheel drives, European vehicles and everyday passenger cars.",
       },
       {
-        question: "Will you contact me before extra repairs?",
+        question: "What happens if additional repairs are found?",
         answer:
-          "Yes. If additional repairs are recommended, G&T Motorsports will explain the findings and discuss the work before it proceeds.",
+          "If additional repairs or maintenance are identified, G&T Motorsports will explain the findings and discuss the recommended next step before additional work proceeds.",
       },
       {
-        question: "Do you accept walk-ins?",
+        question: "Can warning lights be investigated during servicing?",
         answer:
-          "Walk-ins are welcome, but waiting times depend on the work required and current workshop availability. Appointments are recommended.",
+          "Warning lights can be noted during servicing, and diagnostic testing may be recommended if the vehicle needs further fault-finding. A fault code or warning light may require a separate diagnostic process.",
       },
       {
-        question: "Can I wait during the service?",
+        question: "Is an appointment recommended for a car service?",
         answer:
-          "Waiting may be possible for some services, depending on the work required and workshop workload on the day. Booking ahead helps the team advise what to expect.",
+          "Appointments are recommended so the workshop can plan time for your vehicle. Walk-ins are welcome when availability allows, but waiting times depend on workload and the work required.",
+      },
+      {
+        question: "Can servicing help identify developing problems?",
+        answer:
+          "Yes. Routine servicing can help identify wear, leaks, fluid concerns, battery issues, brake wear or other developing problems, although it is not a guarantee that every future fault will be found.",
       },
     ],
-    relatedServices: [coreLinks.logbook, coreLinks.brakes, coreLinks.diagnostics],
+    relatedServices: [
+      coreLinks.logbook,
+      coreLinks.diagnostics,
+      coreLinks.brakes,
+      coreLinks.cooling,
+      coreLinks.battery,
+      { label: "Air Conditioning Service", href: "/services/air-conditioning" },
+      coreLinks.mercedes,
+    ],
     localAreaText,
-    ctaHeading: "Book Online",
+    ctaHeading: "Book Your Car Service",
     ctaText:
-      "Keep your vehicle maintained with routine servicing and clear advice from G&T Motorsports.",
+      "Keep your vehicle maintained with routine servicing, condition checks and clear advice from G&T Motorsports.",
+    primaryCtaLabel: "Book a Service",
+    secondaryCtaLabel: "Get a Quote",
+    secondaryCtaHref: "/contact",
   },
   {
     slug: "logbook-servicing",
@@ -479,52 +558,132 @@ export const servicePages: ServicePage[] = [
     eyebrow: "Suspension and steering Clyde North",
     title: "Suspension Repairs in Clyde North",
     shortDescription:
-      "Inspection and repair support for knocking, vibration, poor handling and uneven tyre wear.",
+      "Suspension inspection, diagnosis and repair support for knocking, vibration, poor handling, worn shocks and uneven tyre wear.",
     introduction:
-      "Suspension and steering faults can affect comfort, tyre wear and vehicle control. G&T Motorsports inspects the relevant components before recommending repairs, so the cause of noises, pulling or poor handling can be understood.",
-    metadataTitle: "Suspension Repairs Clyde North | G&T Motorsports",
+      "G&T Motorsports inspects, diagnoses and repairs suspension and steering-related faults for a wide range of vehicles. Suspension noises, poor handling, uneven tyre wear and steering concerns can have multiple causes, so the vehicle is checked before parts are replaced.",
+    metadataTitle:
+      "Suspension Repairs Clyde North | Shock Absorbers | G&T Motorsports",
     metadataDescription:
-      "Book suspension and steering inspections and repairs in Clyde North for worn shocks, bushes, joints, control arms and handling issues.",
+      "Book suspension repairs in Clyde North for suspension service, shock absorber replacement, suspension inspections, steering concerns and handling issues.",
     trustPoints: allMakesTrust,
+    sectionHeadings: {
+      intro: "Signs Your Suspension Needs Attention",
+      checklist: "Suspension Inspections & Diagnosis",
+      whyChoose: "Why Choose G&T Motorsports for Suspension Repairs",
+      faq: "Suspension Repairs FAQs",
+    },
     symptomsIntro:
-      "Book an inspection if the vehicle feels loose, noisy, unstable or is wearing tyres unevenly.",
+      "Book a suspension inspection in Clyde North if the vehicle feels loose, noisy, unstable, uneven or is wearing tyres unevenly. Handling problems and suspension noises should be inspected before parts are replaced.",
     symptoms: [
-      "Knocking over bumps",
-      "Vehicle pulling",
+      "Knocking or clunking noises",
       "Uneven tyre wear",
       "Excessive bouncing",
-      "Loose or vague steering",
+      "Poor handling",
+      "Vehicle pulling to one side",
+      "Steering looseness",
+      "Vibration",
+      "Uneven ride height",
     ],
     warningSigns: [
-      "Knocking over bumps",
-      "Vehicle pulling",
+      "Knocking or clunking noises",
       "Uneven tyre wear",
       "Excessive bouncing",
-      "Loose or vague steering",
-      "Steering-wheel vibration",
+      "Poor handling",
+      "Vehicle pulling to one side",
+      "Steering looseness",
+      "Vibration",
+      "Uneven ride height",
     ],
     includedItems: [
+      "Suspension noise inspection",
       "Shock absorber and strut checks",
       "Bush, ball joint and control arm inspection",
-      "Steering component checks",
+      "Mount, link and steering component checks",
       "Wheel-bearing checks where relevant",
       "Tyre-wear and handling observations",
+    ],
+    detailSections: [
+      {
+        title: "Shock Absorbers & Struts",
+        copy:
+          "Shock absorber replacement in Clyde North may be recommended when worn shocks or struts affect ride control, tyre contact, braking stability or comfort. The vehicle is inspected first so replacement advice is based on the actual condition and symptoms.",
+        points: [
+          "Shock absorber condition checks",
+          "Strut and mount inspection",
+          "Excessive bounce assessment",
+          "Ride-control concerns explained clearly",
+        ],
+      },
+      {
+        title: "Bushes, Ball Joints & Control Arms",
+        copy:
+          "Knocking, clunking, looseness or uneven tyre wear can involve bushes, ball joints, control arms, links, mounts or related hardware. These components are checked before repair recommendations are made.",
+        points: [
+          "Bush and joint inspection",
+          "Control arm checks",
+          "Suspension link assessment",
+          "No unnecessary parts replacement",
+        ],
+      },
+      {
+        title: "Steering & Suspension Components",
+        copy:
+          "Steering and suspension symptoms often overlap. Pulling, vibration, vague steering or poor handling may involve tyres, alignment, brakes, steering components or suspension wear, so staged diagnosis helps identify the most appropriate repair path.",
+        points: [
+          "Steering component checks",
+          "Handling and vibration assessment",
+          "Related brake or tyre concerns considered",
+          "Quote before approved repairs",
+        ],
+      },
     ],
     processSteps: standardProcess,
     benefits: standardBenefits,
     faqs: [
-      { question: "What causes suspension knocking?", answer: "Knocking can come from several suspension or steering components, including bushes, joints, struts or related hardware. Inspection is needed to identify the cause." },
-      { question: "Why is my car pulling to one side?", answer: "Pulling can relate to tyres, alignment, brakes, suspension or road conditions. The vehicle should be inspected before repair recommendations are made." },
-      { question: "Can worn suspension damage tyres?", answer: "Worn suspension or steering components can contribute to uneven tyre wear, so timely inspection can help prevent further wear." },
-      { question: "Do you inspect steering and suspension together?", answer: "Yes. Steering and suspension components are often checked together because symptoms can overlap." },
-      { question: "Can I drive with a suspension noise?", answer: "Some noises may be minor and others may affect safety. Arrange an inspection, especially if handling has changed or the noise is getting worse." },
-      { question: "Do you provide a quote before repairs?", answer: "Yes. Recommended repairs are explained and quoted before work proceeds." },
+      {
+        question: "How can I tell if my shocks are worn?",
+        answer:
+          "Possible signs include excessive bouncing, poor ride control, uneven tyre wear, nose-diving under braking or fluid leakage from a shock absorber. Inspection is needed before replacement is recommended.",
+      },
+      {
+        question: "Are suspension noises dangerous?",
+        answer:
+          "Some suspension noises may be minor, while others can indicate worn or loose components that affect vehicle control. Arrange an inspection, especially if handling has changed or the noise is getting worse.",
+      },
+      {
+        question: "Can worn suspension cause uneven tyre wear?",
+        answer:
+          "Yes. Worn suspension or steering components can contribute to uneven tyre wear, although tyres, alignment, brakes and driving conditions can also be involved.",
+      },
+      {
+        question: "Do shocks and struts need replacing in pairs?",
+        answer:
+          "Often shocks or struts are recommended in axle pairs for balanced performance, but the correct advice depends on the vehicle, condition and inspection findings.",
+      },
+      {
+        question: "What causes clunking over bumps?",
+        answer:
+          "Clunking can come from several suspension or steering components, including bushes, ball joints, control arms, links, mounts, struts or related hardware. Inspection is needed to identify the cause.",
+      },
+      {
+        question: "Will I need a wheel alignment after suspension repairs?",
+        answer:
+          "A wheel alignment may be required after some suspension or steering repairs, depending on the components replaced and the vehicle setup. The workshop will advise based on the repair.",
+      },
     ],
-    relatedServices: [coreLinks.brakes, coreLinks.general, coreLinks.diagnostics],
+    relatedServices: [
+      coreLinks.brakes,
+      coreLinks.rwc,
+      coreLinks.general,
+      coreLinks.diagnostics,
+    ],
     localAreaText,
-    ctaHeading: "Book Online",
+    ctaHeading: "Book a Suspension Inspection",
     ctaText:
-      "Have knocks, vibration, pulling or tyre-wear concerns inspected by G&T Motorsports.",
+      "Have knocking, vibration, pulling, uneven tyre wear or poor handling inspected by G&T Motorsports before replacing parts unnecessarily.",
+    primaryCtaLabel: "Book Suspension Inspection",
+    secondaryCtaLabel: "Get a Quote",
+    secondaryCtaHref: "/contact",
   },
   {
     slug: "cooling-system-repairs",
@@ -533,157 +692,401 @@ export const servicePages: ServicePage[] = [
     eyebrow: "Cooling system repairs Clyde North",
     title: "Cooling System Repairs in Clyde North",
     shortDescription:
-      "Overheating, coolant leak and cooling-system diagnosis for all makes and models.",
+      "Cooling-system diagnosis and repairs for overheating, coolant leaks, radiators, hoses, water pumps, thermostats and cooling fans.",
     introduction:
-      "Cooling-system faults can lead to further engine damage if ignored. G&T Motorsports can inspect overheating concerns, coolant leaks and cooling components before recommending the right repair path.",
-    metadataTitle: "Cooling System Repairs Clyde North | G&T Motorsports",
+      "G&T Motorsports diagnoses and repairs cooling-system faults that can cause overheating, coolant loss and poor engine temperature control. From radiator repair and coolant leak repair to overheating car repair in Clyde North, the cause is checked before parts are replaced.",
+    metadataTitle:
+      "Cooling System Repairs Clyde North | Radiator & Coolant Leaks | G&T Motorsports",
     metadataDescription:
-      "Cooling-system diagnosis and repairs in Clyde North for overheating, coolant leaks, radiators, water pumps, thermostats and hoses.",
+      "Book cooling system repairs in Clyde North for radiator repair, coolant leak repair, overheating diagnosis, hoses, thermostats, water pumps and cooling fans.",
     trustPoints: allMakesTrust,
+    sectionHeadings: {
+      intro: "Signs of a Cooling System Problem",
+      checklist: "Coolant Leaks & Pressure Testing",
+      whyChoose: "Why Choose G&T Motorsports for Cooling System Repairs",
+      faq: "Cooling System Repairs FAQs",
+    },
     symptomsIntro:
-      "If a vehicle is overheating, stop safely and avoid continuing to drive where doing so may cause damage or create a safety risk.",
+      "If a vehicle is overheating, stop safely and avoid continuing to drive where doing so may cause damage or create a safety risk. Cooling faults should be diagnosed promptly because several components can cause similar symptoms.",
     symptoms: [
-      "Rising temperature gauge",
-      "Coolant warning",
-      "Visible coolant leak",
-      "Sweet coolant smell",
-      "Steam from the engine bay",
-    ],
-    warningSigns: [
-      "Rising temperature gauge",
-      "Coolant warning",
+      "Engine overheating",
+      "Coolant warning messages",
+      "Coolant loss",
       "Visible leaks",
       "Sweet coolant smell",
-      "Heater performance changes",
-      "Steam from engine bay",
+      "Heater not working correctly",
+      "Cooling fans not operating",
+      "Temperature gauge running high",
+    ],
+    warningSigns: [
+      "Engine overheating",
+      "Coolant warning messages",
+      "Coolant loss",
+      "Visible leaks",
+      "Sweet coolant smell",
+      "Heater not working correctly",
+      "Cooling fans not operating",
+      "Temperature gauge running high",
     ],
     includedItems: [
-      "Overheating diagnosis",
-      "Radiator, hose and coolant-leak checks",
-      "Water pump and thermostat assessment",
-      "Cooling fan checks",
-      "Pressure testing where appropriate",
-      "Coolant condition inspection",
+      "Visual leak inspection",
+      "Cooling-system pressure testing where appropriate",
+      "Coolant level and condition checks",
+      "Radiator and hose inspection",
+      "Thermostat assessment",
+      "Water pump and cooling fan checks",
+    ],
+    detailSections: [
+      {
+        title: "Radiators, Hoses & Thermostats",
+        copy:
+          "Radiator repair in Clyde North may involve checking the radiator core, tanks, cap, hoses, clamps and related connections. Thermostat faults can also affect warm-up and temperature control, so the cooling system is inspected before replacement parts are recommended.",
+        points: [
+          "Radiator condition checks",
+          "Upper and lower hose inspection",
+          "Thermostat fault assessment",
+          "Coolant cap and connection checks",
+        ],
+      },
+      {
+        title: "Water Pumps & Cooling Fans",
+        copy:
+          "Water pumps and cooling fans help move coolant and control temperature, especially in traffic. If the vehicle overheats, loses coolant or the fans do not operate correctly, further testing may be required before repairs proceed.",
+        points: [
+          "Water pump leak and operation checks",
+          "Cooling fan operation checks",
+          "Electrical checks where required",
+          "Advice before parts are replaced",
+        ],
+      },
+      {
+        title: "Overheating Diagnosis",
+        copy:
+          "Overheating can come from coolant leaks, blocked or damaged radiators, fan faults, thermostat problems, water pump concerns, coolant condition or other engine-related issues. G&T Motorsports uses a staged diagnostic approach and explains findings before repair work proceeds.",
+        points: [
+          "Overheating car repair in Clyde North",
+          "Coolant leak repair investigation",
+          "Temperature-control checks",
+          "Clear quote before approved repairs",
+        ],
+      },
     ],
     processSteps: standardProcess,
     benefits: standardBenefits,
     faqs: [
-      { question: "Why is my car overheating?", answer: "Overheating can be caused by coolant leaks, fan issues, radiator problems, thermostat faults, water pump concerns or other causes. Inspection is needed before conclusions are made." },
-      { question: "Can I keep driving if the temperature gauge is high?", answer: "If the gauge is high or a warning appears, stop safely and avoid continuing to drive where possible. Driving an overheating vehicle may cause damage or create a safety risk." },
-      { question: "How do you find a coolant leak?", answer: "The inspection may include visual checks, coolant-condition checks and pressure testing where appropriate." },
-      { question: "Do you replace radiators and water pumps?", answer: "Radiators, water pumps, thermostats, hoses and related parts can be replaced when inspection confirms the repair is required and approved." },
-      { question: "How often should coolant be checked?", answer: "Coolant should be checked during routine servicing and whenever overheating, leaks or heater-performance changes are noticed." },
-      { question: "Will you call before replacing parts?", answer: "Yes. Findings and replacement recommendations are discussed before parts are fitted." },
+      {
+        question: "Is it safe to drive an overheating vehicle?",
+        answer:
+          "No. If the temperature gauge is high, steam appears or a coolant warning message is showing, stop safely and contact the workshop before travelling. Continuing to drive an overheating vehicle can cause further damage or create a safety risk.",
+      },
+      {
+        question: "Why do my coolant levels keep dropping?",
+        answer:
+          "Coolant loss may be caused by external leaks, radiator or hose issues, water pump leaks, cap faults or other cooling-system concerns. The cause should be inspected before parts are replaced.",
+      },
+      {
+        question: "Can a radiator leak be repaired?",
+        answer:
+          "It depends on the radiator type, leak location and condition. Some issues may be repairable, while others may require replacement. G&T Motorsports will explain the findings before repair work proceeds.",
+      },
+      {
+        question: "How often should coolant be replaced?",
+        answer:
+          "Coolant replacement intervals vary by vehicle and manufacturer schedule. Coolant condition, age and vehicle requirements should be checked during servicing or when cooling symptoms appear.",
+      },
+      {
+        question: "What causes a car to overheat?",
+        answer:
+          "Overheating can be caused by coolant leaks, radiator problems, thermostat faults, water pump concerns, cooling fan faults, coolant condition or other engine-related issues. Proper diagnosis is needed before conclusions are made.",
+      },
+      {
+        question: "Can a water pump or thermostat cause overheating?",
+        answer:
+          "Yes. A faulty water pump or thermostat can affect coolant flow and temperature control. Testing may be needed to confirm the fault before parts are replaced.",
+      },
     ],
-    relatedServices: [coreLinks.engine, coreLinks.general, coreLinks.diagnostics],
+    relatedServices: [
+      coreLinks.general,
+      coreLinks.diagnostics,
+      coreLinks.battery,
+      coreLinks.mercedes,
+    ],
     localAreaText,
-    ctaHeading: "Book Cooling-System Diagnosis",
+    ctaHeading: "Book a Cooling System Inspection",
     ctaText:
-      "Do not ignore overheating or coolant loss. Arrange an inspection with G&T Motorsports.",
+      "Do not ignore overheating, coolant loss or temperature warning messages. Arrange a cooling-system inspection with G&T Motorsports before the issue causes further damage.",
+    primaryCtaLabel: "Book Cooling System Inspection",
+    secondaryCtaLabel: "Get a Quote",
+    secondaryCtaHref: "/contact",
   },
   {
     slug: "battery-charging-systems",
     name: "Battery Services",
     icon: "BT",
     eyebrow: "Battery and charging Clyde North",
-    title: "Battery and Charging System Services in Clyde North",
+    title: "Car Battery Replacement in Clyde North",
     shortDescription:
-      "Battery testing, replacement advice and alternator or starting-system checks.",
+      "Battery testing, car battery replacement advice, charging-system checks and starting-system diagnosis.",
     introduction:
-      "Starting and charging issues can be frustrating and intermittent. G&T Motorsports can test the battery, inspect connections and check related charging or starter-system concerns before recommending the next step.",
-    metadataTitle: "Battery Services Clyde North | G&T Motorsports",
+      "G&T Motorsports can test vehicle batteries and charging systems, diagnose starting and battery-related problems, and replace batteries where required. A flat or weak battery does not always mean the battery itself is faulty, so charging-system problems, parasitic electrical drains, starter faults and other electrical issues should be considered before replacement.",
+    metadataTitle:
+      "Car Battery Replacement Clyde North | Battery Testing | G&T Motorsports",
     metadataDescription:
-      "Battery testing, replacement and charging-system checks in Clyde North, including alternator and starting-system diagnosis.",
+      "Book car battery replacement in Clyde North, battery testing, car battery service, charging-system checks and starting-problem diagnosis at G&T Motorsports.",
     trustPoints: allMakesTrust,
+    sectionHeadings: {
+      intro: "Signs Your Car Battery May Need Attention",
+      checklist: "Battery Testing & Diagnosis",
+      whyChoose: "Why Choose G&T Motorsports for Battery Services",
+      faq: "Car Battery Replacement FAQs",
+    },
     symptomsIntro:
-      "Battery and charging checks are useful when the vehicle is slow to start, warning lights appear or a battery repeatedly goes flat.",
+      "Battery and charging checks are useful when the vehicle is slow to start, will not start, shows warning lights or repeatedly goes flat. Similar symptoms can come from the battery, alternator, starter motor, wiring, terminals or other electrical concerns.",
     symptoms: [
       "Slow engine cranking",
+      "Vehicle not starting",
       "Clicking when starting",
       "Battery warning light",
-      "Frequent jump starts",
+      "Electrical systems behaving unusually",
       "Repeated flat battery",
+      "Stop/start system issues",
     ],
     warningSigns: [
       "Slow engine cranking",
+      "Vehicle not starting",
       "Clicking when starting",
       "Battery warning light",
-      "Frequent jump starts",
-      "Electrical accessories behaving unusually",
+      "Electrical systems behaving unusually",
       "Repeated flat battery",
+      "Stop/start system issues",
     ],
     includedItems: [
       "Battery testing",
-      "Battery replacement advice",
-      "Alternator and charging checks",
-      "Starter-system checks",
+      "Battery condition assessment",
+      "Alternator and charging-system checks",
+      "Starting-system diagnosis where applicable",
       "Terminal and connection inspection",
+      "Electrical drain concerns discussed where relevant",
       "Warning light assessment where relevant",
+    ],
+    detailSections: [
+      {
+        title: "Car Battery Replacement",
+        copy:
+          "Car battery replacement in Clyde North can be arranged when testing shows the battery is weak or has failed and the correct replacement battery is available. G&T Motorsports checks the concern first so replacement is recommended only where appropriate.",
+        points: [
+          "Battery condition testing",
+          "Replacement advice where required",
+          "Correct battery type discussed",
+          "No unnecessary replacement advice",
+        ],
+      },
+      {
+        title: "Starting & Charging System Checks",
+        copy:
+          "Car starting problems in Clyde North may be caused by a weak battery, alternator or charging-system fault, poor connections, starter-system concerns, parasitic electrical drain or other electrical issues. Testing helps identify the most likely next step.",
+        points: [
+          "Alternator and charging checks",
+          "Starter-system diagnosis",
+          "Terminal and cable inspection",
+          "Repeated flat-battery investigation",
+        ],
+      },
+      {
+        title: "Modern Vehicle Battery Systems",
+        copy:
+          "Some modern vehicles may require battery registration, reset or coding after battery replacement depending on the make, model and battery-management system. Not every vehicle requires coding, so the correct process depends on the vehicle.",
+        points: [
+          "Battery-management system awareness",
+          "Registration or reset where applicable",
+          "Vehicle-specific advice",
+          "Clear explanation before work proceeds",
+        ],
+      },
     ],
     processSteps: standardProcess,
     benefits: standardBenefits,
     faqs: [
-      { question: "How do I know if my battery is failing?", answer: "Slow cranking, clicking, frequent jump starts or repeated flat batteries can indicate a battery or charging concern. Testing helps confirm the issue." },
-      { question: "Can you test the alternator?", answer: "Yes. Charging-system checks can include alternator output and related electrical checks where appropriate." },
-      { question: "Why does my battery keep going flat?", answer: "A battery may go flat because of battery age, charging faults, poor connections or other electrical issues. Testing helps narrow down the cause." },
-      { question: "Can you replace my battery?", answer: "Battery replacement can be arranged when testing shows replacement is required and the correct battery is available." },
-      { question: "Do batteries require programming on some vehicles?", answer: "Some vehicles may require battery registration or additional steps after replacement. The workshop can advise based on the vehicle." },
-      { question: "Can I visit without an appointment?", answer: "Walk-ins are welcome, subject to workshop workload and wait times. Booking ahead is recommended." },
+      {
+        question: "How long do car batteries typically last?",
+        answer:
+          "Battery life varies by vehicle, battery type, driving habits, climate, electrical load and charging-system condition. Testing is the best way to check battery health instead of relying on age alone.",
+      },
+      {
+        question: "What are signs of a failing battery?",
+        answer:
+          "Common signs include slow cranking, clicking when trying to start, warning lights, repeated flat batteries, electrical systems behaving unusually or stop/start system concerns.",
+      },
+      {
+        question: "Does a flat battery always need replacement?",
+        answer:
+          "No. A flat battery may be caused by charging-system issues, parasitic electrical drains, poor connections, starter faults or another electrical concern. Testing helps confirm whether replacement is required.",
+      },
+      {
+        question: "Can the alternator cause a flat battery?",
+        answer:
+          "Yes. If the alternator or charging system is not working correctly, the battery may not recharge properly while driving. Charging-system checks can help identify this.",
+      },
+      {
+        question: "Do some vehicles require battery registration or coding?",
+        answer:
+          "Yes. Some vehicles may require battery registration, reset or coding after replacement depending on the make, model and battery-management system. Not every vehicle requires this.",
+      },
+      {
+        question: "Can you diagnose repeated flat-battery problems?",
+        answer:
+          "Yes. G&T Motorsports can test the battery, inspect connections and check charging, starting and related electrical concerns where applicable.",
+      },
     ],
-    relatedServices: [coreLinks.diagnostics, coreLinks.general, coreLinks.engine],
+    relatedServices: [
+      coreLinks.diagnostics,
+      coreLinks.general,
+      coreLinks.mercedes,
+      { label: "Air Conditioning Service", href: "/services/air-conditioning" },
+    ],
     localAreaText,
-    ctaHeading: "Book Battery and Charging Checks",
+    ctaHeading: "Book a Battery Check",
     ctaText:
-      "Get starting and charging issues tested before they leave you stranded.",
+      "Get slow cranking, warning lights, repeated flat batteries or starting problems checked before replacing parts unnecessarily.",
+    primaryCtaLabel: "Book Battery Check",
+    secondaryCtaLabel: "Get a Quote",
+    secondaryCtaHref: "/contact",
   },
   {
     slug: "air-conditioning",
     name: "Air Conditioning",
     icon: "AC",
     eyebrow: "Vehicle air conditioning Clyde North",
-    title: "Vehicle Air Conditioning Service in Clyde North",
+    title: "Car Air Conditioning Service in Clyde North",
     shortDescription:
-      "Careful inspection and diagnosis for weak cooling, airflow issues, odours and system faults.",
+      "Automotive air-conditioning inspection and diagnosis for weak cooling, poor airflow, odours, refrigerant loss and system faults.",
     introduction:
-      "If your vehicle air conditioning is not cooling properly, has weak airflow or makes unusual noises, G&T Motorsports can inspect the symptoms and explain the likely next step. Claims about refrigerant handling, regassing or specific gas types should be confirmed with the workshop before booking.",
-    metadataTitle: "Car Air Conditioning Service Clyde North | G&T Motorsports",
+      "G&T Motorsports can inspect and diagnose automotive air-conditioning performance issues and carry out applicable repairs and servicing. If your car AC is not cold in Clyde North, cooling is getting weaker, airflow is poor or the system works intermittently, the fault should be diagnosed before parts are replaced or refrigerant is added.",
+    metadataTitle:
+      "Car Air Conditioning Clyde North | AC Repairs | G&T Motorsports",
     metadataDescription:
-      "Book vehicle air-conditioning inspection and service in Clyde North for weak cooling, airflow problems, unusual noises and system faults.",
+      "Book car air conditioning service in Clyde North for car aircon repairs, poor cooling, refrigerant loss, airflow issues and automotive AC diagnosis.",
     trustPoints: allMakesTrust,
+    sectionHeadings: {
+      intro: "Signs Your Car Air Conditioning Needs Attention",
+      checklist: "Air Conditioning Diagnosis",
+      whyChoose: "Why Choose G&T Motorsports for Air Conditioning Service",
+      faq: "Car Air Conditioning Service FAQs",
+    },
     symptomsIntro:
-      "Air-conditioning symptoms can come from airflow, electrical, control or sealed-system faults, so inspection is the right starting point.",
+      "Air-conditioning symptoms can come from refrigerant loss, airflow, electrical, control, compressor or sealed-system faults. Diagnosis is the right starting point before assuming a regas or replacement part will solve the issue.",
     symptoms: [
-      "Warm air from the vents",
-      "Weak airflow",
-      "Unusual odour",
-      "Intermittent cooling",
-      "Unusual noise when the system runs",
+      "Air not blowing cold",
+      "Cooling performance getting weaker",
+      "Unusual noises when AC is operating",
+      "Unpleasant smells from vents",
+      "Poor airflow",
+      "AC working intermittently",
+      "Windows not demisting effectively",
     ],
-    warningSigns: ["Warm air", "Weak airflow", "Unusual odour", "Intermittent cooling", "Unusual noise"],
+    warningSigns: [
+      "Air not blowing cold",
+      "Cooling performance getting weaker",
+      "Unusual noises when AC is operating",
+      "Unpleasant smells from vents",
+      "Poor airflow",
+      "AC working intermittently",
+      "Windows not demisting effectively",
+    ],
     includedItems: [
-      "Air-conditioning symptom inspection",
+      "Air-conditioning performance checks",
+      "Pressure and temperature checks where applicable",
+      "Leak inspection pathway where required",
+      "Compressor operation checks",
+      "Condenser and related component checks",
+      "Electrical control checks where appropriate",
       "Airflow and cabin-filter checks where relevant",
-      "Control and electrical checks where appropriate",
-      "Leak concerns discussed before further work",
       "Clear quote before repair work proceeds",
+    ],
+    detailSections: [
+      {
+        title: "Poor Cooling & Refrigerant Loss",
+        copy:
+          "Poor cooling can be caused by refrigerant loss, leaks, compressor concerns, condenser performance, control faults or airflow issues. A system that needs frequent regassing may have an underlying leak or fault that should be investigated.",
+        points: [
+          "Poor cooling diagnosis",
+          "Refrigerant-loss concerns",
+          "Leak checks where applicable",
+          "No assumption that regassing fixes every fault",
+        ],
+      },
+      {
+        title: "Compressor, Condenser & System Components",
+        copy:
+          "Automotive air-conditioning diagnosis may involve checking pressures, temperatures, leaks, compressor operation, condenser performance, electrical controls and related components as applicable to the vehicle and symptom.",
+        points: [
+          "Compressor operation checks",
+          "Condenser performance assessment",
+          "Electrical and control checks",
+          "Component advice before repairs",
+        ],
+      },
+      {
+        title: "Cabin Comfort & Airflow Issues",
+        copy:
+          "Weak airflow, odours or poor demisting can involve cabin filters, blower operation, controls, vents, moisture or other airflow-related concerns. These symptoms should be checked before assuming the sealed AC system is the only issue.",
+        points: [
+          "Airflow checks",
+          "Cabin filter checks where relevant",
+          "Vent odour and demisting concerns",
+          "Comfort-related fault finding",
+        ],
+      },
     ],
     processSteps: standardProcess,
     benefits: standardBenefits,
     specialNotice:
-      "Air-conditioning services can vary by vehicle and system. Contact G&T Motorsports to confirm what can be completed for your vehicle.",
+      "Air-conditioning services can vary by vehicle and system. Contact G&T Motorsports to confirm what can be completed for your vehicle. This page does not make claims about refrigerant handling licences, certifications or authorisations.",
     faqs: [
-      { question: "Why is my air conditioning not cold?", answer: "Poor cooling can have several causes, including airflow, electrical, control or sealed-system issues. Inspection is needed before recommending a repair." },
-      { question: "Can you inspect an air-conditioning leak?", answer: "G&T Motorsports can discuss air-conditioning leak concerns and advise the appropriate inspection pathway for your vehicle." },
-      { question: "How often should vehicle air conditioning be checked?", answer: "It is sensible to have the system checked when cooling performance changes, odours appear or airflow becomes weak." },
-      { question: "Does poor airflow always mean low refrigerant?", answer: "No. Poor airflow may relate to cabin filters, fans, controls or other issues, so diagnosis should come before assumptions." },
-      { question: "Will you quote repairs before proceeding?", answer: "Yes. Recommended repairs are explained and quoted before work proceeds." },
-      { question: "Do I need to book?", answer: "Appointments are recommended. Walk-ins are welcome, but wait times depend on workshop availability." },
+      {
+        question: "Why is my car air conditioning not blowing cold?",
+        answer:
+          "Poor cooling can have several causes, including refrigerant loss, leaks, compressor concerns, condenser performance, electrical controls, airflow issues or other system faults. Diagnosis is recommended before repairs or refrigerant are added.",
+      },
+      {
+        question: "Should my AC system need frequent regassing?",
+        answer:
+          "A healthy system should not usually need frequent regassing. If cooling drops again after a regas, there may be an underlying leak or fault that needs inspection.",
+      },
+      {
+        question: "Can refrigerant leaks be repaired?",
+        answer:
+          "It depends on the leak location, component condition and vehicle system. Some components may be repairable while others may require replacement. G&T Motorsports will explain findings before repair work proceeds.",
+      },
+      {
+        question: "Why does my AC work intermittently?",
+        answer:
+          "Intermittent AC can relate to electrical controls, sensors, compressor operation, pressure changes, fan operation or other faults. Testing may be required while the symptom is present.",
+      },
+      {
+        question: "Why is airflow from the vents weak?",
+        answer:
+          "Weak airflow can involve cabin filters, blower operation, vent controls, restrictions or other airflow concerns. It does not always mean the system is low on refrigerant.",
+      },
+      {
+        question: "Should diagnosis be carried out before a regas?",
+        answer:
+          "Yes. Poor AC performance can have multiple causes, so diagnosis helps avoid assuming that a regas alone will fix the problem.",
+      },
     ],
-    relatedServices: [coreLinks.diagnostics, coreLinks.general, coreLinks.battery],
+    relatedServices: [
+      coreLinks.general,
+      coreLinks.diagnostics,
+      coreLinks.battery,
+      coreLinks.cooling,
+    ],
     localAreaText,
-    ctaHeading: "Book Air-Conditioning Inspection",
+    ctaHeading: "Book an Air Conditioning Inspection",
     ctaText:
-      "Have weak cooling, odours or airflow concerns checked before the weather heats up.",
+      "Have weak cooling, odours, poor airflow or intermittent AC concerns checked before replacing parts or assuming a regas will fix the issue.",
+    primaryCtaLabel: "Book Air Conditioning Inspection",
+    secondaryCtaLabel: "Get a Quote",
+    secondaryCtaHref: "/contact",
   },
   {
     slug: "clutch-transmission",
@@ -997,5 +1400,9 @@ export function getServicePage(slug: string) {
 }
 
 export function serviceCanonicalUrl(slug: string) {
-  return `${site.url}/services/${slug}`;
+  return `${site.url}${primaryServicePaths[slug] || `/services/${slug}`}`;
+}
+
+export function servicePath(slug: string) {
+  return primaryServicePaths[slug] || `/services/${slug}`;
 }

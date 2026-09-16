@@ -7,25 +7,6 @@ type ReviewsProps = {
   showPageLink?: boolean;
 };
 
-const reasons = [
-  {
-    title: "Honest Advice",
-    copy: "We explain our findings clearly and recommend only the work your vehicle genuinely needs.",
-  },
-  {
-    title: "Quality Workmanship",
-    copy: "Every service and repair is completed carefully using quality parts and professional equipment.",
-  },
-  {
-    title: "Clear Communication",
-    copy: "We keep customers informed about the work required, expected costs and likely turnaround time.",
-  },
-  {
-    title: "All Makes and Models",
-    copy: "We service and repair a wide variety of family vehicles, work vehicles, four-wheel drives and performance vehicles.",
-  },
-];
-
 function ExternalIcon() {
   return (
     <span
@@ -76,7 +57,7 @@ export function Reviews({ showPageLink = false }: ReviewsProps) {
           ) : null}
         </div>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-2">
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {customerReviews.map((review) => (
             <article
               className="rounded-md border border-white/10 bg-white/[0.045] p-6 shadow-2xl sm:p-8"
@@ -100,23 +81,6 @@ export function Reviews({ showPageLink = false }: ReviewsProps) {
             </article>
           ))}
         </div>
-
-        <section className="mt-16">
-          <SectionHeader
-            eyebrow="Why Customers Choose Us"
-            title="A workshop experience built around trust."
-            align="center"
-          />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {reasons.map((reason) => (
-              <article className="rounded-md border border-white/10 bg-black/35 p-5" key={reason.title}>
-                <span className="mb-5 block h-1 w-12 bg-brake" />
-                <h3 className="text-xl font-black text-white">{reason.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-white/66">{reason.copy}</p>
-              </article>
-            ))}
-          </div>
-        </section>
 
         <section className="mt-16 rounded-md border border-white/10 bg-black/35 p-6 text-center sm:p-8">
           <h2 className="text-3xl font-black leading-tight text-white">

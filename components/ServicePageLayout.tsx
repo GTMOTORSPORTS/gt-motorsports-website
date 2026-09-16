@@ -7,7 +7,7 @@ import { ProcessSteps, standardWorkshopProcess } from "@/components/ProcessSteps
 import { SectionHeader } from "@/components/SectionHeader";
 import { pageMetadata } from "@/lib/seo";
 import type { ServicePage } from "@/lib/service-pages";
-import { getServicePage, serviceCanonicalUrl } from "@/lib/service-pages";
+import { getServicePage, serviceCanonicalUrl, servicePath } from "@/lib/service-pages";
 import { site } from "@/lib/site";
 
 const serviceArea = [
@@ -31,7 +31,7 @@ export function generateServiceMetadata(slug: string): Metadata {
   return pageMetadata({
     title: service.metadataTitle,
     description: service.metadataDescription,
-    path: `/services/${service.slug}`,
+    path: servicePath(service.slug),
     image: "/workshop-hero.png",
     imageAlt: `${service.name} at G&T Motorsports`,
   });
@@ -52,6 +52,7 @@ export function ServicePageLayout({ slug }: { slug: string }) {
       <Breadcrumbs service={service} />
       <ServiceIntroSection service={service} />
       <ServiceChecklist service={service} />
+      {service.detailSections ? <ServiceDetailSections service={service} /> : null}
       {service.warrantySection ? <WarrantySection service={service} /> : null}
       {service.digitalServiceRecordNotice ? (
         <DigitalServiceRecordSection service={service} />
@@ -71,7 +72,7 @@ export function ServiceHero({ service }: { service: ServicePage }) {
   return (
     <section className="relative overflow-hidden bg-black py-16 sm:py-24">
       <div
-        className="absolute inset-0 bg-[url('/workshop-hero.png')] bg-cover bg-center opacity-20"
+        className="absolute inset-0 bg-[url('/workshop-hero.webp')] bg-cover bg-center opacity-20"
         aria-hidden="true"
       />
       <div
@@ -202,6 +203,53 @@ export function ServiceChecklist({ service }: { service: ServicePage }) {
   );
 }
 
+export function ServiceDetailSections({ service }: { service: ServicePage }) {
+  if (!service.detailSections) {
+    return null;
+  }
+
+  return (
+    <section className="bg-asphalt py-16 sm:py-24">
+      <div className="container-shell">
+        <SectionHeader
+          eyebrow="More about this service"
+          title="What We Diagnose and Repair"
+          copy="The right repair depends on the vehicle, symptoms and inspection findings. G&T Motorsports checks the cause before recommending replacement parts."
+          align="center"
+        />
+        <div className="mt-10 grid gap-4 lg:grid-cols-3">
+          {service.detailSections.map((section) => (
+            <article
+              className="rounded-md border border-white/10 bg-black/35 p-6"
+              key={section.title}
+            >
+              <span className="mb-5 block h-1 w-12 bg-brake" />
+              <h3 className="text-2xl font-black leading-tight text-white">
+                {section.title}
+              </h3>
+              <p className="mt-4 text-sm leading-6 text-white/66">
+                {section.copy}
+              </p>
+              {section.points ? (
+                <ul className="mt-6 space-y-3">
+                  {section.points.map((point) => (
+                    <li
+                      className="rounded-md border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-bold text-white"
+                      key={point}
+                    >
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function WarrantySection({ service }: { service: ServicePage }) {
   if (!service.warrantySection) {
     return null;
@@ -248,7 +296,7 @@ export function DigitalServiceRecordSection({ service }: { service: ServicePage 
             worked on and is not claimed on this page.
           </p>
           <div className="mt-6">
-            <ButtonLink href="/services/mercedes-benz-servicing" variant="ghost">
+            <ButtonLink href="/mercedes-benz-service" variant="ghost">
               Mercedes-Benz Service
             </ButtonLink>
           </div>
@@ -424,7 +472,7 @@ export function LocalServiceArea({ service }: { service: ServicePage }) {
           <Link className="focus-ring hover:text-black" href="/reviews">
             Reviews
           </Link>
-          <Link className="focus-ring hover:text-black" href="/mechanic-clyde-north">
+          <Link className="focus-ring hover:text-black" href="/">
             Clyde North Workshop
           </Link>
         </div>
@@ -450,10 +498,13 @@ export function ServiceCTA({ service }: { service: ServicePage }) {
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
           <ButtonLink href="/book-online" variant="secondary">
-            Book Online
+            {service.primaryCtaLabel || "Book Online"}
           </ButtonLink>
-          <ButtonLink href={site.phoneHref} variant="ghost">
-            Call Now
+          <ButtonLink
+            href={service.secondaryCtaHref || site.phoneHref}
+            variant="ghost"
+          >
+            {service.secondaryCtaLabel || "Call Now"}
           </ButtonLink>
           <ButtonLink href={site.directionsHref} variant="ghost">
             Get Directions

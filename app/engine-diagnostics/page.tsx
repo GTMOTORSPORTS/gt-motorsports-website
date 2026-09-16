@@ -12,18 +12,18 @@ const canonical = `${site.url}/engine-diagnostics`;
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Engine Diagnostics Clyde North | Warning Light & Fault Diagnosis | G&T Motorsports",
+      "Engine Diagnostics Clyde North | Car Diagnostics | G&T Motorsports",
   },
   description:
-    "Engine warning light on? G&T Motorsports provides professional vehicle diagnostics, fault-code scanning and mechanical testing near Clyde North for all makes and models.",
+    "Book engine diagnostics in Clyde North for check engine lights, warning messages, electrical faults, starting issues and drivability concerns at G&T Motorsports.",
   alternates: {
     canonical,
   },
   openGraph: {
     title:
-      "Engine Diagnostics Clyde North | Warning Light & Fault Diagnosis | G&T Motorsports",
+      "Engine Diagnostics Clyde North | Car Diagnostics | G&T Motorsports",
     description:
-      "Engine warning light on? G&T Motorsports provides professional vehicle diagnostics, fault-code scanning and mechanical testing near Clyde North for all makes and models.",
+      "Professional car diagnostics in Clyde North for warning lights, starting issues, electrical faults and drivability concerns.",
     url: canonical,
     siteName: site.name,
     locale: "en_AU",
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Engine Diagnostics Clyde North | Warning Light & Fault Diagnosis | G&T Motorsports",
+      "Engine Diagnostics Clyde North | Car Diagnostics | G&T Motorsports",
     description:
-      "Engine warning light on? G&T Motorsports provides professional vehicle diagnostics, fault-code scanning and mechanical testing near Clyde North for all makes and models.",
+      "Professional car diagnostics in Clyde North for warning lights, starting issues, electrical faults and drivability concerns.",
     images: ["/workshop-hero.png"],
   },
 };
@@ -52,30 +52,30 @@ const diagnosticTriggers = [
   "ABS warning light",
   "Airbag warning light",
   "Battery or charging light",
+  "Starting issues",
   "Vehicle entering limp mode",
   "Rough idle",
   "Engine misfire",
   "Poor acceleration",
+  "Intermittent faults",
   "Hard starting",
-  "Excessive fuel use",
-  "Unexpected stalling",
   "Electrical faults",
 ];
 
 const diagnosticServices = [
   {
     title: "Fault-code scanning",
-    href: "/services/vehicle-diagnostics",
+    href: "/engine-diagnostics",
     copy: "Stored fault codes and control-module data can provide a useful starting point for diagnosis.",
   },
   {
     title: "Live data analysis",
-    href: "/services/vehicle-diagnostics",
+    href: "/engine-diagnostics",
     copy: "Sensor values and operating data can be reviewed while the vehicle is running where appropriate.",
   },
   {
     title: "Warning-light diagnosis",
-    href: "/services/vehicle-diagnostics",
+    href: "/engine-diagnostics",
     copy: "Engine, ABS, airbag and charging-system warning lights can be investigated with suitable testing.",
   },
   {
@@ -100,12 +100,12 @@ const diagnosticServices = [
   },
   {
     title: "Sensor and actuator testing",
-    href: "/services/vehicle-diagnostics",
+    href: "/engine-diagnostics",
     copy: "Component operation may need to be tested rather than replaced based only on a stored code.",
   },
   {
     title: "Electrical fault tracing",
-    href: "/services/vehicle-diagnostics",
+    href: "/engine-diagnostics",
     copy: "Wiring, connector and circuit checks can help locate faults that appear intermittently.",
   },
   {
@@ -115,7 +115,7 @@ const diagnosticServices = [
   },
   {
     title: "Road testing where safe",
-    href: "/services/vehicle-diagnostics",
+    href: "/engine-diagnostics",
     copy: "Some concerns need to be confirmed under real driving conditions if the vehicle is safe to drive.",
   },
   {
@@ -171,7 +171,7 @@ const warningLightCauses = [
 ];
 
 const serviceAreas = [
-  { label: "Clyde North", href: "/mechanic-clyde-north" },
+  { label: "Clyde North", href: "/" },
   { label: "Cranbourne", href: "/locations/cranbourne" },
   { label: "Berwick", href: "/locations/berwick" },
   { label: "Narre Warren", href: "/locations/narre-warren" },
@@ -185,22 +185,22 @@ const faqs = [
   {
     question: "What does a check engine light mean?",
     answer:
-      "A check engine light means the vehicle has detected a fault or abnormal operating condition. It may relate to sensors, ignition, fuel, emissions, intake, cooling, electrical or mechanical systems, so testing is needed before recommending repairs.",
+      "A check engine light means the vehicle has detected a fault or abnormal operating condition. It may relate to sensors, ignition, fuel, emissions, intake, cooling, electrical or mechanical systems, so diagnostic testing is needed before recommending repairs.",
   },
   {
-    question: "Can I keep driving with the engine warning light on?",
+    question: "How long do engine diagnostics take?",
     answer:
-      "If the vehicle is running poorly, overheating, flashing a warning light, losing power or feeling unsafe, contact the workshop before continuing to drive. A steady warning light may still need prompt inspection to avoid further damage.",
+      "Diagnostic time depends on the symptom, vehicle system and whether the fault is present during testing. Some checks are straightforward, while intermittent or complex faults can require additional testing and time.",
   },
   {
-    question: "Does a diagnostic scan tell you exactly what is wrong?",
+    question: "Does a fault code tell you exactly what part is faulty?",
     answer:
       "Not always. A scan tool reads fault codes and data from the vehicle, but a code usually identifies the system reporting a problem rather than proving which part has failed. Proper diagnosis may require further inspection and testing.",
   },
   {
-    question: "How long does vehicle diagnosis take?",
+    question: "Can warning lights be cleared?",
     answer:
-      "Diagnostic time depends on the symptom, vehicle system and whether the fault is present during testing. Some faults are straightforward, while intermittent or complex concerns can require additional test time.",
+      "Warning lights can often be cleared after testing or repair, but clearing a code without addressing the cause may allow the light to return. G&T Motorsports checks the fault before advising on the next step.",
   },
   {
     question: "Can you diagnose intermittent faults?",
@@ -208,19 +208,14 @@ const faqs = [
       "Yes, intermittent faults can be investigated, although they may require repeat testing, road testing where safe, live data checks or further monitoring if the fault is not present during the first inspection.",
   },
   {
+    question: "Can repairs be completed after diagnosis?",
+    answer:
+      "Yes. If repair work is required, G&T Motorsports will explain the findings and provide a quote before major repair work proceeds.",
+  },
+  {
     question: "Do you diagnose European vehicles?",
     answer:
       "Yes. G&T Motorsports works on Mercedes-Benz and European vehicles using professional diagnostic equipment, while also diagnosing Japanese, Korean, Australian, 4WD, SUV and light commercial vehicles.",
-  },
-  {
-    question: "Can you diagnose ABS and airbag warning lights?",
-    answer:
-      "Yes. ABS and airbag warning lights can be scanned and investigated with appropriate testing. Safety-related faults should be checked promptly.",
-  },
-  {
-    question: "Will you provide a quote before repairs?",
-    answer:
-      "Yes. G&T Motorsports explains the findings and provides a quote for recommended repairs before additional approved work proceeds.",
   },
 ];
 
@@ -244,10 +239,10 @@ function StructuredData() {
     "@type": "Service",
     "@id": `${canonical}#service`,
     name: "Engine Diagnostics and Fault Finding",
-    serviceType: "Vehicle diagnostics, fault-code scanning and mechanical testing",
+    serviceType: "Engine diagnostics, car diagnostics, warning-light checks and staged fault finding",
     url: canonical,
     description:
-      "Professional engine diagnostics, warning-light diagnosis, fault-code scanning, live data analysis and mechanical testing for all makes and models at G&T Motorsports.",
+      "Professional engine diagnostics in Clyde North, including warning-light checks, fault-code scanning, live data analysis, electrical testing and staged fault finding for all makes and models.",
     provider: {
       "@id": `${site.url}/#business`,
     },
@@ -320,7 +315,7 @@ export default function EngineDiagnosticsLandingPage() {
 
       <section className="relative overflow-hidden bg-black py-16 sm:py-24">
         <Image
-          src="/workshop-hero.png"
+          src="/workshop-hero.webp"
           alt=""
           fill
           priority
@@ -337,18 +332,20 @@ export default function EngineDiagnosticsLandingPage() {
             Professional Warning Light and Fault Diagnosis
           </p>
           <h1 className="max-w-4xl text-5xl font-black leading-[0.95] text-white sm:text-6xl">
-            Professional Engine Diagnostics & Fault Finding
+            Engine Diagnostics in Clyde North
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/78">
-            Warning lights, poor performance, rough running and starting
-            problems can have many possible causes. G&T Motorsports combines
-            professional diagnostic equipment with mechanical testing and
-            experienced fault-finding to identify the underlying issue.
+            G&T Motorsports carries out engine diagnostics, car diagnostics and
+            check engine light diagnosis in Clyde North for warning lights,
+            drivability issues, electrical faults, starting problems and other
+            vehicle concerns. Our team uses professional diagnostic equipment
+            with staged fault-finding to help identify the cause before major
+            repair work proceeds.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <ButtonLink href="/book-online">Book Diagnostic Inspection</ButtonLink>
-            <ButtonLink href={site.phoneHref} variant="secondary">
-              Call Now
+            <ButtonLink href="/book-online">Book Diagnostics</ButtonLink>
+            <ButtonLink href="/contact" variant="secondary">
+              Get a Quote
             </ButtonLink>
           </div>
         </div>
@@ -358,8 +355,8 @@ export default function EngineDiagnosticsLandingPage() {
         <div className="container-shell">
           <SectionHeader
             eyebrow="When to book diagnostics"
-            title="Warning Lights and Symptoms Worth Checking Early"
-            copy="Faults are often easier to deal with before they create extra damage or leave the vehicle undriveable. If the vehicle feels unsafe, call the workshop before travelling."
+            title="When You May Need Diagnostics"
+            copy="Faults are often easier to deal with before they create extra damage or leave the vehicle undriveable. Book diagnostic testing if you notice warning lights, poor running, starting issues, intermittent faults or electrical concerns. If the vehicle feels unsafe, call the workshop before travelling."
             tone="light"
             align="center"
           />
@@ -381,8 +378,8 @@ export default function EngineDiagnosticsLandingPage() {
         <div className="container-shell">
           <SectionHeader
             eyebrow="Diagnostic services"
-            title="Vehicle Diagnostic Services"
-            copy="A scan can be useful, but it is only part of the process. The right diagnostic path depends on the symptom, stored data, vehicle condition and the testing required to confirm the cause."
+            title="What Diagnostic Testing Can Include"
+            copy="Automotive diagnostics can involve scan-tool data, visual checks, electrical testing, mechanical checks and road testing where safe. The right diagnostic path depends on the symptom, stored data, vehicle condition and the testing required to confirm the cause."
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {diagnosticServices.map((service) => (
@@ -406,8 +403,8 @@ export default function EngineDiagnosticsLandingPage() {
         <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <SectionHeader
             eyebrow="Scan vs diagnosis"
-            title="Find the Cause, Not Just the Fault Code"
-            copy="A scan tool reads stored fault codes and vehicle data. A fault code identifies the system that detected a problem, but it does not always identify the failed component."
+            title="Warning Lights & Fault Codes"
+            copy="A scan tool reads stored fault codes and vehicle data. Fault codes are a starting point: they identify the system reporting a problem, but they do not always identify the failed component by themselves."
           />
           <div className="rounded-md border border-white/10 bg-black/35 p-6 sm:p-8">
             <h2 className="text-2xl font-black text-white">
@@ -437,8 +434,8 @@ export default function EngineDiagnosticsLandingPage() {
         <div className="container-shell">
           <SectionHeader
             eyebrow="Diagnostic process"
-            title="How Fault Finding Is Handled"
-            copy="The process is designed to move from symptoms to evidence, then to clear repair advice before additional work proceeds."
+            title="What Happens After Diagnosis?"
+            copy="The process is designed to move from symptoms to evidence, then to clear repair advice. If additional testing or repair work is required, customers are advised before major work proceeds."
             tone="light"
             align="center"
           />
@@ -461,9 +458,9 @@ export default function EngineDiagnosticsLandingPage() {
       <section className="bg-black py-16 sm:py-24">
         <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <SectionHeader
-            eyebrow="Vehicles we diagnose"
-            title="Diagnostics for All Makes and Models"
-            copy="G&T Motorsports investigates warning lights and running concerns across everyday vehicles, work vehicles, European models and performance-focused cars."
+            eyebrow="All makes and models"
+            title="Electrical & Drivability Faults"
+            copy="G&T Motorsports investigates automotive diagnostics concerns across everyday vehicles, work vehicles, European models and performance-focused cars, including battery or charging problems, poor running, performance concerns and intermittent electrical faults."
           />
           <div className="grid gap-3 sm:grid-cols-3">
             {vehicleTypes.map((vehicle) => (
@@ -484,7 +481,7 @@ export default function EngineDiagnosticsLandingPage() {
             <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
               <div className="relative min-h-[320px]">
                 <Image
-                  src="/workshop-hero.png"
+                  src="/images/workshop/gt-motorsports-diagnostics-clyde-north.jpg.jpeg"
                   alt="Diagnostic inspection at G&T Motorsports in Clyde North"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -578,8 +575,20 @@ export default function EngineDiagnosticsLandingPage() {
             <Link className="focus-ring hover:text-white" href="/brake-repairs">
               Brake Repairs
             </Link>
+            <Link
+              className="focus-ring hover:text-white"
+              href="/services/general-car-servicing"
+            >
+              General Car Servicing
+            </Link>
             <Link className="focus-ring hover:text-white" href="/logbook-servicing">
               Logbook Servicing
+            </Link>
+            <Link
+              className="focus-ring hover:text-white"
+              href="/services/battery-charging-systems"
+            >
+              Battery Services
             </Link>
             <Link
               className="focus-ring hover:text-white"
@@ -638,7 +647,7 @@ export default function EngineDiagnosticsLandingPage() {
               Ready to book?
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight sm:text-4xl">
-              Warning Light On or Vehicle Running Poorly?
+              Book a Diagnostic Inspection
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-white/85">
               Book a professional diagnostic inspection with G&T Motorsports.
@@ -648,10 +657,10 @@ export default function EngineDiagnosticsLandingPage() {
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="/book-online" variant="secondary">
-              Book Diagnostic Inspection
+              Book Diagnostics
             </ButtonLink>
-            <ButtonLink href={site.phoneHref} variant="ghost">
-              Call G&T Motorsports
+            <ButtonLink href="/contact" variant="ghost">
+              Get a Quote
             </ButtonLink>
           </div>
         </div>

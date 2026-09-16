@@ -19,7 +19,7 @@ export default function LocationsPage() {
     <PageShell>
       <section className="relative overflow-hidden bg-black py-16 sm:py-24">
         <div
-          className="absolute inset-0 bg-[url('/workshop-hero.png')] bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-[url('/workshop-hero.webp')] bg-cover bg-center opacity-20"
           aria-hidden="true"
         />
         <div

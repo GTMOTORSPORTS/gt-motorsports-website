@@ -43,13 +43,13 @@ export function Footer() {
                 {item.label}
               </Link>
             ))}
-            <Link className="focus-ring w-fit hover:text-white" href="/mechanic-clyde-north">
+            <Link className="focus-ring w-fit hover:text-white" href="/">
               Mechanic Clyde North
             </Link>
-            <Link className="focus-ring w-fit hover:text-white" href="/mechanic-cranbourne">
+            <Link className="focus-ring w-fit hover:text-white" href="/locations/cranbourne">
               Mechanic Cranbourne
             </Link>
-            <Link className="focus-ring w-fit hover:text-white" href="/mechanic-berwick">
+            <Link className="focus-ring w-fit hover:text-white" href="/locations/berwick">
               Mechanic Berwick
             </Link>
             <Link className="focus-ring w-fit hover:text-white" href="/privacy-policy">

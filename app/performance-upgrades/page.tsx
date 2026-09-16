@@ -65,7 +65,7 @@ const upgradeServices = [
   },
   {
     title: "Brake upgrades",
-    href: "/services/brake-repairs",
+    href: "/brake-repairs",
     copy: "Brake system inspections and upgrade support for vehicles where stopping performance needs to match the setup.",
   },
   {
@@ -75,12 +75,12 @@ const upgradeServices = [
   },
   {
     title: "Turbo supporting modifications",
-    href: "/services/vehicle-diagnostics",
+    href: "/engine-diagnostics",
     copy: "Supporting mechanical checks and installation work for turbo vehicles where reliability and system health matter.",
   },
   {
     title: "Performance servicing",
-    href: "/services/logbook-servicing",
+    href: "/logbook-servicing",
     copy: "Servicing for performance vehicles and modified cars, with attention to fluids, checks and maintenance needs.",
   },
   {
@@ -255,7 +255,7 @@ export default function PerformanceUpgradesPage() {
 
       <section className="relative overflow-hidden bg-black py-16 sm:py-24">
         <Image
-          src="/workshop-hero.png"
+          src="/workshop-hero.webp"
           alt=""
           fill
           priority

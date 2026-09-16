@@ -10,7 +10,7 @@ const serviceOffers = [
   "Air Conditioning Service",
   "Battery Services",
   "Clutch & Transmission Repairs",
-  "General Mechanical Repairs",
+  "General Car Servicing",
   "Mercedes-Benz Service",
   "Mercedes-Benz Digital Service Record updates",
   "European Vehicle Servicing",
