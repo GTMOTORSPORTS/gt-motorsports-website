@@ -122,13 +122,13 @@ export const servicePages: ServicePage[] = [
     name: "General Car Servicing",
     icon: "GS",
     eyebrow: "General servicing Clyde North",
-    title: "Car Service in Clyde North",
+    title: "General Car Servicing in Clyde North",
     shortDescription:
       "Routine vehicle servicing and maintenance for all makes and models, with clear advice before additional work proceeds.",
     introduction:
       "G&T Motorsports provides routine vehicle servicing and maintenance in Clyde North for a wide range of makes and models. Each vehicle is inspected based on its condition and service needs, and customers are advised before any additional repairs or maintenance proceed.",
     metadataTitle:
-      "Car Service Clyde North | General Servicing | G&T Motorsports",
+      "General Car Servicing in Clyde North | G&T Motorsports",
     metadataDescription:
       "Book car service in Clyde North with G&T Motorsports. General car servicing, vehicle maintenance and inspections for all makes and models.",
     trustPoints: allMakesTrust,
