@@ -4,6 +4,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { servicePages, servicePath } from "@/lib/service-pages";
 
 const featuredServiceSlugs = [
+  "walnut-blasting",
   "logbook-servicing",
   "vehicle-diagnostics",
   "brake-repairs",

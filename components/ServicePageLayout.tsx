@@ -90,6 +90,11 @@ export function ServiceHero({ service }: { service: ServicePage }) {
           {service.introduction}
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          {service.secondaryCtaHref ? (
+            <ButtonLink href={service.secondaryCtaHref} variant="ghost">
+              {service.secondaryCtaLabel || "Get a Quote"}
+            </ButtonLink>
+          ) : null}
           <ButtonLink href="/book-online">Book Online</ButtonLink>
           <ButtonLink href={site.phoneHref} variant="secondary">
             Call {site.phone}
@@ -213,8 +218,8 @@ export function ServiceDetailSections({ service }: { service: ServicePage }) {
       <div className="container-shell">
         <SectionHeader
           eyebrow="More about this service"
-          title="What We Diagnose and Repair"
-          copy="The right repair depends on the vehicle, symptoms and inspection findings. G&T Motorsports checks the cause before recommending replacement parts."
+          title={service.slug === "walnut-blasting" ? "Pricing, Eligibility and Cleaning Scope" : "What We Diagnose and Repair"}
+          copy={service.slug === "walnut-blasting" ? "Confirm the right service and total price for your engine before approving work." : "The right repair depends on the vehicle, symptoms and inspection findings. G&T Motorsports checks the cause before recommending replacement parts."}
           align="center"
         />
         <div className="mt-10 grid gap-4 lg:grid-cols-3">

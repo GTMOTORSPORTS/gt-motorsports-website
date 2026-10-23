@@ -28,6 +28,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/services/walnut-blasting",
+        destination: "/walnut-blasting-clyde-north",
+        permanent: true,
+      },
+      {
         source: "/services/logbook-servicing",
         destination: "/logbook-servicing",
         permanent: true,

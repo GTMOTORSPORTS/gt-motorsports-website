@@ -63,6 +63,11 @@ export const navItems = [
 
 export const publicRoutes = [
   {
+    path: "/walnut-blasting-clyde-north",
+    priority: 0.88,
+    changeFrequency: "monthly",
+  },
+  {
     path: "/",
     priority: 1,
     changeFrequency: "weekly",
