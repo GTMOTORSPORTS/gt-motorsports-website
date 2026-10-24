@@ -27,18 +27,6 @@ const serviceMenuItems: NavItem[] = [
   { href: "/services", label: "View All Services" },
 ];
 
-const locationMenuItems: NavItem[] = [
-  { href: "/locations/cranbourne", label: "Cranbourne" },
-  { href: "/locations/berwick", label: "Berwick" },
-  { href: "/locations/narre-warren", label: "Narre Warren" },
-  { href: "/locations/officer", label: "Officer" },
-  { href: "/locations/pakenham", label: "Pakenham" },
-  { href: "/locations/lynbrook", label: "Lynbrook" },
-  { href: "/locations/hampton-park", label: "Hampton Park" },
-  { href: "/locations/hallam", label: "Hallam" },
-  { href: "/locations", label: "View All Locations" },
-];
-
 const desktopNavItems: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/roadworthy-certificate", label: "RWC" },
@@ -227,12 +215,6 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <DesktopDropdown
-            id="locations"
-            items={locationMenuItems}
-            label="Locations"
-            align="right"
-          />
           <Link
             className="focus-ring min-h-11 whitespace-nowrap text-[15px] font-bold leading-tight text-white/78 transition hover:text-white 2xl:text-[16px]"
             href="/contact"
@@ -303,11 +285,6 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-              <MobileAccordion
-                id="locations"
-                items={locationMenuItems}
-                label="Locations"
-              />
               <Link
                 className="focus-ring min-h-12 border-b border-white/10 py-3 text-base font-bold text-white"
                 href="/contact"

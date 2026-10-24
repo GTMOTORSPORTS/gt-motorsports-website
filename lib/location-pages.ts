@@ -27,10 +27,10 @@ export const locationPages: LocationPage[] = [
   {
     slug: "cranbourne",
     suburb: "Cranbourne",
-    title: "Mechanic Near Cranbourne | Car Service | G&T Motorsports",
+    title: "Car Service for Cranbourne Drivers | G&T Motorsports",
     description:
       "Need car servicing near Cranbourne? Visit G&T Motorsports in nearby Clyde North for logbook servicing, diagnostics and mechanical repairs.",
-    h1: "Mechanic Near Cranbourne",
+    h1: "Car Servicing for Cranbourne Drivers",
     heroCopy:
       "Looking for an experienced mechanic near Cranbourne? G&T Motorsports provides servicing, repairs and diagnostics for all makes and models from our Clyde North workshop, only a short drive away. Customers from Cranbourne can book routine maintenance, warning-light diagnosis, brake repairs and Mercedes-Benz servicing with clear advice before additional work proceeds.",
     distance: "around 9 km",
@@ -92,10 +92,10 @@ export const locationPages: LocationPage[] = [
   {
     slug: "berwick",
     suburb: "Berwick",
-    title: "Mechanic Near Berwick | Car Service | G&T Motorsports",
+    title: "Car Service for Berwick Drivers | G&T Motorsports",
     description:
       "Book car servicing near Berwick with G&T Motorsports in nearby Clyde North. Logbook servicing, diagnostics, brake repairs and Mercedes-Benz servicing.",
-    h1: "Mechanic Near Berwick",
+    h1: "Car Servicing for Berwick Drivers",
     heroCopy:
       "If you are looking for a reliable mechanic near Berwick, G&T Motorsports provides car servicing, diagnostics and mechanical repairs from our Clyde North workshop. Berwick drivers can book logbook servicing, brake repairs, Mercedes-Benz maintenance and European vehicle servicing with practical recommendations and approval before extra work proceeds.",
     distance: "around 12 km",
@@ -157,10 +157,10 @@ export const locationPages: LocationPage[] = [
   {
     slug: "narre-warren",
     suburb: "Narre Warren",
-    title: "Mechanic Near Narre Warren | G&T Motorsports Clyde North",
+    title: "Car Service for Narre Warren Drivers | G&T Motorsports",
     description:
       "Narre Warren drivers can book servicing, brake repairs, diagnostics and mechanical repairs with G&T Motorsports in Clyde North.",
-    h1: "Mechanic Near Narre Warren",
+    h1: "Car Servicing for Narre Warren Drivers",
     distance: "around 17 km",
     driveTime: "about 18 to 28 minutes",
     localIntro:
@@ -185,10 +185,10 @@ export const locationPages: LocationPage[] = [
   {
     slug: "officer",
     suburb: "Officer",
-    title: "Mechanic Near Officer | Car Service & Repairs | G&T Motorsports",
+    title: "Car Service for Officer Drivers | G&T Motorsports",
     description:
       "G&T Motorsports services Officer customers from Clyde North with logbook servicing, diagnostics, brake repairs and general mechanical repairs.",
-    h1: "Mechanic Near Officer",
+    h1: "Car Servicing for Officer Drivers",
     distance: "around 20 km",
     driveTime: "about 20 to 30 minutes",
     localIntro:
@@ -213,10 +213,10 @@ export const locationPages: LocationPage[] = [
   {
     slug: "pakenham",
     suburb: "Pakenham",
-    title: "Mechanic Near Pakenham | Servicing & Repairs | G&T Motorsports",
+    title: "Car Service for Pakenham Drivers | G&T Motorsports",
     description:
       "Pakenham customers can book car servicing, diagnostics and repairs at G&T Motorsports in Clyde North. All makes and models serviced.",
-    h1: "Mechanic Near Pakenham",
+    h1: "Car Servicing for Pakenham Drivers",
     distance: "around 28 km",
     driveTime: "about 25 to 40 minutes",
     localIntro:
@@ -241,10 +241,10 @@ export const locationPages: LocationPage[] = [
   {
     slug: "lynbrook",
     suburb: "Lynbrook",
-    title: "Mechanic Near Lynbrook | G&T Motorsports Clyde North",
+    title: "Car Service for Lynbrook Drivers | G&T Motorsports",
     description:
       "Book servicing, diagnostics, brake repairs and mechanical repairs near Lynbrook with G&T Motorsports in Clyde North.",
-    h1: "Mechanic Near Lynbrook",
+    h1: "Car Servicing for Lynbrook Drivers",
     distance: "around 16 km",
     driveTime: "about 20 to 30 minutes",
     localIntro:
@@ -269,10 +269,10 @@ export const locationPages: LocationPage[] = [
   {
     slug: "hampton-park",
     suburb: "Hampton Park",
-    title: "Mechanic Near Hampton Park | Car Servicing | G&T Motorsports",
+    title: "Car Service for Hampton Park Drivers | G&T Motorsports",
     description:
       "Hampton Park drivers can book car servicing, logbook servicing, diagnostics and mechanical repairs at G&T Motorsports in Clyde North.",
-    h1: "Mechanic Near Hampton Park",
+    h1: "Car Servicing for Hampton Park Drivers",
     distance: "around 18 km",
     driveTime: "about 20 to 30 minutes",
     localIntro:
@@ -297,10 +297,10 @@ export const locationPages: LocationPage[] = [
   {
     slug: "hallam",
     suburb: "Hallam",
-    title: "Mechanic Near Hallam | Servicing & Repairs | G&T Motorsports",
+    title: "Car Service for Hallam Drivers | G&T Motorsports",
     description:
       "G&T Motorsports provides car servicing, diagnostics, brake repairs and mechanical repairs for Hallam customers from Clyde North.",
-    h1: "Mechanic Near Hallam",
+    h1: "Car Servicing for Hallam Drivers",
     distance: "around 22 km",
     driveTime: "about 25 to 35 minutes",
     localIntro:

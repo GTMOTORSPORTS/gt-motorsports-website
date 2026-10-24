@@ -57,7 +57,7 @@ export const navItems = [
   { href: "/performance-upgrades", label: "Performance" },
   { href: "/about", label: "About" },
   { href: "/reviews", label: "Reviews" },
-  { href: "/locations", label: "Locations" },
+  { href: "/locations", label: "Areas We Serve" },
   { href: "/contact", label: "Contact" },
 ];
 

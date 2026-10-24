@@ -92,7 +92,7 @@ export function LocationPageLayout({ slug }: { slug: string }) {
               <li aria-hidden="true">/</li>
               <li>
                 <Link className="focus-ring hover:text-white" href="/locations">
-                  Locations
+                  Areas We Serve
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
@@ -102,11 +102,14 @@ export function LocationPageLayout({ slug }: { slug: string }) {
             </ol>
           </nav>
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.28em] text-brake">
-            {location.suburb} mechanic services
+            Serving {location.suburb} from Clyde North
           </p>
           <h1 className="max-w-4xl text-5xl font-black leading-[0.95] text-white sm:text-6xl">
             {location.h1}
           </h1>
+          <p className="mt-6 max-w-3xl rounded-md border border-white/15 bg-black/40 p-5 text-base font-bold leading-7 text-white">
+            Our only workshop is at {site.address}. We welcome drivers from {location.suburb}; all servicing and repairs take place in Clyde North.
+          </p>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/76">
             {location.heroCopy ||
               `G&T Motorsports supports customers from ${location.suburb} with professional vehicle servicing, diagnostics and mechanical repairs from our Clyde North workshop. We service all makes and models and focus on clear advice, quality workmanship and practical booking options.`}
@@ -336,7 +339,7 @@ export function LocationPageLayout({ slug }: { slug: string }) {
               Ready to book?
             </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight sm:text-4xl">
-              Book a Mechanic Near {location.suburb}
+              Book Your Visit to Our Clyde North Workshop
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-white/85">
               Whether your vehicle needs scheduled servicing, fault diagnosis,
@@ -371,7 +374,7 @@ function LocationStructuredData({ location }: { location: LocationPage }) {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Locations",
+        name: "Areas We Serve",
         item: `${site.url}/locations`,
       },
       {
@@ -420,7 +423,7 @@ function LocationReviews({ location }: { location: LocationPage }) {
       <div className="container-shell">
         <SectionHeader
           eyebrow="Customer reviews"
-          title={`Feedback From G&T Motorsports Customers Near ${location.suburb}`}
+          title="Feedback from Our Clyde North Workshop Customers"
           copy="Read genuine customer feedback currently displayed on the website."
           align="center"
         />

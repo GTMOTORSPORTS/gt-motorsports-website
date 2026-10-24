@@ -48,10 +48,10 @@ export function Footer() {
               Mechanic Clyde North
             </Link>
             <Link className="focus-ring w-fit hover:text-white" href="/locations/cranbourne">
-              Mechanic Cranbourne
+              Serving Cranbourne Drivers
             </Link>
             <Link className="focus-ring w-fit hover:text-white" href="/locations/berwick">
-              Mechanic Berwick
+              Serving Berwick Drivers
             </Link>
             <Link className="focus-ring w-fit hover:text-white" href="/privacy-policy">
               Privacy Policy
