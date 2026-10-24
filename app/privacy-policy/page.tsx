@@ -18,10 +18,12 @@ export default function PrivacyPolicyPage() {
         <div className="container-shell max-w-4xl">
           <SectionHeader
             eyebrow="Privacy Policy"
+            as="h1"
             title="How G&T Motorsports handles your information."
             copy="This policy explains how information submitted through this website may be used to respond to enquiries and booking requests."
           />
           <div className="mt-10 grid gap-6 text-sm leading-7 text-white/70">
+            <p>Our booking page uses Google Calendar, and map links or embedded maps use Google Maps. These third-party services handle information according to their own privacy policies. You can contact the workshop by phone or email if you prefer not to use the online calendar.</p>
             <p>
               G&T Motorsports may collect your name, contact details, vehicle
               information and enquiry details when you contact the workshop or

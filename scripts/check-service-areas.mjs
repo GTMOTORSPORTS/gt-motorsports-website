@@ -5,7 +5,7 @@ const production='https://www.gtmotorsports.com.au';
 const areas=[['cranbourne','Cranbourne'],['berwick','Berwick'],['narre-warren','Narre Warren'],['officer','Officer'],['pakenham','Pakenham'],['lynbrook','Lynbrook'],['hampton-park','Hampton Park'],['hallam','Hallam']];
 async function page(path){const r=await fetch(base+path,{signal:AbortSignal.timeout(20000)});assert.equal(r.status,200,path);return r.text();}
 const home=await page('/');
-assert.ok(home.includes('One Clyde North Workshop, Welcoming Nearby Drivers'));
+assert.ok(home.includes('One Workshop in Clyde North'));
 assert.ok(home.includes('href="/locations"'));
 const hub=await page('/locations');
 assert.ok(hub.includes('Areas We Serve from Our Clyde North Workshop'));

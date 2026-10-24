@@ -20,6 +20,7 @@ export default async function BookOnlinePage({ searchParams }: { searchParams: P
         <div className="container-shell">
           <SectionHeader
             eyebrow="Book Online"
+            as="h1"
             title="Book Your Vehicle Drop-Off"
             copy="Choose an available time for vehicle drop-off or an initial assessment. Your selected time does not guarantee completion at that time. Service and repair timeframes depend on the work required, parts availability and current workshop workload."
           />

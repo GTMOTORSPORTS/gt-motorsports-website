@@ -1,45 +1,66 @@
+import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { SectionHeader } from "@/components/SectionHeader";
 import { site } from "@/lib/site";
-
 export function HomeBooking() {
   return (
-    <section className="bg-black py-16 sm:py-24">
-      <div className="container-shell grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-        <div className="lg:sticky lg:top-32">
+    <section id="book-and-find-us" className="bg-black py-12 sm:py-16">
+      <div className="container-shell grid gap-8 lg:grid-cols-2">
+        <div>
           <SectionHeader
-            eyebrow="Book Online"
-            title="Request a workshop booking."
-            copy="Tell us what your vehicle needs and the workshop can confirm availability. For urgent support, call the team directly."
+            eyebrow="Book & find us"
+            title="Plan Your Workshop Visit"
+            copy="Book a vehicle drop-off or initial assessment. Completion time depends on the work, parts and workshop availability."
           />
-          <a
-            className="focus-ring mt-7 inline-flex text-3xl font-black text-white transition hover:text-brake"
-            href={site.phoneHref}
-          >
-            {site.phone}
-          </a>
-        </div>
-        <div className="rounded-md border border-white/10 bg-white/[0.045] p-5 shadow-2xl sm:p-7">
-          <div className="rounded-md border border-white/10 bg-black/60 p-6">
-            <p className="text-xs font-bold uppercase tracking-[0.24em] text-brake">
-              Live Schedule
-            </p>
-            <h2 className="mt-4 text-3xl font-black leading-tight text-white">
-              Choose an available drop-off time.
-            </h2>
-            <p className="mt-4 text-sm leading-6 text-white/70">
-              Book your vehicle drop-off or initial assessment through the live
-              Google Calendar appointment schedule. Appointments are
-              recommended, and walk-ins remain welcome subject to workshop
-              availability.
-            </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/book-online">Book Online</ButtonLink>
-              <ButtonLink href={site.phoneHref} variant="ghost">
-                Call {site.phone}
-              </ButtonLink>
-            </div>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <ButtonLink href="/book-online">Book Online</ButtonLink>
+            <ButtonLink href={site.phoneHref} variant="secondary">
+              Call {site.phone}
+            </ButtonLink>
+            <ButtonLink href="/contact" variant="ghost">
+              Get a Quote
+            </ButtonLink>
           </div>
+          <p className="mt-5 text-sm leading-6 text-white/70">
+            Appointments are recommended. Walk-ins are welcome subject to
+            availability.
+          </p>
+        </div>
+        <div className="rounded-md border border-white/15 bg-white/[0.04] p-6">
+          <h3 className="text-xl font-black">One Workshop in Clyde North</h3>
+          <p className="mt-3 leading-7 text-white/80">{site.address}</p>
+          <dl className="mt-4 grid gap-2 text-sm text-white/75">
+            {site.hours.map(([day, hours]) => (
+              <div key={day} className="flex justify-between gap-4">
+                <dt>{day}</dt>
+                <dd>{hours}</dd>
+              </div>
+            ))}
+          </dl>
+          <a
+            className="focus-ring mt-5 inline-block font-bold underline decoration-brake underline-offset-4"
+            href={site.directionsHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get Directions
+          </a>
+          <p className="mt-4 text-sm leading-6 text-white/70">
+            Welcoming drivers from Cranbourne, Berwick, Narre Warren, Officer,
+            Pakenham and surrounding suburbs.{" "}
+            <Link
+              className="focus-ring underline underline-offset-4"
+              href="/locations"
+            >
+              Areas We Serve
+            </Link>
+          </p>
+          <a
+            className="focus-ring mt-4 inline-block text-sm underline underline-offset-4"
+            href={site.emailHref}
+          >
+            {site.email}
+          </a>
         </div>
       </div>
     </section>

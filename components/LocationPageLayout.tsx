@@ -446,7 +446,7 @@ function LocationReviews({ location }: { location: LocationPage }) {
                 &ldquo;{review.text}&rdquo;
               </blockquote>
               <p className="mt-6 text-sm font-black uppercase tracking-wide text-white">
-                G&T Motorsports Customer
+                {review.name}
               </p>
             </article>
           ))}

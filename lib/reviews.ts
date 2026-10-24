@@ -1,11 +1,10 @@
+// Short excerpts matched to the public Google Maps listing on 25 October 2026.
+// No aggregate rating or review count is advertised: these can change.
 export const customerReviews = [
+  { name: "Dinesh Athukorala", text: "Very reliable and supportive place" },
+  { name: "Amanpreet Gill", text: "Outstanding service from start to finish." },
   {
-    text: "Very reliable and supportive place. My Nissan Pathfinder and Honda Civic have been serviced here since 2024 onwards.",
-  },
-  {
-    text: "Outstanding service from start to finish. The boys were professional, honest and efficient. They explained the repairs clearly, completed the work on time and the pricing was fair. My car is running perfectly now. Highly recommend this mechanic to anyone looking for reliable and trustworthy service!",
-  },
-  {
-    text: "Exceptional service from G&T Motorsports. Attention to detail, professionalism and expertise really stand out. Highly recommended for anyone looking for quality and trustworthy automotive service.",
+    name: "gurinder singh mangat",
+    text: "The mechanic was professional, explained the issue clearly",
   },
 ] as const;

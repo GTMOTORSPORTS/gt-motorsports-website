@@ -4,17 +4,13 @@ import { Logo } from "@/components/Logo";
 import { navItems, site } from "@/lib/site";
 
 const footerServices = [
-  { label: "Logbook Servicing", href: "/logbook-servicing" },
+  { label: "General & Logbook Servicing", href: "/logbook-servicing" },
   { label: "Engine Diagnostics", href: "/engine-diagnostics" },
   { label: "Walnut Blasting & Intake Cleaning", href: "/services/walnut-blasting-intake-cleaning-clyde-north" },
   { label: "Brake Repairs", href: "/brake-repairs" },
-  { label: "Roadworthy Certificate Inspections", href: "/roadworthy-certificate" },
-  { label: "Cooling System Repairs", href: "/services/cooling-system-repairs" },
-  { label: "Suspension Repairs", href: "/services/suspension-steering" },
-  { label: "Air Conditioning Service", href: "/services/air-conditioning" },
-  { label: "Battery Services", href: "/services/battery-charging-systems" },
-  { label: "Clutch & Transmission Repairs", href: "/services/clutch-transmission" },
-  { label: "Performance Upgrades", href: "/performance-upgrades" },
+  { label: "RWC Inspection Arrangements", href: "/roadworthy-certificate" },
+  { label: "Mercedes-Benz Service", href: "/mercedes-benz-service" },
+  { label: "View All Services", href: "/services" },
 ];
 
 export function Footer() {
@@ -44,15 +40,6 @@ export function Footer() {
                 {item.label}
               </Link>
             ))}
-            <Link className="focus-ring w-fit hover:text-white" href="/">
-              Mechanic Clyde North
-            </Link>
-            <Link className="focus-ring w-fit hover:text-white" href="/locations/cranbourne">
-              Serving Cranbourne Drivers
-            </Link>
-            <Link className="focus-ring w-fit hover:text-white" href="/locations/berwick">
-              Serving Berwick Drivers
-            </Link>
             <Link className="focus-ring w-fit hover:text-white" href="/privacy-policy">
               Privacy Policy
             </Link>

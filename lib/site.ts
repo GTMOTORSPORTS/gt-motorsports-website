@@ -9,6 +9,8 @@ export const site = {
   email: "info@gtmotorsports.com.au",
   emailHref: "mailto:info@gtmotorsports.com.au",
   googleReviewsHref:
+    "https://www.google.com/maps/place/G%26T+Motorsports+-+Auto+Repair+in+Clyde+North/@-38.094939,145.3368002,17z/data=!4m8!3m7!1s0x6ad61b57ce7aa585:0x12f14309acfd862!8m2!3d-38.094939!4d145.3368002!9m1!1b1!16s%2Fg%2F11xd0h4bbq",
+  googleWriteReviewHref:
     process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL ||
     "https://g.page/r/CWLYz5owFC8BEBM/review",
   address: "47B Palladium Circuit, Clyde North VIC 3978, Australia",
@@ -38,7 +40,7 @@ export const site = {
     "Logbook Servicing",
     "Engine Diagnostics",
     "Brake Repairs",
-    "Roadworthy Certificate Inspections",
+    "Roadworthy Inspections Arranged Through a Licensed Tester",
     "Cooling System Repairs",
     "Suspension Repairs",
     "Air Conditioning Service",
@@ -53,8 +55,6 @@ export const site = {
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/roadworthy-certificate", label: "RWC" },
-  { href: "/performance-upgrades", label: "Performance" },
   { href: "/about", label: "About" },
   { href: "/reviews", label: "Reviews" },
   { href: "/locations", label: "Areas We Serve" },

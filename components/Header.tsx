@@ -11,39 +11,28 @@ type NavItem = {
 };
 
 const serviceMenuItems: NavItem[] = [
-  { href: "/services/walnut-blasting-intake-cleaning-clyde-north", label: "Walnut Blasting & Intake Cleaning" },
-  { href: "/logbook-servicing", label: "Logbook Servicing" },
-  { href: "/roadworthy-certificate", label: "Roadworthy Certificate Inspections" },
-  { href: "/brake-repairs", label: "Brake Repairs" },
+  { href: "/logbook-servicing", label: "General & Logbook Servicing" },
+  {
+    href: "/services/walnut-blasting-intake-cleaning-clyde-north",
+    label: "Walnut Blasting",
+  },
   { href: "/engine-diagnostics", label: "Engine Diagnostics" },
+  { href: "/brake-repairs", label: "Brake Repairs" },
   { href: "/mercedes-benz-service", label: "Mercedes-Benz Service" },
-  { href: "/services/cooling-system-repairs", label: "Cooling System Repairs" },
-  { href: "/services/suspension-steering", label: "Suspension Repairs" },
-  { href: "/services/air-conditioning", label: "Air Conditioning Service" },
-  { href: "/services/battery-charging-systems", label: "Battery Services" },
-  { href: "/services/clutch-transmission", label: "Clutch & Transmission Repairs" },
-  { href: "/services/general-car-servicing", label: "General Car Servicing" },
-  { href: "/performance-upgrades", label: "Performance Upgrades" },
+  { href: "/services#mechanical-repairs", label: "Mechanical Repairs" },
   { href: "/services", label: "View All Services" },
 ];
 
 const desktopNavItems: NavItem[] = [
   { href: "/", label: "Home" },
-  { href: "/roadworthy-certificate", label: "RWC" },
-  { href: "/performance-upgrades", label: "Performance" },
   { href: "/about", label: "About" },
   { href: "/reviews", label: "Reviews" },
-  { href: "/contact", label: "Contact" },
 ];
 
 const mobileNavItems: NavItem[] = [
   { href: "/", label: "Home" },
-  { href: "/roadworthy-certificate", label: "RWC" },
-  { href: "/performance-upgrades", label: "Performance" },
   { href: "/about", label: "About" },
   { href: "/reviews", label: "Reviews" },
-  { href: "/contact", label: "Contact" },
-  { href: "/book-online", label: "Book Online" },
 ];
 
 function DesktopDropdown({
@@ -85,7 +74,7 @@ function DesktopDropdown({
         <div className="grid gap-1 sm:grid-cols-2">
           {items.map((item) => (
             <Link
-              className="focus-ring whitespace-nowrap rounded-md px-4 py-3 text-sm font-bold leading-tight text-white/76 transition hover:bg-brake hover:text-white"
+              className="focus-ring rounded-md px-4 py-3 text-sm font-bold leading-tight text-white/76 transition hover:bg-brake hover:text-white"
               href={item.href}
               key={item.href}
               onClick={(event) => closeParentDetails(event)}
@@ -118,7 +107,10 @@ function MobileAccordion({
         <span aria-hidden="true" className="text-brake group-open:hidden">
           +
         </span>
-        <span aria-hidden="true" className="hidden text-brake group-open:inline">
+        <span
+          aria-hidden="true"
+          className="hidden text-brake group-open:inline"
+        >
           -
         </span>
       </summary>
@@ -252,7 +244,10 @@ export function Header() {
             aria-label="Open navigation menu"
             className="focus-ring order-3 inline-flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-md border border-white/18 bg-white/[0.04] text-white [&::-webkit-details-marker]:hidden"
           >
-            <span aria-hidden="true" className="text-sm font-black uppercase leading-none">
+            <span
+              aria-hidden="true"
+              className="text-sm font-black uppercase leading-none"
+            >
               <span className="group-open/mobile:hidden">Menu</span>
               <span className="hidden group-open/mobile:inline">Close</span>
             </span>

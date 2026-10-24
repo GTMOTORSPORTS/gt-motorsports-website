@@ -1,53 +1,41 @@
+import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
-import { Logo } from "@/components/Logo";
 import { site } from "@/lib/site";
-
 export function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-black">
       <div
         className="absolute inset-0 bg-[url('/workshop-hero.webp')] bg-cover bg-center"
-        aria-label="Premium dark mechanic workshop interior representing G&T Motorsports"
-        role="img"
+        aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/78 to-black/42" aria-hidden="true" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/45" aria-hidden="true" />
-      <div className="container-shell relative flex min-h-[720px] items-center py-20 sm:py-24 lg:min-h-[780px]">
-        <div className="max-w-4xl">
-          <div className="mb-8">
-            <Logo placement="hero" />
-          </div>
-          <p className="mb-5 text-xs font-bold uppercase tracking-[0.28em] text-brake sm:text-sm">
-            Clyde North Mechanic Workshop
-          </p>
-          <h1 className="max-w-4xl text-5xl font-black leading-[0.94] text-white sm:text-6xl lg:text-8xl">
-            Trusted Mechanic in Clyde North
-          </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-white/82 sm:text-xl sm:leading-9">
-            Professional car servicing, logbook servicing, diagnostics, RWC
-            inspections and mechanical repairs for all makes and models.
-            European vehicle servicing and Mercedes-Benz Digital Service Record
-            updates also available for eligible vehicles.
-          </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/book-online" className="min-h-14 px-7">
-              Book Online
-            </ButtonLink>
-            <ButtonLink href={site.phoneHref} variant="secondary">
-              Call {site.phone}
-            </ButtonLink>
-          </div>
-          <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
-            {["Servicing", "Diagnostics", "Repairs"].map((item) => (
-              <div
-                className="rounded-md border border-white/14 bg-black/42 px-4 py-3 text-sm font-bold uppercase tracking-wide text-white/82 backdrop-blur"
-                key={item}
-              >
-                {item}
-              </div>
-            ))}
-          </div>
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/55"
+        aria-hidden="true"
+      />
+      <div className="container-shell relative py-14 sm:py-20 lg:py-24">
+        <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-brake">
+          G&T Motorsports • Clyde North
+        </p>
+        <h1 className="max-w-4xl text-4xl font-black leading-tight sm:text-5xl lg:text-7xl">
+          Trusted Mechanic in Clyde North
+        </h1>
+        <p className="mt-5 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">
+          Car servicing, diagnostics and mechanical repairs at our workshop at
+          47B Palladium Circuit. Clear advice and approval before additional
+          work.
+        </p>
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href="/book-online">Book Online</ButtonLink>
+          <ButtonLink href={site.phoneHref} variant="secondary">
+            Call Now: {site.phone}
+          </ButtonLink>
         </div>
+        <Link
+          href="/about"
+          className="focus-ring mt-6 inline-block text-sm font-bold text-white/75 underline decoration-brake underline-offset-4"
+        >
+          Meet your local workshop
+        </Link>
       </div>
     </section>
   );

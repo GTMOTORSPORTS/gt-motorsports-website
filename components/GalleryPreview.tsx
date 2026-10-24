@@ -50,35 +50,39 @@ export function GalleryPreview() {
           copy="A look at the workshop environment where vehicles are serviced, diagnosed and repaired with care."
           align="center"
         />
-        <div className="mt-10 grid gap-4 lg:grid-cols-6">
-          {galleryItems.map((item, index) => (
+        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          {galleryItems.slice(0, 3).map((item, index) => (
             <article
-              className={`group relative min-h-[260px] overflow-hidden rounded-md border border-white/10 bg-black ${
-                index === 0 ? "lg:col-span-3 lg:row-span-2 lg:min-h-[536px]" : "sm:min-h-[300px] lg:col-span-3 lg:min-h-[260px]"
-              }`}
+              className="relative min-h-[240px] overflow-hidden rounded-md border border-white/10 bg-black"
               key={item.title}
             >
               <Image
                 alt={item.alt}
-                className="object-cover transition duration-700 group-hover:scale-105"
+                className="object-cover"
                 fill
-                sizes={
-                  index === 0
-                    ? "(min-width: 1024px) 560px, calc(100vw - 32px)"
-                    : "(min-width: 1024px) 560px, (min-width: 640px) calc(50vw - 24px), calc(100vw - 32px)"
-                }
+                sizes="(min-width: 640px) 33vw, calc(100vw - 32px)"
                 src={item.src}
                 style={{ objectPosition: item.position }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" aria-hidden="true" />
-              <div className="absolute inset-0 bg-black/20 transition group-hover:bg-black/10" aria-hidden="true" />
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"
+                aria-hidden="true"
+              />
+              <div
+                className="absolute inset-0 bg-black/20"
+                aria-hidden="true"
+              />
               <div className="relative flex h-full min-h-[inherit] flex-col justify-between p-5 sm:p-6">
                 <span className="text-xs font-black uppercase tracking-[0.24em] text-white/60">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <h3 className="text-2xl font-black text-white">{item.title}</h3>
-                  <p className="mt-2 max-w-md text-sm leading-6 text-white/72">{item.copy}</p>
+                  <h3 className="text-2xl font-black text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 max-w-md text-sm leading-6 text-white/72">
+                    {item.copy}
+                  </p>
                 </div>
               </div>
             </article>

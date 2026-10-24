@@ -66,6 +66,7 @@ export default function GalleryPage() {
         <div className="container-shell">
           <SectionHeader
             eyebrow="Gallery"
+            as="h1"
             title="A clean, capable workshop environment."
             copy="Explore the G&T Motorsports workshop environment, built around careful workmanship, organised service bays and professional vehicle care."
           />

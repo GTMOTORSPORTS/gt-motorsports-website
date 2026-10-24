@@ -1,53 +1,63 @@
-import { ButtonLink } from "@/components/ButtonLink";
+import Link from "next/link";
 import { SectionHeader } from "@/components/SectionHeader";
-
-const pricingItems = [
-  { service: "General Car Service", price: "From $149" },
-  { service: "SUV / 4x4 Service", price: "From $220" },
-  { service: "Van / Light Commercial Service", price: "From $249" },
-  { service: "Major Service", price: "From $599" },
-  { service: "European Car Service", price: "From $249" },
-  { service: "Mercedes-Benz Service A", price: "From $299" },
-  { service: "Mercedes-Benz Service B", price: "From $549" },
-];
-
-export function ServicePricing() {
+import { homePrices, servicePrices } from "@/lib/service-pricing";
+export function ServicePricing({ allOffers = false }: { allOffers?: boolean }) {
+  const offers = allOffers ? servicePrices : homePrices;
+  const cards = (
+    <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {offers.map((offer) => (
+        <article
+          className="rounded-md border border-white/15 bg-white/[0.04] p-6"
+          key={offer.service}
+        >
+          <h3 className="text-xl font-black">{offer.service}</h3>
+          <p className="mt-3 text-2xl font-black">{offer.price}</p>
+          <p className="mt-4 text-sm leading-6 text-white/70">{offer.copy}</p>
+          <Link
+            className="focus-ring mt-5 inline-block text-sm font-bold underline decoration-brake underline-offset-4"
+            href={offer.href}
+          >
+            View service details
+          </Link>
+        </article>
+      ))}
+    </div>
+  );
   return (
-    <section className="bg-asphalt py-16 sm:py-20">
+    <section id="service-pricing" className="bg-asphalt py-12 sm:py-16">
       <div className="container-shell">
         <SectionHeader
-          eyebrow="Pricing"
-          title="Straightforward Service Pricing"
-          copy="Quality servicing with clear starting prices. Final pricing depends on your vehicle, oil requirements, filters and manufacturer specifications."
+          eyebrow="Starting prices"
+          title={
+            allOffers
+              ? "Service Starting Prices"
+              : "Popular Service Offers"
+          }
+          copy="Prices are in AUD. Starting prices depend on your vehicle and the agreed work; confirm inclusions and your total quote before booking."
         />
-
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {pricingItems.map((item, index) => (
-            <article
-              className="rounded-md border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-brake"
-              key={item.service}
-            >
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-brake">
-                {String(index + 1).padStart(2, "0")}
-              </p>
-              <h3 className="mt-6 text-lg font-black text-white">{item.service}</h3>
-              <p className="mt-3 text-2xl font-black text-white">{item.price}</p>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-8 rounded-md border border-white/10 bg-black/35 p-5 sm:flex sm:items-center sm:justify-between sm:gap-6">
-          <p className="text-sm leading-6 text-white/70">
-            Need an exact price for your vehicle? Send us your registration or
-            vehicle details and we'll confirm what's required.
-          </p>
-          <div className="mt-5 flex flex-col gap-3 sm:mt-0 sm:flex-row sm:shrink-0">
-            <ButtonLink href="/book-online">Book a Service</ButtonLink>
-            <ButtonLink href="/contact" variant="ghost">
-              Get a Quote
-            </ButtonLink>
-          </div>
-        </div>
+        {allOffers ? (
+          <details className="mt-6 rounded-md border border-white/15 p-5">
+            <summary className="focus-ring cursor-pointer font-bold">
+              View all seven servicing starting prices
+            </summary>
+            {cards}
+          </details>
+        ) : (
+          cards
+        )}
+        <p className="mt-5 text-sm leading-6 text-white/70">
+          General Car Service, Mercedes-Benz Service A and walnut blasting
+          starting prices include GST. See each service page for inclusions,
+          eligibility and pricing conditions. Additional work requires approval.
+        </p>
+        {!allOffers ? (
+          <Link
+            href="/services#service-pricing"
+            className="focus-ring mt-5 inline-block text-sm font-bold underline underline-offset-4"
+          >
+            View all servicing prices
+          </Link>
+        ) : null}
       </div>
     </section>
   );

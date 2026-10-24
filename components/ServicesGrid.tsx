@@ -1,96 +1,76 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { SectionHeader } from "@/components/SectionHeader";
-import { servicePages, servicePath } from "@/lib/service-pages";
-
-const featuredServiceSlugs = [
-  "walnut-blasting",
-  "logbook-servicing",
-  "vehicle-diagnostics",
-  "brake-repairs",
-  "roadworthy-certificate",
-  "cooling-system-repairs",
-  "suspension-steering",
-  "air-conditioning",
-  "battery-charging-systems",
-  "clutch-transmission",
-  "general-car-servicing",
-  "mercedes-benz-servicing",
+const services = [
+  {
+    name: "General & Logbook Servicing",
+    copy: "Routine maintenance and manufacturer-scheduled servicing, with scope confirmed for your vehicle.",
+    href: "/logbook-servicing",
+  },
+  {
+    name: "Walnut Blasting",
+    copy: "Intake valve carbon cleaning for eligible engines, with engine-specific starting prices.",
+    href: "/services/walnut-blasting-intake-cleaning-clyde-north",
+  },
+  {
+    name: "Engine Diagnostics",
+    copy: "Investigation of warning lights, rough running and starting concerns before repair decisions.",
+    href: "/engine-diagnostics",
+  },
+  {
+    name: "Brake Repairs",
+    copy: "Brake inspections and repairs for noise, vibration, wear and braking concerns.",
+    href: "/brake-repairs",
+  },
+  {
+    name: "Mercedes-Benz Service",
+    copy: "Independent servicing, including digital service-record updates for eligible vehicles.",
+    href: "/mercedes-benz-service",
+  },
+  {
+    name: "Mechanical Repairs",
+    copy: "Explore engine, cooling, suspension, steering and drivetrain inspection and repair services.",
+    href: "/services#mechanical-repairs",
+  },
 ];
-
-const featuredServices = featuredServiceSlugs
-  .map((slug) => {
-    const service = servicePages.find((item) => item.slug === slug);
-
-    if (!service) {
-      return null;
-    }
-
-    return {
-      name:
-        {
-          "vehicle-diagnostics": "Engine Diagnostics",
-          "suspension-steering": "Suspension Repairs",
-          "battery-charging-systems": "Battery Services",
-          "clutch-transmission": "Clutch & Transmission Repairs",
-          "general-car-servicing": "General Car Servicing",
-          "mercedes-benz-servicing": "Mercedes-Benz Service",
-        }[service.slug] || service.name,
-      description:
-        service.slug === "general-car-servicing"
-          ? "Routine oil and filter servicing, safety inspections and maintenance for everyday vehicles of all makes and models."
-          : service.shortDescription,
-      href:
-        servicePath(service.slug),
-    };
-  })
-  .filter((service): service is { name: string; description: string; href: string } =>
-    Boolean(service),
-  )
-  .concat([
-    {
-      name: "Performance Upgrades",
-      description:
-        "Performance upgrade consultations and supporting mechanical work for a range of suitable vehicles.",
-      href: "/performance-upgrades",
-    },
-  ]);
-
 export function ServicesGrid() {
   return (
-    <section className="bg-black py-16 sm:py-20">
+    <section id="featured-services" className="bg-black py-12 sm:py-16">
       <div className="container-shell">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <SectionHeader
-            eyebrow="Services"
-            title="Car Servicing & Mechanical Repairs in Clyde North"
-            copy="From general and logbook servicing to diagnostics, brakes, suspension, RWC inspections and major mechanical repairs, G&T Motorsports provides professional automotive care for all makes and models."
-          />
-          <ButtonLink href="/services" variant="ghost" className="w-fit">
-            View All Services
-          </ButtonLink>
-        </div>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {featuredServices.map((service, index) => (
+        <SectionHeader
+          eyebrow="Services"
+          title="How Can We Help?"
+          copy="Choose a service or explore the complete service list."
+        />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
             <article
-              className="rounded-md border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-brake"
               key={service.href}
+              className="flex flex-col rounded-md border border-white/15 bg-white/[0.04] p-6"
             >
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-brake">
-                {String(index + 1).padStart(2, "0")}
-              </p>
-              <h3 className="mt-6 text-lg font-black text-white">{service.name}</h3>
-              <p className="mt-3 text-sm leading-6 text-white/65">
-                {service.description}
+              <h3 className="text-xl font-black">{service.name}</h3>
+              <p className="mt-3 flex-1 text-sm leading-6 text-white/70">
+                {service.copy}
               </p>
               <Link
-                className="focus-ring mt-5 inline-flex rounded-md border border-white/20 px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:border-brake hover:bg-brake"
+                className="focus-ring mt-5 inline-block w-fit text-sm font-bold underline decoration-brake underline-offset-4"
                 href={service.href}
               >
-                Learn More
+                Explore {service.name}
               </Link>
             </article>
           ))}
+        </div>
+        <div className="mt-6 flex flex-wrap gap-4">
+          <ButtonLink href="/services" variant="ghost">
+            View All Services
+          </ButtonLink>
+          <Link
+            href="/services/general-car-servicing"
+            className="focus-ring self-center text-sm font-bold underline underline-offset-4"
+          >
+            General car service details
+          </Link>
         </div>
       </div>
     </section>

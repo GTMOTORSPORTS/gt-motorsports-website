@@ -6,6 +6,7 @@ import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
 import { pageMetadata } from "@/lib/seo";
 import { servicePages, servicePath } from "@/lib/service-pages";
+import { ServicePricing } from "@/components/ServicePricing";
 
 function serviceDisplayName(slug: string, name: string) {
   return (
@@ -39,6 +40,7 @@ export default function ServicesPage() {
           <div className="grid gap-8 lg:grid-cols-[1fr_0.45fr] lg:items-end">
             <SectionHeader
               eyebrow="Services"
+              as="h1"
               title="Mechanical services for daily drivers, work vehicles and family cars."
               copy="G&T Motorsports is an independent automotive workshop in Clyde North servicing all makes and models. Explore dedicated service pages below, or contact the workshop if you are not sure which service your vehicle needs."
             />
@@ -58,7 +60,11 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          <div id="mechanical-repairs" className="mt-10 scroll-mt-36">
+            <h2 className="text-2xl font-black">Servicing, Diagnostics & Mechanical Repairs</h2>
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-white/70">Explore routine maintenance, fault diagnosis and individual repair services below. Roadworthy inspections are arranged through an independent licensed vehicle tester; contact us to confirm arrangements and pricing.</p>
+          </div>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {servicePages.map((service) => (
               <article
                 className="flex rounded-md border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-brake sm:flex-col"
@@ -92,6 +98,8 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+      <section className="bg-black py-10"><div className="container-shell"><Link href="/performance-upgrades" className="focus-ring font-bold underline decoration-brake underline-offset-4">Performance upgrade consultations</Link></div></section>
+      <ServicePricing allOffers />
       <BookingCTA />
     </PageShell>
   );

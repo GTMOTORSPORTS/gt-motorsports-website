@@ -23,7 +23,7 @@ export function MapSection() {
         </div>
         <div className="overflow-hidden rounded-md border border-black/10 bg-neutral-100 shadow-2xl">
           <iframe
-            aria-label="Google map placeholder for G&T Motorsports"
+            aria-label="Map showing the G&T Motorsports Clyde North workshop"
             className="h-[380px] w-full grayscale sm:h-[460px]"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
