@@ -6,6 +6,7 @@ import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
 import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { IntegrityWarranty } from "@/components/IntegrityWarranty";
 export const metadata: Metadata = pageMetadata({
   title: "About G&T Motorsports | Clyde North Workshop",
   description:
@@ -125,6 +126,7 @@ export default function AboutPage() {
           />
         </div>
       </section>
+      <section className="bg-asphalt py-12 sm:py-16"><div className="container-shell"><IntegrityWarranty /></div></section>
     </PageShell>
   );
 }

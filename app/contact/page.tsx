@@ -14,7 +14,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
   const { service } = await searchParams;
   return (
     <PageShell>
-      <ContactDetails pageHeading cleaningEnquiry={service === "walnut-blasting"} />
+      <ContactDetails pageHeading cleaningEnquiry={service === "walnut-blasting"} warrantyEnquiry={service === "integrity-warranty"} />
     </PageShell>
   );
 }

@@ -18,9 +18,11 @@ const contactCards = [
 
 export function ContactDetails({
   cleaningEnquiry = false,
+  warrantyEnquiry = false,
   pageHeading = false,
 }: {
   cleaningEnquiry?: boolean;
+  warrantyEnquiry?: boolean;
   pageHeading?: boolean;
 }) {
   return (
@@ -119,7 +121,7 @@ export function ContactDetails({
             <p className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-brake">
               Secure Enquiry
             </p>
-            <ContactForm cleaningEnquiry={cleaningEnquiry} />
+            <ContactForm key={warrantyEnquiry ? "integrity" : cleaningEnquiry ? "walnut" : "general"} cleaningEnquiry={cleaningEnquiry} warrantyEnquiry={warrantyEnquiry} />
           </div>
         </div>
       </div>

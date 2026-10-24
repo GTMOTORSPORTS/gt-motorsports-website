@@ -7,6 +7,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { pageMetadata } from "@/lib/seo";
 import { servicePages, servicePath } from "@/lib/service-pages";
 import { ServicePricing } from "@/components/ServicePricing";
+import { IntegrityWarranty } from "@/components/IntegrityWarranty";
 
 function serviceDisplayName(slug: string, name: string) {
   return (
@@ -100,6 +101,7 @@ export default function ServicesPage() {
       </section>
       <section className="bg-black py-10"><div className="container-shell"><Link href="/performance-upgrades" className="focus-ring font-bold underline decoration-brake underline-offset-4">Performance upgrade consultations</Link></div></section>
       <ServicePricing allOffers />
+      <section className="bg-asphalt py-12 sm:py-16"><div className="container-shell"><IntegrityWarranty /></div></section>
       <BookingCTA />
     </PageShell>
   );

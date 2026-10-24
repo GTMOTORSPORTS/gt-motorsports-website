@@ -26,7 +26,7 @@ const fields = [
 const inputClass =
   "focus-ring min-h-12 rounded-md border border-white/10 bg-black/70 px-4 text-white placeholder:text-white/36 transition hover:border-white/25 focus:border-brake";
 
-export function ContactForm({ cleaningEnquiry = false }: { cleaningEnquiry?: boolean }) {
+export function ContactForm({ cleaningEnquiry = false, warrantyEnquiry = false }: { cleaningEnquiry?: boolean; warrantyEnquiry?: boolean }) {
   const formId = useId();
   const formRef = useRef<HTMLFormElement>(null);
   const submittingRef = useRef(false);
@@ -106,7 +106,7 @@ export function ContactForm({ cleaningEnquiry = false }: { cleaningEnquiry?: boo
   }
 
   return (
-    <form className="grid gap-4" onSubmit={handleSubmit} ref={formRef} noValidate>
+    <form id="contact-form" className="scroll-mt-36 grid gap-4" onSubmit={handleSubmit} ref={formRef} noValidate>
       <div aria-hidden="true" className="hidden">
         <label htmlFor={`${formId}-website`}>
           Website
@@ -134,7 +134,7 @@ export function ContactForm({ cleaningEnquiry = false }: { cleaningEnquiry?: boo
                 className={inputClass}
                 id={fieldId}
                 name={field.name}
-                defaultValue={field.name === "subject" && cleaningEnquiry ? walnutSubject : undefined}
+                defaultValue={field.name === "subject" ? (cleaningEnquiry ? walnutSubject : warrantyEnquiry ? "Integrity warranty repairs" : undefined) : undefined}
                 required
                 type={field.type}
               />

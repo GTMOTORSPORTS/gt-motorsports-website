@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { SectionHeader } from "@/components/SectionHeader";
 import { site } from "@/lib/site";
+import { IntegrityWarranty } from "@/components/IntegrityWarranty";
 export function HomeBooking() {
   return (
     <section id="book-and-find-us" className="bg-black py-12 sm:py-16">
@@ -62,6 +63,7 @@ export function HomeBooking() {
             {site.email}
           </a>
         </div>
+        <IntegrityWarranty />
       </div>
     </section>
   );
