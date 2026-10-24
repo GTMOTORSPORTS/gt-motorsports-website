@@ -10,10 +10,11 @@ export const metadata: Metadata = pageMetadata({
   path: "/contact",
 });
 
-export default function ContactPage() {
+export default async function ContactPage({ searchParams }: { searchParams: Promise<{ service?: string }> }) {
+  const { service } = await searchParams;
   return (
     <PageShell>
-      <ContactDetails />
+      <ContactDetails cleaningEnquiry={service === "walnut-blasting"} />
     </PageShell>
   );
 }

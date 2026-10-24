@@ -11,6 +11,7 @@ type NavItem = {
 };
 
 const serviceMenuItems: NavItem[] = [
+  { href: "/services/walnut-blasting-intake-cleaning-clyde-north", label: "Walnut Blasting & Intake Cleaning" },
   { href: "/logbook-servicing", label: "Logbook Servicing" },
   { href: "/roadworthy-certificate", label: "Roadworthy Certificate Inspections" },
   { href: "/brake-repairs", label: "Brake Repairs" },

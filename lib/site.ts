@@ -63,7 +63,7 @@ export const navItems = [
 
 export const publicRoutes = [
   {
-    path: "/walnut-blasting-clyde-north",
+    path: "/services/walnut-blasting-intake-cleaning-clyde-north",
     priority: 0.88,
     changeFrequency: "monthly",
   },

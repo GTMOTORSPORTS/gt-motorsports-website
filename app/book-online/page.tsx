@@ -12,7 +12,8 @@ export const metadata: Metadata = pageMetadata({
   path: "/book-online",
 });
 
-export default function BookOnlinePage() {
+export default async function BookOnlinePage({ searchParams }: { searchParams: Promise<{ service?: string }> }) {
+  const { service } = await searchParams;
   return (
     <PageShell>
       <section className="bg-black py-16 sm:py-24">
@@ -23,6 +24,11 @@ export default function BookOnlinePage() {
             copy="Choose an available time for vehicle drop-off or an initial assessment. Your selected time does not guarantee completion at that time. Service and repair timeframes depend on the work required, parts availability and current workshop workload."
           />
           <div className="mt-8 rounded-md border border-white/10 bg-white/[0.04] p-4 shadow-2xl sm:p-6">
+            {service === "walnut-blasting" ? <div className="mb-6 rounded-md border border-brake/50 p-5">
+              <h2 className="text-xl font-black">Walnut Blasting / Intake Carbon Cleaning Inspection</h2>
+              <p className="mt-3 text-sm leading-6 text-white/75">Please provide registration, make, model, engine type and symptoms in your booking notes. This booking is for inspection or drop-off. Vehicle suitability, the cleaning method and final price must be confirmed before cleaning is booked.</p>
+              <ButtonLink href="/contact?service=walnut-blasting" variant="ghost" className="mt-4">Get a Quote First</ButtonLink>
+            </div> : null}
             <p className="mb-5 rounded-md border border-white/10 bg-black/70 p-4 text-sm font-bold leading-6 text-white/78">
               Appointments are recommended. Walk-ins are welcome, but waiting
               times may apply.

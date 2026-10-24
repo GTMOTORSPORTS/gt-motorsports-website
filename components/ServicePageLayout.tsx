@@ -9,6 +9,8 @@ import { pageMetadata } from "@/lib/seo";
 import type { ServicePage } from "@/lib/service-pages";
 import { getServicePage, serviceCanonicalUrl, servicePath } from "@/lib/service-pages";
 import { site } from "@/lib/site";
+import { WalnutCleaningImages, WalnutCleaningPricing } from "@/components/WalnutCleaningSections";
+import { enginePrices, vehiclePrices, pricingDisclaimer, type CleaningPrice } from "@/lib/walnut-blasting";
 
 const serviceArea = [
   "Clyde North",
@@ -50,9 +52,11 @@ export function ServicePageLayout({ slug }: { slug: string }) {
       <ServiceHero service={service} />
       <ServiceTrustBar points={service.trustPoints} />
       <Breadcrumbs service={service} />
+      {slug === "walnut-blasting" ? <WalnutCleaningPricing /> : null}
       <ServiceIntroSection service={service} />
       <ServiceChecklist service={service} />
       {service.detailSections ? <ServiceDetailSections service={service} /> : null}
+      {slug === "walnut-blasting" ? <WalnutCleaningImages /> : null}
       {service.warrantySection ? <WarrantySection service={service} /> : null}
       {service.digitalServiceRecordNotice ? (
         <DigitalServiceRecordSection service={service} />
@@ -89,13 +93,13 @@ export function ServiceHero({ service }: { service: ServicePage }) {
         <p className="mt-6 max-w-3xl text-lg leading-8 text-white/76">
           {service.introduction}
         </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           {service.secondaryCtaHref ? (
             <ButtonLink href={service.secondaryCtaHref} variant="ghost">
               {service.secondaryCtaLabel || "Get a Quote"}
             </ButtonLink>
           ) : null}
-          <ButtonLink href="/book-online">Book Online</ButtonLink>
+          <ButtonLink href={service.slug === "walnut-blasting" ? "/book-online?service=walnut-blasting" : "/book-online"}>{service.primaryCtaLabel || "Book Online"}</ButtonLink>
           <ButtonLink href={site.phoneHref} variant="secondary">
             Call {site.phone}
           </ButtonLink>
@@ -218,7 +222,7 @@ export function ServiceDetailSections({ service }: { service: ServicePage }) {
       <div className="container-shell">
         <SectionHeader
           eyebrow="More about this service"
-          title={service.slug === "walnut-blasting" ? "Pricing, Eligibility and Cleaning Scope" : "What We Diagnose and Repair"}
+          title={service.slug === "walnut-blasting" ? "How Intake Carbon Cleaning Works" : "What We Diagnose and Repair"}
           copy={service.slug === "walnut-blasting" ? "Confirm the right service and total price for your engine before approving work." : "The right repair depends on the vehicle, symptoms and inspection findings. G&T Motorsports checks the cause before recommending replacement parts."}
           align="center"
         />
@@ -501,8 +505,8 @@ export function ServiceCTA({ service }: { service: ServicePage }) {
             {service.ctaText}
           </p>
         </div>
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href="/book-online" variant="secondary">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <ButtonLink href={service.slug === "walnut-blasting" ? "/book-online?service=walnut-blasting" : "/book-online"} variant="secondary">
             {service.primaryCtaLabel || "Book Online"}
           </ButtonLink>
           <ButtonLink
@@ -514,6 +518,7 @@ export function ServiceCTA({ service }: { service: ServicePage }) {
           <ButtonLink href={site.directionsHref} variant="ghost">
             Get Directions
           </ButtonLink>
+          {service.slug === "walnut-blasting" ? <ButtonLink href={site.phoneHref} variant="ghost">Call {site.phone}</ButtonLink> : null}
           <ButtonLink href="/contact" variant="ghost">
             Contact Us
           </ButtonLink>
@@ -521,6 +526,18 @@ export function ServiceCTA({ service }: { service: ServicePage }) {
       </div>
     </section>
   );
+}
+
+function priceOffer(row: CleaningPrice) {
+  return {
+    "@type": "Offer",
+    name: row.name,
+    description: `${row.price === undefined ? "Custom quote." : "Starting price only."} ${pricingDisclaimer}`,
+    ...(row.price === undefined ? {} : { priceSpecification: {
+      "@type": "PriceSpecification", minPrice: row.price, priceCurrency: "AUD", valueAddedTaxIncluded: true,
+    } }),
+    itemOffered: { "@type": "Service", name: row.name, description: row.diesel ? "Diesel intake cleaning; EGR work only as quoted, using a suitable assessed method." : "Intake carbon cleaning for suitable assessed engine variants; method confirmed before booking." },
+  };
 }
 
 export function ServiceStructuredData({ service }: { service: ServicePage }) {
@@ -533,6 +550,17 @@ export function ServiceStructuredData({ service }: { service: ServicePage }) {
     description: service.shortDescription,
     serviceType: service.name,
     url: canonical,
+    ...(service.slug === "walnut-blasting" ? {
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Intake cleaning starting prices in AUD including GST",
+        description: `${pricingDisclaimer} Vehicle-specific prices replace general engine prices; they are not added together. Diesel cleaning methods and EGR scope are confirmed separately.`,
+        itemListElement: [
+          { "@type": "OfferCatalog", name: "Engine-specific starting prices", itemListElement: enginePrices.map(priceOffer) },
+          { "@type": "OfferCatalog", name: "Vehicle-specific starting prices", itemListElement: vehiclePrices.map(priceOffer) },
+        ],
+      },
+    } : {}),
     provider: {
       "@id": `${site.url}/#business`,
     },
@@ -575,10 +603,10 @@ export function ServiceStructuredData({ service }: { service: ServicePage }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <script
+      {service.slug !== "walnut-blasting" ? <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      /> : null}
     </>
   );
 }

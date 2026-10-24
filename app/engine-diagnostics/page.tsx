@@ -572,6 +572,9 @@ export default function EngineDiagnosticsLandingPage() {
             align="center"
           />
           <div className="mt-10 flex flex-wrap justify-center gap-4 text-sm font-bold text-white/70">
+            <Link className="focus-ring hover:text-white" href="/services/walnut-blasting-intake-cleaning-clyde-north">
+              Intake Valve Carbon Cleaning
+            </Link>
             <Link className="focus-ring hover:text-white" href="/brake-repairs">
               Brake Repairs
             </Link>

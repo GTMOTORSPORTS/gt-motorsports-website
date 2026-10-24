@@ -29,7 +29,12 @@ const nextConfig = {
     return [
       {
         source: "/services/walnut-blasting",
-        destination: "/walnut-blasting-clyde-north",
+        destination: "/services/walnut-blasting-intake-cleaning-clyde-north",
+        permanent: true,
+      },
+      {
+        source: "/walnut-blasting-clyde-north",
+        destination: "/services/walnut-blasting-intake-cleaning-clyde-north",
         permanent: true,
       },
       {

@@ -6,6 +6,7 @@ import { navItems, site } from "@/lib/site";
 const footerServices = [
   { label: "Logbook Servicing", href: "/logbook-servicing" },
   { label: "Engine Diagnostics", href: "/engine-diagnostics" },
+  { label: "Walnut Blasting & Intake Cleaning", href: "/services/walnut-blasting-intake-cleaning-clyde-north" },
   { label: "Brake Repairs", href: "/brake-repairs" },
   { label: "Roadworthy Certificate Inspections", href: "/roadworthy-certificate" },
   { label: "Cooling System Repairs", href: "/services/cooling-system-repairs" },

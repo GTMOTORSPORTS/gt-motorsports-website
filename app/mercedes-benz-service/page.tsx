@@ -781,6 +781,13 @@ export default function MercedesBenzServicePage() {
           </div>
         </div>
       </section>
+      <section className="bg-asphalt py-12">
+        <div className="container-shell">
+          <h2 className="text-2xl font-black">Mercedes-Benz Intake Carbon Cleaning</h2>
+          <p className="mt-4 max-w-3xl leading-7 text-white/70">Selected petrol and diesel engines can be assessed for intake deposits. Cleaning is separately quoted and is not automatically included in scheduled servicing.</p>
+          <Link className="focus-ring mt-5 inline-block font-bold underline decoration-brake underline-offset-4" href="/services/walnut-blasting-intake-cleaning-clyde-north">Explore intake cleaning and engine-specific starting prices</Link>
+        </div>
+      </section>
     </PageShell>
   );
 }

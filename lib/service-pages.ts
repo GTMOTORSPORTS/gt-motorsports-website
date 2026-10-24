@@ -1,3 +1,4 @@
+import { walnutService, walnutPath } from "@/lib/walnut-blasting";
 import { mercedesDigitalServiceRecord } from "@/lib/digital-service-records";
 import { site } from "@/lib/site";
 
@@ -109,7 +110,7 @@ const coreLinks = {
 };
 
 const primaryServicePaths: Record<string, string> = {
-  "walnut-blasting": "/walnut-blasting-clyde-north",
+  "walnut-blasting": walnutPath,
   "logbook-servicing": "/logbook-servicing",
   "mercedes-benz-servicing": "/mercedes-benz-service",
   "brake-repairs": "/brake-repairs",
@@ -118,46 +119,7 @@ const primaryServicePaths: Record<string, string> = {
 };
 
 export const servicePages: ServicePage[] = [
-  {
-    slug: "walnut-blasting",
-    name: "Walnut Blasting & Intake Valve Cleaning",
-    icon: "WB",
-    eyebrow: "Clyde North • From AUD $699 including GST",
-    title: "Walnut Blasting & Intake Valve Cleaning in Clyde North",
-    shortDescription: "From AUD $699 including GST for eligible engines. Intake valve carbon cleaning, subject to vehicle assessment and confirmed quote.",
-    introduction: "Walnut blasting and intake valve cleaning from AUD $699 including GST at G&T Motorsports, 47B Palladium Circuit, Clyde North. The starting price applies to eligible engines with straightforward intake access. Send your vehicle details so we can confirm suitability, scope and final pricing before booking.",
-    metadataTitle: "Walnut Blasting Clyde North | From $699 incl. GST | G&T Motorsports",
-    metadataDescription: "Walnut blasting and intake valve cleaning in Clyde North from AUD $699 including GST for eligible engines. Confirm suitability and request a vehicle-specific quote.",
-    trustPoints: ["From $699 including GST", "Eligibility checked first", "Quote approval before work", "Clyde North workshop"],
-    sectionHeadings: { intro: "Is intake valve cleaning suitable for your engine?", checklist: "What the agreed cleaning service includes" },
-    symptomsIntro: "Carbon on intake valves can contribute to running concerns on some engines, particularly direct-injection petrol engines. These symptoms can also have other causes. Assessment is needed before recommending cleaning; not every engine is eligible.",
-    symptoms: ["Rough idle or hesitation", "Reduced engine response", "Recurring misfire concerns", "Suspected intake valve carbon deposits"],
-    includedItems: ["Vehicle and engine suitability review", "Intake access and reassembly within the agreed scope", "Cleaning of accessible intake valve deposits on eligible engines", "Controlled walnut media cleaning with extraction", "Inspection of cleaned accessible areas", "Post-cleaning running checks and findings explained"],
-    specialNotice: "From AUD $699 including GST is a starting price, not a fixed quote for every vehicle. Final pricing depends on engine design, intake access, deposit severity and required dismantling. Replacement gaskets, seals, damaged parts, additional diagnostics, intake manifold/EGR cleaning and repairs are quoted separately where required. Any extra work requires approval before proceeding.",
-    detailSections: [
-      { title: "Eligibility and final pricing", copy: "Provide your registration or VIN, make, model, year, engine and symptoms. We confirm whether walnut blasting is appropriate and whether the $699 starting price applies. Some engines need extra labour or an alternative approach; some are unsuitable." },
-      { title: "Intake valve cleaning scope", copy: "The service targets intake valve carbon deposits using a method suitable for the confirmed engine. It is not a whole-engine, injector, combustion chamber or exhaust cleaning package. The exact areas and any required replacement seals are confirmed in your quote." },
-      { title: "Local quote and booking", copy: "Visit our Clyde North workshop, convenient for Clyde, Cranbourne, Berwick and Officer. Request a quote first to confirm eligibility and price. Booking is subject to workshop availability; drop-off time does not guarantee completion time." },
-    ],
-    processSteps: standardProcess,
-    benefits: standardBenefits,
-    faqs: [
-      { question: "Is walnut blasting $699 for every engine?", answer: "No. Pricing starts from AUD $699 including GST for eligible engines with straightforward intake access. Engine design, access, deposit severity, additional dismantling and required parts affect the final quote. Suitability and pricing must be confirmed before work." },
-      { question: "What is walnut blasting?", answer: "It uses walnut shell media and extraction to remove carbon deposits from accessible intake valves on suitable engines. The engine and valve position must allow safe cleaning, so eligibility is checked first." },
-      { question: "Is my vehicle eligible?", answer: "Not every engine is suitable. Send your registration or VIN, make, model, year and engine details. We assess the intake design and access and advise whether walnut blasting or another approach is appropriate." },
-      { question: "Are gaskets and additional repairs included?", answer: "Required replacement gaskets, seals, damaged parts, extra diagnostics and repairs are quoted separately where needed. Intake manifold and EGR cleaning are not automatically included. The agreed quote sets out your scope and total price including GST." },
-      { question: "Will cleaning fix a misfire or restore power?", answer: "Results depend on the cause and condition of the engine. Carbon removal may help when deposits contribute to symptoms, but it cannot guarantee a fix, power gain or fuel saving. Other faults may require separate diagnosis and repair." },
-      { question: "How long does the service take?", answer: "Timing depends on engine access, deposit condition, parts and workshop availability. We discuss the expected timeframe with your quote. A booking reserves drop-off or assessment time, not guaranteed same-day completion." },
-      { question: "How do I get a quote or book in Clyde North?", answer: "Use Get a Quote or call 0414 901 666 with your vehicle details and symptoms. Once suitability and pricing are confirmed, request a booking at 47B Palladium Circuit, Clyde North VIC 3978." },
-    ],
-    relatedServices: [coreLinks.diagnostics, coreLinks.engine, coreLinks.general],
-    localAreaText,
-    ctaHeading: "Request Your Walnut Blasting Quote",
-    ctaText: "From AUD $699 including GST for eligible engines. Send vehicle details to confirm suitability and the final quote before booking.",
-    primaryCtaLabel: "Request a Booking",
-    secondaryCtaLabel: "Get a Quote",
-    secondaryCtaHref: "/contact",
-  },
+  walnutService,
   {
     slug: "general-car-servicing",
     name: "General Car Servicing",
@@ -1235,7 +1197,7 @@ export const servicePages: ServicePage[] = [
       { question: "Will you inspect the vehicle before quoting?", answer: "Yes. Inspection or testing is completed before repair recommendations are quoted." },
       { question: "What happens if the repair is extensive?", answer: "The findings, likely options and next steps are discussed before any major work proceeds." },
     ],
-    relatedServices: [coreLinks.diagnostics, coreLinks.cooling, coreLinks.general],
+    relatedServices: [{ label: "Intake Valve Carbon Cleaning", href: walnutPath }, coreLinks.diagnostics, coreLinks.cooling, coreLinks.general],
     localAreaText,
     ctaHeading: "Book Engine Diagnosis",
     ctaText:

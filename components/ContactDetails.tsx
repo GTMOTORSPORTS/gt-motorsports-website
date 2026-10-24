@@ -16,7 +16,7 @@ const contactCards = [
   },
 ];
 
-export function ContactDetails() {
+export function ContactDetails({ cleaningEnquiry = false }: { cleaningEnquiry?: boolean }) {
   return (
     <section className="bg-white py-16 text-asphalt sm:py-20">
       <div className="container-shell">
@@ -100,7 +100,7 @@ export function ContactDetails() {
             <p className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-brake">
               Secure Enquiry
             </p>
-            <ContactForm />
+              <ContactForm cleaningEnquiry={cleaningEnquiry} />
           </div>
         </div>
       </div>

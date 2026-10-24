@@ -2,6 +2,7 @@
 
 import { FormEvent, useId, useRef, useState } from "react";
 import { site } from "@/lib/site";
+import { walnutSubject } from "@/lib/walnut-blasting";
 
 type FormState = {
   status: "idle" | "loading" | "success" | "error";
@@ -25,7 +26,7 @@ const fields = [
 const inputClass =
   "focus-ring min-h-12 rounded-md border border-white/10 bg-black/70 px-4 text-white placeholder:text-white/36 transition hover:border-white/25 focus:border-brake";
 
-export function ContactForm() {
+export function ContactForm({ cleaningEnquiry = false }: { cleaningEnquiry?: boolean }) {
   const formId = useId();
   const formRef = useRef<HTMLFormElement>(null);
   const submittingRef = useRef(false);
@@ -42,12 +43,28 @@ export function ContactForm() {
     setState({ status: "loading", message: "Sending...", errors: {} });
 
     const formData = new FormData(event.currentTarget);
+    const vehicleFields = ["registration", "make", "model", "engine"];
+    if (cleaningEnquiry) {
+      const errors: Record<string, string> = {};
+      for (const field of vehicleFields) {
+        const value = String(formData.get(field) || "").trim();
+        if (!value || value.length > 80) errors[field] = "Enter vehicle details (up to 80 characters), or Unknown if unsure.";
+      }
+      if (Object.keys(errors).length) {
+        submittingRef.current = false;
+        setState({ status: "error", message: "Please check your vehicle details.", errors });
+        return;
+      }
+    }
+    const message = cleaningEnquiry
+      ? vehicleFields.map(field => `${field}: ${formData.get(field)}`).join("\n") + `\nSymptoms: ${formData.get("message")}`
+      : formData.get("message");
     const payload = {
       name: formData.get("name"),
       phone: formData.get("phone"),
       email: formData.get("email"),
       subject: formData.get("subject"),
-      message: formData.get("message"),
+      message,
       website: formData.get("website"),
     };
 
@@ -117,6 +134,7 @@ export function ContactForm() {
                 className={inputClass}
                 id={fieldId}
                 name={field.name}
+                defaultValue={field.name === "subject" && cleaningEnquiry ? walnutSubject : undefined}
                 required
                 type={field.type}
               />
@@ -129,14 +147,23 @@ export function ContactForm() {
           );
         })}
       </div>
+      {cleaningEnquiry ? <fieldset className="grid gap-4 rounded-md border border-white/15 p-4 sm:grid-cols-2">
+        <legend className="px-2 text-sm font-bold text-white">Vehicle details for your cleaning quote</legend>
+        <p className="text-sm text-white/70 sm:col-span-2">Enter Unknown if a detail is unavailable. We will confirm the engine code and suitability before booking.</p>
+        {[{ name: "registration", label: "Vehicle registration" }, { name: "make", label: "Make" }, { name: "model", label: "Model / year" }, { name: "engine", label: "Engine type / code (petrol or diesel)" }].map(field => <label key={field.name} className="grid gap-2 text-sm font-bold text-white" htmlFor={`${formId}-${field.name}`}>
+          {field.label}<input id={`${formId}-${field.name}`} name={field.name} className={inputClass} required maxLength={80} aria-invalid={Boolean(state.errors[field.name])} aria-describedby={state.errors[field.name] ? `${formId}-${field.name}-error` : undefined} />
+          {state.errors[field.name] ? <span id={`${formId}-${field.name}-error`} className="text-xs text-red-300">{state.errors[field.name]}</span> : null}
+        </label>)}
+      </fieldset> : null}
       <label className="grid gap-2 text-sm font-bold text-white" htmlFor={`${formId}-message`}>
-        Message
+        {cleaningEnquiry ? "Symptoms / enquiry" : "Message"}
         <textarea
           aria-describedby={state.errors.message ? `${formId}-message-error` : undefined}
           aria-invalid={Boolean(state.errors.message)}
           className="focus-ring min-h-36 rounded-md border border-white/10 bg-black/70 px-4 py-3 text-white transition hover:border-white/25 focus:border-brake"
           id={`${formId}-message`}
           name="message"
+          maxLength={cleaningEnquiry ? 700 : 1200}
           required
         />
         {state.errors.message ? (
