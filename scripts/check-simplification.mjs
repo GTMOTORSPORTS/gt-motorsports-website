@@ -12,7 +12,7 @@ assert.equal((section(body,'featured-services').match(/<article\b/g)||[]).length
 assert.equal((section(body,'service-pricing').match(/<article\b/g)||[]).length,3,'Three homepage offers');
 assert.equal((section(body,'home-reviews').match(/<article\b/g)||[]).length,3,'Three reviews');
 assert.equal((section(body,'home-faq').match(/<details\b/g)||[]).length,3,'Three homepage FAQs');
-assert.equal((body.match(/<img\b/g)||[]).length,3,'Three genuine gallery photos');
+assert.equal((body.match(/<img\b/g)||[]).length,4,'Three genuine gallery photos and Integrity logo');
 assert.equal((body.match(/<form\b/g)||[]).length,0,'Enquiry remains on contact page');
 assert.equal((body.match(/<iframe\b/g)||[]).length,0,'No home calendar/map frame');
 for(const term of ['Common Vehicle Problems We Fix','Secure a service, inspection or repair appointment today.','Add the founder'])assert.ok(!body.includes(term),term);
@@ -34,7 +34,7 @@ for(const path of ['/services','/reviews','/gallery','/contact','/book-online','
  console.log('PASS '+path+': HTTP 200, H1 and canonical');
 }
 for(const text of ['founder','placeholder','as they are confirmed'])assert.ok(!main(pages['/about']).toLowerCase().includes(text));
-assert.equal((main(pages['/about']).match(/<img\b/g)||[]).length,2,'About workshop photos');
+assert.equal((main(pages['/about']).match(/<img\b/g)||[]).length,3,'Two About workshop photos and Integrity logo');
 const services=main(pages['/services']);
 for(const price of ['$149','$220','$249','$599','$299','$549'])assert.ok(services.includes(price),'retained '+price);
 assert.ok(services.includes('id="mechanical-repairs"'));
