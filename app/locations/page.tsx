@@ -8,9 +8,9 @@ import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Locations Serviced | G&T Motorsports Clyde North",
+  title: "Areas We Serve | Clyde North Workshop | G&T Motorsports",
   description:
-    "G&T Motorsports services customers from Cranbourne, Berwick, Narre Warren, Officer, Pakenham, Lynbrook, Hampton Park and Hallam.",
+    "Visit our single Clyde North workshop for car servicing and repairs. Welcoming drivers from Cranbourne, Berwick, Narre Warren, Officer and nearby suburbs.",
   path: "/locations",
 });
 
@@ -28,15 +28,16 @@ export default function LocationsPage() {
         />
         <div className="container-shell relative">
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.28em] text-brake">
-            Locations serviced
+            Areas We Serve
           </p>
           <h1 className="max-w-4xl text-5xl font-black leading-[0.95] text-white sm:text-6xl">
-            Mechanic Services Across Melbourne's South-East
+            Areas We Serve from Our Clyde North Workshop
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/76">
-            G&T Motorsports is located in Clyde North and welcomes customers
-            from nearby suburbs for servicing, diagnostics, logbook servicing,
-            brake repairs and general mechanical repairs.
+            G&T Motorsports has one workshop at 47B Palladium Circuit, Clyde North
+            VIC 3978. We welcome drivers from nearby suburbs for servicing,
+            diagnostics, logbook servicing, brake repairs and mechanical repairs.
+            Visit this Clyde North address for vehicle servicing and repairs.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="/book-online">Book Online</ButtonLink>
@@ -50,9 +51,9 @@ export default function LocationsPage() {
       <section className="bg-white py-16 text-asphalt sm:py-24">
         <div className="container-shell">
           <SectionHeader
-            eyebrow="Suburb pages"
-            title="Find Your Local Service Area"
-            copy="Choose your suburb to learn about approximate travel time, available services and how to book with G&T Motorsports."
+            eyebrow="Nearby areas"
+            title="Travelling to Us from a Nearby Suburb"
+            copy="Choose your area for service information and approximate travel details to our Clyde North workshop."
             tone="light"
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -63,10 +64,9 @@ export default function LocationsPage() {
                 key={location.slug}
               >
                 <span className="mb-5 block h-1 w-12 bg-brake" />
-                <h2 className="text-xl font-black">{location.suburb}</h2>
+                <h2 className="text-xl font-black">For {location.suburb} Drivers</h2>
                 <p className="mt-3 text-sm leading-6 text-black/65">
-                  {location.distance}, usually {location.driveTime} from the
-                  workshop depending on traffic.
+                  Travel to our Clyde North workshop: {location.distance}, usually {location.driveTime} depending on traffic.
                 </p>
               </Link>
             ))}

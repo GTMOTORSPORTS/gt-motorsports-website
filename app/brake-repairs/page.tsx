@@ -572,7 +572,7 @@ export default function BrakeRepairsLandingPage() {
               className="focus-ring hover:text-black"
               href="/roadworthy-certificate"
             >
-              RWC Inspections
+              RWC Inspection Arrangements
             </Link>
             <Link className="focus-ring hover:text-black" href="/logbook-servicing">
               Logbook Servicing

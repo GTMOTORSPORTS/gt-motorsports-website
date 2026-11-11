@@ -1,3 +1,5 @@
+import { rwcService } from "@/lib/roadworthy";
+import { walnutService, walnutPath } from "@/lib/walnut-blasting";
 import { mercedesDigitalServiceRecord } from "@/lib/digital-service-records";
 import { site } from "@/lib/site";
 
@@ -105,10 +107,11 @@ const coreLinks = {
   cooling: { label: "Cooling System Repairs", href: "/services/cooling-system-repairs" },
   battery: { label: "Battery Services", href: "/services/battery-charging-systems" },
   engine: { label: "Engine Repairs", href: "/services/engine-repairs" },
-  rwc: { label: "Roadworthy Certificate Inspections", href: "/roadworthy-certificate" },
+  rwc: { label: "RWC Inspection Arrangements", href: "/roadworthy-certificate" },
 };
 
 const primaryServicePaths: Record<string, string> = {
+  "walnut-blasting": walnutPath,
   "logbook-servicing": "/logbook-servicing",
   "mercedes-benz-servicing": "/mercedes-benz-service",
   "brake-repairs": "/brake-repairs",
@@ -117,18 +120,19 @@ const primaryServicePaths: Record<string, string> = {
 };
 
 export const servicePages: ServicePage[] = [
+  walnutService,
   {
     slug: "general-car-servicing",
     name: "General Car Servicing",
     icon: "GS",
     eyebrow: "General servicing Clyde North",
-    title: "Car Service in Clyde North",
+    title: "General Car Servicing in Clyde North",
     shortDescription:
       "Routine vehicle servicing and maintenance for all makes and models, with clear advice before additional work proceeds.",
     introduction:
       "G&T Motorsports provides routine vehicle servicing and maintenance in Clyde North for a wide range of makes and models. Each vehicle is inspected based on its condition and service needs, and customers are advised before any additional repairs or maintenance proceed.",
     metadataTitle:
-      "Car Service Clyde North | General Servicing | G&T Motorsports",
+      "General Car Servicing in Clyde North | G&T Motorsports",
     metadataDescription:
       "Book car service in Clyde North with G&T Motorsports. General car servicing, vehicle maintenance and inspections for all makes and models.",
     trustPoints: allMakesTrust,
@@ -1194,97 +1198,13 @@ export const servicePages: ServicePage[] = [
       { question: "Will you inspect the vehicle before quoting?", answer: "Yes. Inspection or testing is completed before repair recommendations are quoted." },
       { question: "What happens if the repair is extensive?", answer: "The findings, likely options and next steps are discussed before any major work proceeds." },
     ],
-    relatedServices: [coreLinks.diagnostics, coreLinks.cooling, coreLinks.general],
+    relatedServices: [{ label: "Intake Valve Carbon Cleaning", href: walnutPath }, coreLinks.diagnostics, coreLinks.cooling, coreLinks.general],
     localAreaText,
     ctaHeading: "Book Engine Diagnosis",
     ctaText:
       "Have engine noises, leaks, smoke or rough running assessed with clear advice before repairs.",
   },
-  {
-    slug: "roadworthy-certificate",
-    name: "Roadworthy Certificate Inspections",
-    icon: "RWC",
-    eyebrow: "RWC inspections Clyde North",
-    title: "Roadworthy Certificate Inspections in Clyde North",
-    shortDescription:
-      "Roadworthy Certificate inspections for eligible vehicles, subject to workshop availability and applicable Victorian requirements.",
-    introduction:
-      "G&T Motorsports provides Roadworthy Certificate inspection support for eligible vehicles in Clyde North. Inspections are carried out with reference to applicable Victorian requirements, and any findings are explained clearly before approved repairs proceed.",
-    metadataTitle:
-      "Roadworthy Certificate Clyde North | RWC Inspections | G&T Motorsports",
-    metadataDescription:
-      "Need a Roadworthy Certificate inspection near Clyde North? G&T Motorsports provides professional RWC inspections for eligible vehicles in accordance with applicable Victorian requirements.",
-    trustPoints: [
-      "Victorian RWC inspection support",
-      "Clear findings",
-      "Quote approval before repairs",
-      "All makes and models",
-    ],
-    symptomsIntro:
-      "An RWC inspection may be needed when selling, transferring or re-registering an eligible vehicle, or when you have been asked to provide a roadworthy certificate.",
-    symptoms: [
-      "Selling an eligible registered vehicle",
-      "Transferring registration in Victoria",
-      "Re-registering an eligible vehicle",
-      "Responding to a roadworthy requirement",
-      "Checking safety-related items before certification",
-    ],
-    includedItems: [
-      "Brake system inspection",
-      "Steering and suspension checks",
-      "Tyre and wheel condition checks",
-      "Lights, glazing and visible safety items",
-      "Body, chassis and structural observations",
-      "Engine, driveline and leak observations",
-      "Findings explained before approved repairs",
-    ],
-    processSteps: standardProcess,
-    benefits: standardBenefits,
-    specialNotice:
-      "Roadworthy Certificate inspections are subject to workshop availability and applicable Victorian requirements. A pass cannot be guaranteed before inspection, and repairs are not automatically included.",
-    faqs: [
-      {
-        question: "What is a Roadworthy Certificate inspection?",
-        answer:
-          "A Roadworthy Certificate inspection checks eligible vehicles against applicable Victorian roadworthiness requirements. It is not a guarantee that the vehicle will pass before inspection.",
-      },
-      {
-        question: "When might I need an RWC?",
-        answer:
-          "An RWC may be required when selling a vehicle, transferring registration, re-registering a vehicle or meeting a roadworthy requirement in Victoria.",
-      },
-      {
-        question: "What happens if my vehicle does not pass?",
-        answer:
-          "The workshop explains the findings and can provide a quote for approved repairs where applicable. Additional work does not begin without approval.",
-      },
-      {
-        question: "Are repairs included in the inspection?",
-        answer:
-          "Repairs are not automatically included. If repair work is required, G&T Motorsports will explain the findings and quote approved work separately where applicable.",
-      },
-      {
-        question: "Do you guarantee a same-day certificate?",
-        answer:
-          "No same-day certificate is promised on this page. Timing depends on workshop availability, inspection findings and whether any required repairs are approved and completed.",
-      },
-      {
-        question: "Are you affiliated with VicRoads?",
-        answer:
-          "No VicRoads affiliation is claimed on this website. G&T Motorsports provides roadworthy inspection support in line with applicable Victorian requirements.",
-      },
-    ],
-    relatedServices: [
-      coreLinks.brakes,
-      coreLinks.suspension,
-      coreLinks.diagnostics,
-      coreLinks.general,
-    ],
-    localAreaText,
-    ctaHeading: "Book an RWC Inspection",
-    ctaText:
-      "Arrange a Roadworthy Certificate inspection with clear findings and quote approval before additional repairs.",
-  },
+  rwcService,
   {
     slug: "pre-purchase-inspections",
     name: "Pre-Purchase Inspections",

@@ -1,110 +1,72 @@
-import { ButtonLink } from "@/components/ButtonLink";
+import Link from "next/link";
 import { SectionHeader } from "@/components/SectionHeader";
 import { customerReviews } from "@/lib/reviews";
 import { site } from "@/lib/site";
-
-type ReviewsProps = {
+export function Reviews({
+  showPageLink = false,
+  compact = false,
+  pageHeading = false,
+}: {
   showPageLink?: boolean;
-};
-
-function ExternalIcon() {
+  compact?: boolean;
+  pageHeading?: boolean;
+}) {
   return (
-    <span
-      aria-hidden="true"
-      className="ml-2 inline-flex h-5 w-5 items-center justify-center rounded-full border border-current text-[10px] font-black"
+    <section
+      id={compact ? "home-reviews" : undefined}
+      className="bg-asphalt py-12 sm:py-16"
     >
-      G&#8599;
-    </span>
-  );
-}
-
-export function Reviews({ showPageLink = false }: ReviewsProps) {
-  return (
-    <section className="bg-asphalt py-16 sm:py-24">
       <div className="container-shell">
         <SectionHeader
-          eyebrow="Reviews"
+          as={pageHeading ? "h1" : "h2"}
+          eyebrow="Customer reviews"
           title="What Our Customers Say"
-          copy="We're proud to provide honest advice, quality workmanship and reliable automotive service to drivers across Clyde North and Melbourne's south-east. Read genuine feedback from customers who have trusted G&T Motorsports with their vehicles."
-          align="center"
+          copy="Short excerpts from customer reviews on our Google business listing."
         />
-        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+        <div className="mt-7 grid gap-4 md:grid-cols-3">
+          {customerReviews.map((review) => (
+            <article
+              key={review.name}
+              className="rounded-md border border-white/15 bg-white/[0.04] p-6"
+            >
+              <p className="text-xs font-bold uppercase tracking-wide text-white/70">
+                Google review excerpt
+              </p>
+              <blockquote className="mt-4 text-lg leading-8 text-white/90">
+                &ldquo;{review.text}&rdquo;
+              </blockquote>
+              <p className="mt-5 font-bold">{review.name}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-6 flex flex-wrap gap-5 text-sm font-bold">
           <a
-            className="focus-ring inline-flex min-h-11 items-center justify-center rounded-md bg-brake px-5 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-glow transition hover:bg-white hover:text-asphalt"
-            href={site.googleReviewsHref}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Leave a Google Review
-            <ExternalIcon />
-          </a>
-          <a
-            className="focus-ring inline-flex min-h-11 items-center justify-center rounded-md border border-white/20 bg-white text-sm font-bold uppercase tracking-wide text-asphalt transition hover:border-brake hover:bg-brake hover:text-white"
+            className="focus-ring underline decoration-brake underline-offset-4"
             href={site.googleReviewsHref}
             target="_blank"
             rel="noopener noreferrer"
           >
             Read Our Google Reviews
-            <ExternalIcon />
           </a>
-          <ButtonLink href="/book-online" variant="ghost">
-            Book Online
-          </ButtonLink>
-          {showPageLink ? (
-            <ButtonLink href="/reviews" variant="ghost">
-              Reviews Page
-            </ButtonLink>
-          ) : null}
-        </div>
-
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {customerReviews.map((review) => (
-            <article
-              className="rounded-md border border-white/10 bg-white/[0.045] p-6 shadow-2xl sm:p-8"
-              key={review.text}
-            >
-              <div className="flex flex-wrap items-center gap-3">
-                <div className="text-lg tracking-[0.16em] text-brake" aria-label="Five-star Google review">
-                  &#9733;&#9733;&#9733;&#9733;&#9733;
-                </div>
-                <span className="inline-flex items-center rounded-md border border-white/10 bg-black/35 px-3 py-2 text-xs font-black uppercase tracking-wide text-white/75">
-                  Google Review
-                  <ExternalIcon />
-                </span>
-              </div>
-              <blockquote className="mt-6 text-base leading-7 text-white/82">
-                &ldquo;{review.text}&rdquo;
-              </blockquote>
-              <p className="mt-6 text-sm font-black uppercase tracking-wide text-white">
-                G&T Motorsports Customer
-              </p>
-            </article>
-          ))}
-        </div>
-
-        <section className="mt-16 rounded-md border border-white/10 bg-black/35 p-6 text-center sm:p-8">
-          <h2 className="text-3xl font-black leading-tight text-white">
-            Have You Visited G&T Motorsports?
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/70">
-            Your feedback helps us improve and helps other local drivers choose
-            a mechanic they can trust.
-          </p>
-          <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
+          {!compact ? (
             <a
-              className="focus-ring inline-flex min-h-11 items-center justify-center rounded-md bg-brake px-5 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-glow transition hover:bg-white hover:text-asphalt"
-              href={site.googleReviewsHref}
+              className="focus-ring underline underline-offset-4"
+              href={site.googleWriteReviewHref}
               target="_blank"
               rel="noopener noreferrer"
             >
               Leave a Google Review
-              <ExternalIcon />
             </a>
-            <ButtonLink href="/book-online" variant="ghost">
-              Book Your Next Service
-            </ButtonLink>
-          </div>
-        </section>
+          ) : null}
+          {compact || showPageLink ? (
+            <Link
+              className="focus-ring underline underline-offset-4"
+              href="/reviews"
+            >
+              View Reviews Page
+            </Link>
+          ) : null}
+        </div>
       </div>
     </section>
   );

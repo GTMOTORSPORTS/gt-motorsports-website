@@ -1,3 +1,4 @@
+import { StartingServicePackage } from "@/components/StartingServicePackage";
 import type { Metadata } from "next";
 import { ServiceOffer } from "@/components/ServiceOffer";
 import Image from "next/image";
@@ -11,14 +12,18 @@ import { site } from "@/lib/site";
 const canonical = `${site.url}/mercedes-benz-service`;
 
 export const metadata: Metadata = {
-  title: { absolute: "Mercedes-Benz Service Clyde North | Service A & B | G&T Motorsports" },
+  title: {
+    absolute:
+      "Mercedes-Benz Service Clyde North | Service A & B | G&T Motorsports",
+  },
   description:
     "Mercedes-Benz service in Clyde North including Service A, Service B, diagnostics and eligible Mercedes-Benz Digital Service Record updates at G&T Motorsports.",
   alternates: {
     canonical,
   },
   openGraph: {
-    title: "Mercedes-Benz Service Clyde North | Service A & B | G&T Motorsports",
+    title:
+      "Mercedes-Benz Service Clyde North | Service A & B | G&T Motorsports",
     description:
       "Mercedes-Benz service in Clyde North including Service A, Service B, diagnostics and eligible Mercedes-Benz Digital Service Record updates at G&T Motorsports.",
     url: canonical,
@@ -36,7 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mercedes-Benz Service Clyde North | Service A & B | G&T Motorsports",
+    title:
+      "Mercedes-Benz Service Clyde North | Service A & B | G&T Motorsports",
     description:
       "Mercedes-Benz service in Clyde North including Service A, Service B, diagnostics and eligible Mercedes-Benz Digital Service Record updates at G&T Motorsports.",
     images: ["/workshop-hero.png"],
@@ -134,13 +140,11 @@ const mercedesServices = [
 const serviceScheduleCards = [
   {
     title: "Mercedes-Benz Service A",
-    copy:
-      "Service A is typically an earlier scheduled maintenance visit focused on essential service items and inspections. The exact items vary by model, engine, age, kilometres and the vehicle's service reminder, so G&T Motorsports checks what is required for your Mercedes-Benz before work begins.",
+    copy: "Service A is typically an earlier scheduled maintenance visit focused on essential service items and inspections. The exact items vary by model, engine, age, kilometres and the vehicle's service reminder, so G&T Motorsports checks what is required for your Mercedes-Benz before work begins.",
   },
   {
     title: "Mercedes-Benz Service B",
-    copy:
-      "Service B is generally a more comprehensive scheduled service. Requirements vary by model, age, mileage and manufacturer schedule, and may include additional checks or replacement items depending on the vehicle. Customers are advised before extra work is carried out.",
+    copy: "Service B is generally a more comprehensive scheduled service. Requirements vary by model, age, mileage and manufacturer schedule, and may include additional checks or replacement items depending on the vehicle. Customers are advised before extra work is carried out.",
   },
 ];
 
@@ -237,7 +241,8 @@ const mercedesProcessSteps = [
 
 const faqs = [
   {
-    question: "What is the difference between Mercedes-Benz Service A and Service B?",
+    question:
+      "What is the difference between Mercedes-Benz Service A and Service B?",
     answer:
       "Service A is typically an earlier scheduled service, while Service B is generally more comprehensive. Exact requirements vary by model, age, mileage, engine type and the vehicle's service schedule.",
   },
@@ -257,7 +262,8 @@ const faqs = [
       "Yes. Warning lights, fault messages and electronic concerns can be assessed using diagnostic scanning and practical testing before repair recommendations are made.",
   },
   {
-    question: "Do I need to use a Mercedes-Benz dealership for routine servicing?",
+    question:
+      "Do I need to use a Mercedes-Benz dealership for routine servicing?",
     answer:
       "In many cases, routine servicing can be completed by an independent workshop when the correct schedule, suitable parts and appropriate fluids are used. Keep service records and ask the workshop if you are unsure about your vehicle or warranty position.",
   },
@@ -450,6 +456,7 @@ export default function MercedesBenzServicePage() {
         </div>
       </section>
 
+      <StartingServicePackage mercedes />
       <section className="bg-black py-16 sm:py-24">
         <div className="container-shell">
           <SectionHeader
@@ -491,7 +498,11 @@ export default function MercedesBenzServicePage() {
               title="Mercedes-Benz Service, Diagnostics and Repairs"
               copy="From scheduled maintenance to complex fault finding, G&T Motorsports gives Mercedes owners a clear pathway from inspection through to approved repair."
             />
-            <ButtonLink href="/mercedes-benz-service" variant="ghost" className="w-fit">
+            <ButtonLink
+              href="/mercedes-benz-service"
+              variant="ghost"
+              className="w-fit"
+            >
               Mercedes Service Details
             </ButtonLink>
           </div>
@@ -529,7 +540,9 @@ export default function MercedesBenzServicePage() {
                 key={item}
               >
                 <span className="mb-4 block h-1 w-10 bg-brake" />
-                <h3 className="text-lg font-black leading-6 text-white">{item}</h3>
+                <h3 className="text-lg font-black leading-6 text-white">
+                  {item}
+                </h3>
               </div>
             ))}
           </div>
@@ -637,7 +650,9 @@ export default function MercedesBenzServicePage() {
                 <h3 className="mt-5 whitespace-normal text-lg font-black leading-tight text-asphalt lg:text-[0.9rem]">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm leading-6 text-black/65">{step.copy}</p>
+                <p className="mt-4 text-sm leading-6 text-black/65">
+                  {step.copy}
+                </p>
               </article>
             ))}
           </div>
@@ -667,7 +682,9 @@ export default function MercedesBenzServicePage() {
                   />
                 </div>
                 <div className="p-5">
-                  <h3 className="text-lg font-black text-white">{item.title}</h3>
+                  <h3 className="text-lg font-black text-white">
+                    {item.title}
+                  </h3>
                 </div>
               </article>
             ))}
@@ -703,7 +720,7 @@ export default function MercedesBenzServicePage() {
                   &ldquo;{review.text}&rdquo;
                 </blockquote>
                 <p className="mt-6 text-sm font-black uppercase tracking-wide text-asphalt">
-                  G&T Motorsports Customer
+                  {review.name}
                 </p>
               </article>
             ))}
@@ -720,7 +737,7 @@ export default function MercedesBenzServicePage() {
             </a>
             <a
               className="focus-ring inline-flex min-h-11 items-center justify-center rounded-md border border-black/15 bg-white px-5 py-3 text-sm font-bold uppercase tracking-wide text-asphalt transition hover:border-brake hover:bg-brake hover:text-white"
-              href={site.googleReviewsHref}
+              href={site.googleWriteReviewHref}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -783,6 +800,24 @@ export default function MercedesBenzServicePage() {
         </div>
       </section>
       <ServiceOffer />
+      <section className="bg-asphalt py-12">
+        <div className="container-shell">
+          <h2 className="text-2xl font-black">
+            Mercedes-Benz Intake Carbon Cleaning
+          </h2>
+          <p className="mt-4 max-w-3xl leading-7 text-white/70">
+            Selected petrol and diesel engines can be assessed for intake
+            deposits. Cleaning is separately quoted and is not automatically
+            included in scheduled servicing.
+          </p>
+          <Link
+            className="focus-ring mt-5 inline-block font-bold underline decoration-brake underline-offset-4"
+            href="/services/walnut-blasting-intake-cleaning-clyde-north"
+          >
+            Explore intake cleaning and engine-specific starting prices
+          </Link>
+        </div>
+      </section>
     </PageShell>
   );
 }

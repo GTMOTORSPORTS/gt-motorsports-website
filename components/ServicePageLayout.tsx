@@ -1,15 +1,33 @@
+import { StartingServicePackage } from "@/components/StartingServicePackage";
 import type { Metadata } from "next";
 import { ServiceOffer } from "@/components/ServiceOffer";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
-import { ProcessSteps, standardWorkshopProcess } from "@/components/ProcessSteps";
+import {
+  ProcessSteps,
+  standardWorkshopProcess,
+} from "@/components/ProcessSteps";
 import { SectionHeader } from "@/components/SectionHeader";
 import { pageMetadata } from "@/lib/seo";
 import type { ServicePage } from "@/lib/service-pages";
-import { getServicePage, serviceCanonicalUrl, servicePath } from "@/lib/service-pages";
+import {
+  getServicePage,
+  serviceCanonicalUrl,
+  servicePath,
+} from "@/lib/service-pages";
 import { site } from "@/lib/site";
+import {
+  WalnutCleaningImages,
+  WalnutCleaningPricing,
+} from "@/components/WalnutCleaningSections";
+import {
+  enginePrices,
+  vehiclePrices,
+  pricingDisclaimer,
+  type CleaningPrice,
+} from "@/lib/walnut-blasting";
 
 const serviceArea = [
   "Clyde North",
@@ -51,10 +69,15 @@ export function ServicePageLayout({ slug }: { slug: string }) {
       <ServiceHero service={service} />
       <ServiceTrustBar points={service.trustPoints} />
       <Breadcrumbs service={service} />
-      <ServiceOffer />
+      {slug !== "general-car-servicing" && slug !== "walnut-blasting" ? <ServiceOffer /> : null}
+      {slug === "walnut-blasting" ? <WalnutCleaningPricing /> : null}
       <ServiceIntroSection service={service} />
+      {slug === "general-car-servicing" ? <StartingServicePackage /> : null}
       <ServiceChecklist service={service} />
-      {service.detailSections ? <ServiceDetailSections service={service} /> : null}
+      {service.detailSections ? (
+        <ServiceDetailSections service={service} />
+      ) : null}
+      {slug === "walnut-blasting" ? <WalnutCleaningImages /> : null}
       {service.warrantySection ? <WarrantySection service={service} /> : null}
       {service.digitalServiceRecordNotice ? (
         <DigitalServiceRecordSection service={service} />
@@ -91,8 +114,21 @@ export function ServiceHero({ service }: { service: ServicePage }) {
         <p className="mt-6 max-w-3xl text-lg leading-8 text-white/76">
           {service.introduction}
         </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href="/book-online">Book Online</ButtonLink>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          {service.secondaryCtaHref ? (
+            <ButtonLink href={service.secondaryCtaHref} variant="ghost">
+              {service.secondaryCtaLabel || "Get a Quote"}
+            </ButtonLink>
+          ) : null}
+          <ButtonLink
+            href={
+              service.slug === "walnut-blasting"
+                ? "/book-online?service=walnut-blasting"
+                : "/book-online"
+            }
+          >
+            {service.primaryCtaLabel || "Book Online"}
+          </ButtonLink>
           <ButtonLink href={site.phoneHref} variant="secondary">
             Call {site.phone}
           </ButtonLink>
@@ -115,9 +151,14 @@ export function ServiceTrustBar({ points }: { points: string[] }) {
     <section className="bg-white text-asphalt">
       <div className="container-shell grid gap-3 py-6 sm:grid-cols-2 lg:grid-cols-4">
         {points.map((point) => (
-          <div className="rounded-md border border-black/10 bg-white p-4" key={point}>
+          <div
+            className="rounded-md border border-black/10 bg-white p-4"
+            key={point}
+          >
             <span className="mb-3 block h-1 w-10 bg-brake" />
-            <p className="text-sm font-black uppercase tracking-wide">{point}</p>
+            <p className="text-sm font-black uppercase tracking-wide">
+              {point}
+            </p>
           </div>
         ))}
       </div>
@@ -163,7 +204,10 @@ export function ServiceIntroSection({ service }: { service: ServicePage }) {
         />
         <div className="grid gap-3 sm:grid-cols-2">
           {service.symptoms.map((item) => (
-            <div className="rounded-md border border-white/10 bg-black/35 p-5" key={item}>
+            <div
+              className="rounded-md border border-white/10 bg-black/35 p-5"
+              key={item}
+            >
               <span className="mb-4 block h-1 w-10 bg-brake" />
               <h3 className="text-lg font-black text-white">{item}</h3>
             </div>
@@ -189,7 +233,10 @@ export function ServiceChecklist({ service }: { service: ServicePage }) {
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {service.includedItems.map((item) => (
-            <div className="rounded-md border border-black/10 bg-neutral-50 p-5" key={item}>
+            <div
+              className="rounded-md border border-black/10 bg-neutral-50 p-5"
+              key={item}
+            >
               <span className="mb-4 block h-1 w-10 bg-brake" />
               <h3 className="text-lg font-black">{item}</h3>
             </div>
@@ -215,8 +262,16 @@ export function ServiceDetailSections({ service }: { service: ServicePage }) {
       <div className="container-shell">
         <SectionHeader
           eyebrow="More about this service"
-          title="What We Diagnose and Repair"
-          copy="The right repair depends on the vehicle, symptoms and inspection findings. G&T Motorsports checks the cause before recommending replacement parts."
+          title={
+            service.slug === "walnut-blasting"
+              ? "How Intake Carbon Cleaning Works"
+              : "What We Diagnose and Repair"
+          }
+          copy={
+            service.slug === "walnut-blasting"
+              ? "Confirm the right service and total price for your engine before approving work."
+              : "The right repair depends on the vehicle, symptoms and inspection findings. G&T Motorsports checks the cause before recommending replacement parts."
+          }
           align="center"
         />
         <div className="mt-10 grid gap-4 lg:grid-cols-3">
@@ -267,7 +322,10 @@ export function WarrantySection({ service }: { service: ServicePage }) {
         />
         <div className="grid gap-4 sm:grid-cols-2">
           {service.warrantySection.points.map((point) => (
-            <div className="rounded-md border border-white/10 bg-black/35 p-5" key={point}>
+            <div
+              className="rounded-md border border-white/10 bg-black/35 p-5"
+              key={point}
+            >
               <span className="mb-4 block h-1 w-10 bg-brake" />
               <h3 className="text-lg font-black text-white">{point}</h3>
             </div>
@@ -278,7 +336,11 @@ export function WarrantySection({ service }: { service: ServicePage }) {
   );
 }
 
-export function DigitalServiceRecordSection({ service }: { service: ServicePage }) {
+export function DigitalServiceRecordSection({
+  service,
+}: {
+  service: ServicePage;
+}) {
   return (
     <section className="bg-black py-16 sm:py-24">
       <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -293,9 +355,9 @@ export function DigitalServiceRecordSection({ service }: { service: ServicePage 
           </h3>
           <p className="mt-4 text-sm leading-6 text-white/70">
             Mercedes-Benz Digital Service Book updates are available for
-            eligible Mercedes-Benz vehicles after the required scheduled service.
-            Access for other manufacturer online service-record systems is being
-            worked on and is not claimed on this page.
+            eligible Mercedes-Benz vehicles after the required scheduled
+            service. Access for other manufacturer online service-record systems
+            is being worked on and is not claimed on this page.
           </p>
           <div className="mt-6">
             <ButtonLink href="/mercedes-benz-service" variant="ghost">
@@ -319,7 +381,10 @@ export function WarningSignsSection({ service }: { service: ServicePage }) {
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {service.warningSigns?.map((sign) => (
-            <article className="rounded-md border border-white/10 bg-white/[0.04] p-5" key={sign}>
+            <article
+              className="rounded-md border border-white/10 bg-white/[0.04] p-5"
+              key={sign}
+            >
               <p className="text-xs font-black uppercase tracking-[0.22em] text-brake">
                 Check
               </p>
@@ -362,17 +427,24 @@ export function WhyChooseUsSection({ service }: { service: ServicePage }) {
       <div className="container-shell">
         <SectionHeader
           eyebrow="Why choose us"
-          title={service.sectionHeadings?.whyChoose || "Why Choose G&T Motorsports"}
+          title={
+            service.sectionHeadings?.whyChoose || "Why Choose G&T Motorsports"
+          }
           copy="Straightforward advice, careful workmanship and convenient booking for local drivers."
           tone="light"
           align="center"
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {service.benefits.map((item) => (
-            <article className="rounded-md border border-black/10 bg-neutral-50 p-5" key={item.title}>
+            <article
+              className="rounded-md border border-black/10 bg-neutral-50 p-5"
+              key={item.title}
+            >
               <span className="mb-5 block h-1 w-12 bg-brake" />
               <h3 className="text-xl font-black">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-black/65">{item.copy}</p>
+              <p className="mt-3 text-sm leading-6 text-black/65">
+                {item.copy}
+              </p>
             </article>
           ))}
         </div>
@@ -399,7 +471,9 @@ export function ServiceFAQ({ service }: { service: ServicePage }) {
               <summary className="focus-ring cursor-pointer list-none text-xl font-black text-white">
                 {faq.question}
               </summary>
-              <p className="mt-4 text-sm leading-6 text-white/66">{faq.answer}</p>
+              <p className="mt-4 text-sm leading-6 text-white/66">
+                {faq.answer}
+              </p>
             </details>
           ))}
         </div>
@@ -425,7 +499,9 @@ export function RelatedServices({ service }: { service: ServicePage }) {
               key={related.href}
             >
               <span className="mb-4 block h-1 w-10 bg-brake" />
-              <span className="text-lg font-black text-white">{related.label}</span>
+              <span className="text-lg font-black text-white">
+                {related.label}
+              </span>
             </Link>
           ))}
           <Link
@@ -433,7 +509,9 @@ export function RelatedServices({ service }: { service: ServicePage }) {
             href="/reviews"
           >
             <span className="mb-4 block h-1 w-10 bg-brake" />
-            <span className="text-lg font-black text-white">Customer Reviews</span>
+            <span className="text-lg font-black text-white">
+              Customer Reviews
+            </span>
           </Link>
         </div>
       </div>
@@ -498,8 +576,15 @@ export function ServiceCTA({ service }: { service: ServicePage }) {
             {service.ctaText}
           </p>
         </div>
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href="/book-online" variant="secondary">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <ButtonLink
+            href={
+              service.slug === "walnut-blasting"
+                ? "/book-online?service=walnut-blasting"
+                : "/book-online"
+            }
+            variant="secondary"
+          >
             {service.primaryCtaLabel || "Book Online"}
           </ButtonLink>
           <ButtonLink
@@ -511,6 +596,11 @@ export function ServiceCTA({ service }: { service: ServicePage }) {
           <ButtonLink href={site.directionsHref} variant="ghost">
             Get Directions
           </ButtonLink>
+          {service.slug === "walnut-blasting" ? (
+            <ButtonLink href={site.phoneHref} variant="ghost">
+              Call {site.phone}
+            </ButtonLink>
+          ) : null}
           <ButtonLink href="/contact" variant="ghost">
             Contact Us
           </ButtonLink>
@@ -518,6 +608,31 @@ export function ServiceCTA({ service }: { service: ServicePage }) {
       </div>
     </section>
   );
+}
+
+function priceOffer(row: CleaningPrice) {
+  return {
+    "@type": "Offer",
+    name: row.name,
+    description: `${row.price === undefined ? "Custom quote." : "Starting price only."} ${pricingDisclaimer}`,
+    ...(row.price === undefined
+      ? {}
+      : {
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            minPrice: row.price,
+            priceCurrency: "AUD",
+            valueAddedTaxIncluded: true,
+          },
+        }),
+    itemOffered: {
+      "@type": "Service",
+      name: row.name,
+      description: row.diesel
+        ? "Diesel intake cleaning; EGR work only as quoted, using a suitable assessed method."
+        : "Intake carbon cleaning for suitable assessed engine variants; method confirmed before booking.",
+    },
+  };
 }
 
 export function ServiceStructuredData({ service }: { service: ServicePage }) {
@@ -530,6 +645,27 @@ export function ServiceStructuredData({ service }: { service: ServicePage }) {
     description: service.shortDescription,
     serviceType: service.name,
     url: canonical,
+    ...(service.slug === "walnut-blasting"
+      ? {
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Intake cleaning starting prices in AUD including GST",
+            description: `${pricingDisclaimer} Vehicle-specific prices replace general engine prices; they are not added together. Diesel cleaning methods and EGR scope are confirmed separately.`,
+            itemListElement: [
+              {
+                "@type": "OfferCatalog",
+                name: "Engine-specific starting prices",
+                itemListElement: enginePrices.map(priceOffer),
+              },
+              {
+                "@type": "OfferCatalog",
+                name: "Vehicle-specific starting prices",
+                itemListElement: vehiclePrices.map(priceOffer),
+              },
+            ],
+          },
+        }
+      : {}),
     provider: {
       "@id": `${site.url}/#business`,
     },
@@ -544,7 +680,12 @@ export function ServiceStructuredData({ service }: { service: ServicePage }) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-      { "@type": "ListItem", position: 2, name: "Services", item: `${site.url}/services` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: `${site.url}/services`,
+      },
       { "@type": "ListItem", position: 3, name: service.name, item: canonical },
     ],
   };
@@ -572,10 +713,12 @@ export function ServiceStructuredData({ service }: { service: ServicePage }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      {service.slug !== "walnut-blasting" ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      ) : null}
     </>
   );
 }

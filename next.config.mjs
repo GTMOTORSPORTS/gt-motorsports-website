@@ -28,6 +28,16 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/services/walnut-blasting",
+        destination: "/services/walnut-blasting-intake-cleaning-clyde-north",
+        permanent: true,
+      },
+      {
+        source: "/walnut-blasting-clyde-north",
+        destination: "/services/walnut-blasting-intake-cleaning-clyde-north",
+        permanent: true,
+      },
+      {
         source: "/services/logbook-servicing",
         destination: "/logbook-servicing",
         permanent: true,

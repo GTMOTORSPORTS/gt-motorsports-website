@@ -30,3 +30,27 @@ export function categoryEstimate(id: string, packageName: string) {
   const category = pricingCategories.find(item => item.id === id);
   return category && (packageName === "minor" || packageName === "major") ? category[packageName] : null;
 }
+export const featuredServiceOffers = [
+  {
+    service: "Minor Service",
+    price: "From $199 including GST",
+    href: "/services/general-car-servicing",
+    copy: minorOffer,
+  },
+  {
+    service: "Mercedes-Benz Service A",
+    price: "From $299 including GST",
+    href: "/mercedes-benz-service",
+    copy: "Eligible models: up to 5L of approved oil, quality oil filter, base Service A checks and service record update. Parts and labour included; conditions apply.",
+  },
+];
+export const walnutStartingOffer = {
+  service: "Walnut Blasting",
+  price: "From $699 including GST",
+  href: "/services/walnut-blasting-intake-cleaning-clyde-north",
+  copy: "Eligible base-engine applications only. Engine and vehicle-specific prices apply; suitability and final quote confirmed first.",
+};
+export const homePrices = [
+  ...featuredServiceOffers,
+  walnutStartingOffer,
+];

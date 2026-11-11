@@ -14,6 +14,7 @@ export function generateStaticParams() {
   return servicePageSlugs
     .filter(
       (slug) =>
+        slug !== "walnut-blasting" &&
         slug !== "logbook-servicing" &&
         slug !== "mercedes-benz-servicing" &&
         slug !== "brake-repairs" &&

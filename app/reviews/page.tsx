@@ -14,7 +14,7 @@ export const metadata: Metadata = pageMetadata({
 export default function ReviewsPage() {
   return (
     <PageShell>
-      <Reviews />
+      <Reviews pageHeading />
       <BookingCTA />
     </PageShell>
   );

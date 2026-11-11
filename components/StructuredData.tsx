@@ -4,7 +4,7 @@ const serviceOffers = [
   "Logbook Servicing",
   "Engine Diagnostics",
   "Brake Repairs",
-  "Roadworthy Certificate Inspections",
+  "RWC Inspection Arrangements",
   "Cooling System Repairs",
   "Suspension Repairs",
   "Air Conditioning Service",
@@ -64,6 +64,9 @@ export function StructuredData() {
       itemOffered: {
         "@type": "Service",
         name: service,
+        ...(service === "RWC Inspection Arrangements" ? {
+          description: "Inspections arranged through an independent licensed vehicle tester. Contact G&T Motorsports for arrangements and pricing.",
+        } : {}),
       },
     })),
   };
