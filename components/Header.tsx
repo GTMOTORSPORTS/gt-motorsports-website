@@ -11,6 +11,8 @@ type NavItem = {
 };
 
 const serviceMenuItems: NavItem[] = [
+  { href: "/service-price-finder", label: "Find Your Service Price" },
+  { href: "/service-pricing", label: "Service Packages & Pricing" },
   { href: "/logbook-servicing", label: "Logbook Servicing" },
   { href: "/roadworthy-certificate", label: "Roadworthy Certificate Inspections" },
   { href: "/brake-repairs", label: "Brake Repairs" },

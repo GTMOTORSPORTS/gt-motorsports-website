@@ -44,9 +44,10 @@ const fields: Field[] = [
 
 type BookingFormProps = {
   compact?: boolean;
+  initialValues?: Record<string, string>;
 };
 
-export function BookingForm({ compact = false }: BookingFormProps) {
+export function BookingForm({ compact = false, initialValues = {} }: BookingFormProps) {
   const formId = useId();
   const formRef = useRef<HTMLFormElement>(null);
   const submittingRef = useRef(false);
@@ -152,6 +153,7 @@ export function BookingForm({ compact = false }: BookingFormProps) {
                 id={fieldId}
                 inputMode={field.inputMode}
                 name={field.name}
+                defaultValue={initialValues[field.name] || ""}
                 required={field.required}
                 type={field.type}
               />
@@ -185,6 +187,7 @@ export function BookingForm({ compact = false }: BookingFormProps) {
           }`}
           id={`${formId}-additionalNotes`}
           name="additionalNotes"
+          defaultValue={initialValues.additionalNotes || ""}
         />
       </label>
       <label className="flex gap-3 rounded-md border border-white/10 bg-black/50 p-4 text-sm font-bold leading-6 text-white">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ServiceOffer } from "@/components/ServiceOffer";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ButtonLink } from "@/components/ButtonLink";
@@ -50,6 +51,7 @@ export function ServicePageLayout({ slug }: { slug: string }) {
       <ServiceHero service={service} />
       <ServiceTrustBar points={service.trustPoints} />
       <Breadcrumbs service={service} />
+      <ServiceOffer />
       <ServiceIntroSection service={service} />
       <ServiceChecklist service={service} />
       {service.detailSections ? <ServiceDetailSections service={service} /> : null}

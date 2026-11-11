@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ServiceOffer } from "@/components/ServiceOffer";
 import Link from "next/link";
 import { BookingCTA } from "@/components/BookingCTA";
 import { ButtonLink } from "@/components/ButtonLink";
@@ -34,6 +35,7 @@ export const metadata: Metadata = pageMetadata({
 export default function ServicesPage() {
   return (
     <PageShell>
+      <ServiceOffer />
       <section className="bg-black py-16 sm:py-24">
         <div className="container-shell">
           <div className="grid gap-8 lg:grid-cols-[1fr_0.45fr] lg:items-end">

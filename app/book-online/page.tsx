@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ServiceOffer } from "@/components/ServiceOffer";
 import { ButtonLink } from "@/components/ButtonLink";
 import { PageShell } from "@/components/PageShell";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -15,6 +16,7 @@ export const metadata: Metadata = pageMetadata({
 export default function BookOnlinePage() {
   return (
     <PageShell>
+      <ServiceOffer />
       <section className="bg-black py-16 sm:py-24">
         <div className="container-shell">
           <SectionHeader

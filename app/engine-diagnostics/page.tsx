@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ServiceOffer } from "@/components/ServiceOffer";
 import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
@@ -665,6 +666,7 @@ export default function EngineDiagnosticsLandingPage() {
           </div>
         </div>
       </section>
+      <ServiceOffer />
     </PageShell>
   );
 }

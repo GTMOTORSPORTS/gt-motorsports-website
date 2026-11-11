@@ -62,6 +62,8 @@ export const navItems = [
 ];
 
 export const publicRoutes = [
+  { path: "/service-price-finder", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/service-pricing", priority: 0.8, changeFrequency: "monthly" },
   {
     path: "/",
     priority: 1,
