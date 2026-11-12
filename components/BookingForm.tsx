@@ -45,9 +45,10 @@ const fields: Field[] = [
 type BookingFormProps = {
   compact?: boolean;
   initialValues?: Record<string, string>;
+  enquiryContext?: string;
 };
 
-export function BookingForm({ compact = false, initialValues = {} }: BookingFormProps) {
+export function BookingForm({ compact = false, initialValues = {}, enquiryContext }: BookingFormProps) {
   const formId = useId();
   const formRef = useRef<HTMLFormElement>(null);
   const submittingRef = useRef(false);
@@ -77,7 +78,7 @@ export function BookingForm({ compact = false, initialValues = {} }: BookingForm
       preferredDate: formData.get("preferredDate"),
       preferredTime: formData.get("preferredTime"),
       enquiryType: formData.get("enquiryType"),
-      additionalNotes: formData.get("additionalNotes"),
+      additionalNotes: [enquiryContext, formData.get("additionalNotes")].filter(Boolean).join(" "),
       consent: formData.get("consent") === "on",
       website: formData.get("website"),
     };
@@ -153,7 +154,9 @@ export function BookingForm({ compact = false, initialValues = {} }: BookingForm
                 id={fieldId}
                 inputMode={field.inputMode}
                 name={field.name}
-                defaultValue={initialValues[field.name] || ""}
+                {...(field.name === "serviceRequired" && enquiryContext
+                  ? { value: initialValues.serviceRequired || "", readOnly: true }
+                  : { defaultValue: initialValues[field.name] || "" })}
                 required={field.required}
                 type={field.type}
               />
@@ -187,6 +190,7 @@ export function BookingForm({ compact = false, initialValues = {} }: BookingForm
           }`}
           id={`${formId}-additionalNotes`}
           name="additionalNotes"
+          maxLength={Math.max(0, 999 - (enquiryContext?.length || 0))}
           defaultValue={initialValues.additionalNotes || ""}
         />
       </label>
