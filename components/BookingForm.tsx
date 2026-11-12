@@ -46,9 +46,10 @@ type BookingFormProps = {
   compact?: boolean;
   initialValues?: Record<string, string>;
   enquiryContext?: string;
+  onDraftChange?: (values: Record<string, string>) => void;
 };
 
-export function BookingForm({ compact = false, initialValues = {}, enquiryContext }: BookingFormProps) {
+export function BookingForm({ compact = false, initialValues = {}, enquiryContext, onDraftChange }: BookingFormProps) {
   const formId = useId();
   const formRef = useRef<HTMLFormElement>(null);
   const submittingRef = useRef(false);
@@ -104,6 +105,7 @@ export function BookingForm({ compact = false, initialValues = {}, enquiryContex
       }
 
       formRef.current?.reset();
+      onDraftChange?.({});
       submittingRef.current = false;
       setState({
         status: "success",
@@ -121,7 +123,12 @@ export function BookingForm({ compact = false, initialValues = {}, enquiryContex
   }
 
   return (
-    <form className="grid gap-4" onSubmit={handleSubmit} ref={formRef} noValidate>
+    <form className="grid gap-4" onSubmit={handleSubmit} onChange={event => {
+      if (onDraftChange) {
+        const data = new FormData(event.currentTarget);
+        onDraftChange(Object.fromEntries(Array.from(data.entries()).filter((entry): entry is [string, string] => typeof entry[1] === "string")));
+      }
+    }} ref={formRef} noValidate>
       <p className="rounded-md border border-white/10 bg-black/50 p-4 text-sm leading-6 text-white/76">
         Appointments are recommended. Walk-ins are welcome; waiting times depend
         on the work required and current workshop availability.
@@ -173,7 +180,7 @@ export function BookingForm({ compact = false, initialValues = {}, enquiryContex
         Appointment or walk-in enquiry
         <select
           className={inputClass}
-          defaultValue="appointment"
+          defaultValue={initialValues.enquiryType || "appointment"}
           id={`${formId}-enquiryType`}
           name="enquiryType"
           required
@@ -199,6 +206,7 @@ export function BookingForm({ compact = false, initialValues = {}, enquiryContex
           aria-describedby={state.errors.consent ? `${formId}-consent-error` : undefined}
           className="mt-1 h-5 w-5 accent-brake"
           name="consent"
+          defaultChecked={initialValues.consent === "on"}
           required
           type="checkbox"
         />

@@ -17,8 +17,7 @@ export default async function BookOnlinePage({ searchParams }: { searchParams: P
   const { service } = await searchParams;
   return (
     <PageShell>
-      <ServiceOffer />
-      <section className="bg-black py-16 sm:py-24">
+      <section className="bg-black py-8 sm:py-10">
         <div className="container-shell">
           <SectionHeader
             eyebrow="Book Online"
@@ -55,6 +54,7 @@ export default async function BookOnlinePage({ searchParams }: { searchParams: P
           </div>
         </div>
       </section>
+      <ServiceOffer />
     </PageShell>
   );
 }
