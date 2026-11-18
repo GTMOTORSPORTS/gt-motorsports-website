@@ -29,7 +29,7 @@ export function StartingServicePackage({
         <h2 className="text-3xl font-black">
           {mercedes
             ? "Mercedes-Benz Service A — from $299 including GST"
-            : "Minor Service From $199 Including GST"}
+            : "Minor Service From $149 Including GST"}
         </h2>
         <p className="mt-4 leading-7 text-white/75">
           For eligible {mercedes ? "models" : "passenger vehicles"}, the

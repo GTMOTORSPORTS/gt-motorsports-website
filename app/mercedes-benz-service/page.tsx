@@ -139,11 +139,11 @@ const mercedesServices = [
 
 const serviceScheduleCards = [
   {
-    title: "Mercedes-Benz Service A",
+    title: "Mercedes-Benz Service A - From $299 Including GST",
     copy: "Service A is typically an earlier scheduled maintenance visit focused on essential service items and inspections. The exact items vary by model, engine, age, kilometres and the vehicle's service reminder, so G&T Motorsports checks what is required for your Mercedes-Benz before work begins.",
   },
   {
-    title: "Mercedes-Benz Service B",
+    title: "Mercedes-Benz Service B - From $549 Including GST",
     copy: "Service B is generally a more comprehensive scheduled service. Requirements vary by model, age, mileage and manufacturer schedule, and may include additional checks or replacement items depending on the vehicle. Customers are advised before extra work is carried out.",
   },
 ];

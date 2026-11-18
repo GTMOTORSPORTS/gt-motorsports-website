@@ -19,7 +19,8 @@ export function Hero() {
         <h1 className="max-w-4xl text-4xl font-black leading-tight sm:text-5xl lg:text-7xl">
           Trusted Mechanic in Clyde North
         </h1>
-        <p className="mt-4 text-lg font-bold text-white">Service from $199 • Quick wash &amp; vacuum included</p>
+        <p className="mt-4 text-lg font-bold text-white">Minor service from $149 incl. GST for eligible vehicles</p>
+        <p className="mt-2 text-sm text-white/75">Quick wash &amp; vacuum optional at extra cost.</p>
         <p className="mt-5 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">
           Car servicing, diagnostics and mechanical repairs at our workshop at
           47B Palladium Circuit. Clear advice and approval before additional

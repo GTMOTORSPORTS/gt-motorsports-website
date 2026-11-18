@@ -16,7 +16,7 @@ assert.equal((body.match(/<img\b/g)||[]).length,4,'Three genuine gallery photos 
 assert.equal((body.match(/<form\b/g)||[]).length,0,'Enquiry remains on contact page');
 assert.equal((body.match(/<iframe\b/g)||[]).length,0,'No home calendar/map frame');
 for(const term of ['Common Vehicle Problems We Fix','Secure a service, inspection or repair appointment today.','Add the founder'])assert.ok(!body.includes(term),term);
-for(const price of ['From $199 including GST','From $299 including GST','From $699 including GST'])assert.ok(body.includes(price),price);
+for(const price of ['From $149 including GST','From $299 including GST','From $699 including GST'])assert.ok(body.includes(price),price);
 for(const path of ['/services/general-car-servicing','/mercedes-benz-service']){
  const content=main(await get(path));
  assert.equal((content.match(/id="starting-package"/g)||[]).length,1,'One approved package '+path);
@@ -37,7 +37,7 @@ for(const path of ['/services','/reviews','/gallery','/contact','/book-online','
 for(const text of ['founder','placeholder','as they are confirmed'])assert.ok(!main(pages['/about']).toLowerCase().includes(text));
 assert.equal((main(pages['/about']).match(/<img\b/g)||[]).length,3,'Two About workshop photos and Integrity logo');
 const services=main(pages['/services']);
-for(const price of ['$199','$229','$279','$299','$349','$399','$329','$449','$479','$549','$599','$649','$699','$749'])assert.ok(services.includes(price),'category price '+price);
+for(const price of ['$149','$199','$220','$249','$279','$299','$329','$599'])assert.ok(services.includes(price),'category price '+price);
 assert.ok(services.includes('id="mechanical-repairs"'));
 assert.ok(services.includes('href="/performance-upgrades"'));
 assert.ok(services.includes('independent licensed vehicle tester'));
