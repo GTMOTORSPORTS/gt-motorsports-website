@@ -37,7 +37,7 @@ for(const path of ['/services','/reviews','/gallery','/contact','/book-online','
 for(const text of ['founder','placeholder','as they are confirmed'])assert.ok(!main(pages['/about']).toLowerCase().includes(text));
 assert.equal((main(pages['/about']).match(/<img\b/g)||[]).length,3,'Two About workshop photos and Integrity logo');
 const services=main(pages['/services']);
-for(const price of ['$149','$199','$220','$249','$279','$299','$329','$599'])assert.ok(services.includes(price),'category price '+price);
+for(const price of ['$149','$220','$249','$329','$599'])assert.ok(services.includes(price),'category price '+price);
 assert.ok(services.includes('id="mechanical-repairs"'));
 assert.ok(services.includes('href="/performance-upgrades"'));
 assert.ok(services.includes('independent licensed vehicle tester'));

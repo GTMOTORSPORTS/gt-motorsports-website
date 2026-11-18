@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { BookingForm } from "@/components/BookingForm";
 import { cleaningPrices, cleaningScope, cleaningEstimate } from "@/lib/cleaning";
-import { pricingCategories, minorInclusions, majorExtras, majorConditions, exclusions, priceCondition } from "@/lib/service-pricing";
+import { pricingCategories, minorInclusions, majorExtras, majorConditions, exclusions, priceCondition, serviceEligibility } from "@/lib/service-pricing";
 
 const inputClass = "focus-ring mt-2 min-h-12 w-full min-w-0 rounded-md border border-white/20 bg-black px-3 text-white";
 export function ServicePriceFinder() {
@@ -49,6 +49,7 @@ export function ServicePriceFinder() {
       <label className="font-bold sm:col-span-2">Choose a starting estimate (optional)<select aria-label="Choose a starting estimate" className={inputClass} value={categoryId} onChange={event => { setCategoryId(event.target.value); setSelectedPackage(""); }}><option value="">I am unsure - confirm my price</option>{pricingCategories.map(item => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label>
     </div>
     <p className="mt-5 text-sm leading-6 text-white/75">{priceCondition}</p>
+    <p className="mt-3 text-sm leading-6 text-white/75">{serviceEligibility} Logbook servicing and additional scheduled items are quoted separately.</p>
     {complete && category && !quoteOnly ? <div className="mt-8 grid gap-6 md:grid-cols-2" aria-live="polite">{(["minor", "major"] as const).map(name => <article key={name} className="min-w-0 rounded-md border border-white/15 p-6"><h2 className="text-2xl font-black">{name === "minor" ? "Minor Service" : "Major Service Package"}</h2><p className="mt-4 text-2xl font-bold">From ${category[name]} including GST</p><p className="mt-2 text-sm text-white/75">Category estimate, subject to vehicle confirmation. Parts and labour included.</p><p className="mt-3 font-bold" aria-live="polite">{cleaningCost === null ? "Cleaning quote required; total to be confirmed" : `Estimated total from $${category[name]! + cleaningCost} incl. GST`}</p><ul className="mt-5 list-disc space-y-3 pl-5 text-sm leading-6">{[...minorInclusions, ...(name === "major" ? majorExtras : [])].map(item => <li key={item}>{item}</li>)}</ul>{name === "major" ? <details className="mt-5 text-sm leading-6"><summary className="focus-ring cursor-pointer font-bold">Package conditions &amp; exclusions</summary><p className="mt-3">{majorConditions}</p><p className="mt-3">{exclusions}</p></details> : null}<button className="focus-ring mt-6 min-h-12 rounded-md bg-brake px-5 py-3 font-bold" onClick={() => requestPackage(name)}>Request Booking</button></article>)}</div> : complete ? <p className="mt-8 rounded-md border border-white/20 p-5" role="status">{categoryId === "ev" || /electric|\bev\b/i.test(vehicle.engine) ? "Separate EV service quote required." : "Request a quote so we can confirm the appropriate service for your vehicle."}</p> : null}
     <fieldset className="mt-8 rounded-md border border-white/20 p-5">
       <legend className="px-2 text-xl font-black">Optional Service Extra</legend>

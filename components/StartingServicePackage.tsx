@@ -1,5 +1,6 @@
 import { ButtonLink } from "@/components/ButtonLink";
 import { ServiceOffer } from "@/components/ServiceOffer";
+import { ServiceCategoryTable } from "@/components/ServiceCategoryTable";
 import { minorInclusions, washScope } from "@/lib/service-pricing";
 
 export function StartingServicePackage({
@@ -7,7 +8,7 @@ export function StartingServicePackage({
 }: {
   mercedes?: boolean;
 }) {
-  if (!mercedes) return <><ServiceOffer id="starting-package" /><section className="container-shell py-8"><h2 className="text-2xl font-black">Minor Service Inclusions</h2><ul className="mt-5 list-disc space-y-3 pl-6">{minorInclusions.map(item => <li key={item}>{item}</li>)}</ul><p className="mt-5 leading-7">Vehicle requirements vary. Additional oil, specialist filters and scheduled work are included in the total agreed before work begins.</p></section></>;
+  if (!mercedes) return <><ServiceOffer id="starting-package" /><section className="container-shell py-8"><h2 className="text-2xl font-black">General Service Starting Prices</h2><ServiceCategoryTable /><h2 className="mt-8 text-2xl font-black">Minor Service Inclusions</h2><ul className="mt-5 list-disc space-y-3 pl-6">{minorInclusions.map(item => <li key={item}>{item}</li>)}</ul><p className="mt-5 leading-7">Vehicle requirements vary. Additional oil, specialist filters and scheduled work are included in the total agreed before work begins.</p></section></>;
   const items = mercedes
     ? [
         "Engine oil replacement using up to 5 litres of oil meeting the applicable Mercedes-Benz approval.",
