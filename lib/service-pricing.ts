@@ -21,15 +21,15 @@ export const majorConditions = "This is our defined Major Service Package. Manuf
 export const exclusions = "Spark plugs, diesel fuel filters, transmission/differential/transfer-case oils, coolant replacement, timing belts or chains, repairs and diagnostic investigation beyond the included scan are excluded unless separately quoted and authorised.";
 export const priceCondition = "Starting price only. We confirm your vehicle's oil requirements, parts and any additional scheduled work before confirming your total.";
 export const washOffer = "Quick exterior wash and interior vacuum are optional at extra cost.";
-export const washScope = "Ask for a price before booking. If selected, this covers a light exterior wash and vacuum of accessible footwells and mats. Detailing, stain removal and heavy mud or pet-hair removal are excluded.";
-export const minorOffer = "Quality engine oil and oil filter with essential vehicle checks. From $149 including GST for selected eligible small 4-cylinder petrol cars, including eligible European models. Vehicle-specific pricing and confirmed inclusions apply. Wash and vacuum are optional at extra cost.";
+export { cleaningScope as washScope } from "@/lib/cleaning";
+export const minorOffer = "Includes correct-specification engine oil, oil filter replacement and essential vehicle checks. Available for selected small petrol vehicles, including eligible European models. Send your registration, state and current kilometres for a confirmed quote.";
 export function categoryEstimate(id: string, packageName: string) {
   const category = pricingCategories.find(item => item.id === id);
   return category && (packageName === "minor" || packageName === "major") ? category[packageName] : null;
 }
 export const featuredServiceOffers = [
   {
-    service: "Minor Service",
+    service: "General Car Servicing",
     price: "From $149 including GST",
     href: "/services/general-car-servicing",
     copy: minorOffer,

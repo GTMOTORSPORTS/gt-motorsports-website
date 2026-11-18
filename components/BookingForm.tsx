@@ -36,6 +36,7 @@ const fields: Field[] = [
   { name: "vehicleModel", label: "Vehicle model", type: "text", required: true },
   { name: "vehicleYear", label: "Vehicle year", type: "text", inputMode: "numeric", required: true },
   { name: "registration", label: "Registration", type: "text" },
+  { name: "registrationState", label: "Registration state / territory", type: "text" },
   { name: "currentKilometres", label: "Current kilometres", type: "text", inputMode: "numeric", required: true },
   { name: "serviceRequired", label: "Service or repair required", type: "text", required: true },
   { name: "preferredDate", label: "Preferred date", type: "date", required: true },
@@ -79,7 +80,7 @@ export function BookingForm({ compact = false, initialValues = {}, enquiryContex
       preferredDate: formData.get("preferredDate"),
       preferredTime: formData.get("preferredTime"),
       enquiryType: formData.get("enquiryType"),
-      additionalNotes: [enquiryContext, formData.get("additionalNotes")].filter(Boolean).join(" "),
+      additionalNotes: [enquiryContext, formData.get("registrationState") ? `Registration state: ${String(formData.get("registrationState")).slice(0, 30)}.` : "", formData.get("additionalNotes")].filter(Boolean).join(" "),
       consent: formData.get("consent") === "on",
       website: formData.get("website"),
     };
@@ -197,7 +198,7 @@ export function BookingForm({ compact = false, initialValues = {}, enquiryContex
           }`}
           id={`${formId}-additionalNotes`}
           name="additionalNotes"
-          maxLength={Math.max(0, 999 - (enquiryContext?.length || 0))}
+          maxLength={Math.max(0, 940 - (enquiryContext?.length || 0))}
           defaultValue={initialValues.additionalNotes || ""}
         />
       </label>

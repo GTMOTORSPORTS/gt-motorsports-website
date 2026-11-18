@@ -1,4 +1,5 @@
 import { PageShell } from "@/components/PageShell";
+import { CleaningPrices } from "@/components/CleaningPrices";
 import { ServicePricing } from "@/components/ServicePricing";
 import { minorInclusions, majorExtras, majorConditions, exclusions } from "@/lib/service-pricing";
 import { pageMetadata } from "@/lib/seo";
@@ -10,5 +11,6 @@ export default function PricingPage() {
     <h2 className="mt-10 text-3xl font-black">Major Service Package From $599 Including GST</h2><p className="mt-4">Everything in the minor service, plus:</p><ul className="mt-5 list-disc space-y-3 pl-6">{majorExtras.map(item => <li key={item}>{item}</li>)}</ul>
     <p className="mt-6 leading-7">{majorConditions}</p><p className="mt-4 leading-7">{exclusions}</p><p className="mt-4 leading-7">These packages do not cover every logbook requirement and are not automatically Mercedes-Benz Service A or Service B. We check the applicable schedule before confirming work.</p>
     <h2 className="mt-10 text-3xl font-black">Scheduled Servicing</h2><p className="mt-4 leading-7"><a className="underline" href="/logbook-servicing">Logbook servicing</a> is quoted against the manufacturer&apos;s schedule for your vehicle, age, kilometres and service history.</p><p className="mt-4 leading-7"><a className="underline" href="/mercedes-benz-service">Mercedes-Benz Service A from $299 / Service B from $549 including GST</a>, subject to eligibility and confirmed inclusions. These are separate scheduled services, not labels for our generic packages.</p>
+    <CleaningPrices /><CleaningPrices standalone />
   </section></PageShell>;
 }
